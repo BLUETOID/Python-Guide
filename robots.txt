@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://bluetoid.github.io/Python-Guide/sitemap.xml
