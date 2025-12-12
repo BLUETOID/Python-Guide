@@ -1,0 +1,4 @@
+# GitHub Pages configuration
+include:
+  - sitemap.xml
+  - robots.txt
