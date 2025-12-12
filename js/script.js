@@ -1,3 +1,290 @@
+// ===== Dark Mode Toggle =====
+const initTheme = () => {
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+};
+initTheme();
+
+const toggleTheme = () => {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+};
+
+// ===== Loading Skeleton =====
+const LoadingSkeleton = {
+    show() {
+        const skeleton = document.createElement('div');
+        skeleton.className = 'loading-skeleton';
+        skeleton.id = 'loadingSkeleton';
+        skeleton.innerHTML = `
+            <div class="skeleton-header"></div>
+            <div class="skeleton-content">
+                <div class="skeleton-line long"></div>
+                <div class="skeleton-line medium"></div>
+                <div class="skeleton-line short"></div>
+                <div class="skeleton-line long"></div>
+                <div class="skeleton-line medium"></div>
+            </div>
+        `;
+        document.body.prepend(skeleton);
+    },
+    
+    hide() {
+        const skeleton = document.getElementById('loadingSkeleton');
+        if (skeleton) {
+            skeleton.classList.add('fade-out');
+            setTimeout(() => skeleton.remove(), 300);
+        }
+    }
+};
+
+// Show skeleton initially
+LoadingSkeleton.show();
+
+// Hide skeleton when page loads
+window.addEventListener('load', () => {
+    LoadingSkeleton.hide();
+});
+
+// ===== Confetti Effect =====
+const ConfettiEffect = {
+    trigger() {
+        const colors = ['#3776ab', '#ffd43b', '#28a745', '#dc3545', '#17a2b8', '#6f42c1'];
+        const container = document.createElement('div');
+        container.className = 'confetti-container';
+        document.body.appendChild(container);
+        
+        for (let i = 0; i < 100; i++) {
+            const confetti = document.createElement('div');
+            confetti.className = 'confetti';
+            confetti.style.left = Math.random() * 100 + '%';
+            confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+            confetti.style.animationDelay = Math.random() * 2 + 's';
+            confetti.style.animationDuration = (Math.random() * 2 + 2) + 's';
+            container.appendChild(confetti);
+        }
+        
+        setTimeout(() => container.remove(), 5000);
+    }
+};
+
+// ===== Smooth Page Transitions =====
+const PageTransition = {
+    init() {
+        // Add fade-in class to body
+        document.body.classList.add('page-transition');
+        
+        // Intercept link clicks for smooth transitions
+        document.querySelectorAll('a').forEach(link => {
+            const href = link.getAttribute('href');
+            if (href && href.endsWith('.html') && !href.startsWith('http') && !href.startsWith('#')) {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    document.body.classList.add('page-fade-out');
+                    setTimeout(() => {
+                        window.location.href = href;
+                    }, 200);
+                });
+            }
+        });
+    }
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+    PageTransition.init();
+});
+
+// ===== Breadcrumb Navigation =====
+const Breadcrumb = {
+    pageNames: {
+        'index.html': 'Home',
+        'unit1.html': 'Unit I - Introduction',
+        'unit2.html': 'Unit II - Control Structures',
+        'unit3.html': 'Unit III - Data Structures',
+        'unit4.html': 'Unit IV - Functions & Modules',
+        'unit5.html': 'Unit V - File Handling & OOP',
+        'practice.html': 'Practice Questions',
+        'theory.html': 'Theory Questions',
+        'comparisons.html': 'Comparisons',
+        'errors.html': 'Common Errors',
+        'extras.html': 'Extras',
+        'mcq.html': 'MCQ Question Bank'
+    },
+    
+    init() {
+        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+        
+        // Don't show breadcrumb on home page
+        if (currentPage === 'index.html' || currentPage === '') return;
+        
+        const pageName = this.pageNames[currentPage] || currentPage.replace('.html', '');
+        
+        const breadcrumb = document.createElement('nav');
+        breadcrumb.className = 'breadcrumb';
+        breadcrumb.setAttribute('aria-label', 'Breadcrumb');
+        breadcrumb.innerHTML = `
+            <div class="container">
+                <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                <span class="breadcrumb-separator"><i class="fas fa-chevron-right"></i></span>
+                <span class="breadcrumb-current">${pageName}</span>
+            </div>
+        `;
+        
+        const header = document.querySelector('.unit-header') || document.querySelector('header');
+        if (header) {
+            header.parentNode.insertBefore(breadcrumb, header);
+        }
+    }
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+    Breadcrumb.init();
+});
+
+// Add theme toggle button to navbar
+document.addEventListener('DOMContentLoaded', () => {
+    const navContainer = document.querySelector('.nav-container');
+    if (navContainer) {
+        const themeBtn = document.createElement('button');
+        themeBtn.className = 'theme-toggle';
+        themeBtn.setAttribute('aria-label', 'Toggle dark mode');
+        themeBtn.innerHTML = '<i class="fas fa-moon"></i><i class="fas fa-sun"></i>';
+        themeBtn.addEventListener('click', toggleTheme);
+        navContainer.insertBefore(themeBtn, document.getElementById('navToggle'));
+    }
+});
+
+// ===== Search Functionality =====
+const SearchSystem = {
+    searchData: [
+        { title: 'Introduction to Python', page: 'unit1.html', keywords: 'python history features installation ide syntax variables operators data types' },
+        { title: 'Control Structures', page: 'unit2.html', keywords: 'if else elif loops for while break continue pass nested conditions' },
+        { title: 'Data Structures', page: 'unit3.html', keywords: 'list tuple set dictionary comprehension append remove pop sort methods' },
+        { title: 'Functions & Modules', page: 'unit4.html', keywords: 'function def return arguments lambda recursion module import package pip' },
+        { title: 'File Handling & OOP', page: 'unit5.html', keywords: 'file read write open close exception try except class object inheritance' },
+        { title: 'Practice Questions', page: 'practice.html', keywords: 'coding practice exercises solutions problems' },
+        { title: 'Theory Questions', page: 'theory.html', keywords: 'theory viva questions answers exam preparation' },
+        { title: 'Comparisons', page: 'comparisons.html', keywords: 'list tuple comparison difference vs function method' },
+        { title: 'Common Errors', page: 'errors.html', keywords: 'error exception syntax runtime name type value index key' },
+        { title: 'Extras', page: 'extras.html', keywords: 'tips shortcuts best practices resources' },
+        { title: 'MCQ Questions', page: 'mcq.html', keywords: 'mcq multiple choice questions quiz exam test' }
+    ],
+    
+    init() {
+        this.createSearchUI();
+        this.bindEvents();
+    },
+    
+    createSearchUI() {
+        // Search button in navbar
+        const searchBtn = document.createElement('button');
+        searchBtn.className = 'search-btn';
+        searchBtn.innerHTML = '<i class="fas fa-search"></i>';
+        searchBtn.setAttribute('aria-label', 'Search');
+        
+        const navContainer = document.querySelector('.nav-container');
+        if (navContainer) {
+            const themeToggle = document.querySelector('.theme-toggle');
+            if (themeToggle) {
+                navContainer.insertBefore(searchBtn, themeToggle);
+            }
+        }
+        
+        // Search modal
+        const modal = document.createElement('div');
+        modal.className = 'search-modal';
+        modal.innerHTML = `
+            <div class="search-modal-content">
+                <div class="search-header">
+                    <input type="text" class="search-input" placeholder="Search topics, units, questions..." autofocus>
+                    <button class="search-close"><i class="fas fa-times"></i></button>
+                </div>
+                <div class="search-results"></div>
+                <div class="search-hint">Press ESC to close</div>
+            </div>
+        `;
+        document.body.appendChild(modal);
+    },
+    
+    bindEvents() {
+        const searchBtn = document.querySelector('.search-btn');
+        const modal = document.querySelector('.search-modal');
+        const input = document.querySelector('.search-input');
+        const closeBtn = document.querySelector('.search-close');
+        const results = document.querySelector('.search-results');
+        
+        if (!searchBtn || !modal) return;
+        
+        searchBtn.addEventListener('click', () => {
+            modal.classList.add('active');
+            input.focus();
+        });
+        
+        closeBtn.addEventListener('click', () => {
+            modal.classList.remove('active');
+            input.value = '';
+            results.innerHTML = '';
+        });
+        
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('active');
+                input.value = '';
+                results.innerHTML = '';
+            }
+        });
+        
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                modal.classList.remove('active');
+                input.value = '';
+                results.innerHTML = '';
+            }
+            // Ctrl+K or Cmd+K to open search
+            if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+                e.preventDefault();
+                modal.classList.add('active');
+                input.focus();
+            }
+        });
+        
+        input.addEventListener('input', (e) => {
+            this.performSearch(e.target.value);
+        });
+    },
+    
+    performSearch(query) {
+        const results = document.querySelector('.search-results');
+        if (!query.trim()) {
+            results.innerHTML = '';
+            return;
+        }
+        
+        const matches = this.searchData.filter(item => {
+            const searchText = `${item.title} ${item.keywords}`.toLowerCase();
+            return query.toLowerCase().split(' ').every(word => searchText.includes(word));
+        });
+        
+        if (matches.length === 0) {
+            results.innerHTML = '<div class="no-results">No results found</div>';
+            return;
+        }
+        
+        results.innerHTML = matches.map(item => `
+            <a href="${item.page}" class="search-result-item">
+                <i class="fas fa-file-alt"></i>
+                <span>${item.title}</span>
+            </a>
+        `).join('');
+    }
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+    SearchSystem.init();
+});
+
 // ===== Mobile Navigation Toggle =====
 const navToggle = document.getElementById('navToggle');
 const navMenu = document.getElementById('navMenu');
@@ -315,6 +602,15 @@ class QuizManager {
             message = 'Keep learning! Review the material and try again.';
         }
         
+        // Save quiz score to progress tracker
+        const unitName = document.title.split('-')[0].trim() || 'Quiz';
+        ProgressTracker.saveQuizScore(unitName, this.score, this.questions.length);
+        
+        // Trigger confetti for 80%+ score
+        if (percentage >= 80) {
+            ConfettiEffect.trigger();
+        }
+        
         this.container.innerHTML = `
             <div class="quiz-results">
                 <div class="results-icon ${iconClass}">
@@ -362,4 +658,66 @@ class QuizManager {
 // Quiz questions will be defined in each unit page
 let quiz;
 
-console.log('Python Learning Hub - Loaded Successfully! 🐍');
+// ===== Progress Tracker =====
+const ProgressTracker = {
+    // Save quiz score for a unit
+    saveQuizScore(unitName, score, total) {
+        const progress = this.getProgress();
+        progress.quizScores[unitName] = { score, total, percentage: Math.round((score / total) * 100), date: new Date().toISOString() };
+        localStorage.setItem('pythonProgress', JSON.stringify(progress));
+        this.updateProgressUI();
+    },
+    
+    // Mark page as visited
+    markVisited(pageName) {
+        const progress = this.getProgress();
+        if (!progress.visitedPages.includes(pageName)) {
+            progress.visitedPages.push(pageName);
+            localStorage.setItem('pythonProgress', JSON.stringify(progress));
+        }
+    },
+    
+    // Get all progress data
+    getProgress() {
+        const stored = localStorage.getItem('pythonProgress');
+        return stored ? JSON.parse(stored) : { quizScores: {}, visitedPages: [] };
+    },
+    
+    // Get overall completion percentage
+    getCompletionPercentage() {
+        const progress = this.getProgress();
+        const totalPages = 11; // All main pages
+        return Math.round((progress.visitedPages.length / totalPages) * 100);
+    },
+    
+    // Update progress indicator in navbar
+    updateProgressUI() {
+        const existing = document.querySelector('.progress-indicator');
+        if (existing) existing.remove();
+        
+        const progress = this.getProgress();
+        const quizCount = Object.keys(progress.quizScores).length;
+        const visitedCount = progress.visitedPages.length;
+        
+        if (quizCount > 0 || visitedCount > 1) {
+            const indicator = document.createElement('div');
+            indicator.className = 'progress-indicator';
+            indicator.title = `${visitedCount} pages visited, ${quizCount} quizzes completed`;
+            indicator.innerHTML = `<i class="fas fa-chart-line"></i> ${this.getCompletionPercentage()}%`;
+            
+            const navContainer = document.querySelector('.nav-container');
+            if (navContainer) {
+                navContainer.insertBefore(indicator, document.querySelector('.theme-toggle'));
+            }
+        }
+    }
+};
+
+// Track current page visit
+document.addEventListener('DOMContentLoaded', () => {
+    const pageName = window.location.pathname.split('/').pop() || 'index.html';
+    ProgressTracker.markVisited(pageName);
+    ProgressTracker.updateProgressUI();
+});
+
+console.log('Python Learning Hub - Loaded Successfully!');

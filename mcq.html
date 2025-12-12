@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MCQ Question Bank - Python Learning Hub</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <i class="fab fa-python"></i> Python Hub
+            </a>
+            <button class="nav-toggle" id="navToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="unit1.html">Unit I</a></li>
+                <li><a href="unit2.html">Unit II</a></li>
+                <li><a href="unit3.html">Unit III</a></li>
+                <li><a href="unit4.html">Unit IV</a></li>
+                <li><a href="unit5.html">Unit V</a></li>
+                <li class="nav-divider"></li>
+                <li><a href="extras.html">Extras</a></li>
+                <li><a href="practice.html">Practice</a></li>
+                <li><a href="theory.html">Theory</a></li>
+                <li><a href="comparisons.html">Compare</a></li>
+                <li><a href="errors.html">Errors</a></li>
+                <li><a href="mcq.html" class="active">MCQ</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="unit-header">
+        <h1><i class="fas fa-tasks"></i> MCQ Question Bank</h1>
+        <p>100+ Multiple Choice Questions for Exam Preparation</p>
+    </header>
+
+    <main class="unit-content">
+        <div class="container">
+            <div class="mcq-controls">
+                <div class="mcq-filter">
+                    <label>Filter by Unit:</label>
+                    <select id="unitFilter">
+                        <option value="all">All Units</option>
+                        <option value="1">Unit I - Introduction</option>
+                        <option value="2">Unit II - Control Structures</option>
+                        <option value="3">Unit III - Data Structures</option>
+                        <option value="4">Unit IV - Functions & Modules</option>
+                        <option value="5">Unit V - File Handling & OOP</option>
+                    </select>
+                </div>
+                <div class="mcq-stats">
+                    <span id="mcqCount">Showing 100 questions</span>
+                </div>
+            </div>
+
+            <div id="mcqContainer" class="mcq-list">
+                <!-- Questions will be loaded here -->
+            </div>
+
+            <div class="mcq-score-panel" id="scorePanel" style="display:none;">
+                <h3>Your Score</h3>
+                <div class="score-display">
+                    <span id="correctCount">0</span> / <span id="totalAnswered">0</span>
+                </div>
+                <button class="btn btn-primary" onclick="resetMCQ()">Reset All</button>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2024 Python Learning Hub. Made with <i class="fas fa-heart"></i> for Python learners.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script>
+        const mcqQuestions = [
+            // Unit 1 - Introduction to Python (20 questions)
+            { unit: 1, q: "Who developed Python?", options: ["James Gosling", "Guido van Rossum", "Dennis Ritchie", "Bjarne Stroustrup"], answer: 1 },
+            { unit: 1, q: "Python was first released in which year?", options: ["1989", "1991", "1995", "2000"], answer: 1 },
+            { unit: 1, q: "Which of the following is NOT a feature of Python?", options: ["Interpreted", "Object-Oriented", "Compiled to machine code", "Dynamically typed"], answer: 2 },
+            { unit: 1, q: "What is the correct file extension for Python files?", options: [".python", ".py", ".pt", ".pyt"], answer: 1 },
+            { unit: 1, q: "Which symbol is used for comments in Python?", options: ["//", "/*", "#", "--"], answer: 2 },
+            { unit: 1, q: "What is the output of print(type(5))?", options: ["<class 'int'>", "<class 'float'>", "<class 'number'>", "int"], answer: 0 },
+            { unit: 1, q: "Which keyword is used to define a variable in Python?", options: ["var", "let", "define", "No keyword needed"], answer: 3 },
+            { unit: 1, q: "What is the result of 10 // 3?", options: ["3.33", "3", "4", "3.0"], answer: 1 },
+            { unit: 1, q: "Which operator is used for exponentiation in Python?", options: ["^", "**", "^^", "exp()"], answer: 1 },
+            { unit: 1, q: "What does the 'is' operator check?", options: ["Value equality", "Type equality", "Identity (same object)", "None of the above"], answer: 2 },
+            { unit: 1, q: "Which is the correct way to create a multiline string?", options: ["'line1\\nline2'", "'''line1\\nline2'''", "Both A and B", "None"], answer: 2 },
+            { unit: 1, q: "What is Python's default encoding?", options: ["ASCII", "UTF-8", "UTF-16", "Latin-1"], answer: 1 },
+            { unit: 1, q: "Which IDE is specifically designed for Python?", options: ["Eclipse", "PyCharm", "Visual Studio", "NetBeans"], answer: 1 },
+            { unit: 1, q: "What is the output of bool('')?", options: ["True", "False", "None", "Error"], answer: 1 },
+            { unit: 1, q: "Which function converts string to integer?", options: ["str()", "int()", "float()", "convert()"], answer: 1 },
+            { unit: 1, q: "What is the result of 5 % 2?", options: ["2", "2.5", "1", "0"], answer: 2 },
+            { unit: 1, q: "How do you get input from the user?", options: ["get()", "input()", "read()", "scan()"], answer: 1 },
+            { unit: 1, q: "Which statement is used to exit Python interpreter?", options: ["quit()", "exit()", "Both A and B", "stop()"], answer: 2 },
+            { unit: 1, q: "What is None in Python?", options: ["Empty string", "Zero", "Null value", "Undefined"], answer: 2 },
+            { unit: 1, q: "Which version of Python introduced print as a function?", options: ["Python 2.0", "Python 2.7", "Python 3.0", "Python 3.5"], answer: 2 },
+
+            // Unit 2 - Control Structures (20 questions)
+            { unit: 2, q: "Which keyword is used for conditional statements?", options: ["when", "if", "case", "switch"], answer: 1 },
+            { unit: 2, q: "What is the correct syntax for if statement?", options: ["if x = 5:", "if (x == 5)", "if x == 5:", "if x == 5 then"], answer: 2 },
+            { unit: 2, q: "Which keyword is used for else-if in Python?", options: ["else if", "elseif", "elif", "elsif"], answer: 2 },
+            { unit: 2, q: "What is the output of: for i in range(3): print(i)", options: ["0 1 2", "1 2 3", "0 1 2 3", "1 2"], answer: 0 },
+            { unit: 2, q: "Which loop is guaranteed to execute at least once?", options: ["for loop", "while loop", "do-while loop", "None in Python"], answer: 3 },
+            { unit: 2, q: "What does 'break' statement do?", options: ["Skips current iteration", "Exits the loop", "Pauses the loop", "Restarts the loop"], answer: 1 },
+            { unit: 2, q: "What does 'continue' statement do?", options: ["Skips current iteration", "Exits the loop", "Pauses the loop", "Restarts the loop"], answer: 0 },
+            { unit: 2, q: "What is the purpose of 'pass' statement?", options: ["Exit program", "Skip iteration", "Do nothing (placeholder)", "Pass value"], answer: 2 },
+            { unit: 2, q: "What is range(2, 8, 2)?", options: ["[2, 4, 6]", "[2, 4, 6, 8]", "[2, 3, 4, 5, 6, 7]", "[0, 2, 4, 6]"], answer: 0 },
+            { unit: 2, q: "Which loop is best for iterating over a sequence?", options: ["while", "for", "do-while", "repeat"], answer: 1 },
+            { unit: 2, q: "What is the output of: print(5 > 3 and 2 < 1)", options: ["True", "False", "Error", "None"], answer: 1 },
+            { unit: 2, q: "Which operator has higher precedence: 'and' or 'or'?", options: ["and", "or", "Same", "Depends on context"], answer: 0 },
+            { unit: 2, q: "What is the result of: not True", options: ["True", "False", "None", "Error"], answer: 1 },
+            { unit: 2, q: "How do you write an infinite loop?", options: ["for(;;)", "while True:", "loop:", "infinite:"], answer: 1 },
+            { unit: 2, q: "What happens if while condition is False initially?", options: ["Runs once", "Never runs", "Error", "Runs infinitely"], answer: 1 },
+            { unit: 2, q: "Can else be used with loops in Python?", options: ["Yes", "No", "Only with for", "Only with while"], answer: 0 },
+            { unit: 2, q: "When does else execute after a loop?", options: ["Always", "If break not used", "If break used", "Never"], answer: 1 },
+            { unit: 2, q: "What is nested loop?", options: ["Loop inside function", "Loop inside loop", "Loop with break", "Multiple conditions"], answer: 1 },
+            { unit: 2, q: "What is short-circuit evaluation?", options: ["Fast loops", "Stopping evaluation early", "Circuit programming", "Error handling"], answer: 1 },
+            { unit: 2, q: "What is the walrus operator (:=)?", options: ["Comparison", "Assignment expression", "Bitwise OR", "Division"], answer: 1 },
+
+            // Unit 3 - Data Structures (20 questions)
+            { unit: 3, q: "Which is mutable: list or tuple?", options: ["List", "Tuple", "Both", "Neither"], answer: 0 },
+            { unit: 3, q: "How do you create an empty list?", options: ["list()", "[]", "Both A and B", "{}"], answer: 2 },
+            { unit: 3, q: "What is the index of the first element in a list?", options: ["1", "0", "-1", "None"], answer: 1 },
+            { unit: 3, q: "How do you add an element to the end of a list?", options: ["add()", "insert()", "append()", "push()"], answer: 2 },
+            { unit: 3, q: "What does list.pop() return?", options: ["First element", "Last element", "None", "List length"], answer: 1 },
+            { unit: 3, q: "How do you remove element by value?", options: ["del()", "remove()", "pop()", "delete()"], answer: 1 },
+            { unit: 3, q: "What is the output of [1,2,3] + [4,5]?", options: ["[1,2,3,4,5]", "[5,7,3]", "Error", "[[1,2,3],[4,5]]"], answer: 0 },
+            { unit: 3, q: "What is the output of [1,2] * 3?", options: ["[3,6]", "[1,2,1,2,1,2]", "[1,2,3]", "Error"], answer: 1 },
+            { unit: 3, q: "How do you create a tuple with one element?", options: ["(1)", "(1,)", "[1]", "{1}"], answer: 1 },
+            { unit: 3, q: "Which data structure uses key-value pairs?", options: ["List", "Tuple", "Set", "Dictionary"], answer: 3 },
+            { unit: 3, q: "How do you create an empty dictionary?", options: ["dict()", "{}", "Both A and B", "[]"], answer: 2 },
+            { unit: 3, q: "What does set() contain?", options: ["Ordered elements", "Unique elements", "Key-value pairs", "Indexed elements"], answer: 1 },
+            { unit: 3, q: "How do you get all keys from a dictionary?", options: ["dict.keys()", "dict.getkeys()", "keys(dict)", "dict.allkeys()"], answer: 0 },
+            { unit: 3, q: "What is list slicing syntax?", options: ["list(start,end)", "list[start:end]", "list.slice(start,end)", "slice(list,start,end)"], answer: 1 },
+            { unit: 3, q: "What is [1,2,3,4,5][1:4]?", options: ["[1,2,3,4]", "[2,3,4]", "[2,3,4,5]", "[1,2,3]"], answer: 1 },
+            { unit: 3, q: "What does [::-1] do?", options: ["Copies list", "Reverses list", "Empties list", "Error"], answer: 1 },
+            { unit: 3, q: "What is list comprehension?", options: ["List description", "Compact list creation", "List comparison", "List compression"], answer: 1 },
+            { unit: 3, q: "Syntax for list comprehension?", options: ["[x for x in list]", "{x for x in list}", "(x for x in list)", "<x for x in list>"], answer: 0 },
+            { unit: 3, q: "Which method sorts list in place?", options: ["sorted()", "sort()", "order()", "arrange()"], answer: 1 },
+            { unit: 3, q: "What is the difference between sort() and sorted()?", options: ["No difference", "sort() returns new list", "sorted() returns new list", "sort() is faster"], answer: 2 },
+
+            // Unit 4 - Functions & Modules (20 questions)
+            { unit: 4, q: "Which keyword defines a function?", options: ["function", "def", "func", "define"], answer: 1 },
+            { unit: 4, q: "What is the default return value of a function?", options: ["0", "False", "None", "Empty string"], answer: 2 },
+            { unit: 4, q: "What are *args used for?", options: ["Keyword arguments", "Variable positional arguments", "Default arguments", "Required arguments"], answer: 1 },
+            { unit: 4, q: "What are **kwargs used for?", options: ["Positional arguments", "Variable keyword arguments", "Default arguments", "Required arguments"], answer: 1 },
+            { unit: 4, q: "What is a lambda function?", options: ["Named function", "Anonymous function", "Recursive function", "Generator function"], answer: 1 },
+            { unit: 4, q: "Syntax for lambda function?", options: ["lambda x: x+1", "def lambda(x): x+1", "function(x) => x+1", "-> x: x+1"], answer: 0 },
+            { unit: 4, q: "What is recursion?", options: ["Loop in function", "Function calling itself", "Nested function", "Multiple functions"], answer: 1 },
+            { unit: 4, q: "What is a module in Python?", options: ["A class", "A file with .py extension", "A function", "A variable"], answer: 1 },
+            { unit: 4, q: "How do you import a module?", options: ["include module", "import module", "require module", "load module"], answer: 1 },
+            { unit: 4, q: "What does 'from math import sqrt' do?", options: ["Imports entire math", "Imports only sqrt", "Creates alias", "Error"], answer: 1 },
+            { unit: 4, q: "What is 'import math as m'?", options: ["Imports math module", "Creates alias m for math", "Both A and B", "Error"], answer: 2 },
+            { unit: 4, q: "What is __name__ == '__main__'?", options: ["Error check", "Main function check", "Script run directly check", "Module name"], answer: 2 },
+            { unit: 4, q: "What is pip?", options: ["Python IDE", "Package installer", "Python interpreter", "Debugger"], answer: 1 },
+            { unit: 4, q: "How to install a package using pip?", options: ["pip get package", "pip install package", "pip add package", "pip download package"], answer: 1 },
+            { unit: 4, q: "What is a package in Python?", options: ["Single module", "Collection of modules", "Function library", "Class collection"], answer: 1 },
+            { unit: 4, q: "What file makes a directory a package?", options: ["__init__()", "__main__()", "__init__.py", "__package__.py"], answer: 2 },
+            { unit: 4, q: "What is scope of a variable?", options: ["Size", "Type", "Visibility region", "Memory location"], answer: 2 },
+            { unit: 4, q: "What is global keyword used for?", options: ["Create global variable", "Access global variable", "Modify global variable in function", "Delete global variable"], answer: 2 },
+            { unit: 4, q: "What is a docstring?", options: ["Comment", "Documentation string", "Debug string", "Error message"], answer: 1 },
+            { unit: 4, q: "How to access function's docstring?", options: ["func.doc", "func.__doc__", "doc(func)", "func.docstring"], answer: 1 },
+
+            // Unit 5 - File Handling & OOP (20 questions)
+            { unit: 5, q: "Which function opens a file?", options: ["file()", "open()", "read()", "load()"], answer: 1 },
+            { unit: 5, q: "What mode opens file for reading?", options: ["'w'", "'r'", "'a'", "'x'"], answer: 1 },
+            { unit: 5, q: "What mode opens file for writing (overwrites)?", options: ["'w'", "'r'", "'a'", "'rw'"], answer: 0 },
+            { unit: 5, q: "What mode appends to file?", options: ["'w'", "'r'", "'a'", "'x'"], answer: 2 },
+            { unit: 5, q: "What does 'with' statement do for files?", options: ["Opens file", "Closes file automatically", "Both A and B", "None"], answer: 2 },
+            { unit: 5, q: "What method reads entire file content?", options: ["read()", "readline()", "readlines()", "content()"], answer: 0 },
+            { unit: 5, q: "What does readline() return?", options: ["All lines", "One line", "All content", "File object"], answer: 1 },
+            { unit: 5, q: "What does readlines() return?", options: ["String", "List of lines", "Single line", "File object"], answer: 1 },
+            { unit: 5, q: "Which keyword handles exceptions?", options: ["catch", "except", "handle", "error"], answer: 1 },
+            { unit: 5, q: "What is the correct try-except syntax?", options: ["try: ... catch:", "try: ... except:", "try: ... handle:", "catch: ... except:"], answer: 1 },
+            { unit: 5, q: "What does 'finally' block do?", options: ["Runs if no error", "Runs if error", "Always runs", "Never runs"], answer: 2 },
+            { unit: 5, q: "How to raise an exception manually?", options: ["throw Exception", "raise Exception", "error Exception", "exception Exception"], answer: 1 },
+            { unit: 5, q: "What is a class in Python?", options: ["Function collection", "Blueprint for objects", "Module type", "Variable type"], answer: 1 },
+            { unit: 5, q: "What is an object?", options: ["Class definition", "Instance of class", "Function call", "Module"], answer: 1 },
+            { unit: 5, q: "What is __init__ method?", options: ["Destructor", "Constructor", "Iterator", "Generator"], answer: 1 },
+            { unit: 5, q: "What does 'self' represent?", options: ["Class", "Instance of class", "Parent class", "Module"], answer: 1 },
+            { unit: 5, q: "What is inheritance?", options: ["Creating objects", "Deriving from parent class", "Creating functions", "Importing modules"], answer: 1 },
+            { unit: 5, q: "How to inherit from a class?", options: ["class Child extends Parent:", "class Child(Parent):", "class Child inherit Parent:", "class Child <- Parent:"], answer: 1 },
+            { unit: 5, q: "What is method overriding?", options: ["Creating new method", "Replacing parent method", "Deleting method", "Renaming method"], answer: 1 },
+            { unit: 5, q: "What is super() used for?", options: ["Create superclass", "Call parent class methods", "Override methods", "Create objects"], answer: 1 }
+        ];
+
+        let answeredQuestions = {};
+
+        function renderMCQ(filter = 'all') {
+            const container = document.getElementById('mcqContainer');
+            const filtered = filter === 'all' ? mcqQuestions : mcqQuestions.filter(q => q.unit == filter);
+            
+            document.getElementById('mcqCount').textContent = `Showing ${filtered.length} questions`;
+            
+            container.innerHTML = filtered.map((q, idx) => {
+                const originalIdx = mcqQuestions.indexOf(q);
+                const answered = answeredQuestions[originalIdx];
+                const isCorrect = answered === q.answer;
+                
+                return `
+                <div class="mcq-item ${answered !== undefined ? (isCorrect ? 'correct' : 'incorrect') : ''}" data-idx="${originalIdx}">
+                    <div class="mcq-unit-badge">Unit ${q.unit}</div>
+                    <p class="mcq-question">${idx + 1}. ${q.q}</p>
+                    <div class="mcq-options">
+                        ${q.options.map((opt, optIdx) => `
+                            <label class="mcq-option ${answered === optIdx ? 'selected' : ''} ${answered !== undefined && optIdx === q.answer ? 'correct-answer' : ''}">
+                                <input type="radio" name="q${originalIdx}" value="${optIdx}" ${answered !== undefined ? 'disabled' : ''} onchange="checkAnswer(${originalIdx}, ${optIdx})">
+                                <span class="option-letter">${String.fromCharCode(65 + optIdx)}</span>
+                                <span class="option-text">${opt}</span>
+                            </label>
+                        `).join('')}
+                    </div>
+                    ${answered !== undefined ? `<div class="mcq-feedback ${isCorrect ? 'correct' : 'incorrect'}">${isCorrect ? '<i class="fas fa-check"></i> Correct!' : '<i class="fas fa-times"></i> Incorrect. Correct answer: ' + String.fromCharCode(65 + q.answer)}</div>` : ''}
+                </div>
+                `;
+            }).join('');
+            
+            updateScore();
+        }
+
+        function checkAnswer(qIdx, optIdx) {
+            answeredQuestions[qIdx] = optIdx;
+            renderMCQ(document.getElementById('unitFilter').value);
+        }
+
+        function updateScore() {
+            const answered = Object.keys(answeredQuestions).length;
+            if (answered > 0) {
+                document.getElementById('scorePanel').style.display = 'block';
+                let correct = 0;
+                Object.entries(answeredQuestions).forEach(([idx, ans]) => {
+                    if (mcqQuestions[idx].answer === ans) correct++;
+                });
+                document.getElementById('correctCount').textContent = correct;
+                document.getElementById('totalAnswered').textContent = answered;
+            }
+        }
+
+        function resetMCQ() {
+            answeredQuestions = {};
+            document.getElementById('scorePanel').style.display = 'none';
+            renderMCQ(document.getElementById('unitFilter').value);
+        }
+
+        document.getElementById('unitFilter').addEventListener('change', (e) => {
+            renderMCQ(e.target.value);
+        });
+
+        renderMCQ();
+    </script>
+</body>
+</html>
