@@ -516,6 +516,33 @@ plt.grid(True)
 plt.show()</code></pre>
                         </div>
 
+                        <div class="info-box tip">
+                            <h4><i class="fas fa-image"></i> Visual Output - Line Plot</h4>
+                            <div class="output-visual">
+                                <svg viewBox="0 0 400 200" style="width:100%;max-width:500px;background:#fff;border:1px solid #ddd;border-radius:8px;">
+                                    <!-- Axes -->
+                                    <line x1="50" y1="170" x2="380" y2="170" stroke="#333" stroke-width="2"/>
+                                    <line x1="50" y1="170" x2="50" y2="20" stroke="#333" stroke-width="2"/>
+                                    <!-- Grid lines -->
+                                    <line x1="50" y1="95" x2="380" y2="95" stroke="#eee" stroke-width="1"/>
+                                    <!-- Sine wave (blue) -->
+                                    <path d="M50,95 Q100,30 150,95 T250,95 T350,95" fill="none" stroke="#1f77b4" stroke-width="3"/>
+                                    <!-- Cosine wave (red dashed) -->
+                                    <path d="M50,30 Q100,95 150,160 T250,160 T350,30" fill="none" stroke="#d62728" stroke-width="2" stroke-dasharray="8,4"/>
+                                    <!-- Labels -->
+                                    <text x="200" y="195" text-anchor="middle" font-size="12" fill="#333">X axis (0 to 2π)</text>
+                                    <text x="25" y="95" text-anchor="middle" font-size="12" fill="#333" transform="rotate(-90,25,95)">Y axis</text>
+                                    <!-- Legend -->
+                                    <rect x="290" y="25" width="90" height="45" fill="#fff" stroke="#ccc"/>
+                                    <line x1="295" y1="40" x2="325" y2="40" stroke="#1f77b4" stroke-width="3"/>
+                                    <text x="330" y="44" font-size="10" fill="#333">sin(x)</text>
+                                    <line x1="295" y1="58" x2="325" y2="58" stroke="#d62728" stroke-width="2" stroke-dasharray="5,3"/>
+                                    <text x="330" y="62" font-size="10" fill="#333">cos(x)</text>
+                                </svg>
+                                <p style="margin-top:10px;font-size:0.9em;color:#666;">Blue sine wave oscillates smoothly, red dashed cosine wave is phase-shifted by 90°</p>
+                            </div>
+                        </div>
+
                         <h3>Different Plot Types</h3>
                         <div class="code-example">
                             <div class="code-header">
@@ -568,6 +595,97 @@ plt.title('Histogram')
 plt.xlabel('Value')
 plt.ylabel('Frequency')
 plt.show()</code></pre>
+                        </div>
+
+                        <div class="info-box tip">
+                            <h4><i class="fas fa-chart-bar"></i> Visual Output - Plot Types</h4>
+                            <div class="output-visual" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;margin:15px 0;">
+                                <!-- Bar Chart -->
+                                <div style="text-align:center;">
+                                    <svg viewBox="0 0 200 150" style="width:100%;max-width:200px;background:#fff;border:1px solid #ddd;border-radius:8px;">
+                                        <text x="100" y="15" text-anchor="middle" font-size="10" font-weight="bold">Bar Chart</text>
+                                        <line x1="30" y1="130" x2="180" y2="130" stroke="#333" stroke-width="1"/>
+                                        <line x1="30" y1="130" x2="30" y2="25" stroke="#333" stroke-width="1"/>
+                                        <rect x="40" y="100" width="20" height="30" fill="#4682b4"/>
+                                        <rect x="70" y="70" width="20" height="60" fill="#4682b4"/>
+                                        <rect x="100" y="55" width="20" height="75" fill="#4682b4"/>
+                                        <rect x="130" y="35" width="20" height="95" fill="#4682b4"/>
+                                        <rect x="160" y="85" width="20" height="45" fill="#4682b4"/>
+                                        <text x="50" y="142" text-anchor="middle" font-size="8">A</text>
+                                        <text x="80" y="142" text-anchor="middle" font-size="8">B</text>
+                                        <text x="110" y="142" text-anchor="middle" font-size="8">C</text>
+                                        <text x="140" y="142" text-anchor="middle" font-size="8">D</text>
+                                        <text x="170" y="142" text-anchor="middle" font-size="8">E</text>
+                                    </svg>
+                                    <p style="font-size:0.8em;color:#666;margin-top:5px;">Vertical bars compare categories</p>
+                                </div>
+                                <!-- Pie Chart -->
+                                <div style="text-align:center;">
+                                    <svg viewBox="0 0 200 150" style="width:100%;max-width:200px;background:#fff;border:1px solid #ddd;border-radius:8px;">
+                                        <text x="100" y="15" text-anchor="middle" font-size="10" font-weight="bold">Pie Chart</text>
+                                        <!-- Pie slices -->
+                                        <circle cx="90" cy="80" r="50" fill="#ff7f0e" stroke="#fff" stroke-width="2"/>
+                                        <path d="M90,80 L90,30 A50,50 0 0,1 130,55 Z" fill="#1f77b4"/>
+                                        <path d="M90,80 L130,55 A50,50 0 0,1 140,90 Z" fill="#2ca02c"/>
+                                        <path d="M90,80 L140,90 A50,50 0 0,1 100,130 Z" fill="#d62728"/>
+                                        <path d="M90,80 L100,130 A50,50 0 0,1 50,110 Z" fill="#9467bd"/>
+                                        <!-- Exploded slice -->
+                                        <path d="M95,75 L95,20 A55,55 0 0,1 140,50 Z" fill="#1f77b4" transform="translate(5,-5)"/>
+                                        <text x="115" y="35" font-size="7" fill="#fff">30%</text>
+                                        <!-- Legend -->
+                                        <text x="155" y="50" font-size="7">Python</text>
+                                        <text x="155" y="65" font-size="7">JS</text>
+                                        <text x="155" y="80" font-size="7">Java</text>
+                                    </svg>
+                                    <p style="font-size:0.8em;color:#666;margin-top:5px;">Slices show proportions</p>
+                                </div>
+                                <!-- Scatter Plot -->
+                                <div style="text-align:center;">
+                                    <svg viewBox="0 0 200 150" style="width:100%;max-width:200px;background:#fff;border:1px solid #ddd;border-radius:8px;">
+                                        <text x="100" y="15" text-anchor="middle" font-size="10" font-weight="bold">Scatter Plot</text>
+                                        <line x1="30" y1="130" x2="180" y2="130" stroke="#333" stroke-width="1"/>
+                                        <line x1="30" y1="130" x2="30" y2="25" stroke="#333" stroke-width="1"/>
+                                        <!-- Random dots showing positive correlation -->
+                                        <circle cx="45" cy="115" r="4" fill="#1f77b4" opacity="0.6"/>
+                                        <circle cx="55" cy="105" r="4" fill="#1f77b4" opacity="0.6"/>
+                                        <circle cx="60" cy="110" r="4" fill="#1f77b4" opacity="0.6"/>
+                                        <circle cx="75" cy="95" r="4" fill="#1f77b4" opacity="0.6"/>
+                                        <circle cx="85" cy="85" r="4" fill="#1f77b4" opacity="0.6"/>
+                                        <circle cx="95" cy="80" r="4" fill="#1f77b4" opacity="0.6"/>
+                                        <circle cx="100" cy="75" r="4" fill="#1f77b4" opacity="0.6"/>
+                                        <circle cx="110" cy="70" r="4" fill="#1f77b4" opacity="0.6"/>
+                                        <circle cx="120" cy="60" r="4" fill="#1f77b4" opacity="0.6"/>
+                                        <circle cx="130" cy="55" r="4" fill="#1f77b4" opacity="0.6"/>
+                                        <circle cx="145" cy="45" r="4" fill="#1f77b4" opacity="0.6"/>
+                                        <circle cx="155" cy="40" r="4" fill="#1f77b4" opacity="0.6"/>
+                                        <circle cx="165" cy="35" r="4" fill="#1f77b4" opacity="0.6"/>
+                                        <!-- Trend line -->
+                                        <line x1="40" y1="120" x2="170" y2="35" stroke="#d62728" stroke-width="1" stroke-dasharray="4,2"/>
+                                    </svg>
+                                    <p style="font-size:0.8em;color:#666;margin-top:5px;">Dots show correlation</p>
+                                </div>
+                                <!-- Histogram -->
+                                <div style="text-align:center;">
+                                    <svg viewBox="0 0 200 150" style="width:100%;max-width:200px;background:#fff;border:1px solid #ddd;border-radius:8px;">
+                                        <text x="100" y="15" text-anchor="middle" font-size="10" font-weight="bold">Histogram</text>
+                                        <line x1="30" y1="130" x2="180" y2="130" stroke="#333" stroke-width="1"/>
+                                        <line x1="30" y1="130" x2="30" y2="25" stroke="#333" stroke-width="1"/>
+                                        <!-- Bell curve bars -->
+                                        <rect x="35" y="120" width="12" height="10" fill="#2ca02c" stroke="#333" opacity="0.7"/>
+                                        <rect x="50" y="110" width="12" height="20" fill="#2ca02c" stroke="#333" opacity="0.7"/>
+                                        <rect x="65" y="90" width="12" height="40" fill="#2ca02c" stroke="#333" opacity="0.7"/>
+                                        <rect x="80" y="65" width="12" height="65" fill="#2ca02c" stroke="#333" opacity="0.7"/>
+                                        <rect x="95" y="40" width="12" height="90" fill="#2ca02c" stroke="#333" opacity="0.7"/>
+                                        <rect x="110" y="45" width="12" height="85" fill="#2ca02c" stroke="#333" opacity="0.7"/>
+                                        <rect x="125" y="70" width="12" height="60" fill="#2ca02c" stroke="#333" opacity="0.7"/>
+                                        <rect x="140" y="95" width="12" height="35" fill="#2ca02c" stroke="#333" opacity="0.7"/>
+                                        <rect x="155" y="115" width="12" height="15" fill="#2ca02c" stroke="#333" opacity="0.7"/>
+                                        <!-- Bell curve line -->
+                                        <path d="M35,125 Q60,100 80,60 Q100,30 105,30 Q115,35 125,65 Q145,100 170,125" fill="none" stroke="#d62728" stroke-width="2"/>
+                                    </svg>
+                                    <p style="font-size:0.8em;color:#666;margin-top:5px;">Normal distribution (bell curve)</p>
+                                </div>
+                            </div>
                         </div>
 
                         <h3>Subplots and Advanced Features</h3>
@@ -629,6 +747,88 @@ plt.grid(True, alpha=0.3)
 
 plt.show()</code></pre>
                         </div>
+
+                        <div class="info-box tip">
+                            <h4><i class="fas fa-th-large"></i> Visual Output - Subplots (2×2 Grid)</h4>
+                            <div class="output-visual">
+                                <svg viewBox="0 0 440 340" style="width:100%;max-width:550px;background:#fff;border:1px solid #ddd;border-radius:8px;padding:10px;">
+                                    <text x="220" y="20" text-anchor="middle" font-size="14" font-weight="bold">plt.subplots(2, 2) Output</text>
+                                    <!-- Top-left: Sine Wave -->
+                                    <rect x="20" y="35" width="190" height="130" fill="#f8f8f8" stroke="#ccc"/>
+                                    <text x="115" y="50" text-anchor="middle" font-size="10" font-weight="bold">Sine Wave</text>
+                                    <line x1="40" y1="145" x2="190" y2="145" stroke="#333" stroke-width="1"/>
+                                    <line x1="40" y1="145" x2="40" y2="60" stroke="#333" stroke-width="1"/>
+                                    <path d="M40,100 Q80,55 115,100 T190,100" fill="none" stroke="#1f77b4" stroke-width="2"/>
+                                    
+                                    <!-- Top-right: Bar Chart -->
+                                    <rect x="230" y="35" width="190" height="130" fill="#f8f8f8" stroke="#ccc"/>
+                                    <text x="325" y="50" text-anchor="middle" font-size="10" font-weight="bold">Bar Chart</text>
+                                    <rect x="255" y="110" width="25" height="35" fill="#ff7f0e"/>
+                                    <rect x="290" y="80" width="25" height="65" fill="#ff7f0e"/>
+                                    <rect x="325" y="95" width="25" height="50" fill="#ff7f0e"/>
+                                    <rect x="360" y="65" width="25" height="80" fill="#ff7f0e"/>
+                                    <text x="267" y="155" text-anchor="middle" font-size="8">A</text>
+                                    <text x="302" y="155" text-anchor="middle" font-size="8">B</text>
+                                    <text x="337" y="155" text-anchor="middle" font-size="8">C</text>
+                                    <text x="372" y="155" text-anchor="middle" font-size="8">D</text>
+                                    
+                                    <!-- Bottom-left: Scatter Plot -->
+                                    <rect x="20" y="180" width="190" height="130" fill="#f8f8f8" stroke="#ccc"/>
+                                    <text x="115" y="195" text-anchor="middle" font-size="10" font-weight="bold">Scatter Plot</text>
+                                    <line x1="40" y1="290" x2="190" y2="290" stroke="#333" stroke-width="1"/>
+                                    <line x1="40" y1="290" x2="40" y2="205" stroke="#333" stroke-width="1"/>
+                                    <circle cx="55" cy="275" r="4" fill="#2ca02c" opacity="0.6"/>
+                                    <circle cx="70" cy="265" r="4" fill="#2ca02c" opacity="0.6"/>
+                                    <circle cx="85" cy="255" r="4" fill="#2ca02c" opacity="0.6"/>
+                                    <circle cx="100" cy="245" r="4" fill="#2ca02c" opacity="0.6"/>
+                                    <circle cx="115" cy="240" r="4" fill="#2ca02c" opacity="0.6"/>
+                                    <circle cx="130" cy="230" r="4" fill="#2ca02c" opacity="0.6"/>
+                                    <circle cx="145" cy="225" r="4" fill="#2ca02c" opacity="0.6"/>
+                                    <circle cx="160" cy="215" r="4" fill="#2ca02c" opacity="0.6"/>
+                                    <circle cx="175" cy="210" r="4" fill="#2ca02c" opacity="0.6"/>
+                                    
+                                    <!-- Bottom-right: Pie Chart -->
+                                    <rect x="230" y="180" width="190" height="130" fill="#f8f8f8" stroke="#ccc"/>
+                                    <text x="325" y="195" text-anchor="middle" font-size="10" font-weight="bold">Pie Chart</text>
+                                    <circle cx="325" cy="255" r="45" fill="#ff7f0e"/>
+                                    <path d="M325,255 L325,210 A45,45 0 0,1 365,235 Z" fill="#1f77b4"/>
+                                    <path d="M325,255 L365,235 A45,45 0 0,1 355,295 Z" fill="#2ca02c"/>
+                                    <path d="M325,255 L355,295 A45,45 0 0,1 295,280 Z" fill="#d62728"/>
+                                    <text x="345" y="225" font-size="7" fill="#fff">35%</text>
+                                    <text x="355" y="260" font-size="7" fill="#fff">30%</text>
+                                    <text x="320" y="290" font-size="7" fill="#fff">20%</text>
+                                    <text x="300" y="250" font-size="7" fill="#fff">15%</text>
+                                </svg>
+                                <p style="margin-top:10px;font-size:0.9em;color:#666;"><code>plt.tight_layout()</code> adjusts spacing to prevent overlap. <code>plt.savefig('file.png', dpi=300)</code> saves as high-quality image.</p>
+                            </div>
+                        </div>
+
+                        <h3>Key Matplotlib Functions Summary</h3>
+                        <div class="table-container">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Function</th>
+                                        <th>What It Does</th>
+                                        <th>Example</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td><code>plt.plot(x, y)</code></td><td>Draws a line connecting points</td><td>Line charts, trends</td></tr>
+                                    <tr><td><code>plt.bar(x, height)</code></td><td>Creates vertical bars</td><td>Comparing categories</td></tr>
+                                    <tr><td><code>plt.pie(sizes)</code></td><td>Creates circular pie chart</td><td>Showing proportions</td></tr>
+                                    <tr><td><code>plt.scatter(x, y)</code></td><td>Plots individual points</td><td>Showing relationships</td></tr>
+                                    <tr><td><code>plt.hist(data)</code></td><td>Shows data distribution</td><td>Frequency analysis</td></tr>
+                                    <tr><td><code>plt.figure(figsize)</code></td><td>Sets figure size (width, height)</td><td>figsize=(10, 6)</td></tr>
+                                    <tr><td><code>plt.subplot(rows, cols, n)</code></td><td>Creates grid of plots</td><td>Multiple charts together</td></tr>
+                                    <tr><td><code>plt.title()</code></td><td>Adds title to plot</td><td>Chart heading</td></tr>
+                                    <tr><td><code>plt.xlabel() / ylabel()</code></td><td>Labels for axes</td><td>Axis descriptions</td></tr>
+                                    <tr><td><code>plt.legend()</code></td><td>Shows legend box</td><td>Identify multiple lines</td></tr>
+                                    <tr><td><code>plt.show()</code></td><td>Displays the plot window</td><td>Required to see output</td></tr>
+                                    <tr><td><code>plt.savefig('name.png')</code></td><td>Saves plot as image file</td><td>Export for reports</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
 
                     <!-- Tkinter Introduction -->
@@ -663,6 +863,30 @@ label.pack(pady=50)
 
 # Start the event loop
 root.mainloop()</code></pre>
+                        </div>
+
+                        <div class="info-box tip">
+                            <h4><i class="fas fa-desktop"></i> Visual Output - Basic Tkinter Window</h4>
+                            <div class="output-visual">
+                                <svg viewBox="0 0 320 220" style="width:100%;max-width:400px;border:1px solid #999;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.15);">
+                                    <!-- Window Frame -->
+                                    <rect x="0" y="0" width="320" height="220" rx="8" fill="#add8e6"/>
+                                    <!-- Title Bar -->
+                                    <rect x="0" y="0" width="320" height="30" rx="8" fill="#e0e0e0"/>
+                                    <rect x="0" y="20" width="320" height="10" fill="#e0e0e0"/>
+                                    <!-- Title Text -->
+                                    <text x="12" y="20" font-size="12" font-weight="bold" fill="#333">My First GUI App</text>
+                                    <!-- Window Buttons -->
+                                    <circle cx="285" cy="15" r="6" fill="#ffbd2e" stroke="#e0a000"/>
+                                    <circle cx="300" cy="15" r="6" fill="#27c93f" stroke="#1aab29"/>
+                                    <circle cx="270" cy="15" r="6" fill="#ff5f57" stroke="#e0443e"/>
+                                    <!-- Content Area (lightblue) -->
+                                    <rect x="2" y="30" width="316" height="188" fill="#add8e6"/>
+                                    <!-- Label Text -->
+                                    <text x="160" y="120" text-anchor="middle" font-size="22" font-family="Arial" fill="#333">Hello, Tkinter!</text>
+                                </svg>
+                                <p style="margin-top:10px;font-size:0.9em;color:#666;">Window with title bar (minimize, maximize, close buttons), light blue background, and centered label text</p>
+                            </div>
                         </div>
 
                         <h3>Window Configuration</h3>
@@ -709,6 +933,45 @@ def on_close():
 root.protocol("WM_DELETE_WINDOW", on_close)
 
 root.mainloop()</code></pre>
+                        </div>
+
+                        <div class="info-box tip">
+                            <h4><i class="fas fa-cog"></i> Visual Output - Window Configuration</h4>
+                            <div class="output-visual">
+                                <svg viewBox="0 0 500 300" style="width:100%;max-width:600px;background:#e8e8e8;border:1px solid #999;border-radius:8px;padding:10px;">
+                                    <!-- Desktop background representation -->
+                                    <text x="10" y="20" font-size="10" fill="#666">Desktop (screen coordinates)</text>
+                                    
+                                    <!-- Position indicators -->
+                                    <line x1="0" y1="50" x2="50" y2="50" stroke="#ff6b6b" stroke-width="2" stroke-dasharray="4"/>
+                                    <text x="20" y="45" font-size="9" fill="#ff6b6b">100px</text>
+                                    <line x1="50" y1="0" x2="50" y2="50" stroke="#4ecdc4" stroke-width="2" stroke-dasharray="4"/>
+                                    <text x="55" y="30" font-size="9" fill="#4ecdc4">100px</text>
+                                    
+                                    <!-- Window at position -->
+                                    <rect x="50" y="50" width="300" height="220" rx="6" fill="#f5f5f5" stroke="#999" stroke-width="2" opacity="0.9"/>
+                                    <!-- Title bar -->
+                                    <rect x="50" y="50" width="300" height="24" rx="6" fill="#d0d0d0"/>
+                                    <rect x="50" y="66" width="300" height="8" fill="#d0d0d0"/>
+                                    <text x="62" y="66" font-size="10" font-weight="bold">Configured Window</text>
+                                    <circle cx="320" cy="62" r="5" fill="#ff5f57"/>
+                                    <circle cx="335" cy="62" r="5" fill="#ffbd2e"/>
+                                    
+                                    <!-- Size indicators -->
+                                    <line x1="50" y1="280" x2="350" y2="280" stroke="#1f77b4" stroke-width="2"/>
+                                    <text x="180" y="295" font-size="10" fill="#1f77b4">500px (width)</text>
+                                    <line x1="360" y1="50" x2="360" y2="270" stroke="#2ca02c" stroke-width="2"/>
+                                    <text x="370" y="165" font-size="10" fill="#2ca02c">400px</text>
+                                    
+                                    <!-- Alpha transparency demo -->
+                                    <rect x="380" y="80" width="100" height="60" fill="#666"/>
+                                    <text x="390" y="100" font-size="9" fill="#fff">Behind</text>
+                                    <rect x="400" y="100" width="80" height="50" rx="4" fill="#add8e6" opacity="0.95" stroke="#333"/>
+                                    <text x="410" y="130" font-size="9">alpha=0.95</text>
+                                    <text x="385" y="170" font-size="8" fill="#666">Slightly see-through</text>
+                                </svg>
+                                <p style="margin-top:10px;font-size:0.9em;color:#666;"><code>geometry("500x400+100+100")</code> positions window 100px from left edge and 100px from top of screen</p>
+                            </div>
                         </div>
                     </div>
 
@@ -796,6 +1059,39 @@ quit_button.pack(pady=20)
 root.mainloop()</code></pre>
                         </div>
 
+                        <div class="info-box tip">
+                            <h4><i class="fas fa-hand-pointer"></i> Visual Output - Labels & Buttons</h4>
+                            <div class="output-visual">
+                                <svg viewBox="0 0 320 280" style="width:100%;max-width:400px;border:1px solid #999;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.15);">
+                                    <!-- Window Frame -->
+                                    <rect x="0" y="0" width="320" height="280" rx="8" fill="#f0f0f0"/>
+                                    <!-- Title Bar -->
+                                    <rect x="0" y="0" width="320" height="30" rx="8" fill="#e0e0e0"/>
+                                    <rect x="0" y="20" width="320" height="10" fill="#e0e0e0"/>
+                                    <text x="12" y="20" font-size="11" font-weight="bold" fill="#333">Labels and Buttons</text>
+                                    <circle cx="285" cy="15" r="5" fill="#ffbd2e"/>
+                                    <circle cx="300" cy="15" r="5" fill="#27c93f"/>
+                                    <circle cx="270" cy="15" r="5" fill="#ff5f57"/>
+                                    
+                                    <!-- Yellow Label with Blue Text -->
+                                    <rect x="60" y="50" width="200" height="40" rx="4" fill="#ffffe0" stroke="#ccc"/>
+                                    <text x="160" y="75" text-anchor="middle" font-size="14" font-weight="bold" fill="#0000ff">Welcome to Tkinter!</text>
+                                    
+                                    <!-- Green Click Me Button -->
+                                    <rect x="100" y="110" width="120" height="40" rx="4" fill="#228b22" stroke="#1a6b1a"/>
+                                    <text x="160" y="135" text-anchor="middle" font-size="13" fill="#fff">Click Me!</text>
+                                    
+                                    <!-- Result Label -->
+                                    <text x="160" y="180" text-anchor="middle" font-size="12" fill="#333">Button clicked 3 times!</text>
+                                    
+                                    <!-- Red Quit Button -->
+                                    <rect x="120" y="210" width="80" height="35" rx="4" fill="#dc143c" stroke="#a00"/>
+                                    <text x="160" y="233" text-anchor="middle" font-size="12" fill="#fff">Quit</text>
+                                </svg>
+                                <p style="margin-top:10px;font-size:0.9em;color:#666;">Yellow label at top, green button increments counter, red button closes window</p>
+                            </div>
+                        </div>
+
                         <h3>Entry and Text Widgets</h3>
                         <div class="code-example">
                             <div class="code-header">
@@ -858,6 +1154,45 @@ output_label.pack(pady=10)
 root.mainloop()</code></pre>
                         </div>
 
+                        <div class="info-box tip">
+                            <h4><i class="fas fa-keyboard"></i> Visual Output - Entry & Text Widgets</h4>
+                            <div class="output-visual">
+                                <svg viewBox="0 0 360 320" style="width:100%;max-width:450px;border:1px solid #999;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.15);">
+                                    <!-- Window Frame -->
+                                    <rect x="0" y="0" width="360" height="320" rx="8" fill="#f5f5f5"/>
+                                    <!-- Title Bar -->
+                                    <rect x="0" y="0" width="360" height="28" rx="8" fill="#e0e0e0"/>
+                                    <rect x="0" y="18" width="360" height="10" fill="#e0e0e0"/>
+                                    <text x="12" y="18" font-size="11" font-weight="bold" fill="#333">Input Widgets</text>
+                                    <circle cx="320" cy="14" r="5" fill="#ffbd2e"/>
+                                    <circle cx="335" cy="14" r="5" fill="#27c93f"/>
+                                    <circle cx="305" cy="14" r="5" fill="#ff5f57"/>
+                                    
+                                    <!-- Name Label and Entry -->
+                                    <text x="180" y="55" text-anchor="middle" font-size="12" fill="#333">Name:</text>
+                                    <rect x="55" y="62" width="250" height="28" rx="3" fill="#fff" stroke="#999"/>
+                                    <text x="65" y="80" font-size="11" fill="#999">Enter your name</text>
+                                    
+                                    <!-- Password Label and Entry -->
+                                    <text x="180" y="110" text-anchor="middle" font-size="12" fill="#333">Password:</text>
+                                    <rect x="55" y="117" width="250" height="28" rx="3" fill="#fff" stroke="#999"/>
+                                    <text x="65" y="136" font-size="11" fill="#333">••••••••</text>
+                                    
+                                    <!-- Message Label and Text Area -->
+                                    <text x="180" y="165" text-anchor="middle" font-size="12" fill="#333">Message:</text>
+                                    <rect x="55" y="172" width="250" height="70" rx="3" fill="#fff" stroke="#999"/>
+                                    <text x="65" y="192" font-size="10" fill="#999">Enter your message here...</text>
+                                    
+                                    <!-- Buttons -->
+                                    <rect x="95" y="255" width="80" height="30" rx="4" fill="#4169e1"/>
+                                    <text x="135" y="275" text-anchor="middle" font-size="11" fill="#fff">Submit</text>
+                                    <rect x="185" y="255" width="80" height="30" rx="4" fill="#808080"/>
+                                    <text x="225" y="275" text-anchor="middle" font-size="11" fill="#fff">Clear</text>
+                                </svg>
+                                <p style="margin-top:10px;font-size:0.9em;color:#666;">Form with text entry (single line), password field (shows •••), and multi-line text area</p>
+                            </div>
+                        </div>
+
                         <h3>Layout Managers</h3>
                         <div class="code-example">
                             <div class="code-header">
@@ -911,6 +1246,68 @@ tk.Button(root, text="Grid Demo", command=grid_demo, width=20).pack(pady=10)
 tk.Button(root, text="Place Demo", command=place_demo, width=20).pack(pady=10)
 
 root.mainloop()</code></pre>
+                        </div>
+
+                        <div class="info-box tip">
+                            <h4><i class="fas fa-th"></i> Visual Output - Layout Managers</h4>
+                            <div class="output-visual" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:15px;margin:15px 0;">
+                                <!-- Pack Demo -->
+                                <div style="text-align:center;">
+                                    <svg viewBox="0 0 160 130" style="width:100%;max-width:160px;border:1px solid #999;border-radius:6px;box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+                                        <rect x="0" y="0" width="160" height="20" rx="6" fill="#e0e0e0"/>
+                                        <rect x="0" y="12" width="160" height="8" fill="#e0e0e0"/>
+                                        <text x="8" y="14" font-size="8" font-weight="bold">Pack Demo</text>
+                                        <!-- Pack layout -->
+                                        <rect x="2" y="22" width="156" height="18" fill="#dc143c"/>
+                                        <text x="80" y="34" text-anchor="middle" font-size="8" fill="#fff">Top</text>
+                                        <rect x="2" y="108" width="156" height="18" fill="#4169e1"/>
+                                        <text x="80" y="120" text-anchor="middle" font-size="8" fill="#fff">Bottom</text>
+                                        <rect x="2" y="40" width="30" height="68" fill="#228b22"/>
+                                        <text x="17" y="78" text-anchor="middle" font-size="7" fill="#fff">Left</text>
+                                        <rect x="128" y="40" width="30" height="68" fill="#ffd700"/>
+                                        <text x="143" y="78" text-anchor="middle" font-size="7">Right</text>
+                                        <rect x="32" y="40" width="96" height="68" fill="#9370db"/>
+                                        <text x="80" y="78" text-anchor="middle" font-size="8" fill="#fff">Center</text>
+                                    </svg>
+                                    <p style="font-size:0.75em;color:#666;margin-top:5px;">pack() - Stack widgets</p>
+                                </div>
+                                <!-- Grid Demo -->
+                                <div style="text-align:center;">
+                                    <svg viewBox="0 0 160 130" style="width:100%;max-width:160px;border:1px solid #999;border-radius:6px;box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+                                        <rect x="0" y="0" width="160" height="20" rx="6" fill="#e0e0e0"/>
+                                        <rect x="0" y="12" width="160" height="8" fill="#e0e0e0"/>
+                                        <text x="8" y="14" font-size="8" font-weight="bold">Grid Demo</text>
+                                        <!-- Grid layout -->
+                                        <text x="25" y="45" text-anchor="end" font-size="9">Username:</text>
+                                        <rect x="30" y="32" width="110" height="18" rx="2" fill="#fff" stroke="#999"/>
+                                        <text x="25" y="75" text-anchor="end" font-size="9">Password:</text>
+                                        <rect x="30" y="62" width="110" height="18" rx="2" fill="#fff" stroke="#999"/>
+                                        <text x="38" y="76" font-size="8">••••••</text>
+                                        <rect x="50" y="92" width="60" height="22" rx="3" fill="#4169e1"/>
+                                        <text x="80" y="107" text-anchor="middle" font-size="9" fill="#fff">Login</text>
+                                    </svg>
+                                    <p style="font-size:0.75em;color:#666;margin-top:5px;">grid() - Table layout</p>
+                                </div>
+                                <!-- Place Demo -->
+                                <div style="text-align:center;">
+                                    <svg viewBox="0 0 160 130" style="width:100%;max-width:160px;border:1px solid #999;border-radius:6px;box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+                                        <rect x="0" y="0" width="160" height="20" rx="6" fill="#e0e0e0"/>
+                                        <rect x="0" y="12" width="160" height="8" fill="#e0e0e0"/>
+                                        <text x="8" y="14" font-size="8" font-weight="bold">Place Demo</text>
+                                        <!-- Place layout - absolute positions -->
+                                        <rect x="20" y="40" width="55" height="20" rx="2" fill="#ddd" stroke="#999"/>
+                                        <text x="47" y="54" text-anchor="middle" font-size="8">Button 1</text>
+                                        <rect x="90" y="65" width="55" height="20" rx="2" fill="#ddd" stroke="#999"/>
+                                        <text x="117" y="79" text-anchor="middle" font-size="8">Button 2</text>
+                                        <rect x="45" y="95" width="70" height="22" rx="2" fill="#ddd" stroke="#999"/>
+                                        <text x="80" y="110" text-anchor="middle" font-size="8">Centered</text>
+                                        <!-- Position arrows -->
+                                        <text x="22" y="35" font-size="6" fill="#666">x=50,y=50</text>
+                                        <text x="92" y="60" font-size="6" fill="#666">x=150,y=100</text>
+                                    </svg>
+                                    <p style="font-size:0.75em;color:#666;margin-top:5px;">place() - Exact position</p>
+                                </div>
+                            </div>
                         </div>
 
                         <h3>Checkboxes and Radio Buttons</h3>
@@ -970,6 +1367,54 @@ result_label = tk.Label(root, text="", font=("Arial", 10))
 result_label.pack()
 
 root.mainloop()</code></pre>
+                        </div>
+
+                        <div class="info-box tip">
+                            <h4><i class="fas fa-check-square"></i> Visual Output - Checkboxes & Radio Buttons</h4>
+                            <div class="output-visual">
+                                <svg viewBox="0 0 320 280" style="width:100%;max-width:400px;border:1px solid #999;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.15);">
+                                    <!-- Window Frame -->
+                                    <rect x="0" y="0" width="320" height="280" rx="8" fill="#f5f5f5"/>
+                                    <rect x="0" y="0" width="320" height="26" rx="8" fill="#e0e0e0"/>
+                                    <rect x="0" y="18" width="320" height="8" fill="#e0e0e0"/>
+                                    <text x="12" y="17" font-size="10" font-weight="bold">Selection Widgets</text>
+                                    
+                                    <!-- Checkboxes Section -->
+                                    <text x="160" y="50" text-anchor="middle" font-size="11" font-weight="bold">Select your hobbies:</text>
+                                    <!-- Checked checkbox -->
+                                    <rect x="50" y="60" width="14" height="14" rx="2" fill="#fff" stroke="#333"/>
+                                    <path d="M53,67 L56,70 L61,63" stroke="#228b22" stroke-width="2" fill="none"/>
+                                    <text x="70" y="72" font-size="11">Reading</text>
+                                    <!-- Checked checkbox -->
+                                    <rect x="50" y="82" width="14" height="14" rx="2" fill="#fff" stroke="#333"/>
+                                    <path d="M53,89 L56,92 L61,85" stroke="#228b22" stroke-width="2" fill="none"/>
+                                    <text x="70" y="94" font-size="11">Gaming</text>
+                                    <!-- Unchecked checkbox -->
+                                    <rect x="50" y="104" width="14" height="14" rx="2" fill="#fff" stroke="#333"/>
+                                    <text x="70" y="116" font-size="11">Sports</text>
+                                    
+                                    <!-- Separator -->
+                                    <line x1="20" y1="135" x2="300" y2="135" stroke="#999" stroke-width="1"/>
+                                    
+                                    <!-- Radio Buttons Section -->
+                                    <text x="160" y="155" text-anchor="middle" font-size="11" font-weight="bold">Select your gender:</text>
+                                    <!-- Selected radio -->
+                                    <circle cx="57" cy="172" r="7" fill="#fff" stroke="#333"/>
+                                    <circle cx="57" cy="172" r="4" fill="#4169e1"/>
+                                    <text x="70" y="176" font-size="11">Male</text>
+                                    <!-- Unselected radio -->
+                                    <circle cx="57" cy="194" r="7" fill="#fff" stroke="#333"/>
+                                    <text x="70" y="198" font-size="11">Female</text>
+                                    <!-- Unselected radio -->
+                                    <circle cx="57" cy="216" r="7" fill="#fff" stroke="#333"/>
+                                    <text x="70" y="220" font-size="11">Other</text>
+                                    
+                                    <!-- Button -->
+                                    <rect x="100" y="235" width="120" height="28" rx="4" fill="#4169e1"/>
+                                    <text x="160" y="254" text-anchor="middle" font-size="10" fill="#fff">Show Selection</text>
+                                </svg>
+                                <p style="margin-top:10px;font-size:0.9em;color:#666;">☑ Checkboxes allow multiple selections, ◉ Radio buttons allow only one selection</p>
+                            </div>
                         </div>
                     </div>
 
@@ -1053,6 +1498,76 @@ class Calculator:
 root = tk.Tk()
 app = Calculator(root)
 root.mainloop()</code></pre>
+                        </div>
+
+                        <div class="info-box tip">
+                            <h4><i class="fas fa-calculator"></i> Visual Output - Calculator App</h4>
+                            <div class="output-visual">
+                                <svg viewBox="0 0 240 320" style="width:100%;max-width:300px;border:1px solid #999;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.15);">
+                                    <!-- Window Frame -->
+                                    <rect x="0" y="0" width="240" height="320" rx="8" fill="#2c2c2c"/>
+                                    <rect x="0" y="0" width="240" height="26" rx="8" fill="#3c3c3c"/>
+                                    <rect x="0" y="18" width="240" height="8" fill="#3c3c3c"/>
+                                    <text x="12" y="17" font-size="10" fill="#fff">Calculator</text>
+                                    <circle cx="205" cy="13" r="5" fill="#ffbd2e"/>
+                                    <circle cx="220" cy="13" r="5" fill="#27c93f"/>
+                                    <circle cx="190" cy="13" r="5" fill="#ff5f57"/>
+                                    
+                                    <!-- Display -->
+                                    <rect x="10" y="35" width="220" height="45" rx="4" fill="#1a1a1a"/>
+                                    <text x="220" y="68" text-anchor="end" font-size="28" font-family="monospace" fill="#fff">42</text>
+                                    
+                                    <!-- Button Grid -->
+                                    <!-- Row 1 -->
+                                    <rect x="10" y="90" width="50" height="40" rx="4" fill="#a0a0a0"/>
+                                    <text x="35" y="117" text-anchor="middle" font-size="18" fill="#000">C</text>
+                                    <rect x="65" y="90" width="50" height="40" rx="4" fill="#a0a0a0"/>
+                                    <text x="90" y="117" text-anchor="middle" font-size="18" fill="#000">±</text>
+                                    <rect x="120" y="90" width="50" height="40" rx="4" fill="#a0a0a0"/>
+                                    <text x="145" y="117" text-anchor="middle" font-size="18" fill="#000">%</text>
+                                    <rect x="175" y="90" width="55" height="40" rx="4" fill="#ff9500"/>
+                                    <text x="202" y="117" text-anchor="middle" font-size="20" fill="#fff">÷</text>
+                                    
+                                    <!-- Row 2 -->
+                                    <rect x="10" y="135" width="50" height="40" rx="4" fill="#333"/>
+                                    <text x="35" y="162" text-anchor="middle" font-size="18" fill="#fff">7</text>
+                                    <rect x="65" y="135" width="50" height="40" rx="4" fill="#333"/>
+                                    <text x="90" y="162" text-anchor="middle" font-size="18" fill="#fff">8</text>
+                                    <rect x="120" y="135" width="50" height="40" rx="4" fill="#333"/>
+                                    <text x="145" y="162" text-anchor="middle" font-size="18" fill="#fff">9</text>
+                                    <rect x="175" y="135" width="55" height="40" rx="4" fill="#ff9500"/>
+                                    <text x="202" y="162" text-anchor="middle" font-size="20" fill="#fff">×</text>
+                                    
+                                    <!-- Row 3 -->
+                                    <rect x="10" y="180" width="50" height="40" rx="4" fill="#333"/>
+                                    <text x="35" y="207" text-anchor="middle" font-size="18" fill="#fff">4</text>
+                                    <rect x="65" y="180" width="50" height="40" rx="4" fill="#333"/>
+                                    <text x="90" y="207" text-anchor="middle" font-size="18" fill="#fff">5</text>
+                                    <rect x="120" y="180" width="50" height="40" rx="4" fill="#333"/>
+                                    <text x="145" y="207" text-anchor="middle" font-size="18" fill="#fff">6</text>
+                                    <rect x="175" y="180" width="55" height="40" rx="4" fill="#ff9500"/>
+                                    <text x="202" y="207" text-anchor="middle" font-size="20" fill="#fff">−</text>
+                                    
+                                    <!-- Row 4 -->
+                                    <rect x="10" y="225" width="50" height="40" rx="4" fill="#333"/>
+                                    <text x="35" y="252" text-anchor="middle" font-size="18" fill="#fff">1</text>
+                                    <rect x="65" y="225" width="50" height="40" rx="4" fill="#333"/>
+                                    <text x="90" y="252" text-anchor="middle" font-size="18" fill="#fff">2</text>
+                                    <rect x="120" y="225" width="50" height="40" rx="4" fill="#333"/>
+                                    <text x="145" y="252" text-anchor="middle" font-size="18" fill="#fff">3</text>
+                                    <rect x="175" y="225" width="55" height="40" rx="4" fill="#ff9500"/>
+                                    <text x="202" y="252" text-anchor="middle" font-size="20" fill="#fff">+</text>
+                                    
+                                    <!-- Row 5 -->
+                                    <rect x="10" y="270" width="105" height="40" rx="4" fill="#333"/>
+                                    <text x="62" y="297" text-anchor="middle" font-size="18" fill="#fff">0</text>
+                                    <rect x="120" y="270" width="50" height="40" rx="4" fill="#333"/>
+                                    <text x="145" y="297" text-anchor="middle" font-size="18" fill="#fff">.</text>
+                                    <rect x="175" y="270" width="55" height="40" rx="4" fill="#ff9500"/>
+                                    <text x="202" y="297" text-anchor="middle" font-size="20" fill="#fff">=</text>
+                                </svg>
+                                <p style="margin-top:10px;font-size:0.9em;color:#666;">Dark theme calculator with number pad, operators (orange), and wide "0" button using columnspan</p>
+                            </div>
                         </div>
 
                         <h3>Example 2: To-Do List Application</h3>
@@ -1171,6 +1686,57 @@ app = TodoApp(root)
 root.mainloop()</code></pre>
                         </div>
 
+                        <div class="info-box tip">
+                            <h4><i class="fas fa-tasks"></i> Visual Output - To-Do List App</h4>
+                            <div class="output-visual">
+                                <svg viewBox="0 0 320 380" style="width:100%;max-width:400px;border:1px solid #999;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.15);">
+                                    <!-- Window Frame -->
+                                    <rect x="0" y="0" width="320" height="380" rx="8" fill="#f5f5f5"/>
+                                    <rect x="0" y="0" width="320" height="26" rx="8" fill="#e0e0e0"/>
+                                    <rect x="0" y="18" width="320" height="8" fill="#e0e0e0"/>
+                                    <text x="12" y="17" font-size="10" font-weight="bold">To-Do List</text>
+                                    <circle cx="285" cy="13" r="5" fill="#ffbd2e"/>
+                                    <circle cx="300" cy="13" r="5" fill="#27c93f"/>
+                                    <circle cx="270" cy="13" r="5" fill="#ff5f57"/>
+                                    
+                                    <!-- Title -->
+                                    <text x="160" y="55" text-anchor="middle" font-size="16" font-weight="bold">My To-Do List</text>
+                                    
+                                    <!-- Input Area -->
+                                    <rect x="30" y="70" width="200" height="28" rx="3" fill="#fff" stroke="#999"/>
+                                    <text x="40" y="88" font-size="11" fill="#999">Add new task...</text>
+                                    <rect x="238" y="70" width="50" height="28" rx="4" fill="#228b22"/>
+                                    <text x="263" y="89" text-anchor="middle" font-size="11" fill="#fff">Add</text>
+                                    
+                                    <!-- Task List -->
+                                    <rect x="30" y="110" width="245" height="160" rx="4" fill="#fff" stroke="#999"/>
+                                    <!-- Scrollbar -->
+                                    <rect x="275" y="110" width="12" height="160" fill="#eee" stroke="#ccc"/>
+                                    <rect x="277" y="115" width="8" height="40" rx="4" fill="#bbb"/>
+                                    
+                                    <!-- Tasks -->
+                                    <text x="45" y="135" font-size="12" fill="#228b22">✓ Buy groceries</text>
+                                    <text x="45" y="160" font-size="12">☐ Finish Python project</text>
+                                    <rect x="35" y="145" width="230" height="22" fill="#e8f5e9" opacity="0.5"/>
+                                    <text x="45" y="185" font-size="12">☐ Call dentist</text>
+                                    <text x="45" y="210" font-size="12" fill="#228b22">✓ Read chapter 5</text>
+                                    <text x="45" y="235" font-size="12">☐ Submit assignment</text>
+                                    
+                                    <!-- Action Buttons -->
+                                    <rect x="30" y="285" width="95" height="28" rx="4" fill="#4169e1"/>
+                                    <text x="77" y="304" text-anchor="middle" font-size="9" fill="#fff">Mark Complete</text>
+                                    <rect x="132" y="285" width="60" height="28" rx="4" fill="#dc143c"/>
+                                    <text x="162" y="304" text-anchor="middle" font-size="10" fill="#fff">Delete</text>
+                                    <rect x="200" y="285" width="70" height="28" rx="4" fill="#666"/>
+                                    <text x="235" y="304" text-anchor="middle" font-size="10" fill="#fff">Clear All</text>
+                                    
+                                    <!-- Status -->
+                                    <text x="160" y="340" text-anchor="middle" font-size="11" fill="#666">Tasks: 5</text>
+                                </svg>
+                                <p style="margin-top:10px;font-size:0.9em;color:#666;">Task list with ✓ completed (green) and ☐ pending items, scrollbar, and action buttons</p>
+                            </div>
+                        </div>
+
                         <h3>Example 3: Temperature Converter</h3>
                         <div class="code-example">
                             <div class="code-header">
@@ -1243,6 +1809,86 @@ class TemperatureConverter:
 root = tk.Tk()
 app = TemperatureConverter(root)
 root.mainloop()</code></pre>
+                        </div>
+
+                        <div class="info-box tip">
+                            <h4><i class="fas fa-thermometer-half"></i> Visual Output - Temperature Converter</h4>
+                            <div class="output-visual">
+                                <svg viewBox="0 0 280 220" style="width:100%;max-width:350px;border:1px solid #999;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.15);">
+                                    <!-- Window Frame -->
+                                    <rect x="0" y="0" width="280" height="220" rx="8" fill="#f5f5f5"/>
+                                    <rect x="0" y="0" width="280" height="26" rx="8" fill="#e0e0e0"/>
+                                    <rect x="0" y="18" width="280" height="8" fill="#e0e0e0"/>
+                                    <text x="12" y="17" font-size="10" font-weight="bold">Temperature Converter</text>
+                                    <circle cx="240" cy="13" r="5" fill="#ffbd2e"/>
+                                    <circle cx="255" cy="13" r="5" fill="#27c93f"/>
+                                    <circle cx="225" cy="13" r="5" fill="#ff5f57"/>
+                                    
+                                    <!-- Title -->
+                                    <text x="140" y="55" text-anchor="middle" font-size="14" font-weight="bold">Temperature Converter</text>
+                                    
+                                    <!-- Input Area -->
+                                    <rect x="30" y="70" width="100" height="28" rx="3" fill="#fff" stroke="#999"/>
+                                    <text x="40" y="89" font-size="13">100</text>
+                                    <!-- Dropdown -->
+                                    <rect x="140" y="70" width="110" height="28" rx="3" fill="#fff" stroke="#999"/>
+                                    <text x="150" y="89" font-size="11">Celsius</text>
+                                    <path d="M235,80 L240,87 L245,80" fill="#666"/>
+                                    
+                                    <!-- Convert Button -->
+                                    <rect x="90" y="110" width="100" height="30" rx="4" fill="#4169e1"/>
+                                    <text x="140" y="130" text-anchor="middle" font-size="12" fill="#fff">Convert</text>
+                                    
+                                    <!-- Results -->
+                                    <text x="140" y="165" text-anchor="middle" font-size="11">Celsius: 100.00°C</text>
+                                    <text x="140" y="183" text-anchor="middle" font-size="11">Fahrenheit: 212.00°F</text>
+                                    <text x="140" y="201" text-anchor="middle" font-size="11">Kelvin: 373.15K</text>
+                                </svg>
+                                <p style="margin-top:10px;font-size:0.9em;color:#666;">Input field with dropdown selector, converts to all 3 temperature units at once</p>
+                            </div>
+                        </div>
+
+                        <h3>Tkinter Widgets Summary</h3>
+                        <div class="table-container">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Widget</th>
+                                        <th>Purpose</th>
+                                        <th>Key Properties</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td><code>tk.Tk()</code></td><td>Main application window</td><td>title(), geometry(), mainloop()</td></tr>
+                                    <tr><td><code>tk.Label()</code></td><td>Display text/images</td><td>text, font, fg, bg</td></tr>
+                                    <tr><td><code>tk.Button()</code></td><td>Clickable button</td><td>text, command, bg, fg</td></tr>
+                                    <tr><td><code>tk.Entry()</code></td><td>Single-line text input</td><td>get(), insert(), delete()</td></tr>
+                                    <tr><td><code>tk.Text()</code></td><td>Multi-line text area</td><td>height, width, insert("1.0", text)</td></tr>
+                                    <tr><td><code>tk.Frame()</code></td><td>Container for grouping</td><td>bg, padx, pady</td></tr>
+                                    <tr><td><code>tk.Checkbutton()</code></td><td>Checkbox (multi-select)</td><td>variable=BooleanVar()</td></tr>
+                                    <tr><td><code>tk.Radiobutton()</code></td><td>Radio button (single-select)</td><td>variable=StringVar(), value</td></tr>
+                                    <tr><td><code>tk.Listbox()</code></td><td>Scrollable item list</td><td>insert(), delete(), get()</td></tr>
+                                    <tr><td><code>ttk.Combobox()</code></td><td>Dropdown menu</td><td>values=["a","b"], state="readonly"</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <h3>Layout Methods Comparison</h3>
+                        <div class="table-container">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Method</th>
+                                        <th>Use Case</th>
+                                        <th>Example</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td><code>pack()</code></td><td>Simple vertical/horizontal stacking</td><td>widget.pack(side=tk.LEFT, pady=10)</td></tr>
+                                    <tr><td><code>grid()</code></td><td>Table-like rows and columns</td><td>widget.grid(row=0, column=1, columnspan=2)</td></tr>
+                                    <tr><td><code>place()</code></td><td>Exact pixel positioning</td><td>widget.place(x=100, y=50) or relx=0.5</td></tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
 

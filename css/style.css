@@ -832,6 +832,31 @@ img {
     color: #e65100;
 }
 
+/* ===== Output Visual Styles ===== */
+.output-visual {
+    margin: 15px 0;
+    text-align: center;
+}
+
+.output-visual svg {
+    max-width: 100%;
+    height: auto;
+    display: inline-block;
+}
+
+.output-visual p {
+    margin-top: 10px;
+    font-size: 0.9em;
+    color: #666;
+}
+
+.info-box .output-visual {
+    background: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 15px;
+}
+
 /* ===== Table Styles ===== */
 .table-container {
     overflow-x: auto;
