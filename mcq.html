@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="200 multiple choice questions for Python exam preparation across 5 units">
+    <meta name="description" content="240 multiple choice questions for Python exam preparation across 6 units">
     <title>MCQ Question Bank - Python Learning Hub</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -37,7 +37,7 @@
 
     <header class="unit-header">
         <h1><i class="fas fa-tasks"></i> MCQ Question Bank</h1>
-        <p>200 Multiple Choice Questions for Exam Preparation</p>
+        <p>240 Multiple Choice Questions for Exam Preparation</p>
     </header>
 
     <main id="main-content" class="unit-content">
@@ -52,6 +52,7 @@
                         <option value="3">Unit III - Data Structures</option>
                         <option value="4">Unit IV - Functions & Modules</option>
                         <option value="5">Unit V - File Handling & OOP</option>
+                        <option value="6">Unit VI - NumPy, Pandas, Matplotlib & Tkinter</option>
                     </select>
                 </div>
                 <div class="mcq-stats">
@@ -302,7 +303,56 @@
             { unit: 5, q: "What is @property decorator?", options: ["Creates property", "Getter method decorator", "Setter method", "Class property"], answer: 1 },
             { unit: 5, q: "What is a private attribute?", options: ["_var", "__var", "Both A and B", "private var"], answer: 2 },
             { unit: 5, q: "What is name mangling?", options: ["Renaming variables", "Converting __attr to _Class__attr", "Obfuscation", "Encryption"], answer: 1 },
-            { unit: 5, q: "What is an abstract class?", options: ["Incomplete class", "Cannot be instantiated", "Both A and B", "Complete class"], answer: 2 }
+            { unit: 5, q: "What is an abstract class?", options: ["Incomplete class", "Cannot be instantiated", "Both A and B", "Complete class"], answer: 2 },
+
+            // Unit 6 - NumPy, Pandas, Matplotlib & Tkinter (40 questions)
+            // NumPy (10 questions)
+            { unit: 6, q: "What is NumPy primarily used for?", options: ["Web development", "Numerical computing", "Database management", "GUI development"], answer: 1 },
+            { unit: 6, q: "What is the main data structure in NumPy?", options: ["List", "Dictionary", "ndarray", "DataFrame"], answer: 2 },
+            { unit: 6, q: "How do you create a NumPy array?", options: ["np.array([1,2,3])", "numpy.list([1,2,3])", "np.create([1,2,3])", "numpy.make([1,2,3])"], answer: 0 },
+            { unit: 6, q: "What does np.zeros((3,3)) create?", options: ["3x3 array of ones", "3x3 array of zeros", "Empty 3x3 array", "3x3 identity matrix"], answer: 1 },
+            { unit: 6, q: "What is the shape attribute in NumPy?", options: ["Size of array", "Dimensions as tuple", "Data type", "Memory size"], answer: 1 },
+            { unit: 6, q: "How do you get the number of dimensions of an array?", options: ["arr.dim", "arr.ndim", "arr.dimensions", "len(arr.shape)"], answer: 1 },
+            { unit: 6, q: "What does np.arange(0, 10, 2) return?", options: ["[0,2,4,6,8]", "[0,1,2,3,4,5,6,7,8,9]", "[2,4,6,8,10]", "[0,10,2]"], answer: 0 },
+            { unit: 6, q: "What is array broadcasting in NumPy?", options: ["Sending arrays", "Operating on arrays of different shapes", "Copying arrays", "Printing arrays"], answer: 1 },
+            { unit: 6, q: "How do you reshape an array?", options: ["arr.shape()", "arr.reshape()", "np.shape(arr)", "arr.resize()"], answer: 1 },
+            { unit: 6, q: "What does np.linspace(0, 1, 5) do?", options: ["Creates 5 evenly spaced values between 0 and 1", "Creates array [0,1,5]", "Creates 5 random values", "Creates empty array"], answer: 0 },
+
+            // Pandas (12 questions)
+            { unit: 6, q: "What is Pandas primarily used for?", options: ["Image processing", "Data analysis and manipulation", "Machine learning", "Web scraping"], answer: 1 },
+            { unit: 6, q: "What are the two main data structures in Pandas?", options: ["Array and Matrix", "Series and DataFrame", "List and Dictionary", "Table and Row"], answer: 1 },
+            { unit: 6, q: "How do you read a CSV file in Pandas?", options: ["pd.read_csv()", "pd.load_csv()", "pd.open_csv()", "pd.csv_read()"], answer: 0 },
+            { unit: 6, q: "What is a Pandas Series?", options: ["2D array", "1D labeled array", "3D array", "Dictionary"], answer: 1 },
+            { unit: 6, q: "How do you select a column 'name' from DataFrame df?", options: ["df.name", "df['name']", "Both A and B", "df.get('name')"], answer: 2 },
+            { unit: 6, q: "What does df.head() return?", options: ["Last 5 rows", "First 5 rows", "All rows", "Column names"], answer: 1 },
+            { unit: 6, q: "How do you get basic statistics of a DataFrame?", options: ["df.stats()", "df.describe()", "df.info()", "df.summary()"], answer: 1 },
+            { unit: 6, q: "What does df.dropna() do?", options: ["Drops columns", "Drops rows with missing values", "Drops duplicates", "Drops index"], answer: 1 },
+            { unit: 6, q: "How do you filter rows where column 'age' > 25?", options: ["df[df['age'] > 25]", "df.filter(age > 25)", "df.where(age > 25)", "df.select(age > 25)"], answer: 0 },
+            { unit: 6, q: "What is df.iloc[] used for?", options: ["Label-based indexing", "Integer-based indexing", "Boolean indexing", "Random indexing"], answer: 1 },
+            { unit: 6, q: "What is df.loc[] used for?", options: ["Integer-based indexing", "Label-based indexing", "Position indexing", "Slice indexing"], answer: 1 },
+            { unit: 6, q: "How do you merge two DataFrames?", options: ["df.join()", "pd.merge()", "df.concat()", "All of the above"], answer: 3 },
+
+            // Matplotlib (10 questions)
+            { unit: 6, q: "What is Matplotlib used for?", options: ["Data storage", "Data visualization", "Data cleaning", "Data collection"], answer: 1 },
+            { unit: 6, q: "Which module is commonly imported as plt?", options: ["matplotlib", "matplotlib.pyplot", "matplotlib.plot", "matplotlib.graph"], answer: 1 },
+            { unit: 6, q: "How do you create a line plot?", options: ["plt.line(x, y)", "plt.plot(x, y)", "plt.draw(x, y)", "plt.graph(x, y)"], answer: 1 },
+            { unit: 6, q: "What does plt.show() do?", options: ["Saves the plot", "Displays the plot", "Clears the plot", "Creates new plot"], answer: 1 },
+            { unit: 6, q: "How do you create a bar chart?", options: ["plt.bar(x, y)", "plt.barh(x, y)", "plt.bars(x, y)", "plt.barchart(x, y)"], answer: 0 },
+            { unit: 6, q: "What function creates a pie chart?", options: ["plt.pie()", "plt.circle()", "plt.piechart()", "plt.round()"], answer: 0 },
+            { unit: 6, q: "How do you add a title to a plot?", options: ["plt.name()", "plt.title()", "plt.heading()", "plt.label()"], answer: 1 },
+            { unit: 6, q: "What does plt.xlabel() do?", options: ["Labels the x-axis", "Labels the y-axis", "Labels the title", "Labels the legend"], answer: 0 },
+            { unit: 6, q: "How do you create subplots?", options: ["plt.subplot()", "plt.subplots()", "Both A and B", "plt.multi()"], answer: 2 },
+            { unit: 6, q: "How do you save a figure to file?", options: ["plt.save()", "plt.savefig()", "plt.export()", "plt.write()"], answer: 1 },
+
+            // Tkinter (8 questions)
+            { unit: 6, q: "What is Tkinter used for?", options: ["Web development", "GUI development", "Data analysis", "Machine learning"], answer: 1 },
+            { unit: 6, q: "How do you create a main window in Tkinter?", options: ["tk.Window()", "tk.Tk()", "tk.Main()", "tk.Root()"], answer: 1 },
+            { unit: 6, q: "What method starts the Tkinter event loop?", options: ["root.start()", "root.mainloop()", "root.run()", "root.begin()"], answer: 1 },
+            { unit: 6, q: "Which widget is used to display text?", options: ["tk.Text", "tk.Label", "tk.Display", "tk.Show"], answer: 1 },
+            { unit: 6, q: "Which widget creates a clickable button?", options: ["tk.Click", "tk.Button", "tk.Press", "tk.Action"], answer: 1 },
+            { unit: 6, q: "What is the pack() method used for?", options: ["Compress widget", "Geometry manager for layout", "Remove widget", "Hide widget"], answer: 1 },
+            { unit: 6, q: "Which geometry manager uses row and column?", options: ["pack()", "place()", "grid()", "layout()"], answer: 2 },
+            { unit: 6, q: "How do you set window title?", options: ["root.name()", "root.title()", "root.heading()", "root.label()"], answer: 1 }
         ];
 
         let answeredQuestions = {};
