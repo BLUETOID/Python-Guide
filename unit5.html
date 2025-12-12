@@ -519,27 +519,32 @@ plt.show()</code></pre>
                         <div class="info-box tip">
                             <h4><i class="fas fa-image"></i> Visual Output - Line Plot</h4>
                             <div class="output-visual">
-                                <svg viewBox="0 0 400 200" style="width:100%;max-width:500px;background:#fff;border:1px solid #ddd;border-radius:8px;">
+                                <svg viewBox="0 0 400 220" style="width:100%;max-width:500px;background:#fff;border:1px solid #ddd;border-radius:8px;">
                                     <!-- Axes -->
                                     <line x1="50" y1="170" x2="380" y2="170" stroke="#333" stroke-width="2"/>
-                                    <line x1="50" y1="170" x2="50" y2="20" stroke="#333" stroke-width="2"/>
+                                    <line x1="50" y1="170" x2="50" y2="30" stroke="#333" stroke-width="2"/>
                                     <!-- Grid lines -->
-                                    <line x1="50" y1="95" x2="380" y2="95" stroke="#eee" stroke-width="1"/>
-                                    <!-- Sine wave (blue) -->
-                                    <path d="M50,95 Q100,30 150,95 T250,95 T350,95" fill="none" stroke="#1f77b4" stroke-width="3"/>
+                                    <line x1="50" y1="100" x2="380" y2="100" stroke="#eee" stroke-width="1" stroke-dasharray="4"/>
+                                    <!-- Y axis labels -->
+                                    <text x="45" y="35" text-anchor="end" font-size="9" fill="#666">1</text>
+                                    <text x="45" y="105" text-anchor="end" font-size="9" fill="#666">0</text>
+                                    <text x="45" y="175" text-anchor="end" font-size="9" fill="#666">-1</text>
+                                    <!-- Sine wave (blue) - smooth curve -->
+                                    <path d="M50,100 C80,40 110,40 130,100 S180,160 210,100 S260,40 290,100 S340,160 370,100" fill="none" stroke="#1f77b4" stroke-width="2.5"/>
                                     <!-- Cosine wave (red dashed) -->
-                                    <path d="M50,30 Q100,95 150,160 T250,160 T350,30" fill="none" stroke="#d62728" stroke-width="2" stroke-dasharray="8,4"/>
-                                    <!-- Labels -->
-                                    <text x="200" y="195" text-anchor="middle" font-size="12" fill="#333">X axis (0 to 2π)</text>
-                                    <text x="25" y="95" text-anchor="middle" font-size="12" fill="#333" transform="rotate(-90,25,95)">Y axis</text>
+                                    <path d="M50,40 C80,100 110,160 130,160 S180,100 210,40 S260,40 290,100 S340,160 370,160" fill="none" stroke="#d62728" stroke-width="2" stroke-dasharray="8,4"/>
+                                    <!-- X axis label -->
+                                    <text x="215" y="195" text-anchor="middle" font-size="11" fill="#333">X axis (0 to 2π)</text>
+                                    <!-- Y axis label -->
+                                    <text x="20" y="100" text-anchor="middle" font-size="11" fill="#333" transform="rotate(-90,20,100)">Y axis</text>
                                     <!-- Legend -->
-                                    <rect x="290" y="25" width="90" height="45" fill="#fff" stroke="#ccc"/>
-                                    <line x1="295" y1="40" x2="325" y2="40" stroke="#1f77b4" stroke-width="3"/>
-                                    <text x="330" y="44" font-size="10" fill="#333">sin(x)</text>
-                                    <line x1="295" y1="58" x2="325" y2="58" stroke="#d62728" stroke-width="2" stroke-dasharray="5,3"/>
-                                    <text x="330" y="62" font-size="10" fill="#333">cos(x)</text>
+                                    <rect x="295" y="35" width="85" height="45" fill="#fff" stroke="#ccc" rx="3"/>
+                                    <line x1="302" y1="50" x2="330" y2="50" stroke="#1f77b4" stroke-width="2.5"/>
+                                    <text x="337" y="54" font-size="10" fill="#333">sin(x)</text>
+                                    <line x1="302" y1="68" x2="330" y2="68" stroke="#d62728" stroke-width="2" stroke-dasharray="5,3"/>
+                                    <text x="337" y="72" font-size="10" fill="#333">cos(x)</text>
                                 </svg>
-                                <p style="margin-top:10px;font-size:0.9em;color:#666;">Blue sine wave oscillates smoothly, red dashed cosine wave is phase-shifted by 90°</p>
+                                <p style="margin-top:10px;font-size:0.9em;color:#666;">Blue solid line = sin(x), Red dashed line = cos(x), both oscillating between -1 and 1</p>
                             </div>
                         </div>
 
@@ -623,19 +628,23 @@ plt.show()</code></pre>
                                 <div style="text-align:center;">
                                     <svg viewBox="0 0 200 150" style="width:100%;max-width:200px;background:#fff;border:1px solid #ddd;border-radius:8px;">
                                         <text x="100" y="15" text-anchor="middle" font-size="10" font-weight="bold">Pie Chart</text>
-                                        <!-- Pie slices -->
-                                        <circle cx="90" cy="80" r="50" fill="#ff7f0e" stroke="#fff" stroke-width="2"/>
-                                        <path d="M90,80 L90,30 A50,50 0 0,1 130,55 Z" fill="#1f77b4"/>
-                                        <path d="M90,80 L130,55 A50,50 0 0,1 140,90 Z" fill="#2ca02c"/>
-                                        <path d="M90,80 L140,90 A50,50 0 0,1 100,130 Z" fill="#d62728"/>
-                                        <path d="M90,80 L100,130 A50,50 0 0,1 50,110 Z" fill="#9467bd"/>
-                                        <!-- Exploded slice -->
-                                        <path d="M95,75 L95,20 A55,55 0 0,1 140,50 Z" fill="#1f77b4" transform="translate(5,-5)"/>
-                                        <text x="115" y="35" font-size="7" fill="#fff">30%</text>
+                                        <!-- Pie slices - simple clean design -->
+                                        <circle cx="80" cy="82" r="45" fill="#ff7f0e"/>
+                                        <path d="M80,82 L80,37 A45,45 0 0,1 118,60 Z" fill="#1f77b4"/>
+                                        <path d="M80,82 L118,60 A45,45 0 0,1 120,95 Z" fill="#2ca02c"/>
+                                        <path d="M80,82 L120,95 A45,45 0 0,1 90,125 Z" fill="#d62728"/>
+                                        <path d="M80,82 L90,125 A45,45 0 0,1 40,105 Z" fill="#9467bd"/>
                                         <!-- Legend -->
-                                        <text x="155" y="50" font-size="7">Python</text>
-                                        <text x="155" y="65" font-size="7">JS</text>
-                                        <text x="155" y="80" font-size="7">Java</text>
+                                        <rect x="135" y="40" width="8" height="8" fill="#1f77b4"/>
+                                        <text x="147" y="48" font-size="8">Python</text>
+                                        <rect x="135" y="55" width="8" height="8" fill="#2ca02c"/>
+                                        <text x="147" y="63" font-size="8">JS</text>
+                                        <rect x="135" y="70" width="8" height="8" fill="#d62728"/>
+                                        <text x="147" y="78" font-size="8">Java</text>
+                                        <rect x="135" y="85" width="8" height="8" fill="#9467bd"/>
+                                        <text x="147" y="93" font-size="8">C++</text>
+                                        <rect x="135" y="100" width="8" height="8" fill="#ff7f0e"/>
+                                        <text x="147" y="108" font-size="8">Other</text>
                                     </svg>
                                     <p style="font-size:0.8em;color:#666;margin-top:5px;">Slices show proportions</p>
                                 </div>
@@ -790,14 +799,19 @@ plt.show()</code></pre>
                                     <!-- Bottom-right: Pie Chart -->
                                     <rect x="230" y="180" width="190" height="130" fill="#f8f8f8" stroke="#ccc"/>
                                     <text x="325" y="195" text-anchor="middle" font-size="10" font-weight="bold">Pie Chart</text>
-                                    <circle cx="325" cy="255" r="45" fill="#ff7f0e"/>
-                                    <path d="M325,255 L325,210 A45,45 0 0,1 365,235 Z" fill="#1f77b4"/>
-                                    <path d="M325,255 L365,235 A45,45 0 0,1 355,295 Z" fill="#2ca02c"/>
-                                    <path d="M325,255 L355,295 A45,45 0 0,1 295,280 Z" fill="#d62728"/>
-                                    <text x="345" y="225" font-size="7" fill="#fff">35%</text>
-                                    <text x="355" y="260" font-size="7" fill="#fff">30%</text>
-                                    <text x="320" y="290" font-size="7" fill="#fff">20%</text>
-                                    <text x="300" y="250" font-size="7" fill="#fff">15%</text>
+                                    <circle cx="310" cy="255" r="40" fill="#ff7f0e"/>
+                                    <path d="M310,255 L310,215 A40,40 0 0,1 345,235 Z" fill="#1f77b4"/>
+                                    <path d="M310,255 L345,235 A40,40 0 0,1 340,290 Z" fill="#2ca02c"/>
+                                    <path d="M310,255 L340,290 A40,40 0 0,1 280,275 Z" fill="#d62728"/>
+                                    <!-- Legend instead of overlapping text -->
+                                    <rect x="360" y="215" width="10" height="10" fill="#1f77b4"/>
+                                    <text x="375" y="224" font-size="8">A</text>
+                                    <rect x="360" y="230" width="10" height="10" fill="#2ca02c"/>
+                                    <text x="375" y="239" font-size="8">B</text>
+                                    <rect x="360" y="245" width="10" height="10" fill="#d62728"/>
+                                    <text x="375" y="254" font-size="8">C</text>
+                                    <rect x="360" y="260" width="10" height="10" fill="#ff7f0e"/>
+                                    <text x="375" y="269" font-size="8">D</text>
                                 </svg>
                                 <p style="margin-top:10px;font-size:0.9em;color:#666;"><code>plt.tight_layout()</code> adjusts spacing to prevent overlap. <code>plt.savefig('file.png', dpi=300)</code> saves as high-quality image.</p>
                             </div>
@@ -938,37 +952,37 @@ root.mainloop()</code></pre>
                         <div class="info-box tip">
                             <h4><i class="fas fa-cog"></i> Visual Output - Window Configuration</h4>
                             <div class="output-visual">
-                                <svg viewBox="0 0 500 300" style="width:100%;max-width:600px;background:#e8e8e8;border:1px solid #999;border-radius:8px;padding:10px;">
+                                <svg viewBox="0 0 400 250" style="width:100%;max-width:500px;background:#e8e8e8;border:1px solid #999;border-radius:8px;">
                                     <!-- Desktop background representation -->
-                                    <text x="10" y="20" font-size="10" fill="#666">Desktop (screen coordinates)</text>
+                                    <text x="15" y="20" font-size="11" fill="#555">Desktop Screen</text>
                                     
                                     <!-- Position indicators -->
-                                    <line x1="0" y1="50" x2="50" y2="50" stroke="#ff6b6b" stroke-width="2" stroke-dasharray="4"/>
-                                    <text x="20" y="45" font-size="9" fill="#ff6b6b">100px</text>
-                                    <line x1="50" y1="0" x2="50" y2="50" stroke="#4ecdc4" stroke-width="2" stroke-dasharray="4"/>
-                                    <text x="55" y="30" font-size="9" fill="#4ecdc4">100px</text>
+                                    <line x1="10" y1="55" x2="55" y2="55" stroke="#ff6b6b" stroke-width="2" stroke-dasharray="4"/>
+                                    <text x="25" y="48" font-size="9" fill="#ff6b6b">100px</text>
+                                    <line x1="55" y1="30" x2="55" y2="55" stroke="#4ecdc4" stroke-width="2" stroke-dasharray="4"/>
+                                    <text x="60" y="45" font-size="9" fill="#4ecdc4">100px</text>
                                     
                                     <!-- Window at position -->
-                                    <rect x="50" y="50" width="300" height="220" rx="6" fill="#f5f5f5" stroke="#999" stroke-width="2" opacity="0.9"/>
+                                    <rect x="55" y="55" width="220" height="160" rx="6" fill="#f5f5f5" stroke="#666" stroke-width="2"/>
                                     <!-- Title bar -->
-                                    <rect x="50" y="50" width="300" height="24" rx="6" fill="#d0d0d0"/>
-                                    <rect x="50" y="66" width="300" height="8" fill="#d0d0d0"/>
-                                    <text x="62" y="66" font-size="10" font-weight="bold">Configured Window</text>
-                                    <circle cx="320" cy="62" r="5" fill="#ff5f57"/>
-                                    <circle cx="335" cy="62" r="5" fill="#ffbd2e"/>
+                                    <rect x="55" y="55" width="220" height="22" rx="6" fill="#d0d0d0"/>
+                                    <rect x="55" y="70" width="220" height="7" fill="#d0d0d0"/>
+                                    <text x="67" y="70" font-size="9" font-weight="bold">Configured Window</text>
+                                    <circle cx="250" cy="66" r="4" fill="#ff5f57"/>
+                                    <circle cx="262" cy="66" r="4" fill="#ffbd2e"/>
                                     
                                     <!-- Size indicators -->
-                                    <line x1="50" y1="280" x2="350" y2="280" stroke="#1f77b4" stroke-width="2"/>
-                                    <text x="180" y="295" font-size="10" fill="#1f77b4">500px (width)</text>
-                                    <line x1="360" y1="50" x2="360" y2="270" stroke="#2ca02c" stroke-width="2"/>
-                                    <text x="370" y="165" font-size="10" fill="#2ca02c">400px</text>
+                                    <line x1="55" y1="225" x2="275" y2="225" stroke="#1f77b4" stroke-width="2"/>
+                                    <text x="145" y="240" font-size="9" fill="#1f77b4">500px width</text>
+                                    <line x1="285" y1="55" x2="285" y2="215" stroke="#2ca02c" stroke-width="2"/>
+                                    <text x="292" y="140" font-size="9" fill="#2ca02c">400px</text>
                                     
                                     <!-- Alpha transparency demo -->
-                                    <rect x="380" y="80" width="100" height="60" fill="#666"/>
-                                    <text x="390" y="100" font-size="9" fill="#fff">Behind</text>
-                                    <rect x="400" y="100" width="80" height="50" rx="4" fill="#add8e6" opacity="0.95" stroke="#333"/>
-                                    <text x="410" y="130" font-size="9">alpha=0.95</text>
-                                    <text x="385" y="170" font-size="8" fill="#666">Slightly see-through</text>
+                                    <rect x="310" y="70" width="70" height="45" fill="#555" rx="3"/>
+                                    <text x="325" y="90" font-size="8" fill="#fff">Behind</text>
+                                    <rect x="320" y="85" width="60" height="40" rx="4" fill="#add8e6" opacity="0.9" stroke="#333"/>
+                                    <text x="328" y="108" font-size="7">alpha=0.9</text>
+                                    <text x="310" y="145" font-size="8" fill="#666">See-through</text>
                                 </svg>
                                 <p style="margin-top:10px;font-size:0.9em;color:#666;"><code>geometry("500x400+100+100")</code> positions window 100px from left edge and 100px from top of screen</p>
                             </div>
@@ -1715,20 +1729,20 @@ root.mainloop()</code></pre>
                                     <rect x="277" y="115" width="8" height="40" rx="4" fill="#bbb"/>
                                     
                                     <!-- Tasks -->
+                                    <rect x="35" y="147" width="230" height="20" fill="#cce5ff" opacity="0.6"/>
                                     <text x="45" y="135" font-size="12" fill="#228b22">✓ Buy groceries</text>
                                     <text x="45" y="160" font-size="12">☐ Finish Python project</text>
-                                    <rect x="35" y="145" width="230" height="22" fill="#e8f5e9" opacity="0.5"/>
                                     <text x="45" y="185" font-size="12">☐ Call dentist</text>
                                     <text x="45" y="210" font-size="12" fill="#228b22">✓ Read chapter 5</text>
                                     <text x="45" y="235" font-size="12">☐ Submit assignment</text>
                                     
                                     <!-- Action Buttons -->
-                                    <rect x="30" y="285" width="95" height="28" rx="4" fill="#4169e1"/>
-                                    <text x="77" y="304" text-anchor="middle" font-size="9" fill="#fff">Mark Complete</text>
-                                    <rect x="132" y="285" width="60" height="28" rx="4" fill="#dc143c"/>
-                                    <text x="162" y="304" text-anchor="middle" font-size="10" fill="#fff">Delete</text>
-                                    <rect x="200" y="285" width="70" height="28" rx="4" fill="#666"/>
-                                    <text x="235" y="304" text-anchor="middle" font-size="10" fill="#fff">Clear All</text>
+                                    <rect x="30" y="285" width="80" height="28" rx="4" fill="#4169e1"/>
+                                    <text x="70" y="303" text-anchor="middle" font-size="8" fill="#fff">Mark Complete</text>
+                                    <rect x="118" y="285" width="55" height="28" rx="4" fill="#dc143c"/>
+                                    <text x="145" y="303" text-anchor="middle" font-size="9" fill="#fff">Delete</text>
+                                    <rect x="181" y="285" width="60" height="28" rx="4" fill="#666"/>
+                                    <text x="211" y="303" text-anchor="middle" font-size="9" fill="#fff">Clear All</text>
                                     
                                     <!-- Status -->
                                     <text x="160" y="340" text-anchor="middle" font-size="11" fill="#666">Tasks: 5</text>
