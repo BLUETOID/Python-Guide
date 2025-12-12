@@ -1,0 +1,1501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit V - Python Packages & GUI | Python Learning Hub</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <i class="fab fa-python"></i> Python Hub
+            </a>
+            <button class="nav-toggle" id="navToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="unit1.html">Unit I</a></li>
+                <li><a href="unit2.html">Unit II</a></li>
+                <li><a href="unit3.html">Unit III</a></li>
+                <li><a href="unit4.html">Unit IV</a></li>
+                <li><a href="unit5.html" class="active">Unit V</a></li>
+                <li class="nav-divider"></li>
+                <li><a href="extras.html">Extras</a></li>
+                <li><a href="practice.html">Practice</a></li>
+                <li><a href="theory.html">Theory</a></li>
+                <li><a href="comparisons.html">Compare</a></li>
+                <li><a href="errors.html">Errors</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="unit-header">
+        <div class="container">
+            <h1><i class="fas fa-cubes"></i> Unit V: Python Packages & GUI Programming</h1>
+            <p>NumPy, Pandas, Matplotlib, and Tkinter GUI Development</p>
+        </div>
+    </header>
+
+    <section class="unit-content">
+        <div class="container">
+            <div class="page-layout">
+                <aside class="sidebar">
+                    <h3>Topics</h3>
+                    <nav class="sidebar-nav">
+                        <a href="#packages">Python Packages</a>
+                        <a href="#numpy">NumPy</a>
+                        <a href="#pandas">Pandas</a>
+                        <a href="#matplotlib">Matplotlib</a>
+                        <a href="#tkinter-intro">Tkinter Introduction</a>
+                        <a href="#tk-widgets">Tk Widgets</a>
+                        <a href="#tkinter-examples">Tkinter Examples</a>
+                        <a href="#ide">Python IDE</a>
+                    </nav>
+                </aside>
+
+                <main class="main-content">
+                    <!-- Python Packages -->
+                    <div class="topic-section" id="packages">
+                        <h2><i class="fas fa-box-open"></i> Python Packages</h2>
+                        <p>Packages are collections of modules that extend Python's functionality. Python has a rich ecosystem of packages for various purposes.</p>
+
+                        <h3>Installing Packages</h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>Terminal Commands</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python"># Install packages using pip (Python Package Installer)
+
+# Basic installation
+# pip install numpy
+# pip install pandas
+# pip install matplotlib
+
+# Install specific version
+# pip install numpy==1.21.0
+
+# Install multiple packages
+# pip install numpy pandas matplotlib
+
+# Upgrade package
+# pip install --upgrade numpy
+
+# List installed packages
+# pip list
+
+# Uninstall package
+# pip uninstall numpy</code></pre>
+                        </div>
+
+                        <h3>Importing Packages</h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>importing.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python"># Different ways to import
+
+# Import entire module
+import numpy
+arr = numpy.array([1, 2, 3])
+
+# Import with alias (common practice)
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+
+arr = np.array([1, 2, 3])
+
+# Import specific functions
+from numpy import array, zeros, ones
+arr = array([1, 2, 3])
+
+# Import everything (not recommended)
+from numpy import *
+arr = array([1, 2, 3])</code></pre>
+                        </div>
+
+                        <div class="info-box note">
+                            <h4><i class="fas fa-info-circle"></i> Note</h4>
+                            <p>Before running the code examples below, make sure you have installed the required packages using pip.</p>
+                        </div>
+                    </div>
+
+                    <!-- NumPy Section -->
+                    <div class="topic-section" id="numpy">
+                        <h2><i class="fas fa-calculator"></i> NumPy - Numerical Python</h2>
+                        <p>NumPy is the fundamental package for numerical computing in Python. It provides support for large, multi-dimensional arrays and matrices.</p>
+
+                        <h3>Creating Arrays</h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>numpy_arrays.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python">import numpy as np
+
+# Creating arrays from lists
+arr1 = np.array([1, 2, 3, 4, 5])
+print("1D Array:", arr1)
+
+# 2D Array (matrix)
+arr2 = np.array([[1, 2, 3], [4, 5, 6]])
+print("2D Array:\n", arr2)
+
+# Special arrays
+zeros = np.zeros((3, 4))      # 3x4 array of zeros
+print("Zeros:\n", zeros)
+
+ones = np.ones((2, 3))        # 2x3 array of ones
+print("Ones:\n", ones)
+
+identity = np.eye(3)          # 3x3 identity matrix
+print("Identity:\n", identity)
+
+# Range arrays
+range_arr = np.arange(0, 10, 2)  # Start, stop, step
+print("Range:", range_arr)  # [0 2 4 6 8]
+
+# Evenly spaced values
+linspace = np.linspace(0, 1, 5)  # 5 values from 0 to 1
+print("Linspace:", linspace)  # [0.   0.25 0.5  0.75 1.  ]
+
+# Random arrays
+random_arr = np.random.rand(3, 3)  # 3x3 random values (0-1)
+print("Random:\n", random_arr)
+
+random_int = np.random.randint(1, 100, size=(3, 3))  # Random integers
+print("Random Integers:\n", random_int)</code></pre>
+                        </div>
+
+                        <h3>Array Attributes and Indexing</h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>numpy_attributes.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python">import numpy as np
+
+arr = np.array([[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]])
+
+# Array attributes
+print("Shape:", arr.shape)      # (3, 4) - 3 rows, 4 columns
+print("Dimensions:", arr.ndim)  # 2
+print("Size:", arr.size)        # 12 (total elements)
+print("Data type:", arr.dtype)  # int64
+
+# Indexing
+print("\nIndexing:")
+print("Element [0,0]:", arr[0, 0])  # 1
+print("Element [1,2]:", arr[1, 2])  # 7
+print("Last element:", arr[-1, -1]) # 12
+
+# Slicing
+print("\nSlicing:")
+print("First row:", arr[0])          # [1 2 3 4]
+print("First column:", arr[:, 0])    # [1 5 9]
+print("Subarray:", arr[0:2, 1:3])    # [[2 3] [6 7]]
+
+# Boolean indexing
+print("\nBoolean indexing:")
+print("Elements > 5:", arr[arr > 5])  # [6 7 8 9 10 11 12]
+
+# Reshape
+reshaped = arr.reshape(4, 3)
+print("\nReshaped (4x3):\n", reshaped)
+
+# Flatten
+flat = arr.flatten()
+print("Flattened:", flat)  # [1 2 3 4 5 6 7 8 9 10 11 12]</code></pre>
+                        </div>
+
+                        <h3>Array Operations</h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>numpy_operations.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python">import numpy as np
+
+# Arithmetic operations (element-wise)
+a = np.array([1, 2, 3, 4])
+b = np.array([5, 6, 7, 8])
+
+print("Addition:", a + b)        # [6 8 10 12]
+print("Subtraction:", a - b)     # [-4 -4 -4 -4]
+print("Multiplication:", a * b)  # [5 12 21 32]
+print("Division:", b / a)        # [5. 3. 2.33... 2.]
+print("Power:", a ** 2)          # [1 4 9 16]
+
+# Scalar operations
+print("\nScalar operations:")
+print("a + 10:", a + 10)     # [11 12 13 14]
+print("a * 2:", a * 2)       # [2 4 6 8]
+
+# Mathematical functions
+print("\nMath functions:")
+print("Square root:", np.sqrt(a))     # [1. 1.41... 1.73... 2.]
+print("Exponential:", np.exp(a))      # [2.72 7.39 20.09 54.60]
+print("Logarithm:", np.log(a))        # [0. 0.69 1.10 1.39]
+print("Sin:", np.sin(a))
+
+# Aggregate functions
+arr = np.array([[1, 2, 3], [4, 5, 6]])
+print("\nAggregate functions:")
+print("Sum:", np.sum(arr))        # 21
+print("Mean:", np.mean(arr))      # 3.5
+print("Max:", np.max(arr))        # 6
+print("Min:", np.min(arr))        # 1
+print("Std Dev:", np.std(arr))    # 1.707...
+
+# Axis-wise operations
+print("\nAxis operations:")
+print("Sum (rows):", np.sum(arr, axis=1))    # [6 15]
+print("Sum (columns):", np.sum(arr, axis=0)) # [5 7 9]
+print("Mean (rows):", np.mean(arr, axis=1))  # [2. 5.]
+
+# Matrix operations
+A = np.array([[1, 2], [3, 4]])
+B = np.array([[5, 6], [7, 8]])
+
+print("\nMatrix operations:")
+print("Matrix multiply:\n", np.dot(A, B))  # or A @ B
+print("Transpose:\n", A.T)
+print("Determinant:", np.linalg.det(A))</code></pre>
+                        </div>
+                    </div>
+
+                    <!-- Pandas Section -->
+                    <div class="topic-section" id="pandas">
+                        <h2><i class="fas fa-table"></i> Pandas - Data Analysis</h2>
+                        <p>Pandas is a powerful data manipulation and analysis library. It provides DataFrame and Series data structures for handling structured data.</p>
+
+                        <h3>Series and DataFrame</h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>pandas_basics.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python">import pandas as pd
+import numpy as np
+
+# Series - 1D labeled array
+s = pd.Series([10, 20, 30, 40, 50])
+print("Series:")
+print(s)
+
+# Series with custom index
+s = pd.Series([10, 20, 30], index=['a', 'b', 'c'])
+print("\nSeries with index:")
+print(s)
+print("Access 'b':", s['b'])  # 20
+
+# DataFrame - 2D labeled data structure
+data = {
+    'Name': ['Alice', 'Bob', 'Charlie', 'David'],
+    'Age': [25, 30, 35, 28],
+    'City': ['New York', 'Boston', 'Chicago', 'Seattle'],
+    'Salary': [50000, 60000, 75000, 55000]
+}
+
+df = pd.DataFrame(data)
+print("\nDataFrame:")
+print(df)
+
+# DataFrame from list of lists
+data = [
+    ['Alice', 25, 'New York'],
+    ['Bob', 30, 'Boston'],
+    ['Charlie', 35, 'Chicago']
+]
+df = pd.DataFrame(data, columns=['Name', 'Age', 'City'])
+print("\nFrom list:")
+print(df)</code></pre>
+                        </div>
+
+                        <h3>Reading and Writing Data</h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>pandas_io.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python">import pandas as pd
+
+# Create sample DataFrame
+df = pd.DataFrame({
+    'Name': ['Alice', 'Bob', 'Charlie'],
+    'Age': [25, 30, 35],
+    'Score': [85, 92, 78]
+})
+
+# Save to CSV
+df.to_csv('students.csv', index=False)
+print("Saved to CSV")
+
+# Read from CSV
+df_read = pd.read_csv('students.csv')
+print("\nRead from CSV:")
+print(df_read)
+
+# Save to Excel (requires openpyxl)
+# df.to_excel('students.xlsx', index=False)
+
+# Read from Excel
+# df_excel = pd.read_excel('students.xlsx')
+
+# Read from JSON
+# df_json = pd.read_json('data.json')
+
+# Display first/last rows
+print("\nFirst 2 rows:")
+print(df.head(2))
+
+print("\nLast 2 rows:")
+print(df.tail(2))
+
+# DataFrame info
+print("\nInfo:")
+print(df.info())
+
+print("\nStatistics:")
+print(df.describe())</code></pre>
+                        </div>
+
+                        <h3>Data Selection and Filtering</h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>pandas_selection.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python">import pandas as pd
+
+df = pd.DataFrame({
+    'Name': ['Alice', 'Bob', 'Charlie', 'David', 'Eve'],
+    'Age': [25, 30, 35, 28, 32],
+    'City': ['NYC', 'Boston', 'NYC', 'Seattle', 'Boston'],
+    'Salary': [50000, 60000, 75000, 55000, 65000]
+})
+
+# Column selection
+print("Names:", df['Name'].tolist())
+print("\nMultiple columns:")
+print(df[['Name', 'Age']])
+
+# Row selection with iloc (index-based)
+print("\nFirst row:")
+print(df.iloc[0])
+
+print("\nRows 1-3:")
+print(df.iloc[1:4])
+
+# Row selection with loc (label-based)
+df.index = ['a', 'b', 'c', 'd', 'e']
+print("\nRow 'b':")
+print(df.loc['b'])
+
+# Conditional filtering
+print("\nAge > 28:")
+print(df[df['Age'] > 28])
+
+print("\nNYC residents:")
+print(df[df['City'] == 'NYC'])
+
+# Multiple conditions
+print("\nAge > 25 AND Salary > 55000:")
+print(df[(df['Age'] > 25) & (df['Salary'] > 55000)])
+
+# Query method (alternative)
+print("\nUsing query:")
+print(df.query('Age > 30'))</code></pre>
+                        </div>
+
+                        <h3>Data Manipulation</h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>pandas_manipulation.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python">import pandas as pd
+import numpy as np
+
+df = pd.DataFrame({
+    'Name': ['Alice', 'Bob', 'Charlie', 'David'],
+    'Age': [25, 30, None, 28],
+    'Salary': [50000, 60000, 75000, 55000],
+    'Department': ['IT', 'HR', 'IT', 'Finance']
+})
+
+# Adding new column
+df['Bonus'] = df['Salary'] * 0.1
+print("With Bonus column:")
+print(df)
+
+# Modifying column
+df['Age'] = df['Age'].fillna(df['Age'].mean())
+print("\nFilled missing age:")
+print(df)
+
+# Dropping columns
+df_dropped = df.drop('Bonus', axis=1)
+print("\nDropped Bonus:")
+print(df_dropped)
+
+# Sorting
+print("\nSorted by Age:")
+print(df.sort_values('Age'))
+
+print("\nSorted by multiple columns:")
+print(df.sort_values(['Department', 'Salary'], ascending=[True, False]))
+
+# Grouping
+print("\nGrouped by Department:")
+print(df.groupby('Department')['Salary'].mean())
+
+# Aggregation
+print("\nMultiple aggregations:")
+print(df.groupby('Department').agg({
+    'Salary': ['mean', 'sum'],
+    'Age': 'mean'
+}))
+
+# Apply function
+df['Salary_Category'] = df['Salary'].apply(
+    lambda x: 'High' if x > 55000 else 'Low'
+)
+print("\nWith category:")
+print(df)</code></pre>
+                        </div>
+                    </div>
+
+                    <!-- Matplotlib Section -->
+                    <div class="topic-section" id="matplotlib">
+                        <h2><i class="fas fa-chart-line"></i> Matplotlib - Data Visualization</h2>
+                        <p>Matplotlib is the most popular plotting library for Python. It provides a MATLAB-like interface for creating visualizations.</p>
+
+                        <h3>Basic Plotting</h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>matplotlib_basic.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python">import matplotlib.pyplot as plt
+import numpy as np
+
+# Simple line plot
+x = [1, 2, 3, 4, 5]
+y = [2, 4, 6, 8, 10]
+
+plt.plot(x, y)
+plt.title('Simple Line Plot')
+plt.xlabel('X-axis')
+plt.ylabel('Y-axis')
+plt.show()
+
+# Line plot with styling
+x = np.linspace(0, 10, 100)
+y1 = np.sin(x)
+y2 = np.cos(x)
+
+plt.figure(figsize=(10, 6))
+plt.plot(x, y1, 'b-', label='sin(x)', linewidth=2)
+plt.plot(x, y2, 'r--', label='cos(x)', linewidth=2)
+plt.title('Trigonometric Functions')
+plt.xlabel('x')
+plt.ylabel('y')
+plt.legend()
+plt.grid(True)
+plt.show()</code></pre>
+                        </div>
+
+                        <h3>Different Plot Types</h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>matplotlib_types.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python">import matplotlib.pyplot as plt
+import numpy as np
+
+# Bar Chart
+categories = ['A', 'B', 'C', 'D', 'E']
+values = [23, 45, 56, 78, 32]
+
+plt.figure(figsize=(8, 5))
+plt.bar(categories, values, color='steelblue')
+plt.title('Bar Chart')
+plt.xlabel('Categories')
+plt.ylabel('Values')
+plt.show()
+
+# Pie Chart
+sizes = [30, 25, 20, 15, 10]
+labels = ['Python', 'JavaScript', 'Java', 'C++', 'Other']
+explode = (0.1, 0, 0, 0, 0)  # Explode first slice
+
+plt.figure(figsize=(8, 8))
+plt.pie(sizes, labels=labels, explode=explode, autopct='%1.1f%%',
+        shadow=True, startangle=90)
+plt.title('Programming Language Usage')
+plt.show()
+
+# Scatter Plot
+np.random.seed(42)
+x = np.random.randn(100)
+y = 2*x + np.random.randn(100)
+
+plt.figure(figsize=(8, 6))
+plt.scatter(x, y, c='blue', alpha=0.6)
+plt.title('Scatter Plot')
+plt.xlabel('X')
+plt.ylabel('Y')
+plt.show()
+
+# Histogram
+data = np.random.randn(1000)
+
+plt.figure(figsize=(8, 6))
+plt.hist(data, bins=30, color='green', alpha=0.7, edgecolor='black')
+plt.title('Histogram')
+plt.xlabel('Value')
+plt.ylabel('Frequency')
+plt.show()</code></pre>
+                        </div>
+
+                        <h3>Subplots and Advanced Features</h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>matplotlib_advanced.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python">import matplotlib.pyplot as plt
+import numpy as np
+
+# Multiple subplots
+fig, axes = plt.subplots(2, 2, figsize=(12, 10))
+
+# Subplot 1: Line plot
+x = np.linspace(0, 10, 100)
+axes[0, 0].plot(x, np.sin(x), 'b-')
+axes[0, 0].set_title('Sine Wave')
+axes[0, 0].set_xlabel('x')
+axes[0, 0].set_ylabel('sin(x)')
+
+# Subplot 2: Bar chart
+categories = ['A', 'B', 'C', 'D']
+values = [25, 40, 30, 55]
+axes[0, 1].bar(categories, values, color='orange')
+axes[0, 1].set_title('Bar Chart')
+
+# Subplot 3: Scatter plot
+x = np.random.randn(50)
+y = x + np.random.randn(50)
+axes[1, 0].scatter(x, y, c='green', alpha=0.6)
+axes[1, 0].set_title('Scatter Plot')
+
+# Subplot 4: Pie chart
+sizes = [35, 30, 20, 15]
+axes[1, 1].pie(sizes, labels=categories, autopct='%1.1f%%')
+axes[1, 1].set_title('Pie Chart')
+
+plt.tight_layout()
+plt.savefig('subplots.png', dpi=300)  # Save figure
+plt.show()
+
+# Customizing plot appearance
+plt.style.use('seaborn-v0_8-darkgrid')  # Use a style
+
+x = np.linspace(0, 10, 100)
+plt.figure(figsize=(10, 6))
+
+plt.plot(x, np.sin(x), 'b-', label='sin', linewidth=2)
+plt.plot(x, np.cos(x), 'r--', label='cos', linewidth=2)
+
+plt.title('Customized Plot', fontsize=16, fontweight='bold')
+plt.xlabel('X-axis', fontsize=12)
+plt.ylabel('Y-axis', fontsize=12)
+plt.legend(loc='upper right', fontsize=10)
+plt.xlim(0, 10)
+plt.ylim(-1.5, 1.5)
+plt.grid(True, alpha=0.3)
+
+plt.show()</code></pre>
+                        </div>
+                    </div>
+
+                    <!-- Tkinter Introduction -->
+                    <div class="topic-section" id="tkinter-intro">
+                        <h2><i class="fas fa-window-maximize"></i> Tkinter - GUI Programming</h2>
+                        <p>Tkinter is Python's standard GUI (Graphical User Interface) library. It provides a fast and easy way to create GUI applications.</p>
+
+                        <h3>Basic Window</h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>tkinter_basic.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python">import tkinter as tk
+
+# Create main window
+root = tk.Tk()
+
+# Window properties
+root.title("My First GUI App")
+root.geometry("400x300")  # Width x Height
+root.resizable(True, True)  # Allow resize
+
+# Configure background color
+root.configure(bg='lightblue')
+
+# Add a label
+label = tk.Label(root, text="Hello, Tkinter!", 
+                 font=("Arial", 24), 
+                 bg='lightblue')
+label.pack(pady=50)
+
+# Start the event loop
+root.mainloop()</code></pre>
+                        </div>
+
+                        <h3>Window Configuration</h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>tkinter_config.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python">import tkinter as tk
+
+root = tk.Tk()
+
+# Window title
+root.title("Configured Window")
+
+# Window size and position
+# Format: "widthxheight+x_position+y_position"
+root.geometry("500x400+100+100")
+
+# Minimum and maximum size
+root.minsize(300, 200)
+root.maxsize(800, 600)
+
+# Icon (if available)
+# root.iconbitmap('icon.ico')
+
+# Full screen mode
+# root.attributes('-fullscreen', True)
+
+# Always on top
+# root.attributes('-topmost', True)
+
+# Transparency (0.0 = invisible, 1.0 = opaque)
+root.attributes('-alpha', 0.95)
+
+# Disable/enable window controls
+# root.resizable(False, False)  # Disable resize
+
+# Handle window close
+def on_close():
+    print("Window closing...")
+    root.destroy()
+
+root.protocol("WM_DELETE_WINDOW", on_close)
+
+root.mainloop()</code></pre>
+                        </div>
+                    </div>
+
+                    <!-- Tk Widgets -->
+                    <div class="topic-section" id="tk-widgets">
+                        <h2><i class="fas fa-puzzle-piece"></i> Tkinter Widgets</h2>
+                        <p>Widgets are the building blocks of a GUI application. Tkinter provides various widgets for different purposes.</p>
+
+                        <h3>Common Widgets</h3>
+                        <div class="table-container">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Widget</th>
+                                        <th>Purpose</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>Label</td><td>Display text or images</td></tr>
+                                    <tr><td>Button</td><td>Clickable button</td></tr>
+                                    <tr><td>Entry</td><td>Single-line text input</td></tr>
+                                    <tr><td>Text</td><td>Multi-line text input</td></tr>
+                                    <tr><td>Frame</td><td>Container for other widgets</td></tr>
+                                    <tr><td>Checkbutton</td><td>Checkbox</td></tr>
+                                    <tr><td>Radiobutton</td><td>Radio button</td></tr>
+                                    <tr><td>Listbox</td><td>List of items</td></tr>
+                                    <tr><td>Combobox</td><td>Dropdown list</td></tr>
+                                    <tr><td>Scale</td><td>Slider</td></tr>
+                                    <tr><td>Canvas</td><td>Drawing area</td></tr>
+                                    <tr><td>Menu</td><td>Menu bar</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <h3>Labels and Buttons</h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>widgets_basic.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python">import tkinter as tk
+
+root = tk.Tk()
+root.title("Labels and Buttons")
+root.geometry("400x300")
+
+# Label widget
+label = tk.Label(root, 
+                 text="Welcome to Tkinter!", 
+                 font=("Arial", 18, "bold"),
+                 fg="blue",
+                 bg="lightyellow",
+                 padx=20, pady=10)
+label.pack(pady=20)
+
+# Variable to update label
+click_count = tk.IntVar(value=0)
+
+def button_click():
+    count = click_count.get() + 1
+    click_count.set(count)
+    result_label.config(text=f"Button clicked {count} times!")
+
+# Button widget
+button = tk.Button(root, 
+                   text="Click Me!", 
+                   command=button_click,
+                   font=("Arial", 14),
+                   bg="green", fg="white",
+                   padx=20, pady=10,
+                   activebackground="darkgreen")
+button.pack(pady=10)
+
+# Result label
+result_label = tk.Label(root, text="Button not clicked yet",
+                        font=("Arial", 12))
+result_label.pack(pady=10)
+
+# Quit button
+quit_button = tk.Button(root, text="Quit", 
+                        command=root.destroy,
+                        bg="red", fg="white")
+quit_button.pack(pady=20)
+
+root.mainloop()</code></pre>
+                        </div>
+
+                        <h3>Entry and Text Widgets</h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>widgets_input.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python">import tkinter as tk
+
+root = tk.Tk()
+root.title("Input Widgets")
+root.geometry("450x400")
+
+# Single-line Entry
+tk.Label(root, text="Name:", font=("Arial", 12)).pack(pady=(20, 5))
+name_entry = tk.Entry(root, font=("Arial", 12), width=30)
+name_entry.pack(pady=5)
+name_entry.insert(0, "Enter your name")  # Default text
+
+# Password Entry
+tk.Label(root, text="Password:", font=("Arial", 12)).pack(pady=(10, 5))
+password_entry = tk.Entry(root, font=("Arial", 12), width=30, show="*")
+password_entry.pack(pady=5)
+
+# Multi-line Text widget
+tk.Label(root, text="Message:", font=("Arial", 12)).pack(pady=(10, 5))
+text_widget = tk.Text(root, height=5, width=35, font=("Arial", 11))
+text_widget.pack(pady=5)
+text_widget.insert("1.0", "Enter your message here...")
+
+def submit():
+    name = name_entry.get()
+    password = password_entry.get()
+    message = text_widget.get("1.0", tk.END).strip()
+    
+    result = f"Name: {name}\nMessage: {message}"
+    output_label.config(text=result)
+
+def clear():
+    name_entry.delete(0, tk.END)
+    password_entry.delete(0, tk.END)
+    text_widget.delete("1.0", tk.END)
+
+# Buttons
+button_frame = tk.Frame(root)
+button_frame.pack(pady=10)
+
+submit_btn = tk.Button(button_frame, text="Submit", command=submit,
+                       bg="blue", fg="white", padx=20)
+submit_btn.pack(side=tk.LEFT, padx=10)
+
+clear_btn = tk.Button(button_frame, text="Clear", command=clear,
+                      bg="gray", fg="white", padx=20)
+clear_btn.pack(side=tk.LEFT, padx=10)
+
+# Output label
+output_label = tk.Label(root, text="", font=("Arial", 10), 
+                        justify=tk.LEFT)
+output_label.pack(pady=10)
+
+root.mainloop()</code></pre>
+                        </div>
+
+                        <h3>Layout Managers</h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>layout_managers.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python">import tkinter as tk
+
+# pack() - Simple layout
+def pack_demo():
+    win = tk.Toplevel()
+    win.title("Pack Demo")
+    win.geometry("300x200")
+    
+    tk.Label(win, text="Top", bg="red", fg="white").pack(fill=tk.X)
+    tk.Label(win, text="Bottom", bg="blue", fg="white").pack(side=tk.BOTTOM, fill=tk.X)
+    tk.Label(win, text="Left", bg="green", fg="white").pack(side=tk.LEFT, fill=tk.Y)
+    tk.Label(win, text="Right", bg="yellow").pack(side=tk.RIGHT, fill=tk.Y)
+    tk.Label(win, text="Center", bg="purple", fg="white").pack(expand=True, fill=tk.BOTH)
+
+# grid() - Table-like layout
+def grid_demo():
+    win = tk.Toplevel()
+    win.title("Grid Demo")
+    
+    tk.Label(win, text="Username:").grid(row=0, column=0, padx=10, pady=10, sticky="e")
+    tk.Entry(win).grid(row=0, column=1, padx=10, pady=10)
+    
+    tk.Label(win, text="Password:").grid(row=1, column=0, padx=10, pady=10, sticky="e")
+    tk.Entry(win, show="*").grid(row=1, column=1, padx=10, pady=10)
+    
+    tk.Button(win, text="Login").grid(row=2, column=0, columnspan=2, pady=20)
+
+# place() - Absolute positioning
+def place_demo():
+    win = tk.Toplevel()
+    win.title("Place Demo")
+    win.geometry("300x200")
+    
+    tk.Button(win, text="Button 1").place(x=50, y=50)
+    tk.Button(win, text="Button 2").place(x=150, y=100)
+    tk.Button(win, text="Centered", width=10).place(relx=0.5, rely=0.5, anchor=tk.CENTER)
+
+# Main window
+root = tk.Tk()
+root.title("Layout Managers")
+root.geometry("300x200")
+
+tk.Button(root, text="Pack Demo", command=pack_demo, width=20).pack(pady=20)
+tk.Button(root, text="Grid Demo", command=grid_demo, width=20).pack(pady=10)
+tk.Button(root, text="Place Demo", command=place_demo, width=20).pack(pady=10)
+
+root.mainloop()</code></pre>
+                        </div>
+
+                        <h3>Checkboxes and Radio Buttons</h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>widgets_selection.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python">import tkinter as tk
+
+root = tk.Tk()
+root.title("Selection Widgets")
+root.geometry("400x350")
+
+# Checkbuttons
+tk.Label(root, text="Select your hobbies:", font=("Arial", 12, "bold")).pack(pady=10)
+
+hobby1 = tk.BooleanVar()
+hobby2 = tk.BooleanVar()
+hobby3 = tk.BooleanVar()
+
+tk.Checkbutton(root, text="Reading", variable=hobby1, 
+               font=("Arial", 11)).pack(anchor="w", padx=50)
+tk.Checkbutton(root, text="Gaming", variable=hobby2,
+               font=("Arial", 11)).pack(anchor="w", padx=50)
+tk.Checkbutton(root, text="Sports", variable=hobby3,
+               font=("Arial", 11)).pack(anchor="w", padx=50)
+
+# Separator
+tk.Frame(root, height=2, bg="gray").pack(fill="x", pady=20)
+
+# Radio buttons
+tk.Label(root, text="Select your gender:", font=("Arial", 12, "bold")).pack(pady=10)
+
+gender = tk.StringVar(value="")
+
+tk.Radiobutton(root, text="Male", variable=gender, value="Male",
+               font=("Arial", 11)).pack(anchor="w", padx=50)
+tk.Radiobutton(root, text="Female", variable=gender, value="Female",
+               font=("Arial", 11)).pack(anchor="w", padx=50)
+tk.Radiobutton(root, text="Other", variable=gender, value="Other",
+               font=("Arial", 11)).pack(anchor="w", padx=50)
+
+def show_selection():
+    hobbies = []
+    if hobby1.get(): hobbies.append("Reading")
+    if hobby2.get(): hobbies.append("Gaming")
+    if hobby3.get(): hobbies.append("Sports")
+    
+    result = f"Hobbies: {', '.join(hobbies) or 'None'}\nGender: {gender.get() or 'Not selected'}"
+    result_label.config(text=result)
+
+tk.Button(root, text="Show Selection", command=show_selection,
+          bg="blue", fg="white", padx=20).pack(pady=20)
+
+result_label = tk.Label(root, text="", font=("Arial", 10))
+result_label.pack()
+
+root.mainloop()</code></pre>
+                        </div>
+                    </div>
+
+                    <!-- Tkinter Examples -->
+                    <div class="topic-section" id="tkinter-examples">
+                        <h2><i class="fas fa-laptop-code"></i> Tkinter Complete Examples</h2>
+
+                        <h3>Example 1: Simple Calculator</h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>calculator.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python">import tkinter as tk
+
+class Calculator:
+    def __init__(self, root):
+        self.root = root
+        self.root.title("Calculator")
+        self.root.geometry("300x400")
+        self.root.resizable(False, False)
+        
+        self.expression = ""
+        
+        # Display
+        self.display = tk.Entry(root, font=("Arial", 24), 
+                                justify="right", bd=10)
+        self.display.grid(row=0, column=0, columnspan=4, 
+                         sticky="nsew", padx=5, pady=5)
+        
+        # Button layout
+        buttons = [
+            ('C', 1, 0), ('±', 1, 1), ('%', 1, 2), ('/', 1, 3),
+            ('7', 2, 0), ('8', 2, 1), ('9', 2, 2), ('*', 2, 3),
+            ('4', 3, 0), ('5', 3, 1), ('6', 3, 2), ('-', 3, 3),
+            ('1', 4, 0), ('2', 4, 1), ('3', 4, 2), ('+', 4, 3),
+            ('0', 5, 0, 2), ('.', 5, 2), ('=', 5, 3)
+        ]
+        
+        for btn in buttons:
+            text = btn[0]
+            row = btn[1]
+            col = btn[2]
+            colspan = btn[3] if len(btn) > 3 else 1
+            
+            button = tk.Button(root, text=text, font=("Arial", 18),
+                              command=lambda t=text: self.click(t))
+            button.grid(row=row, column=col, columnspan=colspan,
+                       sticky="nsew", padx=2, pady=2)
+        
+        # Configure grid weights
+        for i in range(6):
+            root.grid_rowconfigure(i, weight=1)
+        for i in range(4):
+            root.grid_columnconfigure(i, weight=1)
+    
+    def click(self, char):
+        if char == 'C':
+            self.expression = ""
+        elif char == '=':
+            try:
+                self.expression = str(eval(self.expression))
+            except:
+                self.expression = "Error"
+        elif char == '±':
+            try:
+                self.expression = str(-float(self.expression))
+            except:
+                pass
+        elif char == '%':
+            try:
+                self.expression = str(float(self.expression) / 100)
+            except:
+                pass
+        else:
+            self.expression += char
+        
+        self.display.delete(0, tk.END)
+        self.display.insert(0, self.expression)
+
+root = tk.Tk()
+app = Calculator(root)
+root.mainloop()</code></pre>
+                        </div>
+
+                        <h3>Example 2: To-Do List Application</h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>todo_app.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python">import tkinter as tk
+from tkinter import messagebox
+
+class TodoApp:
+    def __init__(self, root):
+        self.root = root
+        self.root.title("To-Do List")
+        self.root.geometry("400x500")
+        
+        # Title
+        title = tk.Label(root, text="My To-Do List", 
+                        font=("Arial", 20, "bold"))
+        title.pack(pady=20)
+        
+        # Input frame
+        input_frame = tk.Frame(root)
+        input_frame.pack(pady=10)
+        
+        self.task_entry = tk.Entry(input_frame, font=("Arial", 14), 
+                                   width=25)
+        self.task_entry.pack(side=tk.LEFT, padx=5)
+        
+        add_btn = tk.Button(input_frame, text="Add", 
+                           command=self.add_task,
+                           bg="green", fg="white",
+                           font=("Arial", 12))
+        add_btn.pack(side=tk.LEFT)
+        
+        # Listbox with scrollbar
+        list_frame = tk.Frame(root)
+        list_frame.pack(pady=20, fill=tk.BOTH, expand=True, padx=20)
+        
+        scrollbar = tk.Scrollbar(list_frame)
+        scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
+        
+        self.task_list = tk.Listbox(list_frame, font=("Arial", 14),
+                                    height=10, selectmode=tk.SINGLE,
+                                    yscrollcommand=scrollbar.set)
+        self.task_list.pack(fill=tk.BOTH, expand=True)
+        scrollbar.config(command=self.task_list.yview)
+        
+        # Buttons frame
+        btn_frame = tk.Frame(root)
+        btn_frame.pack(pady=10)
+        
+        complete_btn = tk.Button(btn_frame, text="Mark Complete",
+                                command=self.mark_complete,
+                                bg="blue", fg="white",
+                                font=("Arial", 11))
+        complete_btn.pack(side=tk.LEFT, padx=5)
+        
+        delete_btn = tk.Button(btn_frame, text="Delete",
+                              command=self.delete_task,
+                              bg="red", fg="white",
+                              font=("Arial", 11))
+        delete_btn.pack(side=tk.LEFT, padx=5)
+        
+        clear_btn = tk.Button(btn_frame, text="Clear All",
+                             command=self.clear_all,
+                             bg="gray", fg="white",
+                             font=("Arial", 11))
+        clear_btn.pack(side=tk.LEFT, padx=5)
+        
+        # Status bar
+        self.status = tk.Label(root, text="Tasks: 0", 
+                              font=("Arial", 10))
+        self.status.pack(pady=10)
+    
+    def add_task(self):
+        task = self.task_entry.get().strip()
+        if task:
+            self.task_list.insert(tk.END, f"☐ {task}")
+            self.task_entry.delete(0, tk.END)
+            self.update_status()
+        else:
+            messagebox.showwarning("Warning", "Please enter a task!")
+    
+    def mark_complete(self):
+        try:
+            index = self.task_list.curselection()[0]
+            task = self.task_list.get(index)
+            if task.startswith("☐"):
+                self.task_list.delete(index)
+                self.task_list.insert(index, task.replace("☐", "✓"))
+                self.task_list.itemconfig(index, fg="green")
+        except IndexError:
+            messagebox.showinfo("Info", "Please select a task!")
+    
+    def delete_task(self):
+        try:
+            index = self.task_list.curselection()[0]
+            self.task_list.delete(index)
+            self.update_status()
+        except IndexError:
+            messagebox.showinfo("Info", "Please select a task!")
+    
+    def clear_all(self):
+        if messagebox.askyesno("Confirm", "Delete all tasks?"):
+            self.task_list.delete(0, tk.END)
+            self.update_status()
+    
+    def update_status(self):
+        count = self.task_list.size()
+        self.status.config(text=f"Tasks: {count}")
+
+root = tk.Tk()
+app = TodoApp(root)
+root.mainloop()</code></pre>
+                        </div>
+
+                        <h3>Example 3: Temperature Converter</h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>temperature_converter.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python">import tkinter as tk
+from tkinter import ttk
+
+class TemperatureConverter:
+    def __init__(self, root):
+        self.root = root
+        self.root.title("Temperature Converter")
+        self.root.geometry("350x250")
+        
+        # Title
+        tk.Label(root, text="Temperature Converter",
+                font=("Arial", 16, "bold")).pack(pady=20)
+        
+        # Input frame
+        input_frame = tk.Frame(root)
+        input_frame.pack(pady=10)
+        
+        self.temp_var = tk.StringVar()
+        temp_entry = tk.Entry(input_frame, textvariable=self.temp_var,
+                             font=("Arial", 14), width=15)
+        temp_entry.pack(side=tk.LEFT, padx=5)
+        
+        self.unit_var = tk.StringVar(value="Celsius")
+        unit_combo = ttk.Combobox(input_frame, textvariable=self.unit_var,
+                                  values=["Celsius", "Fahrenheit", "Kelvin"],
+                                  state="readonly", width=12)
+        unit_combo.pack(side=tk.LEFT)
+        
+        # Convert button
+        tk.Button(root, text="Convert", command=self.convert,
+                 bg="blue", fg="white", font=("Arial", 12),
+                 padx=30).pack(pady=20)
+        
+        # Results
+        self.result_label = tk.Label(root, text="", font=("Arial", 12))
+        self.result_label.pack(pady=10)
+    
+    def convert(self):
+        try:
+            temp = float(self.temp_var.get())
+            unit = self.unit_var.get()
+            
+            # Convert to Celsius first
+            if unit == "Celsius":
+                celsius = temp
+            elif unit == "Fahrenheit":
+                celsius = (temp - 32) * 5/9
+            else:  # Kelvin
+                celsius = temp - 273.15
+            
+            # Convert from Celsius to all units
+            fahrenheit = (celsius * 9/5) + 32
+            kelvin = celsius + 273.15
+            
+            result = f"Celsius: {celsius:.2f}°C\n"
+            result += f"Fahrenheit: {fahrenheit:.2f}°F\n"
+            result += f"Kelvin: {kelvin:.2f}K"
+            
+            self.result_label.config(text=result)
+            
+        except ValueError:
+            self.result_label.config(text="Please enter a valid number!")
+
+root = tk.Tk()
+app = TemperatureConverter(root)
+root.mainloop()</code></pre>
+                        </div>
+                    </div>
+
+                    <!-- Python IDE -->
+                    <div class="topic-section" id="ide">
+                        <h2><i class="fas fa-code"></i> Python Programming with IDE</h2>
+                        <p>An IDE (Integrated Development Environment) provides tools for efficient coding, debugging, and project management.</p>
+
+                        <h3>Popular Python IDEs</h3>
+                        <div class="table-container">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>IDE</th>
+                                        <th>Description</th>
+                                        <th>Best For</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>VS Code</strong></td>
+                                        <td>Free, lightweight, extensible</td>
+                                        <td>General development</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>PyCharm</strong></td>
+                                        <td>Full-featured Python IDE</td>
+                                        <td>Professional development</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>IDLE</strong></td>
+                                        <td>Python's built-in IDE</td>
+                                        <td>Learning & small scripts</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Jupyter Notebook</strong></td>
+                                        <td>Interactive notebooks</td>
+                                        <td>Data science & learning</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Spyder</strong></td>
+                                        <td>Scientific Python IDE</td>
+                                        <td>Data science & engineering</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Thonny</strong></td>
+                                        <td>Beginner-friendly IDE</td>
+                                        <td>Learning Python</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <h3>IDE Features</h3>
+                        <ul>
+                            <li><strong>Syntax Highlighting:</strong> Colors different parts of code for readability</li>
+                            <li><strong>Auto-completion:</strong> Suggests code as you type</li>
+                            <li><strong>Debugging:</strong> Step through code, set breakpoints</li>
+                            <li><strong>Integrated Terminal:</strong> Run commands without leaving IDE</li>
+                            <li><strong>Version Control:</strong> Git integration</li>
+                            <li><strong>Code Navigation:</strong> Jump to definitions, find references</li>
+                            <li><strong>Linting:</strong> Automatic error checking</li>
+                            <li><strong>Extensions:</strong> Add functionality with plugins</li>
+                        </ul>
+
+                        <h3>VS Code Setup for Python</h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>VS Code Setup Steps</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python"># 1. Install VS Code from https://code.visualstudio.com
+
+# 2. Install Python extension
+#    - Open Extensions (Ctrl+Shift+X)
+#    - Search "Python"
+#    - Install Microsoft's Python extension
+
+# 3. Select Python interpreter
+#    - Ctrl+Shift+P → "Python: Select Interpreter"
+#    - Choose your Python installation
+
+# 4. Create a Python file
+#    - Create new file with .py extension
+#    - Write your code
+
+# 5. Run Python code
+#    - Right-click → Run Python File in Terminal
+#    - Or press F5 to debug
+
+# 6. Useful extensions:
+#    - Pylint (linting)
+#    - Python Docstring Generator
+#    - Jupyter (for notebooks)
+#    - Code Runner
+
+# 7. settings.json (optional)
+{
+    "python.linting.enabled": true,
+    "python.linting.pylintEnabled": true,
+    "python.formatting.provider": "black",
+    "editor.formatOnSave": true
+}</code></pre>
+                        </div>
+
+                        <div class="info-box tip">
+                            <h4><i class="fas fa-lightbulb"></i> Recommendation</h4>
+                            <p>For beginners, start with <strong>VS Code</strong> or <strong>Thonny</strong>. As you advance, consider <strong>PyCharm</strong> for larger projects. For data science, <strong>Jupyter Notebook</strong> is excellent for experimentation.</p>
+                        </div>
+
+                        <h3>Running Python Programs</h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>Running Python</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python"># Method 1: Command Line
+# Open terminal/command prompt
+# python filename.py
+
+# Method 2: IDE Run Button
+# Click the "Run" button or press F5
+
+# Method 3: Interactive Mode
+# Type 'python' in terminal to open interpreter
+# >>> print("Hello")
+# Hello
+# >>> exit()
+
+# Method 4: Python IDLE
+# Open IDLE → File → New File → Write code → Run
+
+# Method 5: Jupyter Notebook
+# jupyter notebook
+# Create new notebook → Write code in cells → Run cells</code></pre>
+                        </div>
+                    </div>
+
+                    <!-- Navigation -->
+                    <div class="unit-navigation">
+                        <a href="unit4.html" class="nav-btn prev">
+                            <i class="fas fa-arrow-left"></i> Unit IV: File Operations
+                        </a>
+                        <a href="index.html" class="nav-btn next">
+                            Back to Home <i class="fas fa-home"></i>
+                        </a>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quiz Section -->
+    <section class="quiz-section">
+        <div class="container">
+            <h2 class="section-title">Test Your Knowledge</h2>
+            <div class="quiz-container" id="quiz-container">
+                <!-- Quiz will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fab fa-python"></i> Python Hub</h3>
+                    <p>Your complete guide to mastering Python programming.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="unit1.html">Unit I - Introduction</a></li>
+                        <li><a href="unit2.html">Unit II - Flow Control</a></li>
+                        <li><a href="unit3.html">Unit III - Data Types</a></li>
+                        <li><a href="unit4.html">Unit IV - File Operations</a></li>
+                        <li><a href="unit5.html">Unit V - Packages & GUI</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Python Learning Hub. Made with <i class="fas fa-heart"></i> for Learning.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+    <script src="js/script.js"></script>
+    <script>
+        // Unit 5 Quiz Questions
+        const unit5Questions = [
+            {
+                question: "Which library is primarily used for numerical computations with arrays in Python?",
+                options: ["Pandas", "NumPy", "Matplotlib", "Tkinter"],
+                correct: 1,
+                explanation: "NumPy (Numerical Python) is the fundamental package for scientific computing with support for large, multi-dimensional arrays."
+            },
+            {
+                question: "What data structure does Pandas primarily work with?",
+                options: ["Arrays", "Lists", "DataFrames", "Tuples"],
+                correct: 2,
+                explanation: "Pandas is built around DataFrame, a 2-dimensional labeled data structure with columns of potentially different types."
+            },
+            {
+                question: "Which function is used to create a plot in Matplotlib?",
+                options: ["draw()", "plot()", "show()", "create()"],
+                correct: 1,
+                explanation: "The plot() function is used to create line plots. After plotting, show() is called to display the figure."
+            },
+            {
+                question: "What is the main class used to create a window in Tkinter?",
+                options: ["Window", "Frame", "Tk", "Root"],
+                correct: 2,
+                explanation: "Tk() creates the main application window in Tkinter. It's typically assigned to a variable called 'root' or 'window'."
+            },
+            {
+                question: "How do you create a 2D NumPy array?",
+                options: ["np.array([1,2],[3,4])", "np.array([[1,2],[3,4]])", "np.matrix([1,2,3,4])", "np.2darray([1,2,3,4])"],
+                correct: 1,
+                explanation: "A 2D array is created by passing a nested list to np.array(). The inner lists become rows."
+            },
+            {
+                question: "Which Tkinter widget is used for user text input?",
+                options: ["Text", "Input", "Entry", "TextField"],
+                correct: 2,
+                explanation: "Entry widget is used for single-line text input in Tkinter. Text widget is used for multi-line input."
+            },
+            {
+                question: "How do you read a CSV file using Pandas?",
+                options: ["pd.open_csv()", "pd.read_csv()", "pd.load_csv()", "pd.csv_read()"],
+                correct: 1,
+                explanation: "pd.read_csv() is the function to read CSV files into a DataFrame. It supports many parameters for customization."
+            },
+            {
+                question: "What does <code>np.zeros((3, 4))</code> create?",
+                options: ["A 3x4 array of ones", "A 3x4 array of zeros", "A 4x3 array of zeros", "An error"],
+                correct: 1,
+                explanation: "np.zeros((3, 4)) creates a 3x4 array (3 rows, 4 columns) filled with zeros."
+            },
+            {
+                question: "Which method starts the Tkinter event loop?",
+                options: ["start()", "run()", "mainloop()", "begin()"],
+                correct: 2,
+                explanation: "mainloop() starts the Tkinter event loop, which waits for events (clicks, keypresses) and updates the window."
+            },
+            {
+                question: "What does <code>plt.savefig('plot.png')</code> do?",
+                options: ["Opens an image", "Saves the current figure to a file", "Loads a plot", "Creates a new figure"],
+                correct: 1,
+                explanation: "savefig() saves the current matplotlib figure to a file. It supports various formats like PNG, PDF, SVG, etc."
+            }
+        ];
+        
+        // Initialize Quiz
+        quiz = new QuizManager('quiz-container', unit5Questions);
+    </script>
+</body>
+</html>

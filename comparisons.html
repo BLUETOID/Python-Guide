@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparison Tables - Python Hub</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .comparison-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        .comparison-card h3 {
+            color: #1abc9c;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #1abc9c;
+        }
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        .comparison-table th {
+            background: linear-gradient(135deg, #1abc9c, #16a085);
+            color: white;
+            padding: 12px 15px;
+            text-align: left;
+        }
+        .comparison-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #eee;
+        }
+        .comparison-table tr:nth-child(even) { background: #f8f9fa; }
+        .comparison-table tr:hover { background: #e8f8f5; }
+        .comparison-table code {
+            background: #2d3436;
+            color: #00cec9;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 13px;
+        }
+        .vs-badge {
+            display: inline-block;
+            background: #e74c3c;
+            color: white;
+            padding: 3px 10px;
+            border-radius: 15px;
+            font-size: 12px;
+            margin: 0 5px;
+        }
+        .feature-yes { color: #27ae60; font-weight: bold; }
+        .feature-no { color: #e74c3c; font-weight: bold; }
+        .quick-nav {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .quick-nav a {
+            display: inline-block;
+            margin: 5px;
+            padding: 8px 15px;
+            background: #1abc9c;
+            color: white;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+        .quick-nav a:hover { background: #16a085; transform: translateY(-2px); }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo"><i class="fab fa-python"></i> Python Hub</a>
+            <button class="nav-toggle" id="navToggle"><i class="fas fa-bars"></i></button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="unit1.html">Unit I</a></li>
+                <li><a href="unit2.html">Unit II</a></li>
+                <li><a href="unit3.html">Unit III</a></li>
+                <li><a href="unit4.html">Unit IV</a></li>
+                <li><a href="unit5.html">Unit V</a></li>
+                <li class="nav-divider"></li>
+                <li><a href="extras.html">Extras</a></li>
+                <li><a href="practice.html">Practice</a></li>
+                <li><a href="theory.html">Theory</a></li>
+                <li><a href="comparisons.html" class="active">Compare</a></li>
+                <li><a href="errors.html">Errors</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="unit-header" style="background: linear-gradient(135deg, #1abc9c, #16a085);">
+        <div class="container">
+            <h1><i class="fas fa-balance-scale"></i> Python Comparison Tables</h1>
+            <p>Quick reference: side-by-side comparisons of Python concepts</p>
+        </div>
+    </header>
+
+    <section class="unit-content">
+        <div class="container">
+            
+            <div class="quick-nav">
+                <strong>Jump to:</strong>
+                <a href="#list-tuple">List vs Tuple</a>
+                <a href="#list-set-dict">List vs Set vs Dict</a>
+                <a href="#for-while">for vs while</a>
+                <a href="#is-equal">== vs is</a>
+                <a href="#mutable">Mutable vs Immutable</a>
+                <a href="#args">*args vs **kwargs</a>
+                <a href="#methods">Methods Comparison</a>
+                <a href="#read-methods">File Read Methods</a>
+            </div>
+
+            <!-- List vs Tuple -->
+            <div class="comparison-card" id="list-tuple">
+                <h3><i class="fas fa-list"></i> List <span class="vs-badge">VS</span> Tuple</h3>
+                <table class="comparison-table">
+                    <tr>
+                        <th>Feature</th>
+                        <th>List</th>
+                        <th>Tuple</th>
+                    </tr>
+                    <tr>
+                        <td><strong>Syntax</strong></td>
+                        <td><code>[1, 2, 3]</code></td>
+                        <td><code>(1, 2, 3)</code></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Mutability</strong></td>
+                        <td class="feature-yes">Mutable (can change)</td>
+                        <td class="feature-no">Immutable (fixed)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Performance</strong></td>
+                        <td>Slower</td>
+                        <td>Faster (fixed size)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Memory</strong></td>
+                        <td>More memory</td>
+                        <td>Less memory</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Methods</strong></td>
+                        <td>append, insert, remove, pop, sort, etc.</td>
+                        <td>count, index only</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Use Case</strong></td>
+                        <td>When data needs modification</td>
+                        <td>When data should stay constant</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Dictionary Key</strong></td>
+                        <td class="feature-no">Cannot be used</td>
+                        <td class="feature-yes">Can be used (hashable)</td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- List vs Set vs Dictionary -->
+            <div class="comparison-card" id="list-set-dict">
+                <h3><i class="fas fa-layer-group"></i> List <span class="vs-badge">VS</span> Set <span class="vs-badge">VS</span> Dictionary</h3>
+                <table class="comparison-table">
+                    <tr>
+                        <th>Feature</th>
+                        <th>List</th>
+                        <th>Set</th>
+                        <th>Dictionary</th>
+                    </tr>
+                    <tr>
+                        <td><strong>Syntax</strong></td>
+                        <td><code>[1, 2, 3]</code></td>
+                        <td><code>{1, 2, 3}</code></td>
+                        <td><code>{"a": 1}</code></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Ordered</strong></td>
+                        <td class="feature-yes">Yes</td>
+                        <td class="feature-no">No</td>
+                        <td class="feature-yes">Yes (Python 3.7+)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Duplicates</strong></td>
+                        <td class="feature-yes">Allowed</td>
+                        <td class="feature-no">Not allowed</td>
+                        <td>Keys: No, Values: Yes</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Indexing</strong></td>
+                        <td><code>lst[0]</code></td>
+                        <td class="feature-no">Not supported</td>
+                        <td><code>d["key"]</code></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Mutable</strong></td>
+                        <td class="feature-yes">Yes</td>
+                        <td class="feature-yes">Yes</td>
+                        <td class="feature-yes">Yes</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Use Case</strong></td>
+                        <td>Ordered collection</td>
+                        <td>Unique items, math sets</td>
+                        <td>Key-value mapping</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Search Speed</strong></td>
+                        <td>O(n) - slow</td>
+                        <td>O(1) - fast</td>
+                        <td>O(1) - fast</td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- for vs while -->
+            <div class="comparison-card" id="for-while">
+                <h3><i class="fas fa-sync"></i> for Loop <span class="vs-badge">VS</span> while Loop</h3>
+                <table class="comparison-table">
+                    <tr>
+                        <th>Feature</th>
+                        <th>for Loop</th>
+                        <th>while Loop</th>
+                    </tr>
+                    <tr>
+                        <td><strong>Syntax</strong></td>
+                        <td><code>for i in range(5):</code></td>
+                        <td><code>while condition:</code></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Iterations</strong></td>
+                        <td>Known/definite</td>
+                        <td>Unknown/indefinite</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Control</strong></td>
+                        <td>Iterates over sequence</td>
+                        <td>Based on condition</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Infinite Loop Risk</strong></td>
+                        <td class="feature-yes">Low (fixed iterations)</td>
+                        <td class="feature-no">High (if condition never False)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Best For</strong></td>
+                        <td>Lists, strings, ranges</td>
+                        <td>User input, unknown end</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Example Use</strong></td>
+                        <td>Print 1 to 10</td>
+                        <td>Keep asking until valid input</td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- == vs is -->
+            <div class="comparison-card" id="is-equal">
+                <h3><i class="fas fa-equals"></i> == (Equality) <span class="vs-badge">VS</span> is (Identity)</h3>
+                <table class="comparison-table">
+                    <tr>
+                        <th>Feature</th>
+                        <th>== (Equality)</th>
+                        <th>is (Identity)</th>
+                    </tr>
+                    <tr>
+                        <td><strong>Compares</strong></td>
+                        <td>Values</td>
+                        <td>Memory location (same object)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Example</strong></td>
+                        <td><code>a == b</code> → True if same value</td>
+                        <td><code>a is b</code> → True if same object</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Use Case</strong></td>
+                        <td>Compare content</td>
+                        <td>Check if None, singleton</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" style="background: #f8f9fa;">
+                            <strong>Example:</strong><br>
+                            <code>a = [1, 2]</code><br>
+                            <code>b = [1, 2]</code><br>
+                            <code>a == b</code> → <span class="feature-yes">True</span> (same values)<br>
+                            <code>a is b</code> → <span class="feature-no">False</span> (different objects)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" style="background: #f8f9fa;">
+                            <strong>Best Practice:</strong> Use <code>is</code> only with <code>None</code>: <code>if x is None:</code>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- Mutable vs Immutable -->
+            <div class="comparison-card" id="mutable">
+                <h3><i class="fas fa-exchange-alt"></i> Mutable <span class="vs-badge">VS</span> Immutable</h3>
+                <table class="comparison-table">
+                    <tr>
+                        <th>Feature</th>
+                        <th>Mutable</th>
+                        <th>Immutable</th>
+                    </tr>
+                    <tr>
+                        <td><strong>Definition</strong></td>
+                        <td>Can be changed after creation</td>
+                        <td>Cannot be changed after creation</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Data Types</strong></td>
+                        <td><code>list, dict, set</code></td>
+                        <td><code>int, float, str, tuple, frozenset</code></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Memory</strong></td>
+                        <td>Same ID when modified</td>
+                        <td>New object created on change</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Example</strong></td>
+                        <td><code>lst[0] = 10</code> ✓</td>
+                        <td><code>s[0] = 'H'</code> ✗ Error</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Dict Key</strong></td>
+                        <td class="feature-no">Cannot be key</td>
+                        <td class="feature-yes">Can be key</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Thread Safety</strong></td>
+                        <td class="feature-no">Not safe</td>
+                        <td class="feature-yes">Safe</td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- *args vs **kwargs -->
+            <div class="comparison-card" id="args">
+                <h3><i class="fas fa-asterisk"></i> *args <span class="vs-badge">VS</span> **kwargs</h3>
+                <table class="comparison-table">
+                    <tr>
+                        <th>Feature</th>
+                        <th>*args</th>
+                        <th>**kwargs</th>
+                    </tr>
+                    <tr>
+                        <td><strong>Full Form</strong></td>
+                        <td>Arguments</td>
+                        <td>Keyword Arguments</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Type</strong></td>
+                        <td>Tuple</td>
+                        <td>Dictionary</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Usage</strong></td>
+                        <td>Variable positional args</td>
+                        <td>Variable keyword args</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Syntax</strong></td>
+                        <td><code>def func(*args):</code></td>
+                        <td><code>def func(**kwargs):</code></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Call</strong></td>
+                        <td><code>func(1, 2, 3)</code></td>
+                        <td><code>func(a=1, b=2)</code></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Access</strong></td>
+                        <td><code>for arg in args:</code></td>
+                        <td><code>for key, val in kwargs.items():</code></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" style="background: #f8f9fa;">
+                            <strong>Combined:</strong> <code>def func(a, b, *args, **kwargs):</code>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- String Methods -->
+            <div class="comparison-card" id="methods">
+                <h3><i class="fas fa-font"></i> Common String Methods</h3>
+                <table class="comparison-table">
+                    <tr>
+                        <th>Method</th>
+                        <th>Description</th>
+                        <th>Example</th>
+                        <th>Result</th>
+                    </tr>
+                    <tr>
+                        <td><code>upper()</code></td>
+                        <td>Uppercase</td>
+                        <td><code>"hello".upper()</code></td>
+                        <td>"HELLO"</td>
+                    </tr>
+                    <tr>
+                        <td><code>lower()</code></td>
+                        <td>Lowercase</td>
+                        <td><code>"HELLO".lower()</code></td>
+                        <td>"hello"</td>
+                    </tr>
+                    <tr>
+                        <td><code>strip()</code></td>
+                        <td>Remove whitespace</td>
+                        <td><code>" hi ".strip()</code></td>
+                        <td>"hi"</td>
+                    </tr>
+                    <tr>
+                        <td><code>split()</code></td>
+                        <td>Split to list</td>
+                        <td><code>"a,b,c".split(",")</code></td>
+                        <td>['a','b','c']</td>
+                    </tr>
+                    <tr>
+                        <td><code>join()</code></td>
+                        <td>Join list to string</td>
+                        <td><code>",".join(['a','b'])</code></td>
+                        <td>"a,b"</td>
+                    </tr>
+                    <tr>
+                        <td><code>replace()</code></td>
+                        <td>Replace substring</td>
+                        <td><code>"hi".replace("i","ey")</code></td>
+                        <td>"hey"</td>
+                    </tr>
+                    <tr>
+                        <td><code>find()</code></td>
+                        <td>Find index (-1 if not found)</td>
+                        <td><code>"hello".find("l")</code></td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td><code>count()</code></td>
+                        <td>Count occurrences</td>
+                        <td><code>"hello".count("l")</code></td>
+                        <td>2</td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- File Read Methods -->
+            <div class="comparison-card" id="read-methods">
+                <h3><i class="fas fa-file-alt"></i> File Reading Methods</h3>
+                <table class="comparison-table">
+                    <tr>
+                        <th>Method</th>
+                        <th>Returns</th>
+                        <th>Example Output</th>
+                    </tr>
+                    <tr>
+                        <td><code>read()</code></td>
+                        <td>Entire file as single string</td>
+                        <td><code>"Line1\nLine2\nLine3"</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>read(n)</code></td>
+                        <td>First n characters</td>
+                        <td><code>"Line"</code> (n=4)</td>
+                    </tr>
+                    <tr>
+                        <td><code>readline()</code></td>
+                        <td>One line at a time</td>
+                        <td><code>"Line1\n"</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>readlines()</code></td>
+                        <td>List of all lines</td>
+                        <td><code>["Line1\n", "Line2\n", "Line3"]</code></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" style="background: #f8f9fa;">
+                            <strong>Best Practice:</strong> For large files, iterate directly:<br>
+                            <code>for line in file:</code> (memory efficient)
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- break vs continue vs pass -->
+            <div class="comparison-card">
+                <h3><i class="fas fa-stop-circle"></i> break <span class="vs-badge">VS</span> continue <span class="vs-badge">VS</span> pass</h3>
+                <table class="comparison-table">
+                    <tr>
+                        <th>Statement</th>
+                        <th>Action</th>
+                        <th>Use Case</th>
+                    </tr>
+                    <tr>
+                        <td><code>break</code></td>
+                        <td>Exit loop immediately</td>
+                        <td>Stop when condition met</td>
+                    </tr>
+                    <tr>
+                        <td><code>continue</code></td>
+                        <td>Skip to next iteration</td>
+                        <td>Skip certain items</td>
+                    </tr>
+                    <tr>
+                        <td><code>pass</code></td>
+                        <td>Do nothing (placeholder)</td>
+                        <td>Empty function/class body</td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- append vs extend vs insert -->
+            <div class="comparison-card">
+                <h3><i class="fas fa-plus-circle"></i> List: append <span class="vs-badge">VS</span> extend <span class="vs-badge">VS</span> insert</h3>
+                <table class="comparison-table">
+                    <tr>
+                        <th>Method</th>
+                        <th>Action</th>
+                        <th>Example</th>
+                        <th>Result</th>
+                    </tr>
+                    <tr>
+                        <td><code>append(x)</code></td>
+                        <td>Add x as single element</td>
+                        <td><code>[1,2].append([3,4])</code></td>
+                        <td>[1, 2, [3, 4]]</td>
+                    </tr>
+                    <tr>
+                        <td><code>extend(x)</code></td>
+                        <td>Add each element of x</td>
+                        <td><code>[1,2].extend([3,4])</code></td>
+                        <td>[1, 2, 3, 4]</td>
+                    </tr>
+                    <tr>
+                        <td><code>insert(i, x)</code></td>
+                        <td>Add x at index i</td>
+                        <td><code>[1,3].insert(1, 2)</code></td>
+                        <td>[1, 2, 3]</td>
+                    </tr>
+                </table>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fab fa-python"></i> Python Hub</h3>
+                    <p>Your complete guide to mastering Python programming.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="unit1.html">Unit I</a></li>
+                        <li><a href="unit2.html">Unit II</a></li>
+                        <li><a href="unit3.html">Unit III</a></li>
+                        <li><a href="unit4.html">Unit IV</a></li>
+                        <li><a href="unit5.html">Unit V</a></li>
+                        <li><a href="extras.html">Extras</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Python Hub. Made for Python learners.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

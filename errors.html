@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Errors Guide - Python Hub</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <style>
+        .error-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            border-left: 5px solid #e74c3c;
+        }
+        .error-card h3 {
+            color: #e74c3c;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .error-card h3 i { font-size: 24px; }
+        .error-description {
+            background: #fef9f9;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border-left: 3px solid #e74c3c;
+        }
+        .error-example {
+            background: #2d3436;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            overflow-x: auto;
+        }
+        .error-example code { color: #ff7675; }
+        .error-output {
+            background: #1a1a2e;
+            color: #ff6b6b;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-family: monospace;
+            margin: 10px 0;
+            font-size: 13px;
+        }
+        .fix-section {
+            background: #f0fff4;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #27ae60;
+            margin-top: 15px;
+        }
+        .fix-section h4 {
+            color: #1e8449;
+            margin-bottom: 12px;
+        }
+        .fix-section code { 
+            background: #d5f5e3; 
+            color: #1e8449; 
+            padding: 2px 6px; 
+            border-radius: 3px; 
+        }
+        .fix-section pre {
+            background: #2d3436;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 10px;
+            overflow-x: auto;
+        }
+        .fix-section pre code {
+            background: transparent;
+            color: #55efc4;
+            padding: 0;
+        }
+        .error-nav {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .error-nav a {
+            display: inline-block;
+            margin: 5px;
+            padding: 8px 15px;
+            background: #e74c3c;
+            color: white;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 13px;
+            transition: 0.3s;
+        }
+        .error-nav a:hover { background: #c0392b; transform: translateY(-2px); }
+        .severity {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 15px;
+            font-size: 11px;
+            margin-left: 10px;
+        }
+        .severity.common { background: #e74c3c; color: white; }
+        .severity.moderate { background: #f39c12; color: white; }
+        .severity.rare { background: #3498db; color: white; }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo"><i class="fab fa-python"></i> Python Hub</a>
+            <button class="nav-toggle" id="navToggle"><i class="fas fa-bars"></i></button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="unit1.html">Unit I</a></li>
+                <li><a href="unit2.html">Unit II</a></li>
+                <li><a href="unit3.html">Unit III</a></li>
+                <li><a href="unit4.html">Unit IV</a></li>
+                <li><a href="unit5.html">Unit V</a></li>
+                <li class="nav-divider"></li>
+                <li><a href="extras.html">Extras</a></li>
+                <li><a href="practice.html">Practice</a></li>
+                <li><a href="theory.html">Theory</a></li>
+                <li><a href="comparisons.html">Compare</a></li>
+                <li><a href="errors.html" class="active">Errors</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="unit-header" style="background: linear-gradient(135deg, #e74c3c, #c0392b);">
+        <div class="container">
+            <h1><i class="fas fa-bug"></i> Python Errors & Exceptions Guide</h1>
+            <p>Common errors, what causes them, and how to fix them</p>
+        </div>
+    </header>
+
+    <section class="unit-content">
+        <div class="container">
+            
+            <div class="error-nav">
+                <strong>Jump to:</strong>
+                <a href="#syntax">SyntaxError</a>
+                <a href="#name">NameError</a>
+                <a href="#type">TypeError</a>
+                <a href="#index">IndexError</a>
+                <a href="#key">KeyError</a>
+                <a href="#value">ValueError</a>
+                <a href="#attribute">AttributeError</a>
+                <a href="#indentation">IndentationError</a>
+                <a href="#zerodivision">ZeroDivisionError</a>
+                <a href="#filenotfound">FileNotFoundError</a>
+                <a href="#import">ImportError</a>
+                <a href="#recursion">RecursionError</a>
+            </div>
+
+            <!-- SyntaxError -->
+            <div class="error-card" id="syntax">
+                <h3><i class="fas fa-times-circle"></i> SyntaxError <span class="severity common">Very Common</span></h3>
+                <div class="error-description">
+                    <p><strong>What it means:</strong> Python cannot understand your code because it violates Python's grammar rules. This is caught before the code runs.</p>
+                </div>
+                
+                <h4>Common Causes:</h4>
+                <div class="error-example">
+                    <pre><code class="language-python"># Missing colon
+if x > 5
+    print("Hello")
+
+# Mismatched parentheses
+print("Hello"
+
+# Invalid assignment
+5 = x
+
+# Missing quotes
+print(Hello World)</code></pre>
+                </div>
+                <div class="error-output">SyntaxError: invalid syntax</div>
+                
+                <div class="fix-section">
+                    <h4><i class="fas fa-check-circle"></i> How to Fix:</h4>
+                    <pre><code class="language-python"># Add missing colon
+if x > 5:
+    print("Hello")
+
+# Close parentheses
+print("Hello")
+
+# Correct assignment
+x = 5
+
+# Add quotes
+print("Hello World")</code></pre>
+                </div>
+            </div>
+
+            <!-- NameError -->
+            <div class="error-card" id="name">
+                <h3><i class="fas fa-question-circle"></i> NameError <span class="severity common">Very Common</span></h3>
+                <div class="error-description">
+                    <p><strong>What it means:</strong> You're trying to use a variable or function that hasn't been defined yet.</p>
+                </div>
+                
+                <div class="error-example">
+                    <pre><code class="language-python"># Using undefined variable
+print(message)
+
+# Typo in variable name
+name = "John"
+print(nme)  # Typo!
+
+# Using variable before assignment
+print(total)
+total = 100</code></pre>
+                </div>
+                <div class="error-output">NameError: name 'message' is not defined</div>
+                
+                <div class="fix-section">
+                    <h4><i class="fas fa-check-circle"></i> How to Fix:</h4>
+                    <pre><code class="language-python"># Define before using
+message = "Hello"
+print(message)
+
+# Check spelling
+name = "John"
+print(name)
+
+# Assign before using
+total = 100
+print(total)</code></pre>
+                </div>
+            </div>
+
+            <!-- TypeError -->
+            <div class="error-card" id="type">
+                <h3><i class="fas fa-exchange-alt"></i> TypeError <span class="severity common">Very Common</span></h3>
+                <div class="error-description">
+                    <p><strong>What it means:</strong> An operation is applied to an object of inappropriate type.</p>
+                </div>
+                
+                <div class="error-example">
+                    <pre><code class="language-python"># Adding string and integer
+result = "Age: " + 25
+
+# Wrong number of arguments
+def greet(name):
+    print(f"Hello {name}")
+greet()  # Missing argument
+
+# Calling non-callable
+x = 5
+x()  # Trying to call an integer
+
+# Concatenating incompatible types
+lst = [1, 2] + "hello"</code></pre>
+                </div>
+                <div class="error-output">TypeError: can only concatenate str (not "int") to str</div>
+                
+                <div class="fix-section">
+                    <h4><i class="fas fa-check-circle"></i> How to Fix:</h4>
+                    <pre><code class="language-python"># Convert to string
+result = "Age: " + str(25)
+# Or use f-string
+result = f"Age: {25}"
+
+# Provide required arguments
+greet("John")
+
+# Don't call non-functions
+x = 5
+print(x)
+
+# Use correct types
+lst = [1, 2] + list("hello")</code></pre>
+                </div>
+            </div>
+
+            <!-- IndexError -->
+            <div class="error-card" id="index">
+                <h3><i class="fas fa-list-ol"></i> IndexError <span class="severity common">Very Common</span></h3>
+                <div class="error-description">
+                    <p><strong>What it means:</strong> You're trying to access a list/tuple index that doesn't exist.</p>
+                </div>
+                
+                <div class="error-example">
+                    <pre><code class="language-python"># Index out of range
+fruits = ["apple", "banana", "cherry"]
+print(fruits[5])  # Only indices 0, 1, 2 exist
+
+# Empty list access
+empty = []
+print(empty[0])
+
+# Off-by-one error
+for i in range(len(fruits) + 1):
+    print(fruits[i])  # Fails at last iteration</code></pre>
+                </div>
+                <div class="error-output">IndexError: list index out of range</div>
+                
+                <div class="fix-section">
+                    <h4><i class="fas fa-check-circle"></i> How to Fix:</h4>
+                    <pre><code class="language-python"># Check length first
+fruits = ["apple", "banana", "cherry"]
+if len(fruits) > 5:
+    print(fruits[5])
+
+# Check if list is not empty
+if empty:
+    print(empty[0])
+
+# Use correct range
+for i in range(len(fruits)):
+    print(fruits[i])
+
+# Or iterate directly
+for fruit in fruits:
+    print(fruit)</code></pre>
+                </div>
+            </div>
+
+            <!-- KeyError -->
+            <div class="error-card" id="key">
+                <h3><i class="fas fa-key"></i> KeyError <span class="severity common">Very Common</span></h3>
+                <div class="error-description">
+                    <p><strong>What it means:</strong> You're trying to access a dictionary key that doesn't exist.</p>
+                </div>
+                
+                <div class="error-example">
+                    <pre><code class="language-python"># Non-existent key
+person = {"name": "John", "age": 30}
+print(person["address"])
+
+# Typo in key name
+print(person["Name"])  # Keys are case-sensitive</code></pre>
+                </div>
+                <div class="error-output">KeyError: 'address'</div>
+                
+                <div class="fix-section">
+                    <h4><i class="fas fa-check-circle"></i> How to Fix:</h4>
+                    <pre><code class="language-python"># Use get() method (returns None if missing)
+print(person.get("address"))
+
+# Use get() with default value
+print(person.get("address", "Not provided"))
+
+# Check if key exists
+if "address" in person:
+    print(person["address"])
+
+# Use try-except
+try:
+    print(person["address"])
+except KeyError:
+    print("Key not found")</code></pre>
+                </div>
+            </div>
+
+            <!-- ValueError -->
+            <div class="error-card" id="value">
+                <h3><i class="fas fa-exclamation-triangle"></i> ValueError <span class="severity common">Very Common</span></h3>
+                <div class="error-description">
+                    <p><strong>What it means:</strong> A function receives an argument of correct type but inappropriate value.</p>
+                </div>
+                
+                <div class="error-example">
+                    <pre><code class="language-python"># Invalid conversion
+number = int("hello")
+
+# Invalid number format
+number = int("12.5")  # Use float() first
+
+# Value not in list
+fruits = ["apple", "banana"]
+fruits.remove("cherry")
+
+# Invalid base conversion
+int("xyz", 16)</code></pre>
+                </div>
+                <div class="error-output">ValueError: invalid literal for int() with base 10: 'hello'</div>
+                
+                <div class="fix-section">
+                    <h4><i class="fas fa-check-circle"></i> How to Fix:</h4>
+                    <pre><code class="language-python"># Validate input before conversion
+user_input = "hello"
+if user_input.isdigit():
+    number = int(user_input)
+
+# Use try-except
+try:
+    number = int(user_input)
+except ValueError:
+    print("Invalid number")
+
+# Check before removing
+if "cherry" in fruits:
+    fruits.remove("cherry")</code></pre>
+                </div>
+            </div>
+
+            <!-- AttributeError -->
+            <div class="error-card" id="attribute">
+                <h3><i class="fas fa-plug"></i> AttributeError <span class="severity moderate">Common</span></h3>
+                <div class="error-description">
+                    <p><strong>What it means:</strong> You're trying to access an attribute or method that doesn't exist for that object.</p>
+                </div>
+                
+                <div class="error-example">
+                    <pre><code class="language-python"># Method doesn't exist for type
+name = "John"
+name.append("!")  # Strings don't have append()
+
+# Typo in method name
+fruits = ["apple", "banana"]
+fruits.apend("cherry")  # Typo!
+
+# None has no attributes
+result = None
+print(result.upper())</code></pre>
+                </div>
+                <div class="error-output">AttributeError: 'str' object has no attribute 'append'</div>
+                
+                <div class="fix-section">
+                    <h4><i class="fas fa-check-circle"></i> How to Fix:</h4>
+                    <pre><code class="language-python"># Use correct method for type
+name = "John"
+name = name + "!"  # Concatenation for strings
+
+# Check spelling
+fruits.append("cherry")
+
+# Check for None first
+if result is not None:
+    print(result.upper())
+
+# Use dir() to see available methods
+print(dir(name))</code></pre>
+                </div>
+            </div>
+
+            <!-- IndentationError -->
+            <div class="error-card" id="indentation">
+                <h3><i class="fas fa-indent"></i> IndentationError <span class="severity common">Very Common</span></h3>
+                <div class="error-description">
+                    <p><strong>What it means:</strong> Your code's indentation is incorrect. Python uses indentation to define code blocks.</p>
+                </div>
+                
+                <div class="error-example">
+                    <pre><code class="language-python"># Missing indentation
+if True:
+print("Hello")
+
+# Inconsistent indentation
+def greet():
+    print("Hello")
+  print("World")  # Mixed spaces
+
+# Unexpected indent
+x = 5
+    y = 10  # No reason to indent</code></pre>
+                </div>
+                <div class="error-output">IndentationError: expected an indented block</div>
+                
+                <div class="fix-section">
+                    <h4><i class="fas fa-check-circle"></i> How to Fix:</h4>
+                    <pre><code class="language-python"># Add proper indentation (4 spaces)
+if True:
+    print("Hello")
+
+# Use consistent indentation
+def greet():
+    print("Hello")
+    print("World")
+
+# Remove unexpected indentation
+x = 5
+y = 10
+
+# Tip: Configure editor to use 4 spaces for tabs</code></pre>
+                </div>
+            </div>
+
+            <!-- ZeroDivisionError -->
+            <div class="error-card" id="zerodivision">
+                <h3><i class="fas fa-divide"></i> ZeroDivisionError <span class="severity moderate">Common</span></h3>
+                <div class="error-description">
+                    <p><strong>What it means:</strong> You're trying to divide a number by zero, which is mathematically undefined.</p>
+                </div>
+                
+                <div class="error-example">
+                    <pre><code class="language-python"># Direct division by zero
+result = 10 / 0
+
+# Division with variable
+divisor = 0
+result = 100 / divisor
+
+# Modulo by zero
+result = 10 % 0</code></pre>
+                </div>
+                <div class="error-output">ZeroDivisionError: division by zero</div>
+                
+                <div class="fix-section">
+                    <h4><i class="fas fa-check-circle"></i> How to Fix:</h4>
+                    <pre><code class="language-python"># Check before dividing
+divisor = 0
+if divisor != 0:
+    result = 100 / divisor
+else:
+    result = 0  # Or handle appropriately
+
+# Use try-except
+try:
+    result = 10 / divisor
+except ZeroDivisionError:
+    print("Cannot divide by zero")
+    result = None</code></pre>
+                </div>
+            </div>
+
+            <!-- FileNotFoundError -->
+            <div class="error-card" id="filenotfound">
+                <h3><i class="fas fa-file-excel"></i> FileNotFoundError <span class="severity moderate">Common</span></h3>
+                <div class="error-description">
+                    <p><strong>What it means:</strong> Python cannot find the file you're trying to open.</p>
+                </div>
+                
+                <div class="error-example">
+                    <pre><code class="language-python"># File doesn't exist
+with open("nonexistent.txt", "r") as f:
+    data = f.read()
+
+# Wrong path
+with open("data/file.txt", "r") as f:
+    data = f.read()
+
+# Typo in filename
+with open("daat.txt", "r") as f:  # Should be data.txt
+    data = f.read()</code></pre>
+                </div>
+                <div class="error-output">FileNotFoundError: [Errno 2] No such file or directory: 'nonexistent.txt'</div>
+                
+                <div class="fix-section">
+                    <h4><i class="fas fa-check-circle"></i> How to Fix:</h4>
+                    <pre><code class="language-python">import os
+
+# Check if file exists first
+if os.path.exists("data.txt"):
+    with open("data.txt", "r") as f:
+        data = f.read()
+
+# Use try-except
+try:
+    with open("data.txt", "r") as f:
+        data = f.read()
+except FileNotFoundError:
+    print("File not found!")
+    data = ""
+
+# Use absolute path
+with open(r"C:\Users\name\data.txt", "r") as f:
+    data = f.read()</code></pre>
+                </div>
+            </div>
+
+            <!-- ImportError -->
+            <div class="error-card" id="import">
+                <h3><i class="fas fa-download"></i> ImportError / ModuleNotFoundError <span class="severity moderate">Common</span></h3>
+                <div class="error-description">
+                    <p><strong>What it means:</strong> Python cannot find or import the module you're trying to use.</p>
+                </div>
+                
+                <div class="error-example">
+                    <pre><code class="language-python"># Module not installed
+import pandas
+
+# Typo in module name
+import numpyy
+
+# Wrong import path
+from mypackage import mymodule
+
+# Circular import
+# file1.py: from file2 import func2
+# file2.py: from file1 import func1</code></pre>
+                </div>
+                <div class="error-output">ModuleNotFoundError: No module named 'pandas'</div>
+                
+                <div class="fix-section">
+                    <h4><i class="fas fa-check-circle"></i> How to Fix:</h4>
+                    <pre><code class="language-python"># Install the module first
+# pip install pandas
+
+# Check spelling
+import numpy
+
+# Verify module is installed
+try:
+    import pandas
+except ImportError:
+    print("Please install: pip install pandas")
+
+# Check your PYTHONPATH for custom modules</code></pre>
+                </div>
+            </div>
+
+            <!-- RecursionError -->
+            <div class="error-card" id="recursion">
+                <h3><i class="fas fa-redo"></i> RecursionError <span class="severity rare">Less Common</span></h3>
+                <div class="error-description">
+                    <p><strong>What it means:</strong> A function calls itself too many times (infinite recursion) and exceeds Python's recursion limit.</p>
+                </div>
+                
+                <div class="error-example">
+                    <pre><code class="language-python"># Missing base case
+def factorial(n):
+    return n * factorial(n - 1)  # Never stops!
+
+factorial(5)
+
+# Incorrect base case
+def countdown(n):
+    print(n)
+    countdown(n - 1)  # No stopping condition</code></pre>
+                </div>
+                <div class="error-output">RecursionError: maximum recursion depth exceeded</div>
+                
+                <div class="fix-section">
+                    <h4><i class="fas fa-check-circle"></i> How to Fix:</h4>
+                    <pre><code class="language-python"># Add proper base case
+def factorial(n):
+    if n <= 1:  # Base case!
+        return 1
+    return n * factorial(n - 1)
+
+# Add stopping condition
+def countdown(n):
+    if n <= 0:  # Base case!
+        return
+    print(n)
+    countdown(n - 1)
+
+# Or use iteration instead
+def factorial_iter(n):
+    result = 1
+    for i in range(1, n + 1):
+        result *= i
+    return result</code></pre>
+                </div>
+            </div>
+
+            <!-- Quick Reference -->
+            <div class="error-card" style="border-left-color: #3498db;">
+                <h3 style="color: #3498db;"><i class="fas fa-lightbulb"></i> Quick Debugging Tips</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px;">
+                    <div class="error-description" style="border-left-color: #3498db;">
+                        <p><strong>1. Read the error message</strong></p>
+                        <p>The last line tells you the error type and description.</p>
+                    </div>
+                    <div class="error-description" style="border-left-color: #3498db;">
+                        <p><strong>2. Check the line number</strong></p>
+                        <p>The traceback shows exactly where the error occurred.</p>
+                    </div>
+                    <div class="error-description" style="border-left-color: #3498db;">
+                        <p><strong>3. Use print() debugging</strong></p>
+                        <p>Print variable values before the error line.</p>
+                    </div>
+                    <div class="error-description" style="border-left-color: #3498db;">
+                        <p><strong>4. Use try-except</strong></p>
+                        <p>Wrap risky code in try-except blocks.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fab fa-python"></i> Python Hub</h3>
+                    <p>Your complete guide to mastering Python programming.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="unit1.html">Unit I</a></li>
+                        <li><a href="unit2.html">Unit II</a></li>
+                        <li><a href="unit3.html">Unit III</a></li>
+                        <li><a href="unit4.html">Unit IV</a></li>
+                        <li><a href="unit5.html">Unit V</a></li>
+                        <li><a href="extras.html">Extras</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Python Hub. Made for Python learners.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

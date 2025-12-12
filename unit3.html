@@ -1,0 +1,1243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit III - Complex Data Types | Python Learning Hub</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <i class="fab fa-python"></i> Python Hub
+            </a>
+            <button class="nav-toggle" id="navToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="unit1.html">Unit I</a></li>
+                <li><a href="unit2.html">Unit II</a></li>
+                <li><a href="unit3.html" class="active">Unit III</a></li>
+                <li><a href="unit4.html">Unit IV</a></li>
+                <li><a href="unit5.html">Unit V</a></li>
+                <li class="nav-divider"></li>
+                <li><a href="extras.html">Extras</a></li>
+                <li><a href="practice.html">Practice</a></li>
+                <li><a href="theory.html">Theory</a></li>
+                <li><a href="comparisons.html">Compare</a></li>
+                <li><a href="errors.html">Errors</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="unit-header">
+        <div class="container">
+            <h1><i class="fas fa-database"></i> Unit III: Complex Data Types & Functions</h1>
+            <p>Strings, Lists, Tuples, Dictionaries, and Functions</p>
+        </div>
+    </header>
+
+    <section class="unit-content">
+        <div class="container">
+            <div class="page-layout">
+                <aside class="sidebar">
+                    <h3>Topics</h3>
+                    <nav class="sidebar-nav">
+                        <a href="#strings">Strings</a>
+                        <a href="#string-methods">String Methods</a>
+                        <a href="#lists">Lists</a>
+                        <a href="#list-slicing">List Slicing</a>
+                        <a href="#list-methods">List Methods</a>
+                        <a href="#tuples">Tuples</a>
+                        <a href="#dictionaries">Dictionaries</a>
+                        <a href="#dict-methods">Dictionary Methods</a>
+                        <a href="#functions">Functions</a>
+                    </nav>
+                </aside>
+
+                <main class="main-content">
+                    <!-- Strings Section -->
+                    <div class="topic-section" id="strings">
+                        <h2><i class="fas fa-font"></i> Strings in Python</h2>
+                        <p>Strings are sequences of characters enclosed in quotes. Python supports single quotes, double quotes, and triple quotes for strings.</p>
+
+                        <h3>Creating Strings</h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>strings_basic.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python"># Different ways to create strings
+single = 'Hello World'
+double = "Hello World"
+triple_single = '''This is a
+multiline string'''
+triple_double = """This is also a
+multiline string"""
+
+# Strings with quotes inside
+quote1 = "He said 'Hello'"
+quote2 = 'She said "Hi"'
+quote3 = "It's a beautiful day"
+
+# Escape characters
+escaped = "He said \"Hello\""
+newline = "Line 1\nLine 2"
+tab = "Column1\tColumn2"
+
+print(newline)
+# Output:
+# Line 1
+# Line 2</code></pre>
+                        </div>
+
+                        <h3>String Indexing and Accessing</h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>string_indexing.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python"># String indexing (0-based)
+text = "Python"
+#       012345  (positive index)
+#      -6-5-4-3-2-1 (negative index)
+
+print(text[0])    # P (first character)
+print(text[1])    # y
+print(text[-1])   # n (last character)
+print(text[-2])   # o (second to last)
+
+# String length
+print(len(text))  # 6
+
+# Iterate through string
+for char in text:
+    print(char, end="-")  # P-y-t-h-o-n-
+
+# Check character in string
+print("\n'y' in text:", 'y' in text)      # True
+print("'z' not in text:", 'z' not in text) # True</code></pre>
+                        </div>
+
+                        <h3>String Slicing</h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>string_slicing.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python"># String slicing: string[start:stop:step]
+text = "Hello, World!"
+
+# Basic slicing
+print(text[0:5])     # Hello (index 0 to 4)
+print(text[7:12])    # World (index 7 to 11)
+
+# Omitting start/stop
+print(text[:5])      # Hello (from beginning)
+print(text[7:])      # World! (to end)
+print(text[:])       # Hello, World! (entire string)
+
+# Negative indices
+print(text[-6:])     # World!
+print(text[:-1])     # Hello, World (exclude last)
+print(text[-6:-1])   # World
+
+# Step value
+print(text[::2])     # Hlo ol! (every 2nd char)
+print(text[1::2])    # el,Wrd (every 2nd from index 1)
+
+# Reverse string
+print(text[::-1])    # !dlroW ,olleH</code></pre>
+                        </div>
+
+                        <h3>String Concatenation and Formatting</h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>string_format.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python"># String concatenation
+first = "Hello"
+second = "World"
+combined = first + " " + second
+print(combined)  # Hello World
+
+# String repetition
+line = "-" * 20
+print(line)  # --------------------
+
+# String formatting methods
+
+# 1. f-strings (Python 3.6+) - Recommended
+name = "Alice"
+age = 25
+print(f"My name is {name} and I'm {age} years old")
+print(f"Next year I'll be {age + 1}")
+
+# 2. format() method
+print("My name is {} and I'm {} years old".format(name, age))
+print("My name is {0} and I'm {1} years old".format(name, age))
+print("My name is {n} and I'm {a} years old".format(n=name, a=age))
+
+# 3. % operator (old style)
+print("My name is %s and I'm %d years old" % (name, age))
+
+# Formatting numbers
+price = 49.99
+print(f"Price: ${price:.2f}")       # Price: $49.99
+print(f"Price: ${price:10.2f}")     # Price:      49.99 (padded)
+print(f"Percentage: {0.75:.1%}")    # Percentage: 75.0%
+
+pi = 3.14159265359
+print(f"Pi: {pi:.4f}")              # Pi: 3.1416</code></pre>
+                        </div>
+                    </div>
+
+                    <!-- String Methods -->
+                    <div class="topic-section" id="string-methods">
+                        <h2><i class="fas fa-tools"></i> String Manipulation Methods</h2>
+                        
+                        <h3>Case Methods</h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>string_case.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python"># Case conversion methods
+text = "Hello World"
+
+print(text.upper())       # HELLO WORLD
+print(text.lower())       # hello world
+print(text.title())       # Hello World
+print(text.capitalize())  # Hello world
+print(text.swapcase())    # hELLO wORLD
+
+# Check case
+print("HELLO".isupper())  # True
+print("hello".islower())  # True
+print("Hello".istitle())  # True</code></pre>
+                        </div>
+
+                        <h3>Search Methods</h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>string_search.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python"># Finding and counting
+text = "Hello World, Hello Python"
+
+# find() - returns index or -1
+print(text.find("Hello"))     # 0 (first occurrence)
+print(text.find("Hello", 1))  # 13 (search from index 1)
+print(text.find("Java"))      # -1 (not found)
+
+# index() - like find but raises error if not found
+print(text.index("World"))    # 6
+
+# rfind() and rindex() - search from right
+print(text.rfind("Hello"))    # 13 (last occurrence)
+
+# count() - count occurrences
+print(text.count("Hello"))    # 2
+print(text.count("o"))        # 4
+
+# startswith() and endswith()
+print(text.startswith("Hello"))   # True
+print(text.endswith("Python"))    # True
+print(text.startswith("World", 6)) # True (from index 6)</code></pre>
+                        </div>
+
+                        <h3>Modification Methods</h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>string_modify.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python"># Replace
+text = "Hello World"
+print(text.replace("World", "Python"))  # Hello Python
+print(text.replace("l", "L", 1))        # HeLlo World (replace first only)
+
+# Strip (remove whitespace)
+messy = "   Hello World   "
+print(messy.strip())   # "Hello World"
+print(messy.lstrip())  # "Hello World   "
+print(messy.rstrip())  # "   Hello World"
+
+# Strip specific characters
+text = "...Hello..."
+print(text.strip("."))  # Hello
+
+# Split - convert string to list
+sentence = "Hello World Python"
+words = sentence.split()  # Split by whitespace
+print(words)  # ['Hello', 'World', 'Python']
+
+csv = "apple,banana,cherry"
+fruits = csv.split(",")
+print(fruits)  # ['apple', 'banana', 'cherry']
+
+# Split with limit
+text = "one-two-three-four"
+print(text.split("-", 2))  # ['one', 'two', 'three-four']
+
+# Join - convert list to string
+words = ['Hello', 'World', 'Python']
+print(" ".join(words))   # Hello World Python
+print("-".join(words))   # Hello-World-Python
+print("".join(words))    # HelloWorldPython</code></pre>
+                        </div>
+
+                        <h3>Validation Methods</h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>string_validate.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python"># Validation methods (return True/False)
+
+# isalpha() - all alphabetic
+print("Hello".isalpha())     # True
+print("Hello123".isalpha())  # False
+
+# isdigit() - all digits
+print("123".isdigit())       # True
+print("12.3".isdigit())      # False
+
+# isalnum() - alphanumeric
+print("Hello123".isalnum())  # True
+print("Hello 123".isalnum()) # False (has space)
+
+# isspace() - all whitespace
+print("   ".isspace())       # True
+print("  x  ".isspace())     # False
+
+# isnumeric() - numeric characters
+print("123".isnumeric())     # True
+print("½".isnumeric())       # True (fractions)
+
+# Example: Input validation
+user_input = "John123"
+if user_input.isalnum():
+    print("Valid username")
+else:
+    print("Invalid: only letters and numbers allowed")</code></pre>
+                        </div>
+
+                        <h3>Padding and Alignment</h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>string_pad.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python"># Padding and alignment
+text = "Python"
+
+# Center, left, right justify
+print(text.center(20, '-'))  # -------Python-------
+print(text.ljust(20, '-'))   # Python--------------
+print(text.rjust(20, '-'))   # --------------Python
+
+# Zero padding
+num = "42"
+print(num.zfill(5))   # 00042
+print("-42".zfill(5)) # -0042 (sign stays at front)
+
+# Using f-strings for alignment
+print(f"{text:^20}")   # Center
+print(f"{text:<20}")   # Left
+print(f"{text:>20}")   # Right
+print(f"{text:-^20}") # Center with fill char</code></pre>
+                        </div>
+                    </div>
+
+                    <!-- Lists Section -->
+                    <div class="topic-section" id="lists">
+                        <h2><i class="fas fa-list"></i> Lists in Python</h2>
+                        <p>Lists are ordered, mutable collections that can hold items of any type. They are one of the most versatile data structures in Python.</p>
+
+                        <h3>Creating Lists</h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>lists_basic.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python"># Different ways to create lists
+empty_list = []
+empty_list2 = list()
+
+# List with values
+numbers = [1, 2, 3, 4, 5]
+fruits = ["apple", "banana", "cherry"]
+mixed = [1, "hello", 3.14, True, None]
+
+# List from other iterables
+chars = list("Python")  # ['P', 'y', 't', 'h', 'o', 'n']
+nums = list(range(5))   # [0, 1, 2, 3, 4]
+
+# Nested lists (2D list)
+matrix = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+]
+
+print(matrix[0])     # [1, 2, 3]
+print(matrix[1][2])  # 6
+
+# List comprehension (creating lists from expressions)
+squares = [x**2 for x in range(1, 6)]
+print(squares)  # [1, 4, 9, 16, 25]
+
+evens = [x for x in range(10) if x % 2 == 0]
+print(evens)  # [0, 2, 4, 6, 8]</code></pre>
+                        </div>
+
+                        <h3>Accessing List Elements</h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>list_access.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python"># List indexing
+fruits = ["apple", "banana", "cherry", "date", "elderberry"]
+#           0         1         2        3         4
+#          -5        -4        -3       -2        -1
+
+# Positive indexing
+print(fruits[0])   # apple
+print(fruits[2])   # cherry
+
+# Negative indexing
+print(fruits[-1])  # elderberry
+print(fruits[-3])  # cherry
+
+# List length
+print(len(fruits))  # 5
+
+# Check if item exists
+print("banana" in fruits)      # True
+print("grape" not in fruits)   # True
+
+# Iterate through list
+for fruit in fruits:
+    print(fruit)
+
+# Iterate with index
+for i, fruit in enumerate(fruits):
+    print(f"{i}: {fruit}")</code></pre>
+                        </div>
+                    </div>
+
+                    <!-- List Slicing -->
+                    <div class="topic-section" id="list-slicing">
+                        <h2><i class="fas fa-cut"></i> List Slicing</h2>
+                        <p>Slicing allows you to extract portions of a list using the syntax <code>list[start:stop:step]</code>.</p>
+
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>list_slicing.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python"># List slicing
+numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+# Basic slicing
+print(numbers[2:5])    # [2, 3, 4]
+print(numbers[:4])     # [0, 1, 2, 3]
+print(numbers[6:])     # [6, 7, 8, 9]
+print(numbers[:])      # [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+# Negative indices
+print(numbers[-3:])    # [7, 8, 9]
+print(numbers[:-3])    # [0, 1, 2, 3, 4, 5, 6]
+print(numbers[-5:-2])  # [5, 6, 7]
+
+# Step value
+print(numbers[::2])    # [0, 2, 4, 6, 8] (every 2nd)
+print(numbers[1::2])   # [1, 3, 5, 7, 9] (odd indices)
+print(numbers[::3])    # [0, 3, 6, 9] (every 3rd)
+
+# Reverse list
+print(numbers[::-1])   # [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
+print(numbers[::-2])   # [9, 7, 5, 3, 1]
+
+# Modify with slicing
+fruits = ["apple", "banana", "cherry", "date"]
+fruits[1:3] = ["blueberry", "cantaloupe"]
+print(fruits)  # ['apple', 'blueberry', 'cantaloupe', 'date']
+
+# Insert using slicing
+nums = [1, 2, 5, 6]
+nums[2:2] = [3, 4]  # Insert at index 2
+print(nums)  # [1, 2, 3, 4, 5, 6]
+
+# Delete using slicing
+nums[1:3] = []
+print(nums)  # [1, 4, 5, 6]</code></pre>
+                        </div>
+                    </div>
+
+                    <!-- List Methods -->
+                    <div class="topic-section" id="list-methods">
+                        <h2><i class="fas fa-cogs"></i> List Methods & Manipulation</h2>
+
+                        <h3>Adding Elements</h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>list_add.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python"># Adding elements to lists
+fruits = ["apple", "banana"]
+
+# append() - add to end
+fruits.append("cherry")
+print(fruits)  # ['apple', 'banana', 'cherry']
+
+# insert() - add at specific index
+fruits.insert(1, "blueberry")
+print(fruits)  # ['apple', 'blueberry', 'banana', 'cherry']
+
+# extend() - add multiple items
+fruits.extend(["date", "elderberry"])
+print(fruits)  # ['apple', 'blueberry', 'banana', 'cherry', 'date', 'elderberry']
+
+# Using + operator (creates new list)
+more_fruits = fruits + ["fig", "grape"]
+print(more_fruits)
+
+# Using += (modifies in place)
+fruits += ["honeydew"]
+print(fruits)</code></pre>
+                        </div>
+
+                        <h3>Removing Elements</h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>list_remove.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python"># Removing elements from lists
+numbers = [1, 2, 3, 4, 5, 3, 6]
+
+# remove() - remove first occurrence
+numbers.remove(3)
+print(numbers)  # [1, 2, 4, 5, 3, 6]
+
+# pop() - remove by index (default: last)
+last = numbers.pop()
+print(f"Popped: {last}")  # 6
+print(numbers)  # [1, 2, 4, 5, 3]
+
+second = numbers.pop(1)
+print(f"Popped index 1: {second}")  # 2
+print(numbers)  # [1, 4, 5, 3]
+
+# del - delete by index or slice
+fruits = ["apple", "banana", "cherry", "date"]
+del fruits[0]
+print(fruits)  # ['banana', 'cherry', 'date']
+
+del fruits[1:3]
+print(fruits)  # ['banana']
+
+# clear() - remove all elements
+numbers = [1, 2, 3]
+numbers.clear()
+print(numbers)  # []</code></pre>
+                        </div>
+
+                        <h3>Searching and Sorting</h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>list_search_sort.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python"># Searching in lists
+fruits = ["apple", "banana", "cherry", "banana"]
+
+# index() - find first occurrence
+print(fruits.index("banana"))     # 1
+print(fruits.index("banana", 2))  # 3 (search from index 2)
+
+# count() - count occurrences
+print(fruits.count("banana"))  # 2
+
+# Sorting lists
+numbers = [3, 1, 4, 1, 5, 9, 2, 6]
+
+# sort() - sort in place
+numbers.sort()
+print(numbers)  # [1, 1, 2, 3, 4, 5, 6, 9]
+
+# Reverse sort
+numbers.sort(reverse=True)
+print(numbers)  # [9, 6, 5, 4, 3, 2, 1, 1]
+
+# sorted() - returns new sorted list
+original = [3, 1, 4, 1, 5]
+sorted_list = sorted(original)
+print(original)     # [3, 1, 4, 1, 5] (unchanged)
+print(sorted_list)  # [1, 1, 3, 4, 5]
+
+# Custom sorting
+words = ["banana", "Apple", "cherry"]
+words.sort(key=str.lower)  # Case-insensitive
+print(words)  # ['Apple', 'banana', 'cherry']
+
+# Sort by length
+words.sort(key=len)
+print(words)  # ['Apple', 'banana', 'cherry']
+
+# reverse() - reverse in place
+numbers = [1, 2, 3, 4, 5]
+numbers.reverse()
+print(numbers)  # [5, 4, 3, 2, 1]</code></pre>
+                        </div>
+
+                        <h3>Other Useful Operations</h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>list_operations.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python"># Copy lists
+original = [1, 2, 3]
+copy1 = original.copy()
+copy2 = list(original)
+copy3 = original[:]
+
+# All create independent copies
+copy1.append(4)
+print(original)  # [1, 2, 3] (unchanged)
+print(copy1)     # [1, 2, 3, 4]
+
+# Aggregate functions
+numbers = [10, 20, 30, 40, 50]
+print(min(numbers))  # 10
+print(max(numbers))  # 50
+print(sum(numbers))  # 150
+print(sum(numbers) / len(numbers))  # 30.0 (average)
+
+# List unpacking
+first, *middle, last = [1, 2, 3, 4, 5]
+print(first)   # 1
+print(middle)  # [2, 3, 4]
+print(last)    # 5
+
+# Zip lists together
+names = ["Alice", "Bob", "Charlie"]
+ages = [25, 30, 35]
+combined = list(zip(names, ages))
+print(combined)  # [('Alice', 25), ('Bob', 30), ('Charlie', 35)]
+
+# Flatten nested list
+nested = [[1, 2], [3, 4], [5, 6]]
+flat = [item for sublist in nested for item in sublist]
+print(flat)  # [1, 2, 3, 4, 5, 6]</code></pre>
+                        </div>
+                    </div>
+
+                    <!-- Tuples Section -->
+                    <div class="topic-section" id="tuples">
+                        <h2><i class="fas fa-lock"></i> Tuples in Python</h2>
+                        <p>Tuples are ordered, <strong>immutable</strong> collections. Once created, you cannot modify a tuple.</p>
+
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>tuples.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python"># Creating tuples
+empty_tuple = ()
+single = (1,)  # Note: comma is required for single item
+numbers = (1, 2, 3, 4, 5)
+mixed = (1, "hello", 3.14, True)
+
+# Creating tuple without parentheses
+coordinates = 10, 20, 30
+print(type(coordinates))  # &lt;class 'tuple'&gt;
+
+# Converting from list
+my_list = [1, 2, 3]
+my_tuple = tuple(my_list)
+
+# Accessing elements (same as lists)
+print(numbers[0])    # 1
+print(numbers[-1])   # 5
+print(numbers[1:4])  # (2, 3, 4)
+
+# Tuple methods
+numbers = (1, 2, 3, 2, 4, 2)
+print(numbers.count(2))  # 3
+print(numbers.index(3))  # 2
+
+# Tuple unpacking
+point = (10, 20, 30)
+x, y, z = point
+print(f"x={x}, y={y}, z={z}")
+
+# Swapping with tuples
+a, b = 5, 10
+a, b = b, a  # Swap!
+print(f"a={a}, b={b}")  # a=10, b=5
+
+# Tuples are immutable!
+# numbers[0] = 100  # TypeError: 'tuple' object does not support item assignment
+
+# But you can create a new tuple
+numbers = (100,) + numbers[1:]
+print(numbers)  # (100, 2, 3, 2, 4, 2)</code></pre>
+                        </div>
+
+                        <h3>When to Use Tuples vs Lists</h3>
+                        <div class="table-container">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Tuples</th>
+                                        <th>Lists</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>Immutable (can't change)</td><td>Mutable (can change)</td></tr>
+                                    <tr><td>Faster performance</td><td>Slower than tuples</td></tr>
+                                    <tr><td>Can be dictionary keys</td><td>Cannot be dictionary keys</td></tr>
+                                    <tr><td>For fixed collections</td><td>For dynamic collections</td></tr>
+                                    <tr><td>E.g., coordinates, RGB</td><td>E.g., shopping cart, to-do</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Dictionaries Section -->
+                    <div class="topic-section" id="dictionaries">
+                        <h2><i class="fas fa-book"></i> Dictionaries in Python</h2>
+                        <p>Dictionaries store data in key-value pairs. Keys must be unique and immutable (strings, numbers, tuples).</p>
+
+                        <h3>Creating Dictionaries</h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>dict_create.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python"># Creating dictionaries
+empty_dict = {}
+empty_dict2 = dict()
+
+# Dictionary with values
+person = {
+    "name": "Alice",
+    "age": 25,
+    "city": "New York"
+}
+
+# Using dict() constructor
+person2 = dict(name="Bob", age=30, city="Boston")
+
+# From list of tuples
+items = [("a", 1), ("b", 2), ("c", 3)]
+my_dict = dict(items)
+print(my_dict)  # {'a': 1, 'b': 2, 'c': 3}
+
+# Dictionary comprehension
+squares = {x: x**2 for x in range(1, 6)}
+print(squares)  # {1: 1, 2: 4, 3: 9, 4: 16, 5: 25}
+
+# Nested dictionary
+students = {
+    "Alice": {"age": 20, "grade": "A"},
+    "Bob": {"age": 22, "grade": "B"}
+}
+print(students["Alice"]["grade"])  # A</code></pre>
+                        </div>
+
+                        <h3>Accessing Dictionary Values</h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>dict_access.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python"># Accessing values
+person = {"name": "Alice", "age": 25, "city": "New York"}
+
+# Using key
+print(person["name"])  # Alice
+
+# Using get() - safer, returns None if key doesn't exist
+print(person.get("age"))         # 25
+print(person.get("country"))     # None
+print(person.get("country", "USA"))  # USA (default value)
+
+# Check if key exists
+print("name" in person)      # True
+print("salary" in person)    # False
+
+# Get all keys, values, items
+print(person.keys())    # dict_keys(['name', 'age', 'city'])
+print(person.values())  # dict_values(['Alice', 25, 'New York'])
+print(person.items())   # dict_items([('name', 'Alice'), ('age', 25), ('city', 'New York')])
+
+# Iterate through dictionary
+for key in person:
+    print(f"{key}: {person[key]}")
+
+# Better way
+for key, value in person.items():
+    print(f"{key}: {value}")</code></pre>
+                        </div>
+                    </div>
+
+                    <!-- Dictionary Methods -->
+                    <div class="topic-section" id="dict-methods">
+                        <h2><i class="fas fa-wrench"></i> Dictionary Methods</h2>
+
+                        <h3>Modifying Dictionaries</h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>dict_modify.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python"># Adding and updating
+person = {"name": "Alice", "age": 25}
+
+# Add new key-value
+person["city"] = "New York"
+print(person)  # {'name': 'Alice', 'age': 25, 'city': 'New York'}
+
+# Update existing value
+person["age"] = 26
+print(person)
+
+# update() - update multiple values
+person.update({"age": 27, "job": "Engineer"})
+print(person)
+
+# setdefault() - set value only if key doesn't exist
+person.setdefault("country", "USA")
+print(person["country"])  # USA
+
+person.setdefault("name", "Bob")  # Won't change
+print(person["name"])  # Alice
+
+# Removing items
+# pop() - remove and return value
+age = person.pop("age")
+print(f"Removed age: {age}")
+
+# pop with default
+salary = person.pop("salary", 0)  # Returns 0 if not found
+
+# popitem() - remove last inserted item
+last = person.popitem()
+print(f"Removed: {last}")
+
+# del
+del person["city"]
+
+# clear() - remove all items
+# person.clear()</code></pre>
+                        </div>
+
+                        <h3>Dictionary Operations</h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>dict_operations.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python"># Copy dictionary
+original = {"a": 1, "b": 2}
+copy = original.copy()
+copy["c"] = 3
+print(original)  # {'a': 1, 'b': 2} (unchanged)
+
+# Merge dictionaries (Python 3.9+)
+dict1 = {"a": 1, "b": 2}
+dict2 = {"c": 3, "d": 4}
+merged = dict1 | dict2
+print(merged)  # {'a': 1, 'b': 2, 'c': 3, 'd': 4}
+
+# For Python < 3.9
+merged = {**dict1, **dict2}
+
+# fromkeys() - create dict with same value
+keys = ["a", "b", "c"]
+new_dict = dict.fromkeys(keys, 0)
+print(new_dict)  # {'a': 0, 'b': 0, 'c': 0}
+
+# Dictionary length
+person = {"name": "Alice", "age": 25}
+print(len(person))  # 2
+
+# Counting with dictionaries
+text = "hello world"
+char_count = {}
+for char in text:
+    char_count[char] = char_count.get(char, 0) + 1
+print(char_count)
+# {'h': 1, 'e': 1, 'l': 3, 'o': 2, ' ': 1, 'w': 1, 'r': 1, 'd': 1}</code></pre>
+                        </div>
+                    </div>
+
+                    <!-- Functions Section -->
+                    <div class="topic-section" id="functions">
+                        <h2><i class="fas fa-code"></i> Python Functions</h2>
+                        <p>Functions are reusable blocks of code that perform specific tasks. They help organize code and avoid repetition.</p>
+
+                        <h3>Defining Functions</h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>functions_basic.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python"># Basic function definition
+def greet():
+    """This function prints a greeting."""
+    print("Hello, World!")
+
+# Calling the function
+greet()  # Hello, World!
+
+# Function with parameters
+def greet_person(name):
+    """Greet a specific person."""
+    print(f"Hello, {name}!")
+
+greet_person("Alice")  # Hello, Alice!
+
+# Function with return value
+def add(a, b):
+    """Return the sum of two numbers."""
+    return a + b
+
+result = add(5, 3)
+print(result)  # 8
+
+# Multiple return values
+def get_min_max(numbers):
+    """Return minimum and maximum of a list."""
+    return min(numbers), max(numbers)
+
+minimum, maximum = get_min_max([3, 1, 4, 1, 5, 9])
+print(f"Min: {minimum}, Max: {maximum}")  # Min: 1, Max: 9</code></pre>
+                        </div>
+
+                        <h3>Function Parameters</h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>function_params.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python"># Default parameters
+def greet(name, greeting="Hello"):
+    print(f"{greeting}, {name}!")
+
+greet("Alice")              # Hello, Alice!
+greet("Bob", "Hi")          # Hi, Bob!
+
+# Keyword arguments
+def create_profile(name, age, city):
+    return f"{name}, {age} years old, from {city}"
+
+# Call with keyword arguments (order doesn't matter)
+profile = create_profile(age=25, city="NYC", name="Alice")
+print(profile)
+
+# *args - variable positional arguments
+def sum_all(*numbers):
+    """Sum any number of arguments."""
+    return sum(numbers)
+
+print(sum_all(1, 2, 3))      # 6
+print(sum_all(1, 2, 3, 4, 5)) # 15
+
+# **kwargs - variable keyword arguments
+def print_info(**kwargs):
+    """Print all keyword arguments."""
+    for key, value in kwargs.items():
+        print(f"{key}: {value}")
+
+print_info(name="Alice", age=25, city="NYC")
+
+# Combined: regular, default, *args, **kwargs
+def complex_function(required, optional="default", *args, **kwargs):
+    print(f"Required: {required}")
+    print(f"Optional: {optional}")
+    print(f"Args: {args}")
+    print(f"Kwargs: {kwargs}")
+
+complex_function("hello", "world", 1, 2, 3, x=10, y=20)</code></pre>
+                        </div>
+
+                        <h3>Lambda Functions</h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>lambda_functions.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python"># Lambda (anonymous) functions
+# Syntax: lambda arguments: expression
+
+# Simple lambda
+square = lambda x: x ** 2
+print(square(5))  # 25
+
+# Multiple arguments
+add = lambda a, b: a + b
+print(add(3, 4))  # 7
+
+# Lambda with conditional
+is_even = lambda x: "Even" if x % 2 == 0 else "Odd"
+print(is_even(4))  # Even
+
+# Using lambda with built-in functions
+
+# sort with custom key
+students = [("Alice", 25), ("Bob", 20), ("Charlie", 22)]
+students.sort(key=lambda x: x[1])  # Sort by age
+print(students)
+
+# map() - apply function to each item
+numbers = [1, 2, 3, 4, 5]
+squared = list(map(lambda x: x**2, numbers))
+print(squared)  # [1, 4, 9, 16, 25]
+
+# filter() - filter items based on condition
+evens = list(filter(lambda x: x % 2 == 0, numbers))
+print(evens)  # [2, 4]
+
+# reduce() - reduce to single value
+from functools import reduce
+product = reduce(lambda a, b: a * b, numbers)
+print(product)  # 120 (1*2*3*4*5)</code></pre>
+                        </div>
+
+                        <h3>Scope and Global Variables</h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>scope.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python"># Variable scope
+global_var = "I'm global"
+
+def my_function():
+    local_var = "I'm local"
+    print(global_var)   # Can access global
+    print(local_var)    # Can access local
+
+my_function()
+# print(local_var)  # Error! local_var not accessible here
+
+# Modifying global variables
+counter = 0
+
+def increment():
+    global counter  # Declare as global to modify
+    counter += 1
+
+increment()
+increment()
+print(counter)  # 2
+
+# Nested functions and nonlocal
+def outer():
+    message = "Hello"
+    
+    def inner():
+        nonlocal message  # Access enclosing scope
+        message = "Hi"
+    
+    inner()
+    print(message)  # Hi
+
+outer()</code></pre>
+                        </div>
+
+                        <h3>Organizing Code with Functions</h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>organize.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python"># Well-organized program using functions
+
+def get_user_input():
+    """Get and validate user input."""
+    while True:
+        try:
+            number = int(input("Enter a positive number: "))
+            if number > 0:
+                return number
+            print("Please enter a positive number.")
+        except ValueError:
+            print("Invalid input. Please enter a number.")
+
+def calculate_factorial(n):
+    """Calculate factorial of n."""
+    if n == 0 or n == 1:
+        return 1
+    result = 1
+    for i in range(2, n + 1):
+        result *= i
+    return result
+
+def display_result(number, factorial):
+    """Display the result nicely."""
+    print(f"\n{'='*30}")
+    print(f"  {number}! = {factorial}")
+    print(f"{'='*30}")
+
+def main():
+    """Main program flow."""
+    print("Factorial Calculator")
+    print("-" * 20)
+    
+    number = get_user_input()
+    factorial = calculate_factorial(number)
+    display_result(number, factorial)
+
+# Run the program
+if __name__ == "__main__":
+    main()</code></pre>
+                        </div>
+
+                        <div class="info-box tip">
+                            <h4><i class="fas fa-lightbulb"></i> Best Practices</h4>
+                            <ul>
+                                <li>Functions should do one thing and do it well</li>
+                                <li>Use descriptive names that explain what the function does</li>
+                                <li>Add docstrings to explain function purpose</li>
+                                <li>Keep functions short (ideally under 20 lines)</li>
+                                <li>Use the <code>if __name__ == "__main__":</code> pattern</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Navigation -->
+                    <div class="unit-navigation">
+                        <a href="unit2.html" class="nav-btn prev">
+                            <i class="fas fa-arrow-left"></i> Unit II: Flow Control
+                        </a>
+                        <a href="unit4.html" class="nav-btn next">
+                            Unit IV: File Operations <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quiz Section -->
+    <section class="quiz-section">
+        <div class="container">
+            <h2 class="section-title">Test Your Knowledge</h2>
+            <div class="quiz-container" id="quiz-container">
+                <!-- Quiz will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fab fa-python"></i> Python Hub</h3>
+                    <p>Your complete guide to mastering Python programming.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="unit1.html">Unit I - Introduction</a></li>
+                        <li><a href="unit2.html">Unit II - Flow Control</a></li>
+                        <li><a href="unit3.html">Unit III - Data Types</a></li>
+                        <li><a href="unit4.html">Unit IV - File Operations</a></li>
+                        <li><a href="unit5.html">Unit V - Packages & GUI</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Python Learning Hub. Made with <i class="fas fa-heart"></i> for Learning.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+    <script src="js/script.js"></script>
+    <script>
+        // Unit 3 Quiz Questions
+        const unit3Questions = [
+            {
+                question: "What is the output of <code>len('Python')</code>?",
+                options: ["5", "6", "7", "Error"],
+                correct: 1,
+                explanation: "The len() function returns the number of characters in a string. 'Python' has 6 characters."
+            },
+            {
+                question: "Which method converts a string to uppercase?",
+                options: ["str.upper()", "str.toUpperCase()", "str.capitalize()", "str.UP()"],
+                correct: 0,
+                explanation: "The upper() method returns a copy of the string with all characters converted to uppercase."
+            },
+            {
+                question: "What is the result of <code>[1, 2, 3] + [4, 5]</code>?",
+                options: ["[1, 2, 3, [4, 5]]", "[1, 2, 3, 4, 5]", "[5, 7, 3]", "Error"],
+                correct: 1,
+                explanation: "The + operator concatenates two lists, combining all elements into a single list."
+            },
+            {
+                question: "How do you access the last element of a list?",
+                options: ["list[last]", "list[-1]", "list[len(list)]", "list.last()"],
+                correct: 1,
+                explanation: "Negative indexing in Python allows you to access elements from the end. -1 refers to the last element."
+            },
+            {
+                question: "What is the main difference between a tuple and a list?",
+                options: ["Tuples are faster", "Tuples are immutable", "Tuples can only hold numbers", "Tuples use square brackets"],
+                correct: 1,
+                explanation: "Tuples are immutable - once created, their elements cannot be changed, added, or removed."
+            },
+            {
+                question: "What does <code>'hello'[1:4]</code> return?",
+                options: ["'hel'", "'ell'", "'ello'", "'llo'"],
+                correct: 1,
+                explanation: "Slicing [1:4] returns characters from index 1 to 3 (4 is exclusive). 'hello'[1:4] = 'ell'."
+            },
+            {
+                question: "How do you add a key-value pair to a dictionary?",
+                options: ["dict.add('key', 'value')", "dict.insert('key', 'value')", "dict['key'] = 'value'", "dict.append('key': 'value')"],
+                correct: 2,
+                explanation: "You add or update dictionary entries using square bracket notation: dict['key'] = 'value'."
+            },
+            {
+                question: "What keyword is used to define a function in Python?",
+                options: ["function", "func", "def", "define"],
+                correct: 2,
+                explanation: "The 'def' keyword is used to define a function in Python, followed by the function name and parentheses."
+            },
+            {
+                question: "What does <code>'hello'.split('l')</code> return?",
+                options: ["['heo']", "['he', '', 'o']", "['hello']", "['h', 'e', 'o']"],
+                correct: 1,
+                explanation: "split('l') divides the string at each 'l'. 'hello' splits into 'he', '' (between two l's), and 'o'."
+            },
+            {
+                question: "Which method removes and returns the last item from a list?",
+                options: ["remove()", "delete()", "pop()", "discard()"],
+                correct: 2,
+                explanation: "The pop() method removes and returns the last item from a list. You can also specify an index."
+            }
+        ];
+        
+        // Initialize Quiz
+        quiz = new QuizManager('quiz-container', unit3Questions);
+    </script>
+</body>
+</html>

@@ -1,0 +1,1196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extra Topics | Python Learning Hub</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <i class="fab fa-python"></i> Python Hub
+            </a>
+            <button class="nav-toggle" id="navToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="unit1.html">Unit I</a></li>
+                <li><a href="unit2.html">Unit II</a></li>
+                <li><a href="unit3.html">Unit III</a></li>
+                <li><a href="unit4.html">Unit IV</a></li>
+                <li><a href="unit5.html">Unit V</a></li>
+                <li class="nav-divider"></li>
+                <li><a href="extras.html" class="active">Extras</a></li>
+                <li><a href="practice.html">Practice</a></li>
+                <li><a href="theory.html">Theory</a></li>
+                <li><a href="comparisons.html">Compare</a></li>
+                <li><a href="errors.html">Errors</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="unit-header" style="background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);">
+        <div class="container">
+            <h1><i class="fas fa-plus-circle"></i> Extra Topics</h1>
+            <p>Advanced Python concepts beyond the syllabus</p>
+        </div>
+    </header>
+
+    <section class="unit-content">
+        <div class="container">
+            <div class="page-layout">
+                <aside class="sidebar">
+                    <h3>Topics</h3>
+                    <nav class="sidebar-nav">
+                        <a href="#exceptions">Exception Handling</a>
+                        <a href="#oop">Object-Oriented Programming</a>
+                        <a href="#inheritance">Inheritance</a>
+                        <a href="#modules">Modules & Imports</a>
+                        <a href="#comprehensions">List Comprehensions</a>
+                        <a href="#lambda">Lambda Functions</a>
+                        <a href="#decorators">Decorators</a>
+                        <a href="#generators">Generators</a>
+                        <a href="#regex">Regular Expressions</a>
+                    </nav>
+                </aside>
+
+                <main class="main-content">
+                    <!-- Exception Handling -->
+                    <div class="topic-section" id="exceptions">
+                        <h2><i class="fas fa-exclamation-triangle"></i> Exception Handling</h2>
+                        
+                        <p>Exception handling allows you to gracefully handle errors that occur during program execution, preventing crashes and providing meaningful error messages.</p>
+
+                        <h3>Try-Except Block</h3>
+                        <p>The basic structure for handling exceptions:</p>
+
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>Exception Handling Basics</span>
+                                <button class="copy-btn"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-python"># Basic try-except
+try:
+    number = int(input("Enter a number: "))
+    result = 10 / number
+    print(f"Result: {result}")
+except ValueError:
+    print("Invalid input! Please enter a number.")
+except ZeroDivisionError:
+    print("Cannot divide by zero!")
+
+# Using else and finally
+try:
+    file = open("data.txt", "r")
+    content = file.read()
+except FileNotFoundError:
+    print("File not found!")
+else:
+    print("File read successfully!")
+    print(content)
+finally:
+    print("This always executes")
+    # Clean up code here</code></pre>
+                        </div>
+
+                        <h3>Common Exception Types</h3>
+                        <div class="table-container">
+                            <table class="info-table">
+                                <thead>
+                                    <tr>
+                                        <th>Exception</th>
+                                        <th>Description</th>
+                                        <th>Example</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><code>ValueError</code></td>
+                                        <td>Invalid value for operation</td>
+                                        <td><code>int("hello")</code></td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>TypeError</code></td>
+                                        <td>Operation on wrong type</td>
+                                        <td><code>"2" + 2</code></td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>ZeroDivisionError</code></td>
+                                        <td>Division by zero</td>
+                                        <td><code>10 / 0</code></td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>IndexError</code></td>
+                                        <td>Invalid list index</td>
+                                        <td><code>[1,2,3][10]</code></td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>KeyError</code></td>
+                                        <td>Key not found in dict</td>
+                                        <td><code>{'a':1}['b']</code></td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>FileNotFoundError</code></td>
+                                        <td>File doesn't exist</td>
+                                        <td><code>open("none.txt")</code></td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>AttributeError</code></td>
+                                        <td>Invalid attribute access</td>
+                                        <td><code>"hello".append()</code></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <h3>Raising Exceptions</h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>Raising Custom Exceptions</span>
+                                <button class="copy-btn"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-python"># Raising exceptions
+def set_age(age):
+    if age < 0:
+        raise ValueError("Age cannot be negative!")
+    if age > 150:
+        raise ValueError("Age seems unrealistic!")
+    return age
+
+try:
+    user_age = set_age(-5)
+except ValueError as e:
+    print(f"Error: {e}")
+
+# Creating custom exception classes
+class InsufficientFundsError(Exception):
+    def __init__(self, balance, amount):
+        self.balance = balance
+        self.amount = amount
+        super().__init__(f"Cannot withdraw {amount}. Balance: {balance}")
+
+def withdraw(balance, amount):
+    if amount > balance:
+        raise InsufficientFundsError(balance, amount)
+    return balance - amount
+
+try:
+    new_balance = withdraw(100, 150)
+except InsufficientFundsError as e:
+    print(e)  # Cannot withdraw 150. Balance: 100</code></pre>
+                        </div>
+                    </div>
+
+                    <!-- Object-Oriented Programming -->
+                    <div class="topic-section" id="oop">
+                        <h2><i class="fas fa-cubes"></i> Object-Oriented Programming</h2>
+                        
+                        <p>OOP is a programming paradigm that organizes code into objects, which are instances of classes. It helps in creating modular, reusable, and maintainable code.</p>
+
+                        <h3>Classes and Objects</h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>Creating Classes</span>
+                                <button class="copy-btn"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-python"># Defining a class
+class Student:
+    # Class variable (shared by all instances)
+    school_name = "Python Academy"
+    
+    # Constructor (initializer)
+    def __init__(self, name, age, grade):
+        # Instance variables (unique to each object)
+        self.name = name
+        self.age = age
+        self.grade = grade
+    
+    # Instance method
+    def introduce(self):
+        return f"Hi, I'm {self.name}, {self.age} years old, in grade {self.grade}"
+    
+    # Method to modify data
+    def promote(self):
+        self.grade += 1
+        print(f"{self.name} promoted to grade {self.grade}!")
+
+# Creating objects (instances)
+student1 = Student("Alice", 15, 10)
+student2 = Student("Bob", 16, 11)
+
+# Accessing attributes and methods
+print(student1.name)           # Alice
+print(student1.introduce())    # Hi, I'm Alice, 15 years old, in grade 10
+print(Student.school_name)     # Python Academy
+
+# Modifying object
+student1.promote()             # Alice promoted to grade 11!</code></pre>
+                        </div>
+
+                        <h3>Encapsulation</h3>
+                        <p>Encapsulation restricts direct access to some components, protecting data integrity:</p>
+
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>Encapsulation Example</span>
+                                <button class="copy-btn"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-python">class BankAccount:
+    def __init__(self, owner, balance=0):
+        self.owner = owner
+        self.__balance = balance  # Private attribute (double underscore)
+    
+    # Getter method
+    def get_balance(self):
+        return self.__balance
+    
+    # Setter with validation
+    def deposit(self, amount):
+        if amount > 0:
+            self.__balance += amount
+            print(f"Deposited ₹{amount}. New balance: ₹{self.__balance}")
+        else:
+            print("Invalid amount!")
+    
+    def withdraw(self, amount):
+        if 0 < amount <= self.__balance:
+            self.__balance -= amount
+            print(f"Withdrew ₹{amount}. Remaining: ₹{self.__balance}")
+        else:
+            print("Insufficient funds or invalid amount!")
+
+# Using the class
+account = BankAccount("Rishi", 1000)
+account.deposit(500)          # Deposited ₹500. New balance: ₹1500
+account.withdraw(200)         # Withdrew ₹200. Remaining: ₹1300
+print(account.get_balance())  # 1300
+
+# Cannot directly access private variable
+# print(account.__balance)    # AttributeError!</code></pre>
+                        </div>
+
+                        <h3>Properties (Getters and Setters)</h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>Using @property Decorator</span>
+                                <button class="copy-btn"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-python">class Circle:
+    def __init__(self, radius):
+        self._radius = radius
+    
+    @property
+    def radius(self):
+        """Getter for radius"""
+        return self._radius
+    
+    @radius.setter
+    def radius(self, value):
+        """Setter with validation"""
+        if value > 0:
+            self._radius = value
+        else:
+            raise ValueError("Radius must be positive!")
+    
+    @property
+    def area(self):
+        """Calculated property"""
+        import math
+        return math.pi * self._radius ** 2
+    
+    @property
+    def circumference(self):
+        import math
+        return 2 * math.pi * self._radius
+
+# Using properties like attributes
+circle = Circle(5)
+print(circle.radius)         # 5
+print(f"Area: {circle.area:.2f}")           # Area: 78.54
+print(f"Circumference: {circle.circumference:.2f}")  # Circumference: 31.42
+
+circle.radius = 10           # Uses setter
+print(circle.area)           # 314.159...</code></pre>
+                        </div>
+                    </div>
+
+                    <!-- Inheritance -->
+                    <div class="topic-section" id="inheritance">
+                        <h2><i class="fas fa-sitemap"></i> Inheritance</h2>
+                        
+                        <p>Inheritance allows a class to inherit attributes and methods from another class, promoting code reuse.</p>
+
+                        <h3>Single Inheritance</h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>Basic Inheritance</span>
+                                <button class="copy-btn"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-python"># Parent class (Base class)
+class Animal:
+    def __init__(self, name, species):
+        self.name = name
+        self.species = species
+    
+    def make_sound(self):
+        return "Some generic sound"
+    
+    def info(self):
+        return f"{self.name} is a {self.species}"
+
+# Child class (Derived class)
+class Dog(Animal):
+    def __init__(self, name, breed):
+        # Call parent constructor
+        super().__init__(name, "Dog")
+        self.breed = breed
+    
+    # Override parent method
+    def make_sound(self):
+        return "Woof! Woof!"
+    
+    # New method specific to Dog
+    def fetch(self):
+        return f"{self.name} is fetching the ball!"
+
+class Cat(Animal):
+    def __init__(self, name, indoor=True):
+        super().__init__(name, "Cat")
+        self.indoor = indoor
+    
+    def make_sound(self):
+        return "Meow!"
+
+# Creating objects
+dog = Dog("Buddy", "Golden Retriever")
+cat = Cat("Whiskers")
+
+print(dog.info())           # Buddy is a Dog
+print(dog.make_sound())     # Woof! Woof!
+print(dog.fetch())          # Buddy is fetching the ball!
+
+print(cat.info())           # Whiskers is a Cat
+print(cat.make_sound())     # Meow!</code></pre>
+                        </div>
+
+                        <h3>Multiple Inheritance</h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>Multiple Inheritance</span>
+                                <button class="copy-btn"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-python"># Multiple parent classes
+class Flyable:
+    def fly(self):
+        return "Flying high!"
+
+class Swimmable:
+    def swim(self):
+        return "Swimming smoothly!"
+
+class Walkable:
+    def walk(self):
+        return "Walking on land!"
+
+# Duck inherits from multiple classes
+class Duck(Flyable, Swimmable, Walkable):
+    def __init__(self, name):
+        self.name = name
+    
+    def quack(self):
+        return "Quack! Quack!"
+
+# Duck can do everything!
+duck = Duck("Donald")
+print(duck.fly())    # Flying high!
+print(duck.swim())   # Swimming smoothly!
+print(duck.walk())   # Walking on land!
+print(duck.quack())  # Quack! Quack!
+
+# Check inheritance
+print(isinstance(duck, Flyable))    # True
+print(isinstance(duck, Swimmable))  # True</code></pre>
+                        </div>
+
+                        <h3>Polymorphism</h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>Polymorphism Example</span>
+                                <button class="copy-btn"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-python"># Different shapes with same interface
+class Shape:
+    def area(self):
+        pass
+    
+    def perimeter(self):
+        pass
+
+class Rectangle(Shape):
+    def __init__(self, width, height):
+        self.width = width
+        self.height = height
+    
+    def area(self):
+        return self.width * self.height
+    
+    def perimeter(self):
+        return 2 * (self.width + self.height)
+
+class Circle(Shape):
+    def __init__(self, radius):
+        self.radius = radius
+    
+    def area(self):
+        import math
+        return math.pi * self.radius ** 2
+    
+    def perimeter(self):
+        import math
+        return 2 * math.pi * self.radius
+
+# Polymorphism in action - same method, different behavior
+shapes = [Rectangle(4, 5), Circle(3), Rectangle(2, 8)]
+
+for shape in shapes:
+    print(f"Area: {shape.area():.2f}, Perimeter: {shape.perimeter():.2f}")</code></pre>
+                        </div>
+                    </div>
+
+                    <!-- Modules & Imports -->
+                    <div class="topic-section" id="modules">
+                        <h2><i class="fas fa-puzzle-piece"></i> Modules & Imports</h2>
+                        
+                        <p>Modules are Python files containing code that can be reused in other programs. They help organize code into manageable, logical units.</p>
+
+                        <h3>Importing Modules</h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>Different Import Methods</span>
+                                <button class="copy-btn"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-python"># Method 1: Import entire module
+import math
+print(math.sqrt(16))    # 4.0
+print(math.pi)          # 3.14159...
+
+# Method 2: Import with alias
+import numpy as np
+arr = np.array([1, 2, 3])
+
+# Method 3: Import specific items
+from math import sqrt, pi, ceil
+print(sqrt(25))         # 5.0
+print(ceil(4.2))        # 5
+
+# Method 4: Import all (not recommended)
+from math import *
+print(sin(0))           # 0.0
+
+# Method 5: Import with alias for specific item
+from datetime import datetime as dt
+now = dt.now()
+print(now)</code></pre>
+                        </div>
+
+                        <h3>Creating Your Own Module</h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>mymodule.py - Custom Module</span>
+                                <button class="copy-btn"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-python"># File: mymodule.py
+"""My custom utility module"""
+
+PI = 3.14159
+AUTHOR = "Rishi"
+
+def greet(name):
+    """Return a greeting message"""
+    return f"Hello, {name}! Welcome to Python."
+
+def calculate_area(radius):
+    """Calculate circle area"""
+    return PI * radius ** 2
+
+class Calculator:
+    """Simple calculator class"""
+    @staticmethod
+    def add(a, b):
+        return a + b
+    
+    @staticmethod
+    def multiply(a, b):
+        return a * b
+
+# This runs only when module is executed directly
+if __name__ == "__main__":
+    print("Testing mymodule...")
+    print(greet("World"))
+    print(calculate_area(5))</code></pre>
+                        </div>
+
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>Using Custom Module</span>
+                                <button class="copy-btn"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-python"># File: main.py
+import mymodule
+
+print(mymodule.greet("Alice"))
+print(mymodule.calculate_area(10))
+print(mymodule.PI)
+
+calc = mymodule.Calculator()
+print(calc.add(5, 3))
+
+# Or import specific items
+from mymodule import greet, Calculator
+print(greet("Bob"))</code></pre>
+                        </div>
+
+                        <h3>Useful Built-in Modules</h3>
+                        <div class="table-container">
+                            <table class="info-table">
+                                <thead>
+                                    <tr>
+                                        <th>Module</th>
+                                        <th>Purpose</th>
+                                        <th>Example Usage</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><code>os</code></td>
+                                        <td>Operating system interface</td>
+                                        <td><code>os.getcwd()</code>, <code>os.listdir()</code></td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>sys</code></td>
+                                        <td>System-specific parameters</td>
+                                        <td><code>sys.path</code>, <code>sys.exit()</code></td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>datetime</code></td>
+                                        <td>Date and time operations</td>
+                                        <td><code>datetime.now()</code></td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>random</code></td>
+                                        <td>Random number generation</td>
+                                        <td><code>random.randint(1, 100)</code></td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>json</code></td>
+                                        <td>JSON encoding/decoding</td>
+                                        <td><code>json.loads()</code>, <code>json.dumps()</code></td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>re</code></td>
+                                        <td>Regular expressions</td>
+                                        <td><code>re.search()</code>, <code>re.findall()</code></td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>collections</code></td>
+                                        <td>Specialized containers</td>
+                                        <td><code>Counter</code>, <code>defaultdict</code></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- List Comprehensions -->
+                    <div class="topic-section" id="comprehensions">
+                        <h2><i class="fas fa-list-ol"></i> List Comprehensions</h2>
+                        
+                        <p>List comprehensions provide a concise way to create lists. They are more readable and often faster than traditional loops.</p>
+
+                        <h3>Basic Syntax</h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>List Comprehension Basics</span>
+                                <button class="copy-btn"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-python"># Traditional way
+squares = []
+for x in range(10):
+    squares.append(x ** 2)
+
+# List comprehension (same result)
+squares = [x ** 2 for x in range(10)]
+print(squares)  # [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+
+# With condition (filter)
+even_squares = [x ** 2 for x in range(10) if x % 2 == 0]
+print(even_squares)  # [0, 4, 16, 36, 64]
+
+# With if-else (transform)
+labels = ["even" if x % 2 == 0 else "odd" for x in range(5)]
+print(labels)  # ['even', 'odd', 'even', 'odd', 'even']
+
+# String manipulation
+words = ["hello", "world", "python"]
+upper_words = [word.upper() for word in words]
+print(upper_words)  # ['HELLO', 'WORLD', 'PYTHON']
+
+# Nested comprehension
+matrix = [[i * j for j in range(1, 4)] for i in range(1, 4)]
+print(matrix)  # [[1, 2, 3], [2, 4, 6], [3, 6, 9]]</code></pre>
+                        </div>
+
+                        <h3>Dictionary & Set Comprehensions</h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>Dict and Set Comprehensions</span>
+                                <button class="copy-btn"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-python"># Dictionary comprehension
+squares_dict = {x: x**2 for x in range(6)}
+print(squares_dict)  # {0: 0, 1: 1, 2: 4, 3: 9, 4: 16, 5: 25}
+
+# From two lists
+names = ["Alice", "Bob", "Charlie"]
+ages = [25, 30, 35]
+name_age = {name: age for name, age in zip(names, ages)}
+print(name_age)  # {'Alice': 25, 'Bob': 30, 'Charlie': 35}
+
+# Filtering dictionary
+scores = {"Alice": 85, "Bob": 62, "Charlie": 91, "Diana": 78}
+passed = {name: score for name, score in scores.items() if score >= 70}
+print(passed)  # {'Alice': 85, 'Charlie': 91, 'Diana': 78}
+
+# Set comprehension (unique values)
+numbers = [1, 2, 2, 3, 3, 3, 4, 4, 4, 4]
+unique_squares = {x**2 for x in numbers}
+print(unique_squares)  # {16, 1, 4, 9}
+
+# Generator expression (memory efficient)
+sum_of_squares = sum(x**2 for x in range(1000000))
+print(sum_of_squares)</code></pre>
+                        </div>
+
+                        <div class="info-box tip">
+                            <h4><i class="fas fa-lightbulb"></i> When to Use Comprehensions</h4>
+                            <ul>
+                                <li>Simple transformations and filtering</li>
+                                <li>Creating new collections from existing ones</li>
+                                <li>When readability is maintained (avoid complex nested comprehensions)</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Lambda Functions -->
+                    <div class="topic-section" id="lambda">
+                        <h2><i class="fas fa-bolt"></i> Lambda Functions</h2>
+                        
+                        <p>Lambda functions are small, anonymous functions defined with the <code>lambda</code> keyword. They can have any number of arguments but only one expression.</p>
+
+                        <h3>Lambda Syntax</h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>Lambda Function Basics</span>
+                                <button class="copy-btn"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-python"># Regular function
+def add(a, b):
+    return a + b
+
+# Equivalent lambda
+add_lambda = lambda a, b: a + b
+
+print(add(3, 5))        # 8
+print(add_lambda(3, 5)) # 8
+
+# More lambda examples
+square = lambda x: x ** 2
+print(square(4))  # 16
+
+greet = lambda name: f"Hello, {name}!"
+print(greet("Python"))  # Hello, Python!
+
+# Lambda with conditional
+max_val = lambda a, b: a if a > b else b
+print(max_val(10, 20))  # 20</code></pre>
+                        </div>
+
+                        <h3>Lambda with Built-in Functions</h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>Lambda with map, filter, sorted</span>
+                                <button class="copy-btn"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-python"># map() - apply function to all items
+numbers = [1, 2, 3, 4, 5]
+squared = list(map(lambda x: x**2, numbers))
+print(squared)  # [1, 4, 9, 16, 25]
+
+# filter() - filter items by condition
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+evens = list(filter(lambda x: x % 2 == 0, numbers))
+print(evens)  # [2, 4, 6, 8, 10]
+
+# sorted() - custom sorting
+students = [
+    {"name": "Alice", "grade": 85},
+    {"name": "Bob", "grade": 92},
+    {"name": "Charlie", "grade": 78}
+]
+
+# Sort by grade
+by_grade = sorted(students, key=lambda s: s["grade"])
+print([s["name"] for s in by_grade])  # ['Charlie', 'Alice', 'Bob']
+
+# Sort by name (descending)
+by_name_desc = sorted(students, key=lambda s: s["name"], reverse=True)
+print([s["name"] for s in by_name_desc])  # ['Charlie', 'Bob', 'Alice']
+
+# reduce() - cumulative operation
+from functools import reduce
+numbers = [1, 2, 3, 4, 5]
+product = reduce(lambda a, b: a * b, numbers)
+print(product)  # 120 (1*2*3*4*5)</code></pre>
+                        </div>
+                    </div>
+
+                    <!-- Decorators -->
+                    <div class="topic-section" id="decorators">
+                        <h2><i class="fas fa-magic"></i> Decorators</h2>
+                        
+                        <p>Decorators are a way to modify or extend the behavior of functions or methods without changing their source code.</p>
+
+                        <h3>Basic Decorator</h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>Creating Decorators</span>
+                                <button class="copy-btn"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-python"># Simple decorator
+def uppercase_decorator(func):
+    def wrapper():
+        result = func()
+        return result.upper()
+    return wrapper
+
+@uppercase_decorator
+def greet():
+    return "hello, world!"
+
+print(greet())  # HELLO, WORLD!
+
+# Decorator with timing
+import time
+
+def timer_decorator(func):
+    def wrapper(*args, **kwargs):
+        start = time.time()
+        result = func(*args, **kwargs)
+        end = time.time()
+        print(f"{func.__name__} took {end - start:.4f} seconds")
+        return result
+    return wrapper
+
+@timer_decorator
+def slow_function():
+    time.sleep(1)
+    return "Done!"
+
+slow_function()  # slow_function took 1.0012 seconds</code></pre>
+                        </div>
+
+                        <h3>Practical Decorator Examples</h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>Useful Decorators</span>
+                                <button class="copy-btn"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-python"># Logging decorator
+def log_calls(func):
+    def wrapper(*args, **kwargs):
+        print(f"Calling {func.__name__} with args: {args}, kwargs: {kwargs}")
+        result = func(*args, **kwargs)
+        print(f"{func.__name__} returned: {result}")
+        return result
+    return wrapper
+
+@log_calls
+def add(a, b):
+    return a + b
+
+add(3, 5)
+# Calling add with args: (3, 5), kwargs: {}
+# add returned: 8
+
+# Authentication decorator
+def require_auth(func):
+    def wrapper(user, *args, **kwargs):
+        if not user.get("authenticated", False):
+            raise PermissionError("User not authenticated!")
+        return func(user, *args, **kwargs)
+    return wrapper
+
+@require_auth
+def view_dashboard(user):
+    return f"Welcome to dashboard, {user['name']}!"
+
+user = {"name": "Alice", "authenticated": True}
+print(view_dashboard(user))  # Welcome to dashboard, Alice!
+
+# Retry decorator
+def retry(max_attempts=3):
+    def decorator(func):
+        def wrapper(*args, **kwargs):
+            for attempt in range(max_attempts):
+                try:
+                    return func(*args, **kwargs)
+                except Exception as e:
+                    print(f"Attempt {attempt + 1} failed: {e}")
+            raise Exception(f"All {max_attempts} attempts failed")
+        return wrapper
+    return decorator
+
+@retry(max_attempts=3)
+def unstable_function():
+    import random
+    if random.random() < 0.7:
+        raise ValueError("Random failure!")
+    return "Success!"</code></pre>
+                        </div>
+                    </div>
+
+                    <!-- Generators -->
+                    <div class="topic-section" id="generators">
+                        <h2><i class="fas fa-stream"></i> Generators</h2>
+                        
+                        <p>Generators are functions that can pause and resume their execution, yielding values one at a time. They are memory-efficient for large datasets.</p>
+
+                        <h3>Creating Generators</h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>Generator Functions</span>
+                                <button class="copy-btn"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-python"># Generator function using yield
+def count_up_to(n):
+    count = 1
+    while count <= n:
+        yield count
+        count += 1
+
+# Using the generator
+counter = count_up_to(5)
+print(next(counter))  # 1
+print(next(counter))  # 2
+print(next(counter))  # 3
+
+# Or in a loop
+for num in count_up_to(5):
+    print(num, end=" ")  # 1 2 3 4 5
+
+# Fibonacci generator
+def fibonacci(limit):
+    a, b = 0, 1
+    while a < limit:
+        yield a
+        a, b = b, a + b
+
+fib = list(fibonacci(100))
+print(fib)  # [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
+
+# Infinite generator
+def infinite_counter():
+    num = 0
+    while True:
+        yield num
+        num += 1
+
+counter = infinite_counter()
+for _ in range(5):
+    print(next(counter), end=" ")  # 0 1 2 3 4</code></pre>
+                        </div>
+
+                        <h3>Generator Expressions</h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>Generator Expressions</span>
+                                <button class="copy-btn"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-python"># List comprehension (creates list in memory)
+squares_list = [x**2 for x in range(1000000)]
+
+# Generator expression (lazy evaluation)
+squares_gen = (x**2 for x in range(1000000))
+
+# Memory comparison
+import sys
+print(f"List size: {sys.getsizeof(squares_list)} bytes")  # ~8 MB
+print(f"Generator size: {sys.getsizeof(squares_gen)} bytes")  # ~120 bytes
+
+# Using generator expression with sum
+total = sum(x**2 for x in range(1000))
+print(total)  # 332833500
+
+# Chaining generators
+numbers = range(100)
+evens = (x for x in numbers if x % 2 == 0)
+squares = (x**2 for x in evens)
+result = sum(squares)
+print(result)  # 161700</code></pre>
+                        </div>
+
+                        <div class="info-box tip">
+                            <h4><i class="fas fa-lightbulb"></i> When to Use Generators</h4>
+                            <ul>
+                                <li>Processing large files line by line</li>
+                                <li>Working with infinite sequences</li>
+                                <li>Memory-constrained environments</li>
+                                <li>Pipeline processing (chaining operations)</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Regular Expressions -->
+                    <div class="topic-section" id="regex">
+                        <h2><i class="fas fa-search"></i> Regular Expressions</h2>
+                        
+                        <p>Regular expressions (regex) are powerful patterns for matching, searching, and manipulating text. Python's <code>re</code> module provides regex support.</p>
+
+                        <h3>Basic Pattern Matching</h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>Regex Basics</span>
+                                <button class="copy-btn"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-python">import re
+
+text = "The quick brown fox jumps over the lazy dog"
+
+# search() - find first match
+match = re.search(r"fox", text)
+if match:
+    print(f"Found: {match.group()}")  # Found: fox
+    print(f"Position: {match.start()}-{match.end()}")  # Position: 16-19
+
+# findall() - find all matches
+vowels = re.findall(r"[aeiou]", text)
+print(vowels)  # ['e', 'u', 'i', 'o', 'o', 'u', 'o', 'e', 'e', 'a', 'o']
+
+# finditer() - iterator of matches
+for match in re.finditer(r"\b\w{4}\b", text):  # 4-letter words
+    print(match.group(), end=" ")  # over lazy
+
+# match() - match at beginning
+if re.match(r"The", text):
+    print("Starts with 'The'")
+
+# sub() - replace pattern
+new_text = re.sub(r"fox", "cat", text)
+print(new_text)  # The quick brown cat jumps over the lazy dog</code></pre>
+                        </div>
+
+                        <h3>Common Patterns</h3>
+                        <div class="table-container">
+                            <table class="info-table">
+                                <thead>
+                                    <tr>
+                                        <th>Pattern</th>
+                                        <th>Description</th>
+                                        <th>Example</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td><code>\d</code></td><td>Any digit</td><td><code>\d{3}</code> matches "123"</td></tr>
+                                    <tr><td><code>\w</code></td><td>Word character (a-z, A-Z, 0-9, _)</td><td><code>\w+</code> matches "hello_123"</td></tr>
+                                    <tr><td><code>\s</code></td><td>Whitespace</td><td><code>\s+</code> matches spaces/tabs</td></tr>
+                                    <tr><td><code>.</code></td><td>Any character (except newline)</td><td><code>a.c</code> matches "abc", "a1c"</td></tr>
+                                    <tr><td><code>^</code></td><td>Start of string</td><td><code>^Hello</code> matches start</td></tr>
+                                    <tr><td><code>$</code></td><td>End of string</td><td><code>world$</code> matches end</td></tr>
+                                    <tr><td><code>*</code></td><td>0 or more</td><td><code>ab*</code> matches "a", "ab", "abb"</td></tr>
+                                    <tr><td><code>+</code></td><td>1 or more</td><td><code>ab+</code> matches "ab", "abb"</td></tr>
+                                    <tr><td><code>?</code></td><td>0 or 1</td><td><code>colou?r</code> matches "color", "colour"</td></tr>
+                                    <tr><td><code>{n,m}</code></td><td>n to m times</td><td><code>\d{2,4}</code> matches 2-4 digits</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <h3>Practical Examples</h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>Real-world Regex Patterns</span>
+                                <button class="copy-btn"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-python">import re
+
+# Email validation
+def is_valid_email(email):
+    pattern = r'^[\w\.-]+@[\w\.-]+\.\w+$'
+    return bool(re.match(pattern, email))
+
+print(is_valid_email("user@example.com"))  # True
+print(is_valid_email("invalid.email"))     # False
+
+# Phone number extraction
+text = "Call me at 123-456-7890 or 9876543210"
+phones = re.findall(r'\d{3}[-.]?\d{3}[-.]?\d{4}', text)
+print(phones)  # ['123-456-7890', '9876543210']
+
+# URL extraction
+text = "Visit https://python.org or http://example.com"
+urls = re.findall(r'https?://[\w\.-]+\.[\w]+', text)
+print(urls)  # ['https://python.org', 'http://example.com']
+
+# Password validation
+def validate_password(password):
+    """
+    Password must have:
+    - At least 8 characters
+    - At least one uppercase letter
+    - At least one lowercase letter
+    - At least one digit
+    - At least one special character
+    """
+    pattern = r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$'
+    return bool(re.match(pattern, password))
+
+print(validate_password("Weak"))           # False
+print(validate_password("Strong@Pass1"))   # True
+
+# Extract data from formatted string
+data = "Name: John Doe, Age: 25, City: New York"
+pattern = r'Name: ([\w\s]+), Age: (\d+), City: ([\w\s]+)'
+match = re.search(pattern, data)
+if match:
+    name, age, city = match.groups()
+    print(f"Name: {name}, Age: {age}, City: {city}")</code></pre>
+                        </div>
+                    </div>
+
+                    <!-- Navigation -->
+                    <div class="unit-navigation">
+                        <a href="unit5.html" class="nav-btn prev">
+                            <i class="fas fa-arrow-left"></i> Unit V: Packages & GUI
+                        </a>
+                        <a href="practice.html" class="nav-btn next">
+                            Coding Practice <i class="fas fa-code"></i>
+                        </a>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quiz Section -->
+    <section class="quiz-section">
+        <div class="container">
+            <h2 class="section-title">Test Your Knowledge</h2>
+            <div class="quiz-container" id="quiz-container">
+                <!-- Quiz will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fab fa-python"></i> Python Hub</h3>
+                    <p>Your complete guide to mastering Python programming.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="unit1.html">Unit I - Introduction</a></li>
+                        <li><a href="unit2.html">Unit II - Flow Control</a></li>
+                        <li><a href="unit3.html">Unit III - Data Types</a></li>
+                        <li><a href="unit4.html">Unit IV - File Operations</a></li>
+                        <li><a href="unit5.html">Unit V - Packages & GUI</a></li>
+                        <li><a href="extras.html">Extra Topics</a></li>
+                        <li><a href="practice.html">Coding Practice</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Python Learning Hub. Made with <i class="fas fa-heart"></i> for Learning.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+    <script src="js/script.js"></script>
+    <script>
+        // Extra Topics Quiz Questions
+        const extrasQuestions = [
+            {
+                question: "What block always executes in exception handling?",
+                options: ["try", "except", "else", "finally"],
+                correct: 3,
+                explanation: "The 'finally' block always executes, whether an exception occurred or not. It's used for cleanup code."
+            },
+            {
+                question: "What keyword is used to create a class in Python?",
+                options: ["def", "class", "object", "new"],
+                correct: 1,
+                explanation: "The 'class' keyword is used to define a class in Python, followed by the class name and a colon."
+            },
+            {
+                question: "What does <code>super()</code> do in a child class?",
+                options: ["Creates new object", "Calls parent class methods", "Makes class abstract", "Deletes parent"],
+                correct: 1,
+                explanation: "super() is used to call methods from the parent class, commonly used in __init__ to initialize parent attributes."
+            },
+            {
+                question: "What is the output of <code>[x**2 for x in range(4)]</code>?",
+                options: ["[1, 4, 9, 16]", "[0, 1, 4, 9]", "[0, 2, 4, 6]", "[1, 2, 3, 4]"],
+                correct: 1,
+                explanation: "range(4) gives 0,1,2,3. Squaring each: 0²=0, 1²=1, 2²=4, 3²=9. Result: [0, 1, 4, 9]"
+            },
+            {
+                question: "What is a lambda function?",
+                options: ["A named function", "An anonymous function", "A class method", "A module"],
+                correct: 1,
+                explanation: "Lambda functions are small anonymous (unnamed) functions defined with the lambda keyword."
+            },
+            {
+                question: "What does a decorator do?",
+                options: ["Decorates output", "Modifies function behavior", "Creates classes", "Handles errors"],
+                correct: 1,
+                explanation: "Decorators modify or extend the behavior of functions without changing their source code."
+            },
+            {
+                question: "What keyword is used in generators instead of return?",
+                options: ["give", "yield", "produce", "generate"],
+                correct: 1,
+                explanation: "The 'yield' keyword is used in generators to pause and return a value, then resume from where it left off."
+            },
+            {
+                question: "Which module is used for regular expressions in Python?",
+                options: ["regex", "re", "regexp", "pattern"],
+                correct: 1,
+                explanation: "The 're' module provides regular expression matching operations in Python."
+            },
+            {
+                question: "What does <code>\\d+</code> match in regex?",
+                options: ["One digit", "One or more digits", "Letters only", "Whitespace"],
+                correct: 1,
+                explanation: "\\d matches a digit, and + means 'one or more'. So \\d+ matches one or more digits."
+            },
+            {
+                question: "Private attributes in Python use which prefix?",
+                options: ["private_", "_", "__", "#"],
+                correct: 2,
+                explanation: "Double underscore (__) prefix makes an attribute name-mangled, indicating it's private."
+            }
+        ];
+        
+        // Initialize Quiz
+        quiz = new QuizManager('quiz-container', extrasQuestions);
+    </script>
+</body>
+</html>

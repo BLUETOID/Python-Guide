@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit I - Introduction to Python | Python Learning Hub</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <i class="fab fa-python"></i> Python Hub
+            </a>
+            <button class="nav-toggle" id="navToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="unit1.html" class="active">Unit I</a></li>
+                <li><a href="unit2.html">Unit II</a></li>
+                <li><a href="unit3.html">Unit III</a></li>
+                <li><a href="unit4.html">Unit IV</a></li>
+                <li><a href="unit5.html">Unit V</a></li>
+                <li class="nav-divider"></li>
+                <li><a href="extras.html">Extras</a></li>
+                <li><a href="practice.html">Practice</a></li>
+                <li><a href="theory.html">Theory</a></li>
+                <li><a href="comparisons.html">Compare</a></li>
+                <li><a href="errors.html">Errors</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="unit-header">
+        <div class="container">
+            <h1><i class="fas fa-rocket"></i> Unit I: Introduction to Python</h1>
+            <p>Learn the fundamentals of Python programming language</p>
+        </div>
+    </header>
+
+    <section class="unit-content">
+        <div class="container">
+            <div class="page-layout">
+                <aside class="sidebar">
+                    <h3>Topics</h3>
+                    <nav class="sidebar-nav">
+                        <a href="#intro">What is Python?</a>
+                        <a href="#variables">Python Variables</a>
+                        <a href="#operators">Basic Operators</a>
+                        <a href="#blocks">Python Blocks</a>
+                        <a href="#datatypes">Data Types</a>
+                        <a href="#numeric">Numeric Types</a>
+                    </nav>
+                </aside>
+
+                <main class="main-content">
+                    <!-- Introduction Section -->
+                    <div class="topic-section" id="intro">
+                        <h2><i class="fab fa-python"></i> What is Python?</h2>
+                        <p>Python is a high-level, interpreted, general-purpose programming language created by <strong>Guido van Rossum</strong> and first released in 1991. Python's design philosophy emphasizes code readability with its notable use of significant whitespace.</p>
+                        
+                        <h3>Key Features of Python</h3>
+                        <ul>
+                            <li><strong>Easy to Learn:</strong> Python has a simple syntax similar to English, making it easy for beginners.</li>
+                            <li><strong>Interpreted Language:</strong> Python code is executed line by line, making debugging easier.</li>
+                            <li><strong>Cross-platform:</strong> Python runs on Windows, macOS, Linux, and many other platforms.</li>
+                            <li><strong>Extensive Libraries:</strong> Python has a rich standard library and thousands of third-party packages.</li>
+                            <li><strong>Dynamic Typing:</strong> You don't need to declare variable types explicitly.</li>
+                            <li><strong>Object-Oriented:</strong> Python supports object-oriented programming paradigm.</li>
+                        </ul>
+
+                        <div class="info-box note">
+                            <h4><i class="fas fa-info-circle"></i> Note</h4>
+                            <p>Python is named after the British comedy group "Monty Python," not the snake!</p>
+                        </div>
+
+                        <h3>Your First Python Program</h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>hello.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python"># This is your first Python program
+print("Hello, World!")
+
+# You can also print numbers
+print(42)
+
+# And perform calculations
+print(10 + 20)</code></pre>
+                        </div>
+                    </div>
+
+                    <!-- Variables Section -->
+                    <div class="topic-section" id="variables">
+                        <h2><i class="fas fa-box"></i> Python Variables</h2>
+                        <p>Variables are containers for storing data values. Unlike other programming languages, Python has no command for declaring a variable. A variable is created the moment you first assign a value to it.</p>
+
+                        <h3>Creating Variables</h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>variables.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python"># Creating variables
+name = "John"           # String variable
+age = 25                # Integer variable
+height = 5.9            # Float variable
+is_student = True       # Boolean variable
+
+# Printing variables
+print("Name:", name)
+print("Age:", age)
+print("Height:", height)
+print("Is Student:", is_student)</code></pre>
+                        </div>
+
+                        <h3>Variable Naming Rules</h3>
+                        <ul>
+                            <li>A variable name must start with a letter or underscore character</li>
+                            <li>A variable name cannot start with a number</li>
+                            <li>Variable names can only contain alphanumeric characters and underscores (A-z, 0-9, _)</li>
+                            <li>Variable names are case-sensitive (age, Age and AGE are different variables)</li>
+                        </ul>
+
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>naming_rules.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python"># Valid variable names
+my_name = "Alice"
+myName = "Bob"           # camelCase
+MyName = "Charlie"       # PascalCase
+_private = "hidden"
+name2 = "David"
+CONSTANT_VALUE = 100
+
+# Invalid variable names (will cause errors)
+# 2name = "Error"        # Cannot start with number
+# my-name = "Error"      # Cannot use hyphen
+# my name = "Error"      # Cannot have spaces</code></pre>
+                        </div>
+
+                        <h3>Multiple Assignment</h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>multiple_assignment.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python"># Assign same value to multiple variables
+x = y = z = 50
+print(x, y, z)  # Output: 50 50 50
+
+# Assign different values to multiple variables
+a, b, c = 10, 20, 30
+print(a, b, c)  # Output: 10 20 30
+
+# Swap variables
+x = 5
+y = 10
+x, y = y, x
+print("x =", x, "y =", y)  # Output: x = 10 y = 5</code></pre>
+                        </div>
+
+                        <div class="info-box tip">
+                            <h4><i class="fas fa-lightbulb"></i> Best Practice</h4>
+                            <p>Use descriptive variable names that explain what the variable holds. For example, use <code>student_name</code> instead of just <code>n</code>.</p>
+                        </div>
+                    </div>
+
+                    <!-- Operators Section -->
+                    <div class="topic-section" id="operators">
+                        <h2><i class="fas fa-calculator"></i> Python Basic Operators</h2>
+                        <p>Operators are used to perform operations on variables and values. Python divides operators into several groups:</p>
+
+                        <h3>1. Arithmetic Operators</h3>
+                        <div class="table-container">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Operator</th>
+                                        <th>Name</th>
+                                        <th>Example</th>
+                                        <th>Result</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>+</td><td>Addition</td><td>5 + 3</td><td>8</td></tr>
+                                    <tr><td>-</td><td>Subtraction</td><td>5 - 3</td><td>2</td></tr>
+                                    <tr><td>*</td><td>Multiplication</td><td>5 * 3</td><td>15</td></tr>
+                                    <tr><td>/</td><td>Division</td><td>5 / 3</td><td>1.666...</td></tr>
+                                    <tr><td>//</td><td>Floor Division</td><td>5 // 3</td><td>1</td></tr>
+                                    <tr><td>%</td><td>Modulus</td><td>5 % 3</td><td>2</td></tr>
+                                    <tr><td>**</td><td>Exponentiation</td><td>5 ** 3</td><td>125</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>arithmetic.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python"># Arithmetic operators examples
+a = 10
+b = 3
+
+print("Addition:", a + b)        # 13
+print("Subtraction:", a - b)     # 7
+print("Multiplication:", a * b)  # 30
+print("Division:", a / b)        # 3.333...
+print("Floor Division:", a // b) # 3
+print("Modulus:", a % b)         # 1
+print("Power:", a ** b)          # 1000</code></pre>
+                        </div>
+
+                        <h3>2. Comparison Operators</h3>
+                        <div class="table-container">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Operator</th>
+                                        <th>Name</th>
+                                        <th>Example</th>
+                                        <th>Result</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>==</td><td>Equal</td><td>5 == 5</td><td>True</td></tr>
+                                    <tr><td>!=</td><td>Not equal</td><td>5 != 3</td><td>True</td></tr>
+                                    <tr><td>&gt;</td><td>Greater than</td><td>5 &gt; 3</td><td>True</td></tr>
+                                    <tr><td>&lt;</td><td>Less than</td><td>5 &lt; 3</td><td>False</td></tr>
+                                    <tr><td>&gt;=</td><td>Greater than or equal</td><td>5 &gt;= 5</td><td>True</td></tr>
+                                    <tr><td>&lt;=</td><td>Less than or equal</td><td>5 &lt;= 3</td><td>False</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <h3>3. Assignment Operators</h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>assignment.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python"># Assignment operators
+x = 10      # Assign
+x += 5      # Add and assign (x = x + 5), x = 15
+x -= 3      # Subtract and assign (x = x - 3), x = 12
+x *= 2      # Multiply and assign (x = x * 2), x = 24
+x /= 4      # Divide and assign (x = x / 4), x = 6.0
+x //= 2     # Floor divide and assign, x = 3.0
+x %= 2      # Modulus and assign, x = 1.0
+x **= 3     # Power and assign, x = 1.0
+
+print("Final value:", x)</code></pre>
+                        </div>
+
+                        <h3>4. Logical Operators</h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>logical.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python"># Logical operators
+a = True
+b = False
+
+print("a and b:", a and b)  # False (both must be True)
+print("a or b:", a or b)    # True (at least one must be True)
+print("not a:", not a)      # False (reverses the value)
+
+# Practical example
+age = 25
+has_license = True
+
+can_drive = age >= 18 and has_license
+print("Can drive:", can_drive)  # True</code></pre>
+                        </div>
+
+                        <h3>5. Identity & Membership Operators</h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>identity_membership.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python"># Identity operators (is, is not)
+x = [1, 2, 3]
+y = [1, 2, 3]
+z = x
+
+print(x is z)       # True (same object)
+print(x is y)       # False (different objects)
+print(x == y)       # True (same values)
+print(x is not y)   # True
+
+# Membership operators (in, not in)
+fruits = ["apple", "banana", "cherry"]
+print("banana" in fruits)      # True
+print("grape" not in fruits)   # True
+
+# Also works with strings
+name = "Python"
+print("y" in name)   # True</code></pre>
+                        </div>
+                    </div>
+
+                    <!-- Blocks Section -->
+                    <div class="topic-section" id="blocks">
+                        <h2><i class="fas fa-cube"></i> Understanding Python Blocks</h2>
+                        <p>In Python, blocks of code are defined by their <strong>indentation</strong>. Unlike other languages that use braces <code>{}</code>, Python uses whitespace to define the scope and extent of code blocks.</p>
+
+                        <h3>Indentation Rules</h3>
+                        <ul>
+                            <li>Python uses indentation to define code blocks</li>
+                            <li>Standard indentation is 4 spaces (or 1 tab)</li>
+                            <li>All statements within a block must have the same indentation</li>
+                            <li>Mixing tabs and spaces can cause errors</li>
+                        </ul>
+
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>blocks.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python"># Python blocks example
+age = 20
+
+# Block starts after colon (:)
+if age >= 18:
+    # This is inside the if block (4 spaces indentation)
+    print("You are an adult")
+    print("You can vote")
+    
+    if age >= 21:
+        # Nested block (8 spaces indentation)
+        print("You can also drink in the US")
+        
+# This is outside the if block (no indentation)
+print("Age verification complete")
+
+# Function block example
+def greet(name):
+    # Function body block
+    message = f"Hello, {name}!"
+    print(message)
+    return message
+
+greet("Alice")</code></pre>
+                        </div>
+
+                        <div class="info-box warning">
+                            <h4><i class="fas fa-exclamation-triangle"></i> Common Error</h4>
+                            <p>Inconsistent indentation will cause an <code>IndentationError</code>. Always use consistent spacing throughout your code.</p>
+                        </div>
+
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>indentation_error.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python"># WRONG - This will cause an error!
+# if True:
+#     print("Hello")
+#   print("World")  # IndentationError: unexpected indent
+
+# CORRECT
+if True:
+    print("Hello")
+    print("World")  # Same indentation</code></pre>
+                        </div>
+                    </div>
+
+                    <!-- Data Types Section -->
+                    <div class="topic-section" id="datatypes">
+                        <h2><i class="fas fa-database"></i> Python Data Types</h2>
+                        <p>In Python, data types define what kind of value a variable can hold. Python has several built-in data types:</p>
+
+                        <h3>Categories of Data Types</h3>
+                        <div class="table-container">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Category</th>
+                                        <th>Data Types</th>
+                                        <th>Example</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>Text</td><td>str</td><td>"Hello"</td></tr>
+                                    <tr><td>Numeric</td><td>int, float, complex</td><td>10, 10.5, 3+4j</td></tr>
+                                    <tr><td>Sequence</td><td>list, tuple, range</td><td>[1,2,3], (1,2,3)</td></tr>
+                                    <tr><td>Mapping</td><td>dict</td><td>{"name": "John"}</td></tr>
+                                    <tr><td>Set</td><td>set, frozenset</td><td>{1, 2, 3}</td></tr>
+                                    <tr><td>Boolean</td><td>bool</td><td>True, False</td></tr>
+                                    <tr><td>Binary</td><td>bytes, bytearray, memoryview</td><td>b"Hello"</td></tr>
+                                    <tr><td>None</td><td>NoneType</td><td>None</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>datatypes.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python"># Different data types in Python
+
+# String
+name = "Python"
+print(type(name))  # &lt;class 'str'&gt;
+
+# Integer
+age = 30
+print(type(age))   # &lt;class 'int'&gt;
+
+# Float
+price = 19.99
+print(type(price)) # &lt;class 'float'&gt;
+
+# Boolean
+is_active = True
+print(type(is_active))  # &lt;class 'bool'&gt;
+
+# List
+fruits = ["apple", "banana", "cherry"]
+print(type(fruits))  # &lt;class 'list'&gt;
+
+# Tuple
+coordinates = (10, 20)
+print(type(coordinates))  # &lt;class 'tuple'&gt;
+
+# Dictionary
+person = {"name": "John", "age": 30}
+print(type(person))  # &lt;class 'dict'&gt;
+
+# Set
+unique_numbers = {1, 2, 3, 4, 5}
+print(type(unique_numbers))  # &lt;class 'set'&gt;
+
+# None
+result = None
+print(type(result))  # &lt;class 'NoneType'&gt;</code></pre>
+                        </div>
+
+                        <h3>Type Conversion</h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>type_conversion.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python"># Type conversion (Casting)
+
+# String to Integer
+num_str = "100"
+num_int = int(num_str)
+print(num_int + 50)  # 150
+
+# Integer to String
+age = 25
+age_str = str(age)
+print("I am " + age_str + " years old")
+
+# Float to Integer (truncates decimal)
+price = 19.99
+price_int = int(price)
+print(price_int)  # 19
+
+# Integer to Float
+count = 10
+count_float = float(count)
+print(count_float)  # 10.0
+
+# String to List
+name = "Python"
+letters = list(name)
+print(letters)  # ['P', 'y', 't', 'h', 'o', 'n']
+
+# List to Tuple
+my_list = [1, 2, 3]
+my_tuple = tuple(my_list)
+print(my_tuple)  # (1, 2, 3)</code></pre>
+                        </div>
+                    </div>
+
+                    <!-- Numeric Types Section -->
+                    <div class="topic-section" id="numeric">
+                        <h2><i class="fas fa-hashtag"></i> Numeric Data Types</h2>
+                        <p>Python supports three types of numeric data:</p>
+
+                        <h3>1. Integer (int)</h3>
+                        <p>Integers are whole numbers without decimal points. They can be positive, negative, or zero.</p>
+                        
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>integers.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python"># Integer examples
+positive = 42
+negative = -17
+zero = 0
+large_number = 123456789012345678901234567890  # No limit!
+
+print(type(positive))  # &lt;class 'int'&gt;
+
+# Different number systems
+binary = 0b1010       # Binary (base 2) = 10
+octal = 0o17          # Octal (base 8) = 15
+hexadecimal = 0xFF    # Hexadecimal (base 16) = 255
+
+print(f"Binary 0b1010 = {binary}")
+print(f"Octal 0o17 = {octal}")
+print(f"Hex 0xFF = {hexadecimal}")
+
+# Underscore for readability (Python 3.6+)
+billion = 1_000_000_000
+print(billion)  # 1000000000</code></pre>
+                        </div>
+
+                        <h3>2. Float (float)</h3>
+                        <p>Floats are numbers with decimal points or numbers expressed in scientific notation.</p>
+
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>floats.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python"># Float examples
+pi = 3.14159
+temperature = -40.5
+small = 0.0001
+
+print(type(pi))  # &lt;class 'float'&gt;
+
+# Scientific notation
+speed_of_light = 3e8       # 3 × 10^8 = 300000000.0
+tiny = 1.5e-10             # 1.5 × 10^-10
+
+print(f"Speed of light: {speed_of_light}")
+print(f"Tiny number: {tiny}")
+
+# Float precision warning
+result = 0.1 + 0.2
+print(result)  # 0.30000000000000004 (floating point precision)
+
+# For precise calculations, use decimal module
+from decimal import Decimal
+precise = Decimal('0.1') + Decimal('0.2')
+print(precise)  # 0.3</code></pre>
+                        </div>
+
+                        <h3>3. Complex Numbers (complex)</h3>
+                        <p>Complex numbers have a real and imaginary part, denoted by 'j'.</p>
+
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>complex_numbers.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python"># Complex number examples
+z1 = 3 + 4j
+z2 = complex(2, 5)  # 2 + 5j
+
+print(type(z1))     # &lt;class 'complex'&gt;
+print(z1.real)      # 3.0 (real part)
+print(z1.imag)      # 4.0 (imaginary part)
+
+# Complex arithmetic
+z3 = z1 + z2
+print(f"Sum: {z3}")  # (5+9j)
+
+z4 = z1 * z2
+print(f"Product: {z4}")  # (-14+23j)
+
+# Absolute value (magnitude)
+print(abs(z1))  # 5.0 (√(3² + 4²))</code></pre>
+                        </div>
+
+                        <h3>Useful Numeric Functions</h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>numeric_functions.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python"># Built-in numeric functions
+import math
+
+# Basic functions
+print(abs(-10))        # 10 (absolute value)
+print(round(3.7))      # 4 (round to nearest)
+print(round(3.14159, 2))  # 3.14 (round to 2 decimals)
+print(pow(2, 3))       # 8 (power)
+print(max(1, 5, 3))    # 5 (maximum)
+print(min(1, 5, 3))    # 1 (minimum)
+print(sum([1, 2, 3]))  # 6 (sum of iterable)
+
+# Math module functions
+print(math.sqrt(16))   # 4.0 (square root)
+print(math.ceil(3.2))  # 4 (ceiling)
+print(math.floor(3.8)) # 3 (floor)
+print(math.pi)         # 3.141592653589793
+print(math.e)          # 2.718281828459045
+print(math.sin(0))     # 0.0
+print(math.log(10))    # 2.302... (natural log)
+print(math.log10(100)) # 2.0</code></pre>
+                        </div>
+
+                        <div class="info-box tip">
+                            <h4><i class="fas fa-lightbulb"></i> Pro Tip</h4>
+                            <p>Use the <code>type()</code> function to check the data type of any variable, and <code>isinstance()</code> to verify if an object is of a specific type.</p>
+                        </div>
+                    </div>
+
+                    <!-- Navigation -->
+                    <div class="unit-navigation">
+                        <a href="index.html" class="nav-btn prev">
+                            <i class="fas fa-arrow-left"></i> Home
+                        </a>
+                        <a href="unit2.html" class="nav-btn next">
+                            Unit II: Flow Control <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quiz Section -->
+    <section class="quiz-section">
+        <div class="container">
+            <h2 class="section-title">Test Your Knowledge</h2>
+            <div class="quiz-container" id="quiz-container">
+                <!-- Quiz will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fab fa-python"></i> Python Hub</h3>
+                    <p>Your complete guide to mastering Python programming.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="unit1.html">Unit I - Introduction</a></li>
+                        <li><a href="unit2.html">Unit II - Flow Control</a></li>
+                        <li><a href="unit3.html">Unit III - Data Types</a></li>
+                        <li><a href="unit4.html">Unit IV - File Operations</a></li>
+                        <li><a href="unit5.html">Unit V - Packages & GUI</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Python Learning Hub. Made with <i class="fas fa-heart"></i> for Learning.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+    <script src="js/script.js"></script>
+    <script>
+        // Unit 1 Quiz Questions
+        const unit1Questions = [
+            {
+                question: "Who developed Python programming language?",
+                options: ["James Gosling", "Guido van Rossum", "Dennis Ritchie", "Bjarne Stroustrup"],
+                correct: 1,
+                explanation: "Python was created by Guido van Rossum and was first released in 1991. He named it after the BBC comedy show 'Monty Python's Flying Circus'."
+            },
+            {
+                question: "Which of the following is a valid Python variable name?",
+                options: ["2variable", "my-variable", "_my_variable", "my variable"],
+                correct: 2,
+                explanation: "Variable names in Python can start with a letter or underscore, but not with a number or contain spaces/hyphens. '_my_variable' follows these rules."
+            },
+            {
+                question: "What is the output of <code>type(3.14)</code>?",
+                options: ["&lt;class 'int'&gt;", "&lt;class 'float'&gt;", "&lt;class 'double'&gt;", "&lt;class 'decimal'&gt;"],
+                correct: 1,
+                explanation: "3.14 is a decimal number, which Python represents as a float type. Python doesn't have a separate double type like some other languages."
+            },
+            {
+                question: "What operator is used for floor division in Python?",
+                options: ["/", "//", "%", "**"],
+                correct: 1,
+                explanation: "The // operator performs floor division, which divides and rounds down to the nearest integer. For example, 7 // 2 equals 3."
+            },
+            {
+                question: "How do you define a block of code in Python?",
+                options: ["Using curly braces {}", "Using parentheses ()", "Using indentation", "Using square brackets []"],
+                correct: 2,
+                explanation: "Python uses indentation (typically 4 spaces) to define code blocks, unlike many other languages that use curly braces."
+            },
+            {
+                question: "What is the result of <code>10 % 3</code>?",
+                options: ["3", "3.33", "1", "0"],
+                correct: 2,
+                explanation: "The % operator is the modulo operator, which returns the remainder of division. 10 divided by 3 is 3 with a remainder of 1."
+            },
+            {
+                question: "Which of the following is an immutable data type in Python?",
+                options: ["List", "Dictionary", "Tuple", "Set"],
+                correct: 2,
+                explanation: "Tuples are immutable, meaning once created, their elements cannot be changed. Lists, dictionaries, and sets are all mutable."
+            },
+            {
+                question: "What does <code>2 ** 4</code> evaluate to?",
+                options: ["6", "8", "16", "24"],
+                correct: 2,
+                explanation: "The ** operator is the exponentiation operator. 2 ** 4 means 2 raised to the power of 4, which equals 16."
+            },
+            {
+                question: "What is the correct way to create a complex number in Python?",
+                options: ["complex = 3 + 4i", "complex = 3 + 4j", "complex = (3, 4)", "complex = complex(3, 4i)"],
+                correct: 1,
+                explanation: "In Python, complex numbers use 'j' for the imaginary part, not 'i'. You can write 3 + 4j or use complex(3, 4)."
+            },
+            {
+                question: "Which statement about Python is FALSE?",
+                options: ["Python is interpreted", "Python is case-sensitive", "Python requires type declarations", "Python supports multiple programming paradigms"],
+                correct: 2,
+                explanation: "Python is dynamically typed and does NOT require explicit type declarations. Variables are assigned types based on the values they hold."
+            }
+        ];
+        
+        // Initialize Quiz
+        quiz = new QuizManager('quiz-container', unit1Questions);
+    </script>
+</body>
+</html>

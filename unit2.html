@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit II - Program Flow Control | Python Learning Hub</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <i class="fab fa-python"></i> Python Hub
+            </a>
+            <button class="nav-toggle" id="navToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="unit1.html">Unit I</a></li>
+                <li><a href="unit2.html" class="active">Unit II</a></li>
+                <li><a href="unit3.html">Unit III</a></li>
+                <li><a href="unit4.html">Unit IV</a></li>
+                <li><a href="unit5.html">Unit V</a></li>
+                <li class="nav-divider"></li>
+                <li><a href="extras.html">Extras</a></li>
+                <li><a href="practice.html">Practice</a></li>
+                <li><a href="theory.html">Theory</a></li>
+                <li><a href="comparisons.html">Compare</a></li>
+                <li><a href="errors.html">Errors</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="unit-header">
+        <div class="container">
+            <h1><i class="fas fa-code-branch"></i> Unit II: Program Flow Control</h1>
+            <p>Master conditional statements and loops in Python</p>
+        </div>
+    </header>
+
+    <section class="unit-content">
+        <div class="container">
+            <div class="page-layout">
+                <aside class="sidebar">
+                    <h3>Topics</h3>
+                    <nav class="sidebar-nav">
+                        <a href="#conditionals">Conditional Blocks</a>
+                        <a href="#if-else">if, else, elif</a>
+                        <a href="#for-loops">For Loops</a>
+                        <a href="#ranges">Ranges</a>
+                        <a href="#while-loops">While Loops</a>
+                        <a href="#loop-control">Loop Control</a>
+                        <a href="#examples">Practice Examples</a>
+                    </nav>
+                </aside>
+
+                <main class="main-content">
+                    <!-- Conditional Blocks -->
+                    <div class="topic-section" id="conditionals">
+                        <h2><i class="fas fa-code-branch"></i> Conditional Blocks</h2>
+                        <p>Conditional statements allow your program to make decisions based on certain conditions. Python uses <code>if</code>, <code>elif</code>, and <code>else</code> keywords to create conditional logic.</p>
+
+                        <h3>How Conditions Work</h3>
+                        <p>A condition is an expression that evaluates to either <code>True</code> or <code>False</code>. Based on this evaluation, different blocks of code are executed.</p>
+
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>basic_condition.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python"># Basic condition evaluation
+print(5 > 3)    # True
+print(5 < 3)    # False
+print(5 == 5)   # True
+print(5 != 5)   # False
+
+# Conditions with variables
+age = 18
+print(age >= 18)  # True
+
+# Combining conditions
+score = 85
+print(score >= 60 and score <= 100)  # True</code></pre>
+                        </div>
+                    </div>
+
+                    <!-- If, Else, Elif -->
+                    <div class="topic-section" id="if-else">
+                        <h2><i class="fas fa-question-circle"></i> if, else, and elif Statements</h2>
+
+                        <h3>The if Statement</h3>
+                        <p>The <code>if</code> statement executes a block of code only if the condition is True.</p>
+
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>if_statement.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python"># Simple if statement
+age = 20
+
+if age >= 18:
+    print("You are an adult")
+    print("You can vote!")
+
+# The above prints only if age >= 18
+
+temperature = 35
+
+if temperature > 30:
+    print("It's a hot day!")
+    print("Stay hydrated!")</code></pre>
+                        </div>
+
+                        <h3>The if-else Statement</h3>
+                        <p>The <code>else</code> block executes when the <code>if</code> condition is False.</p>
+
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>if_else.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python"># if-else statement
+age = 16
+
+if age >= 18:
+    print("You are an adult")
+else:
+    print("You are a minor")
+
+# Another example
+number = 7
+
+if number % 2 == 0:
+    print(f"{number} is even")
+else:
+    print(f"{number} is odd")</code></pre>
+                        </div>
+
+                        <h3>The if-elif-else Statement</h3>
+                        <p>Use <code>elif</code> (else if) to check multiple conditions.</p>
+
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>if_elif_else.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python"># if-elif-else for multiple conditions
+score = 85
+
+if score >= 90:
+    grade = 'A'
+elif score >= 80:
+    grade = 'B'
+elif score >= 70:
+    grade = 'C'
+elif score >= 60:
+    grade = 'D'
+else:
+    grade = 'F'
+
+print(f"Your grade is: {grade}")
+
+# Another example: Day of the week
+day = 3
+
+if day == 1:
+    print("Monday")
+elif day == 2:
+    print("Tuesday")
+elif day == 3:
+    print("Wednesday")
+elif day == 4:
+    print("Thursday")
+elif day == 5:
+    print("Friday")
+elif day == 6:
+    print("Saturday")
+elif day == 7:
+    print("Sunday")
+else:
+    print("Invalid day")</code></pre>
+                        </div>
+
+                        <h3>Nested if Statements</h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>nested_if.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python"># Nested if statements
+age = 25
+has_license = True
+
+if age >= 18:
+    print("Age requirement met")
+    if has_license:
+        print("You can drive!")
+    else:
+        print("You need a license to drive")
+else:
+    print("You are too young to drive")
+
+# Login system example
+username = "admin"
+password = "secret123"
+
+input_user = "admin"
+input_pass = "secret123"
+
+if input_user == username:
+    if input_pass == password:
+        print("Login successful!")
+    else:
+        print("Incorrect password")
+else:
+    print("User not found")</code></pre>
+                        </div>
+
+                        <h3>Ternary Operator (Shorthand if-else)</h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>ternary.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python"># Ternary operator: value_if_true if condition else value_if_false
+
+age = 20
+status = "adult" if age >= 18 else "minor"
+print(status)  # adult
+
+# One-liner for min/max
+a, b = 10, 20
+smaller = a if a < b else b
+print(f"Smaller: {smaller}")  # 10
+
+# With function calls
+def check_even(n):
+    return "Even" if n % 2 == 0 else "Odd"
+
+print(check_even(7))   # Odd
+print(check_even(10))  # Even</code></pre>
+                        </div>
+                    </div>
+
+                    <!-- For Loops -->
+                    <div class="topic-section" id="for-loops">
+                        <h2><i class="fas fa-redo"></i> For Loops in Python</h2>
+                        <p>A <code>for</code> loop is used to iterate over a sequence (list, tuple, string, dictionary, or range).</p>
+
+                        <h3>Basic For Loop</h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>for_basic.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python"># Iterating over a list
+fruits = ["apple", "banana", "cherry"]
+
+for fruit in fruits:
+    print(fruit)
+
+# Output:
+# apple
+# banana
+# cherry
+
+# Iterating over a string
+for char in "Python":
+    print(char)
+
+# Output: P y t h o n (each on new line)</code></pre>
+                        </div>
+
+                        <h3>For Loop with Lists</h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>for_list.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python"># Processing list items
+numbers = [1, 2, 3, 4, 5]
+
+# Calculate sum
+total = 0
+for num in numbers:
+    total += num
+print(f"Sum: {total}")  # Sum: 15
+
+# Create a new list with doubled values
+doubled = []
+for num in numbers:
+    doubled.append(num * 2)
+print(doubled)  # [2, 4, 6, 8, 10]
+
+# Using enumerate() to get index
+colors = ["red", "green", "blue"]
+for index, color in enumerate(colors):
+    print(f"{index}: {color}")
+
+# Output:
+# 0: red
+# 1: green
+# 2: blue</code></pre>
+                        </div>
+
+                        <h3>For Loop with Strings</h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>for_string.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python"># Count vowels in a string
+text = "Hello World"
+vowels = "aeiouAEIOU"
+count = 0
+
+for char in text:
+    if char in vowels:
+        count += 1
+
+print(f"Vowels count: {count}")  # Vowels count: 3
+
+# Reverse a string
+original = "Python"
+reversed_str = ""
+
+for char in original:
+    reversed_str = char + reversed_str
+
+print(reversed_str)  # nohtyP
+
+# Check for palindrome
+word = "radar"
+is_palindrome = True
+
+for i in range(len(word) // 2):
+    if word[i] != word[-(i+1)]:
+        is_palindrome = False
+        break
+
+print(f"'{word}' is palindrome: {is_palindrome}")  # True</code></pre>
+                        </div>
+
+                        <h3>For Loop with Dictionaries</h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>for_dict.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python"># Iterating over dictionaries
+student = {
+    "name": "Alice",
+    "age": 20,
+    "grade": "A"
+}
+
+# Iterate over keys (default)
+print("Keys:")
+for key in student:
+    print(key)
+
+# Iterate over values
+print("\nValues:")
+for value in student.values():
+    print(value)
+
+# Iterate over key-value pairs
+print("\nKey-Value pairs:")
+for key, value in student.items():
+    print(f"{key}: {value}")
+
+# Output:
+# Keys:
+# name
+# age
+# grade
+# 
+# Values:
+# Alice
+# 20
+# A
+# 
+# Key-Value pairs:
+# name: Alice
+# age: 20
+# grade: A</code></pre>
+                        </div>
+                    </div>
+
+                    <!-- Ranges -->
+                    <div class="topic-section" id="ranges">
+                        <h2><i class="fas fa-arrows-alt-h"></i> For Loop Using Ranges</h2>
+                        <p>The <code>range()</code> function generates a sequence of numbers, commonly used with for loops.</p>
+
+                        <h3>Range Syntax</h3>
+                        <ul>
+                            <li><code>range(stop)</code> - 0 to stop-1</li>
+                            <li><code>range(start, stop)</code> - start to stop-1</li>
+                            <li><code>range(start, stop, step)</code> - start to stop-1 with step increment</li>
+                        </ul>
+
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>range_examples.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python"># range(stop) - 0 to stop-1
+print("range(5):")
+for i in range(5):
+    print(i, end=" ")  # 0 1 2 3 4
+print()
+
+# range(start, stop) - start to stop-1
+print("\nrange(2, 7):")
+for i in range(2, 7):
+    print(i, end=" ")  # 2 3 4 5 6
+print()
+
+# range(start, stop, step)
+print("\nrange(0, 10, 2):")
+for i in range(0, 10, 2):
+    print(i, end=" ")  # 0 2 4 6 8
+print()
+
+# Negative step (counting backwards)
+print("\nrange(10, 0, -1):")
+for i in range(10, 0, -1):
+    print(i, end=" ")  # 10 9 8 7 6 5 4 3 2 1
+print()
+
+# Converting range to list
+numbers = list(range(1, 6))
+print(f"\nList from range: {numbers}")  # [1, 2, 3, 4, 5]</code></pre>
+                        </div>
+
+                        <h3>Practical Range Examples</h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>range_practical.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python"># Print multiplication table
+n = 5
+print(f"Multiplication table of {n}:")
+for i in range(1, 11):
+    print(f"{n} x {i} = {n * i}")
+
+# Sum of first n natural numbers
+n = 100
+total = 0
+for i in range(1, n + 1):
+    total += i
+print(f"\nSum of first {n} numbers: {total}")  # 5050
+
+# Factorial calculation
+num = 5
+factorial = 1
+for i in range(1, num + 1):
+    factorial *= i
+print(f"\n{num}! = {factorial}")  # 120
+
+# Print a pattern
+print("\nTriangle pattern:")
+for i in range(1, 6):
+    print("*" * i)
+# *
+# **
+# ***
+# ****
+# *****
+
+# Access list by index
+fruits = ["apple", "banana", "cherry", "date"]
+for i in range(len(fruits)):
+    print(f"Index {i}: {fruits[i]}")</code></pre>
+                        </div>
+                    </div>
+
+                    <!-- While Loops -->
+                    <div class="topic-section" id="while-loops">
+                        <h2><i class="fas fa-sync-alt"></i> While Loops in Python</h2>
+                        <p>A <code>while</code> loop executes a block of code as long as a condition is True.</p>
+
+                        <div class="info-box warning">
+                            <h4><i class="fas fa-exclamation-triangle"></i> Warning</h4>
+                            <p>Be careful with while loops! If the condition never becomes False, you'll create an infinite loop that runs forever.</p>
+                        </div>
+
+                        <h3>Basic While Loop</h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>while_basic.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python"># Basic while loop
+count = 1
+
+while count <= 5:
+    print(f"Count: {count}")
+    count += 1  # Don't forget to increment!
+
+print("Loop finished!")
+
+# Output:
+# Count: 1
+# Count: 2
+# Count: 3
+# Count: 4
+# Count: 5
+# Loop finished!</code></pre>
+                        </div>
+
+                        <h3>While Loop Examples</h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>while_examples.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python"># Sum until a condition
+total = 0
+num = 1
+
+while total < 100:
+    total += num
+    num += 1
+
+print(f"Sum reached {total} after adding numbers up to {num - 1}")
+
+# Countdown
+print("\nCountdown:")
+seconds = 5
+while seconds > 0:
+    print(seconds)
+    seconds -= 1
+print("Blast off! 🚀")
+
+# User input validation
+password = ""
+attempts = 3
+
+while password != "secret" and attempts > 0:
+    password = input(f"Enter password ({attempts} attempts left): ")
+    attempts -= 1
+    
+    if password == "secret":
+        print("Access granted!")
+    elif attempts == 0:
+        print("Too many attempts. Account locked!")
+    else:
+        print("Wrong password. Try again.")</code></pre>
+                        </div>
+
+                        <h3>While with else</h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>while_else.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python"># The else block runs when condition becomes False
+# (but NOT when loop is broken with break)
+
+count = 1
+
+while count <= 3:
+    print(f"Count: {count}")
+    count += 1
+else:
+    print("Loop completed normally!")
+
+# Output:
+# Count: 1
+# Count: 2
+# Count: 3
+# Loop completed normally!
+
+# Searching example
+numbers = [1, 3, 5, 7, 9]
+target = 5
+index = 0
+
+while index < len(numbers):
+    if numbers[index] == target:
+        print(f"Found {target} at index {index}")
+        break
+    index += 1
+else:
+    print(f"{target} not found in list")</code></pre>
+                        </div>
+                    </div>
+
+                    <!-- Loop Control -->
+                    <div class="topic-section" id="loop-control">
+                        <h2><i class="fas fa-gamepad"></i> Loop Control: break, continue, pass, else</h2>
+                        <p>Python provides several ways to control the flow within loops.</p>
+
+                        <h3>The break Statement</h3>
+                        <p>Exits the loop immediately, skipping remaining iterations.</p>
+
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>break_statement.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python"># break - exit loop immediately
+print("Finding first even number:")
+for num in [1, 3, 5, 4, 7, 8, 9]:
+    if num % 2 == 0:
+        print(f"Found even number: {num}")
+        break
+    print(f"Checking {num}...")
+
+# Output:
+# Checking 1...
+# Checking 3...
+# Checking 5...
+# Found even number: 4
+
+# Search in list
+fruits = ["apple", "banana", "cherry", "date"]
+search = "cherry"
+
+for fruit in fruits:
+    if fruit == search:
+        print(f"Found '{search}'!")
+        break
+else:
+    print(f"'{search}' not in list")</code></pre>
+                        </div>
+
+                        <h3>The continue Statement</h3>
+                        <p>Skips the current iteration and moves to the next one.</p>
+
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>continue_statement.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python"># continue - skip current iteration
+print("Odd numbers from 1 to 10:")
+for num in range(1, 11):
+    if num % 2 == 0:
+        continue  # Skip even numbers
+    print(num, end=" ")
+
+print()  # 1 3 5 7 9
+
+# Skip specific items
+fruits = ["apple", "banana", "cherry", "date"]
+print("\nFruits (excluding banana):")
+for fruit in fruits:
+    if fruit == "banana":
+        continue
+    print(fruit)
+
+# Process only valid data
+data = [10, -5, 20, -3, 15, 0]
+print("\nProcessing positive numbers:")
+for value in data:
+    if value <= 0:
+        continue
+    print(f"Processing: {value}")</code></pre>
+                        </div>
+
+                        <h3>The pass Statement</h3>
+                        <p>Does nothing - used as a placeholder when syntax requires a statement.</p>
+
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>pass_statement.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python"># pass - placeholder that does nothing
+
+# Empty loop (for later implementation)
+for i in range(5):
+    pass  # TODO: implement later
+
+# Empty function
+def future_function():
+    pass  # Will implement later
+
+# Empty class
+class MyClass:
+    pass
+
+# Conditional placeholder
+x = 10
+if x > 5:
+    pass  # Handle this case later
+else:
+    print("x is 5 or less")
+
+# Ignoring specific cases
+for num in range(1, 11):
+    if num == 5:
+        pass  # Intentionally do nothing for 5
+    else:
+        print(num, end=" ")  # 1 2 3 4 6 7 8 9 10</code></pre>
+                        </div>
+
+                        <h3>The else Clause with Loops</h3>
+                        <p>The <code>else</code> block after a loop runs only if the loop completes normally (without break).</p>
+
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>loop_else.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python"># else with for loop
+print("Searching for 6 in [1, 2, 3, 4, 5]:")
+for num in [1, 2, 3, 4, 5]:
+    if num == 6:
+        print("Found 6!")
+        break
+else:
+    print("6 not found in list")
+
+# else with for loop (found case)
+print("\nSearching for 3 in [1, 2, 3, 4, 5]:")
+for num in [1, 2, 3, 4, 5]:
+    if num == 3:
+        print("Found 3!")
+        break
+else:
+    print("3 not found in list")
+
+# Prime number checker
+def is_prime(n):
+    if n < 2:
+        return False
+    for i in range(2, int(n ** 0.5) + 1):
+        if n % i == 0:
+            return False
+    else:
+        return True
+
+# Test prime numbers
+for num in [2, 17, 18, 23, 25]:
+    print(f"{num} is prime: {is_prime(num)}")</code></pre>
+                        </div>
+
+                        <h3>Comparison Table</h3>
+                        <div class="table-container">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Statement</th>
+                                        <th>Purpose</th>
+                                        <th>Use Case</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><code>break</code></td>
+                                        <td>Exit loop immediately</td>
+                                        <td>Stop when target found</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>continue</code></td>
+                                        <td>Skip current iteration</td>
+                                        <td>Skip unwanted items</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>pass</code></td>
+                                        <td>Do nothing (placeholder)</td>
+                                        <td>Empty blocks</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>else</code></td>
+                                        <td>Run if no break occurred</td>
+                                        <td>Search completion check</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Practice Examples -->
+                    <div class="topic-section" id="examples">
+                        <h2><i class="fas fa-code"></i> Practice Programming Examples</h2>
+
+                        <h3>Example 1: Number Guessing Game</h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>guessing_game.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python">import random
+
+# Number guessing game
+secret = random.randint(1, 100)
+attempts = 0
+max_attempts = 7
+
+print("🎮 Number Guessing Game!")
+print("I'm thinking of a number between 1 and 100.")
+print(f"You have {max_attempts} attempts.\n")
+
+while attempts < max_attempts:
+    guess = int(input("Enter your guess: "))
+    attempts += 1
+    
+    if guess < secret:
+        print("Too low! Try higher.")
+    elif guess > secret:
+        print("Too high! Try lower.")
+    else:
+        print(f"🎉 Congratulations! You got it in {attempts} attempts!")
+        break
+    
+    remaining = max_attempts - attempts
+    if remaining > 0:
+        print(f"Attempts remaining: {remaining}\n")
+else:
+    print(f"\n😢 Game Over! The number was {secret}")</code></pre>
+                        </div>
+
+                        <h3>Example 2: FizzBuzz</h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>fizzbuzz.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python"># Classic FizzBuzz problem
+# Print numbers 1-100, but:
+# - Print "Fizz" for multiples of 3
+# - Print "Buzz" for multiples of 5
+# - Print "FizzBuzz" for multiples of both
+
+for num in range(1, 101):
+    if num % 3 == 0 and num % 5 == 0:
+        print("FizzBuzz")
+    elif num % 3 == 0:
+        print("Fizz")
+    elif num % 5 == 0:
+        print("Buzz")
+    else:
+        print(num)</code></pre>
+                        </div>
+
+                        <h3>Example 3: Pyramid Pattern</h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>pyramid.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python"># Print pyramid pattern
+rows = 5
+
+print("Pyramid Pattern:")
+for i in range(1, rows + 1):
+    # Print spaces
+    for j in range(rows - i):
+        print(" ", end="")
+    # Print stars
+    for k in range(2 * i - 1):
+        print("*", end="")
+    print()
+
+# Output:
+#     *
+#    ***
+#   *****
+#  *******
+# *********
+
+# Inverted pyramid
+print("\nInverted Pyramid:")
+for i in range(rows, 0, -1):
+    for j in range(rows - i):
+        print(" ", end="")
+    for k in range(2 * i - 1):
+        print("*", end="")
+    print()</code></pre>
+                        </div>
+
+                        <h3>Example 4: Prime Numbers</h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>prime_numbers.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python"># Find all prime numbers up to n
+n = 50
+primes = []
+
+for num in range(2, n + 1):
+    is_prime = True
+    
+    for i in range(2, int(num ** 0.5) + 1):
+        if num % i == 0:
+            is_prime = False
+            break
+    
+    if is_prime:
+        primes.append(num)
+
+print(f"Prime numbers up to {n}:")
+print(primes)
+
+# Output: [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47]</code></pre>
+                        </div>
+
+                        <h3>Example 5: Simple Calculator</h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>calculator.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python"># Simple calculator with loop
+print("🧮 Simple Calculator")
+print("Operations: +, -, *, /, ** (power)")
+print("Type 'quit' to exit\n")
+
+while True:
+    expression = input("Enter expression (e.g., 5 + 3): ")
+    
+    if expression.lower() == 'quit':
+        print("Goodbye!")
+        break
+    
+    try:
+        # Parse the expression
+        parts = expression.split()
+        num1 = float(parts[0])
+        operator = parts[1]
+        num2 = float(parts[2])
+        
+        # Perform calculation
+        if operator == '+':
+            result = num1 + num2
+        elif operator == '-':
+            result = num1 - num2
+        elif operator == '*':
+            result = num1 * num2
+        elif operator == '/':
+            if num2 == 0:
+                print("Error: Division by zero!")
+                continue
+            result = num1 / num2
+        elif operator == '**':
+            result = num1 ** num2
+        else:
+            print("Invalid operator!")
+            continue
+        
+        print(f"Result: {result}\n")
+        
+    except (ValueError, IndexError):
+        print("Invalid input! Use format: number operator number\n")</code></pre>
+                        </div>
+
+                        <div class="info-box tip">
+                            <h4><i class="fas fa-lightbulb"></i> Practice Tip</h4>
+                            <p>Try modifying these examples! Add new features, handle edge cases, or combine multiple concepts to strengthen your understanding.</p>
+                        </div>
+                    </div>
+
+                    <!-- Navigation -->
+                    <div class="unit-navigation">
+                        <a href="unit1.html" class="nav-btn prev">
+                            <i class="fas fa-arrow-left"></i> Unit I: Introduction
+                        </a>
+                        <a href="unit3.html" class="nav-btn next">
+                            Unit III: Data Types <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quiz Section -->
+    <section class="quiz-section">
+        <div class="container">
+            <h2 class="section-title">Test Your Knowledge</h2>
+            <div class="quiz-container" id="quiz-container">
+                <!-- Quiz will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fab fa-python"></i> Python Hub</h3>
+                    <p>Your complete guide to mastering Python programming.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="unit1.html">Unit I - Introduction</a></li>
+                        <li><a href="unit2.html">Unit II - Flow Control</a></li>
+                        <li><a href="unit3.html">Unit III - Data Types</a></li>
+                        <li><a href="unit4.html">Unit IV - File Operations</a></li>
+                        <li><a href="unit5.html">Unit V - Packages & GUI</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Python Learning Hub. Made with <i class="fas fa-heart"></i> for Learning.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+    <script src="js/script.js"></script>
+    <script>
+        // Unit 2 Quiz Questions
+        const unit2Questions = [
+            {
+                question: "What is the correct syntax for an if statement in Python?",
+                options: ["if (x > 5) {}", "if x > 5:", "if x > 5 then", "if (x > 5):"],
+                correct: 1,
+                explanation: "In Python, the if statement uses a colon (:) after the condition. Parentheses are optional and curly braces are not used."
+            },
+            {
+                question: "What keyword is used to add an alternative condition in Python?",
+                options: ["else if", "elseif", "elif", "elsif"],
+                correct: 2,
+                explanation: "Python uses 'elif' (short for 'else if') to add additional conditions in a conditional statement chain."
+            },
+            {
+                question: "What is the output of <code>for i in range(3): print(i)</code>?",
+                options: ["1 2 3", "0 1 2", "0 1 2 3", "1 2"],
+                correct: 1,
+                explanation: "range(3) generates numbers from 0 to 2 (3 is exclusive). So it prints 0, 1, 2."
+            },
+            {
+                question: "Which statement is used to skip the current iteration and continue with the next?",
+                options: ["break", "continue", "pass", "skip"],
+                correct: 1,
+                explanation: "The 'continue' statement skips the rest of the current iteration and moves to the next iteration of the loop."
+            },
+            {
+                question: "What does <code>range(2, 10, 2)</code> generate?",
+                options: ["2, 4, 6, 8, 10", "2, 4, 6, 8", "2, 3, 4, 5, 6, 7, 8, 9", "0, 2, 4, 6, 8"],
+                correct: 1,
+                explanation: "range(2, 10, 2) starts at 2, ends before 10, and steps by 2. It generates: 2, 4, 6, 8."
+            },
+            {
+                question: "What is the purpose of the 'pass' statement?",
+                options: ["To exit the loop", "To skip to the next iteration", "To do nothing (placeholder)", "To return a value"],
+                correct: 2,
+                explanation: "The 'pass' statement is a null operation - it does nothing. It's used as a placeholder where code will eventually be written."
+            },
+            {
+                question: "What will be the output of a while loop with condition <code>while False:</code>?",
+                options: ["Infinite loop", "Runs once", "Never executes", "Error"],
+                correct: 2,
+                explanation: "Since the condition is False from the start, the loop body never executes. The loop is skipped entirely."
+            },
+            {
+                question: "Which of the following creates an infinite loop?",
+                options: ["while True:", "for i in range(0):", "while 0:", "for i in []"],
+                correct: 0,
+                explanation: "'while True:' creates an infinite loop because the condition is always True. You need a 'break' statement to exit."
+            },
+            {
+                question: "What does 'break' do inside a nested loop?",
+                options: ["Exits all loops", "Exits only the innermost loop", "Exits the program", "Skips current iteration"],
+                correct: 1,
+                explanation: "The 'break' statement only exits the innermost loop that contains it. Outer loops continue to execute."
+            },
+            {
+                question: "What is the output of:<br><code>for i in range(5):<br>&nbsp;&nbsp;if i == 3:<br>&nbsp;&nbsp;&nbsp;&nbsp;break<br>&nbsp;&nbsp;print(i)</code>",
+                options: ["0 1 2 3", "0 1 2", "0 1 2 3 4", "3"],
+                correct: 1,
+                explanation: "The loop prints 0, 1, 2, then when i becomes 3, the break statement is executed and the loop terminates before printing 3."
+            }
+        ];
+        
+        // Initialize Quiz
+        quiz = new QuizManager('quiz-container', unit2Questions);
+    </script>
+</body>
+</html>

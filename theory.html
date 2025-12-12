@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theory & Viva Questions - Python Hub</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .theory-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-left: 4px solid #9b59b6;
+        }
+        .theory-card h4 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+        .theory-card h4:hover { color: #9b59b6; }
+        .theory-card .answer {
+            display: none;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            margin-top: 10px;
+            border-left: 3px solid #9b59b6;
+        }
+        .theory-card .answer.show { display: block; }
+        .unit-section {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+        }
+        .unit-section h3 {
+            color: #9b59b6;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #9b59b6;
+        }
+        .toggle-icon { transition: transform 0.3s; }
+        .toggle-icon.rotate { transform: rotate(180deg); }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo"><i class="fab fa-python"></i> Python Hub</a>
+            <button class="nav-toggle" id="navToggle"><i class="fas fa-bars"></i></button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="unit1.html">Unit I</a></li>
+                <li><a href="unit2.html">Unit II</a></li>
+                <li><a href="unit3.html">Unit III</a></li>
+                <li><a href="unit4.html">Unit IV</a></li>
+                <li><a href="unit5.html">Unit V</a></li>
+                <li class="nav-divider"></li>
+                <li><a href="extras.html">Extras</a></li>
+                <li><a href="practice.html">Practice</a></li>
+                <li><a href="theory.html" class="active">Theory</a></li>
+                <li><a href="comparisons.html">Compare</a></li>
+                <li><a href="errors.html">Errors</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="unit-header" style="background: linear-gradient(135deg, #9b59b6, #8e44ad);">
+        <div class="container">
+            <h1><i class="fas fa-book-open"></i> Theory & Viva Questions</h1>
+            <p>Important short-answer questions for exams and interviews</p>
+        </div>
+    </header>
+
+    <section class="unit-content">
+        <div class="container">
+            <!-- Unit 1 -->
+            <div class="unit-section" id="unit1">
+                <h3><i class="fas fa-play-circle"></i> Unit I - Introduction to Python</h3>
+                
+                <div class="theory-card">
+                    <h4 onclick="toggleAnswer(this)">Q1. What is Python? List its features. <i class="fas fa-chevron-down toggle-icon"></i></h4>
+                    <div class="answer">
+                        <p><strong>Python</strong> is a high-level, interpreted, general-purpose programming language created by Guido van Rossum in 1991.</p>
+                        <p><strong>Features:</strong></p>
+                        <ul>
+                            <li>Easy to learn and read (simple syntax)</li>
+                            <li>Interpreted language (no compilation needed)</li>
+                            <li>Dynamically typed</li>
+                            <li>Object-oriented and functional programming support</li>
+                            <li>Extensive standard library</li>
+                            <li>Platform independent</li>
+                            <li>Open source and free</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="theory-card">
+                    <h4 onclick="toggleAnswer(this)">Q2. What are variables in Python? How are they declared? <i class="fas fa-chevron-down toggle-icon"></i></h4>
+                    <div class="answer">
+                        <p><strong>Variables</strong> are containers that store data values. In Python, variables are created when you assign a value to them.</p>
+                        <p><strong>Declaration:</strong> No explicit declaration needed. Just assign a value:</p>
+                        <code>x = 10</code>, <code>name = "John"</code>, <code>pi = 3.14</code>
+                        <p><strong>Rules:</strong> Must start with letter/underscore, can contain alphanumeric characters, case-sensitive.</p>
+                    </div>
+                </div>
+
+                <div class="theory-card">
+                    <h4 onclick="toggleAnswer(this)">Q3. Explain Python data types with examples. <i class="fas fa-chevron-down toggle-icon"></i></h4>
+                    <div class="answer">
+                        <ul>
+                            <li><strong>int:</strong> Integer numbers → <code>x = 10</code></li>
+                            <li><strong>float:</strong> Decimal numbers → <code>y = 3.14</code></li>
+                            <li><strong>str:</strong> Text/strings → <code>name = "Python"</code></li>
+                            <li><strong>bool:</strong> True/False → <code>is_valid = True</code></li>
+                            <li><strong>list:</strong> Ordered, mutable → <code>[1, 2, 3]</code></li>
+                            <li><strong>tuple:</strong> Ordered, immutable → <code>(1, 2, 3)</code></li>
+                            <li><strong>dict:</strong> Key-value pairs → <code>{"a": 1}</code></li>
+                            <li><strong>set:</strong> Unique elements → <code>{1, 2, 3}</code></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="theory-card">
+                    <h4 onclick="toggleAnswer(this)">Q4. What are operators in Python? List different types. <i class="fas fa-chevron-down toggle-icon"></i></h4>
+                    <div class="answer">
+                        <ul>
+                            <li><strong>Arithmetic:</strong> +, -, *, /, //, %, **</li>
+                            <li><strong>Comparison:</strong> ==, !=, >, <, >=, <=</li>
+                            <li><strong>Logical:</strong> and, or, not</li>
+                            <li><strong>Assignment:</strong> =, +=, -=, *=, /=</li>
+                            <li><strong>Bitwise:</strong> &, |, ^, ~, <<, >></li>
+                            <li><strong>Identity:</strong> is, is not</li>
+                            <li><strong>Membership:</strong> in, not in</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="theory-card">
+                    <h4 onclick="toggleAnswer(this)">Q5. Differentiate between compiled and interpreted languages. <i class="fas fa-chevron-down toggle-icon"></i></h4>
+                    <div class="answer">
+                        <table style="width:100%; border-collapse: collapse;">
+                            <tr><th style="border:1px solid #ddd; padding:8px;">Compiled</th><th style="border:1px solid #ddd; padding:8px;">Interpreted</th></tr>
+                            <tr><td style="border:1px solid #ddd; padding:8px;">Converts entire code at once</td><td style="border:1px solid #ddd; padding:8px;">Executes line by line</td></tr>
+                            <tr><td style="border:1px solid #ddd; padding:8px;">Faster execution</td><td style="border:1px solid #ddd; padding:8px;">Slower execution</td></tr>
+                            <tr><td style="border:1px solid #ddd; padding:8px;">Errors shown after compilation</td><td style="border:1px solid #ddd; padding:8px;">Errors shown at runtime</td></tr>
+                            <tr><td style="border:1px solid #ddd; padding:8px;">Examples: C, C++, Java</td><td style="border:1px solid #ddd; padding:8px;">Examples: Python, JavaScript</td></tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="theory-card">
+                    <h4 onclick="toggleAnswer(this)">Q6. What is type casting? Explain with examples. <i class="fas fa-chevron-down toggle-icon"></i></h4>
+                    <div class="answer">
+                        <p><strong>Type casting</strong> is converting one data type to another.</p>
+                        <p><strong>Implicit:</strong> Python automatically converts → <code>x = 5 + 2.0</code> (int to float)</p>
+                        <p><strong>Explicit:</strong> Manual conversion using functions:</p>
+                        <ul>
+                            <li><code>int("10")</code> → 10</li>
+                            <li><code>float(5)</code> → 5.0</li>
+                            <li><code>str(100)</code> → "100"</li>
+                            <li><code>list("abc")</code> → ['a', 'b', 'c']</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="theory-card">
+                    <h4 onclick="toggleAnswer(this)">Q7. What is the difference between print() and input()? <i class="fas fa-chevron-down toggle-icon"></i></h4>
+                    <div class="answer">
+                        <p><strong>print():</strong> Displays output to the console</p>
+                        <code>print("Hello World")</code>
+                        <p><strong>input():</strong> Takes input from user (always returns string)</p>
+                        <code>name = input("Enter name: ")</code>
+                        <p>To get numeric input: <code>age = int(input("Enter age: "))</code></p>
+                    </div>
+                </div>
+
+                <div class="theory-card">
+                    <h4 onclick="toggleAnswer(this)">Q8. Explain comments in Python. <i class="fas fa-chevron-down toggle-icon"></i></h4>
+                    <div class="answer">
+                        <p>Comments are non-executable text for documentation.</p>
+                        <p><strong>Single-line:</strong> <code># This is a comment</code></p>
+                        <p><strong>Multi-line:</strong></p>
+                        <pre>"""
+This is a
+multi-line comment
+"""</pre>
+                        <p>Comments improve code readability and are ignored by the interpreter.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Unit 2 -->
+            <div class="unit-section" id="unit2">
+                <h3><i class="fas fa-code-branch"></i> Unit II - Program Flow Control</h3>
+                
+                <div class="theory-card">
+                    <h4 onclick="toggleAnswer(this)">Q1. Explain if-elif-else statement with syntax. <i class="fas fa-chevron-down toggle-icon"></i></h4>
+                    <div class="answer">
+                        <p>Conditional statements execute code based on conditions:</p>
+                        <pre>if condition1:
+    # executes if condition1 is True
+elif condition2:
+    # executes if condition2 is True
+else:
+    # executes if all conditions are False</pre>
+                        <p>Conditions are evaluated top to bottom; first True condition's block executes.</p>
+                    </div>
+                </div>
+
+                <div class="theory-card">
+                    <h4 onclick="toggleAnswer(this)">Q2. Differentiate between for and while loop. <i class="fas fa-chevron-down toggle-icon"></i></h4>
+                    <div class="answer">
+                        <table style="width:100%; border-collapse: collapse;">
+                            <tr><th style="border:1px solid #ddd; padding:8px;">for loop</th><th style="border:1px solid #ddd; padding:8px;">while loop</th></tr>
+                            <tr><td style="border:1px solid #ddd; padding:8px;">Iterates over a sequence</td><td style="border:1px solid #ddd; padding:8px;">Repeats while condition is True</td></tr>
+                            <tr><td style="border:1px solid #ddd; padding:8px;">Known number of iterations</td><td style="border:1px solid #ddd; padding:8px;">Unknown iterations</td></tr>
+                            <tr><td style="border:1px solid #ddd; padding:8px;"><code>for i in range(5):</code></td><td style="border:1px solid #ddd; padding:8px;"><code>while x < 5:</code></td></tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="theory-card">
+                    <h4 onclick="toggleAnswer(this)">Q3. What is the purpose of break and continue? <i class="fas fa-chevron-down toggle-icon"></i></h4>
+                    <div class="answer">
+                        <p><strong>break:</strong> Exits the loop immediately</p>
+                        <pre>for i in range(10):
+    if i == 5:
+        break  # Stops at 5</pre>
+                        <p><strong>continue:</strong> Skips current iteration, continues to next</p>
+                        <pre>for i in range(5):
+    if i == 2:
+        continue  # Skips 2
+    print(i)</pre>
+                    </div>
+                </div>
+
+                <div class="theory-card">
+                    <h4 onclick="toggleAnswer(this)">Q4. Explain range() function with examples. <i class="fas fa-chevron-down toggle-icon"></i></h4>
+                    <div class="answer">
+                        <p><strong>range()</strong> generates a sequence of numbers.</p>
+                        <ul>
+                            <li><code>range(5)</code> → 0, 1, 2, 3, 4</li>
+                            <li><code>range(2, 8)</code> → 2, 3, 4, 5, 6, 7</li>
+                            <li><code>range(0, 10, 2)</code> → 0, 2, 4, 6, 8</li>
+                            <li><code>range(5, 0, -1)</code> → 5, 4, 3, 2, 1</li>
+                        </ul>
+                        <p>Syntax: <code>range(start, stop, step)</code></p>
+                    </div>
+                </div>
+
+                <div class="theory-card">
+                    <h4 onclick="toggleAnswer(this)">Q5. What is a nested loop? Give an example. <i class="fas fa-chevron-down toggle-icon"></i></h4>
+                    <div class="answer">
+                        <p>A <strong>nested loop</strong> is a loop inside another loop.</p>
+                        <pre>for i in range(3):
+    for j in range(3):
+        print(i, j)</pre>
+                        <p>The inner loop completes all iterations for each outer loop iteration.</p>
+                        <p><strong>Use case:</strong> Printing patterns, working with 2D arrays/matrices.</p>
+                    </div>
+                </div>
+
+                <div class="theory-card">
+                    <h4 onclick="toggleAnswer(this)">Q6. Explain pass statement in Python. <i class="fas fa-chevron-down toggle-icon"></i></h4>
+                    <div class="answer">
+                        <p><strong>pass</strong> is a null statement that does nothing. It's used as a placeholder.</p>
+                        <pre>if x > 0:
+    pass  # TODO: implement later
+
+def empty_function():
+    pass  # Placeholder for future code</pre>
+                        <p>Prevents syntax errors when a statement is required but no action is needed.</p>
+                    </div>
+                </div>
+
+                <div class="theory-card">
+                    <h4 onclick="toggleAnswer(this)">Q7. What is an infinite loop? How to avoid it? <i class="fas fa-chevron-down toggle-icon"></i></h4>
+                    <div class="answer">
+                        <p>An <strong>infinite loop</strong> runs forever because the condition never becomes False.</p>
+                        <pre># Infinite loop (bad)
+while True:
+    print("Forever")</pre>
+                        <p><strong>To avoid:</strong></p>
+                        <ul>
+                            <li>Ensure loop variable is updated</li>
+                            <li>Use break statement with condition</li>
+                            <li>Set proper termination condition</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="theory-card">
+                    <h4 onclick="toggleAnswer(this)">Q8. What is the else clause in loops? <i class="fas fa-chevron-down toggle-icon"></i></h4>
+                    <div class="answer">
+                        <p>Python loops can have an <strong>else</strong> clause that executes when the loop completes normally (not via break).</p>
+                        <pre>for i in range(5):
+    if i == 10:
+        break
+else:
+    print("Loop completed!")  # This runs</pre>
+                        <p>If break is executed, else block is skipped.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Unit 3 -->
+            <div class="unit-section" id="unit3">
+                <h3><i class="fas fa-layer-group"></i> Unit III - Data Types & Functions</h3>
+                
+                <div class="theory-card">
+                    <h4 onclick="toggleAnswer(this)">Q1. Differentiate between List, Tuple, Set, and Dictionary. <i class="fas fa-chevron-down toggle-icon"></i></h4>
+                    <div class="answer">
+                        <table style="width:100%; border-collapse: collapse; font-size: 14px;">
+                            <tr><th style="border:1px solid #ddd; padding:6px;">Feature</th><th style="border:1px solid #ddd; padding:6px;">List</th><th style="border:1px solid #ddd; padding:6px;">Tuple</th><th style="border:1px solid #ddd; padding:6px;">Set</th><th style="border:1px solid #ddd; padding:6px;">Dict</th></tr>
+                            <tr><td style="border:1px solid #ddd; padding:6px;">Syntax</td><td style="border:1px solid #ddd; padding:6px;">[1,2]</td><td style="border:1px solid #ddd; padding:6px;">(1,2)</td><td style="border:1px solid #ddd; padding:6px;">{1,2}</td><td style="border:1px solid #ddd; padding:6px;">{k:v}</td></tr>
+                            <tr><td style="border:1px solid #ddd; padding:6px;">Mutable</td><td style="border:1px solid #ddd; padding:6px;">Yes</td><td style="border:1px solid #ddd; padding:6px;">No</td><td style="border:1px solid #ddd; padding:6px;">Yes</td><td style="border:1px solid #ddd; padding:6px;">Yes</td></tr>
+                            <tr><td style="border:1px solid #ddd; padding:6px;">Ordered</td><td style="border:1px solid #ddd; padding:6px;">Yes</td><td style="border:1px solid #ddd; padding:6px;">Yes</td><td style="border:1px solid #ddd; padding:6px;">No</td><td style="border:1px solid #ddd; padding:6px;">Yes*</td></tr>
+                            <tr><td style="border:1px solid #ddd; padding:6px;">Duplicates</td><td style="border:1px solid #ddd; padding:6px;">Yes</td><td style="border:1px solid #ddd; padding:6px;">Yes</td><td style="border:1px solid #ddd; padding:6px;">No</td><td style="border:1px solid #ddd; padding:6px;">Keys: No</td></tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="theory-card">
+                    <h4 onclick="toggleAnswer(this)">Q2. What is string slicing? Explain with examples. <i class="fas fa-chevron-down toggle-icon"></i></h4>
+                    <div class="answer">
+                        <p><strong>Slicing</strong> extracts a portion of a string using <code>[start:end:step]</code></p>
+                        <pre>s = "Python"
+s[0:3]   → "Pyt"
+s[2:]    → "thon"
+s[:4]    → "Pyth"
+s[-1]    → "n"
+s[::-1]  → "nohtyP" (reverse)</pre>
+                    </div>
+                </div>
+
+                <div class="theory-card">
+                    <h4 onclick="toggleAnswer(this)">Q3. What is a function? Explain types of arguments. <i class="fas fa-chevron-down toggle-icon"></i></h4>
+                    <div class="answer">
+                        <p><strong>Function:</strong> A reusable block of code defined with <code>def</code> keyword.</p>
+                        <p><strong>Types of Arguments:</strong></p>
+                        <ul>
+                            <li><strong>Positional:</strong> <code>func(1, 2)</code></li>
+                            <li><strong>Keyword:</strong> <code>func(a=1, b=2)</code></li>
+                            <li><strong>Default:</strong> <code>def func(a=10):</code></li>
+                            <li><strong>*args:</strong> Variable positional arguments</li>
+                            <li><strong>**kwargs:</strong> Variable keyword arguments</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="theory-card">
+                    <h4 onclick="toggleAnswer(this)">Q4. What is the difference between local and global variables? <i class="fas fa-chevron-down toggle-icon"></i></h4>
+                    <div class="answer">
+                        <p><strong>Local:</strong> Defined inside function, accessible only within that function.</p>
+                        <p><strong>Global:</strong> Defined outside functions, accessible everywhere.</p>
+                        <pre>x = 10  # Global
+
+def func():
+    y = 5  # Local
+    global x
+    x = 20  # Modify global</pre>
+                        <p>Use <code>global</code> keyword to modify global variable inside function.</p>
+                    </div>
+                </div>
+
+                <div class="theory-card">
+                    <h4 onclick="toggleAnswer(this)">Q5. Explain list comprehension with examples. <i class="fas fa-chevron-down toggle-icon"></i></h4>
+                    <div class="answer">
+                        <p><strong>List comprehension:</strong> Concise way to create lists.</p>
+                        <pre># Syntax: [expression for item in iterable if condition]
+
+squares = [x**2 for x in range(5)]
+# [0, 1, 4, 9, 16]
+
+evens = [x for x in range(10) if x % 2 == 0]
+# [0, 2, 4, 6, 8]</pre>
+                    </div>
+                </div>
+
+                <div class="theory-card">
+                    <h4 onclick="toggleAnswer(this)">Q6. What is the difference between append() and extend()? <i class="fas fa-chevron-down toggle-icon"></i></h4>
+                    <div class="answer">
+                        <pre>lst = [1, 2, 3]
+
+lst.append([4, 5])
+# Result: [1, 2, 3, [4, 5]]
+
+lst = [1, 2, 3]
+lst.extend([4, 5])
+# Result: [1, 2, 3, 4, 5]</pre>
+                        <p><strong>append():</strong> Adds element as single item</p>
+                        <p><strong>extend():</strong> Adds each element individually</p>
+                    </div>
+                </div>
+
+                <div class="theory-card">
+                    <h4 onclick="toggleAnswer(this)">Q7. What is lambda function? Give examples. <i class="fas fa-chevron-down toggle-icon"></i></h4>
+                    <div class="answer">
+                        <p><strong>Lambda:</strong> Anonymous, single-expression function.</p>
+                        <pre># Syntax: lambda arguments: expression
+
+square = lambda x: x ** 2
+add = lambda a, b: a + b
+
+# With map/filter
+nums = [1, 2, 3, 4]
+squared = list(map(lambda x: x**2, nums))
+evens = list(filter(lambda x: x%2==0, nums))</pre>
+                    </div>
+                </div>
+
+                <div class="theory-card">
+                    <h4 onclick="toggleAnswer(this)">Q8. Explain mutable vs immutable data types. <i class="fas fa-chevron-down toggle-icon"></i></h4>
+                    <div class="answer">
+                        <p><strong>Mutable:</strong> Can be changed after creation</p>
+                        <ul><li>list, dict, set</li></ul>
+                        <p><strong>Immutable:</strong> Cannot be changed after creation</p>
+                        <ul><li>int, float, str, tuple, frozenset</li></ul>
+                        <pre>lst = [1, 2]
+lst[0] = 10  # OK - mutable
+
+s = "hello"
+s[0] = "H"  # Error - immutable</pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Unit 4 -->
+            <div class="unit-section" id="unit4">
+                <h3><i class="fas fa-file-code"></i> Unit IV - File Operations</h3>
+                
+                <div class="theory-card">
+                    <h4 onclick="toggleAnswer(this)">Q1. Explain file opening modes in Python. <i class="fas fa-chevron-down toggle-icon"></i></h4>
+                    <div class="answer">
+                        <table style="width:100%; border-collapse: collapse;">
+                            <tr><th style="border:1px solid #ddd; padding:8px;">Mode</th><th style="border:1px solid #ddd; padding:8px;">Description</th></tr>
+                            <tr><td style="border:1px solid #ddd; padding:8px;">'r'</td><td style="border:1px solid #ddd; padding:8px;">Read (default)</td></tr>
+                            <tr><td style="border:1px solid #ddd; padding:8px;">'w'</td><td style="border:1px solid #ddd; padding:8px;">Write (overwrites)</td></tr>
+                            <tr><td style="border:1px solid #ddd; padding:8px;">'a'</td><td style="border:1px solid #ddd; padding:8px;">Append</td></tr>
+                            <tr><td style="border:1px solid #ddd; padding:8px;">'x'</td><td style="border:1px solid #ddd; padding:8px;">Create (fails if exists)</td></tr>
+                            <tr><td style="border:1px solid #ddd; padding:8px;">'b'</td><td style="border:1px solid #ddd; padding:8px;">Binary mode</td></tr>
+                            <tr><td style="border:1px solid #ddd; padding:8px;">'r+'</td><td style="border:1px solid #ddd; padding:8px;">Read and write</td></tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="theory-card">
+                    <h4 onclick="toggleAnswer(this)">Q2. What is the 'with' statement? Why use it for files? <i class="fas fa-chevron-down toggle-icon"></i></h4>
+                    <div class="answer">
+                        <p><strong>with</strong> statement is a context manager that ensures proper resource handling.</p>
+                        <pre>with open("file.txt", "r") as f:
+    data = f.read()
+# File automatically closed</pre>
+                        <p><strong>Benefits:</strong></p>
+                        <ul>
+                            <li>Automatically closes file</li>
+                            <li>Handles exceptions properly</li>
+                            <li>Cleaner, safer code</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="theory-card">
+                    <h4 onclick="toggleAnswer(this)">Q3. Differentiate between read(), readline(), and readlines(). <i class="fas fa-chevron-down toggle-icon"></i></h4>
+                    <div class="answer">
+                        <ul>
+                            <li><strong>read():</strong> Returns entire file as single string</li>
+                            <li><strong>readline():</strong> Returns one line at a time</li>
+                            <li><strong>readlines():</strong> Returns list of all lines</li>
+                        </ul>
+                        <pre>f.read()       → "line1\nline2\nline3"
+f.readline()   → "line1\n"
+f.readlines()  → ["line1\n", "line2\n", "line3"]</pre>
+                    </div>
+                </div>
+
+                <div class="theory-card">
+                    <h4 onclick="toggleAnswer(this)">Q4. What is the difference between write() and writelines()? <i class="fas fa-chevron-down toggle-icon"></i></h4>
+                    <div class="answer">
+                        <p><strong>write():</strong> Writes a single string</p>
+                        <pre>f.write("Hello World")</pre>
+                        <p><strong>writelines():</strong> Writes a list of strings (no newlines added)</p>
+                        <pre>f.writelines(["Line1\n", "Line2\n"])</pre>
+                    </div>
+                </div>
+
+                <div class="theory-card">
+                    <h4 onclick="toggleAnswer(this)">Q5. Explain seek() and tell() methods. <i class="fas fa-chevron-down toggle-icon"></i></h4>
+                    <div class="answer">
+                        <p><strong>tell():</strong> Returns current file position (in bytes)</p>
+                        <p><strong>seek(offset, whence):</strong> Moves to a specific position</p>
+                        <pre>f.tell()      → 0 (at start)
+f.seek(0)     → Go to beginning
+f.seek(5)     → Go to 5th byte
+f.seek(0, 2)  → Go to end</pre>
+                        <p>whence: 0=start, 1=current, 2=end</p>
+                    </div>
+                </div>
+
+                <div class="theory-card">
+                    <h4 onclick="toggleAnswer(this)">Q6. What is exception handling in file operations? <i class="fas fa-chevron-down toggle-icon"></i></h4>
+                    <div class="answer">
+                        <pre>try:
+    with open("file.txt", "r") as f:
+        data = f.read()
+except FileNotFoundError:
+    print("File not found!")
+except PermissionError:
+    print("No permission!")
+except Exception as e:
+    print(f"Error: {e}")
+finally:
+    print("Cleanup done")</pre>
+                    </div>
+                </div>
+
+                <div class="theory-card">
+                    <h4 onclick="toggleAnswer(this)">Q7. How to work with CSV files in Python? <i class="fas fa-chevron-down toggle-icon"></i></h4>
+                    <div class="answer">
+                        <pre>import csv
+
+# Reading CSV
+with open("data.csv", "r") as f:
+    reader = csv.reader(f)
+    for row in reader:
+        print(row)
+
+# Writing CSV
+with open("data.csv", "w", newline="") as f:
+    writer = csv.writer(f)
+    writer.writerow(["Name", "Age"])
+    writer.writerow(["John", 25])</pre>
+                    </div>
+                </div>
+
+                <div class="theory-card">
+                    <h4 onclick="toggleAnswer(this)">Q8. What is JSON? How to read/write JSON in Python? <i class="fas fa-chevron-down toggle-icon"></i></h4>
+                    <div class="answer">
+                        <p><strong>JSON:</strong> JavaScript Object Notation - lightweight data format.</p>
+                        <pre>import json
+
+# Write JSON
+data = {"name": "John", "age": 25}
+with open("data.json", "w") as f:
+    json.dump(data, f)
+
+# Read JSON
+with open("data.json", "r") as f:
+    data = json.load(f)</pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Unit 5 -->
+            <div class="unit-section" id="unit5">
+                <h3><i class="fas fa-cubes"></i> Unit V - Packages & GUI</h3>
+                
+                <div class="theory-card">
+                    <h4 onclick="toggleAnswer(this)">Q1. What is NumPy? List its advantages. <i class="fas fa-chevron-down toggle-icon"></i></h4>
+                    <div class="answer">
+                        <p><strong>NumPy:</strong> Numerical Python - library for scientific computing.</p>
+                        <p><strong>Advantages:</strong></p>
+                        <ul>
+                            <li>Fast array operations (C-based)</li>
+                            <li>Memory efficient</li>
+                            <li>Broadcasting capabilities</li>
+                            <li>Mathematical functions</li>
+                            <li>Linear algebra operations</li>
+                        </ul>
+                        <pre>import numpy as np
+arr = np.array([1, 2, 3])</pre>
+                    </div>
+                </div>
+
+                <div class="theory-card">
+                    <h4 onclick="toggleAnswer(this)">Q2. What is Pandas? Explain DataFrame and Series. <i class="fas fa-chevron-down toggle-icon"></i></h4>
+                    <div class="answer">
+                        <p><strong>Pandas:</strong> Data manipulation and analysis library.</p>
+                        <p><strong>Series:</strong> 1D labeled array</p>
+                        <pre>s = pd.Series([1, 2, 3])</pre>
+                        <p><strong>DataFrame:</strong> 2D labeled table (rows & columns)</p>
+                        <pre>df = pd.DataFrame({
+    "Name": ["A", "B"],
+    "Age": [20, 25]
+})</pre>
+                    </div>
+                </div>
+
+                <div class="theory-card">
+                    <h4 onclick="toggleAnswer(this)">Q3. What is Matplotlib? List types of plots. <i class="fas fa-chevron-down toggle-icon"></i></h4>
+                    <div class="answer">
+                        <p><strong>Matplotlib:</strong> Data visualization library for creating static, animated, and interactive plots.</p>
+                        <p><strong>Plot Types:</strong></p>
+                        <ul>
+                            <li>Line plot: <code>plt.plot()</code></li>
+                            <li>Bar chart: <code>plt.bar()</code></li>
+                            <li>Histogram: <code>plt.hist()</code></li>
+                            <li>Scatter plot: <code>plt.scatter()</code></li>
+                            <li>Pie chart: <code>plt.pie()</code></li>
+                            <li>Box plot: <code>plt.boxplot()</code></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="theory-card">
+                    <h4 onclick="toggleAnswer(this)">Q4. What is Tkinter? Explain basic widgets. <i class="fas fa-chevron-down toggle-icon"></i></h4>
+                    <div class="answer">
+                        <p><strong>Tkinter:</strong> Standard GUI library for Python.</p>
+                        <p><strong>Common Widgets:</strong></p>
+                        <ul>
+                            <li><strong>Label:</strong> Display text</li>
+                            <li><strong>Button:</strong> Clickable button</li>
+                            <li><strong>Entry:</strong> Single-line text input</li>
+                            <li><strong>Text:</strong> Multi-line text</li>
+                            <li><strong>Frame:</strong> Container widget</li>
+                            <li><strong>Canvas:</strong> Drawing area</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="theory-card">
+                    <h4 onclick="toggleAnswer(this)">Q5. Explain geometry managers in Tkinter. <i class="fas fa-chevron-down toggle-icon"></i></h4>
+                    <div class="answer">
+                        <p><strong>pack():</strong> Packs widgets in order</p>
+                        <pre>label.pack(side="top")</pre>
+                        <p><strong>grid():</strong> Places widgets in grid</p>
+                        <pre>label.grid(row=0, column=1)</pre>
+                        <p><strong>place():</strong> Absolute positioning</p>
+                        <pre>label.place(x=50, y=100)</pre>
+                    </div>
+                </div>
+
+                <div class="theory-card">
+                    <h4 onclick="toggleAnswer(this)">Q6. How to handle events in Tkinter? <i class="fas fa-chevron-down toggle-icon"></i></h4>
+                    <div class="answer">
+                        <p>Events are handled using <strong>command</strong> parameter or <strong>bind()</strong> method.</p>
+                        <pre># Using command
+btn = Button(root, text="Click", command=my_func)
+
+# Using bind
+widget.bind("&lt;Button-1&gt;", handler)  # Left click
+widget.bind("&lt;Return&gt;", handler)   # Enter key</pre>
+                    </div>
+                </div>
+
+                <div class="theory-card">
+                    <h4 onclick="toggleAnswer(this)">Q7. What is the difference between NumPy array and Python list? <i class="fas fa-chevron-down toggle-icon"></i></h4>
+                    <div class="answer">
+                        <table style="width:100%; border-collapse: collapse;">
+                            <tr><th style="border:1px solid #ddd; padding:8px;">NumPy Array</th><th style="border:1px solid #ddd; padding:8px;">Python List</th></tr>
+                            <tr><td style="border:1px solid #ddd; padding:8px;">Homogeneous (same type)</td><td style="border:1px solid #ddd; padding:8px;">Heterogeneous</td></tr>
+                            <tr><td style="border:1px solid #ddd; padding:8px;">Faster operations</td><td style="border:1px solid #ddd; padding:8px;">Slower</td></tr>
+                            <tr><td style="border:1px solid #ddd; padding:8px;">Less memory</td><td style="border:1px solid #ddd; padding:8px;">More memory</td></tr>
+                            <tr><td style="border:1px solid #ddd; padding:8px;">Element-wise operations</td><td style="border:1px solid #ddd; padding:8px;">Need loops</td></tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="theory-card">
+                    <h4 onclick="toggleAnswer(this)">Q8. How to read CSV files using Pandas? <i class="fas fa-chevron-down toggle-icon"></i></h4>
+                    <div class="answer">
+                        <pre>import pandas as pd
+
+# Read CSV
+df = pd.read_csv("data.csv")
+
+# Basic operations
+df.head()       # First 5 rows
+df.describe()   # Statistics
+df.columns      # Column names
+df["column"]    # Select column
+
+# Write to CSV
+df.to_csv("output.csv", index=False)</pre>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fab fa-python"></i> Python Hub</h3>
+                    <p>Your complete guide to mastering Python programming.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="unit1.html">Unit I</a></li>
+                        <li><a href="unit2.html">Unit II</a></li>
+                        <li><a href="unit3.html">Unit III</a></li>
+                        <li><a href="unit4.html">Unit IV</a></li>
+                        <li><a href="unit5.html">Unit V</a></li>
+                        <li><a href="extras.html">Extras</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Python Hub. Made for Python learners.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script>
+        function toggleAnswer(element) {
+            const answer = element.nextElementSibling;
+            const icon = element.querySelector('.toggle-icon');
+            answer.classList.toggle('show');
+            icon.classList.toggle('rotate');
+        }
+    </script>
+</body>
+</html>

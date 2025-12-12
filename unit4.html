@@ -1,0 +1,1322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit IV - File Operations | Python Learning Hub</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <i class="fab fa-python"></i> Python Hub
+            </a>
+            <button class="nav-toggle" id="navToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="unit1.html">Unit I</a></li>
+                <li><a href="unit2.html">Unit II</a></li>
+                <li><a href="unit3.html">Unit III</a></li>
+                <li><a href="unit4.html" class="active">Unit IV</a></li>
+                <li><a href="unit5.html">Unit V</a></li>
+                <li class="nav-divider"></li>
+                <li><a href="extras.html">Extras</a></li>
+                <li><a href="practice.html">Practice</a></li>
+                <li><a href="theory.html">Theory</a></li>
+                <li><a href="comparisons.html">Compare</a></li>
+                <li><a href="errors.html">Errors</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="unit-header">
+        <div class="container">
+            <h1><i class="fas fa-file-code"></i> Unit IV: Python File Operations</h1>
+            <p>Reading, Writing, and Manipulating Files in Python</p>
+        </div>
+    </header>
+
+    <section class="unit-content">
+        <div class="container">
+            <div class="page-layout">
+                <aside class="sidebar">
+                    <h3>Topics</h3>
+                    <nav class="sidebar-nav">
+                        <a href="#intro">File Operations Intro</a>
+                        <a href="#opening">Opening Files</a>
+                        <a href="#reading">Reading Files</a>
+                        <a href="#read-methods">Read Methods</a>
+                        <a href="#writing">Writing Files</a>
+                        <a href="#write-methods">Write Methods</a>
+                        <a href="#file-pointer">File Pointer & seek()</a>
+                        <a href="#context-manager">Context Managers</a>
+                        <a href="#examples">Practical Examples</a>
+                    </nav>
+                </aside>
+
+                <main class="main-content">
+                    <!-- Introduction -->
+                    <div class="topic-section" id="intro">
+                        <h2><i class="fas fa-file-alt"></i> Introduction to File Operations</h2>
+                        <p>File handling is essential for reading data from files and writing data to files. Python provides built-in functions to perform file operations easily.</p>
+
+                        <h3>Why File Handling?</h3>
+                        <ul>
+                            <li><strong>Data Persistence:</strong> Save program data that survives after the program ends</li>
+                            <li><strong>Data Processing:</strong> Read and process data from external sources</li>
+                            <li><strong>Configuration:</strong> Store and read application settings</li>
+                            <li><strong>Logging:</strong> Record program activities and errors</li>
+                            <li><strong>Data Exchange:</strong> Share data between different programs</li>
+                        </ul>
+
+                        <h3>File Types</h3>
+                        <div class="table-container">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Type</th>
+                                        <th>Description</th>
+                                        <th>Examples</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Text Files</td>
+                                        <td>Human-readable, contain characters</td>
+                                        <td>.txt, .csv, .html, .py</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Binary Files</td>
+                                        <td>Not human-readable, contain bytes</td>
+                                        <td>.jpg, .pdf, .exe, .mp3</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Opening Files -->
+                    <div class="topic-section" id="opening">
+                        <h2><i class="fas fa-folder-open"></i> Opening Files</h2>
+                        <p>Use the <code>open()</code> function to open a file. It returns a file object that you can use to read or write.</p>
+
+                        <h3>open() Syntax</h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>open_syntax.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python"># Syntax: open(filename, mode)
+
+# Basic examples
+file = open("example.txt", "r")  # Open for reading
+file = open("example.txt", "w")  # Open for writing
+file = open("example.txt", "a")  # Open for appending
+
+# Don't forget to close!
+file.close()</code></pre>
+                        </div>
+
+                        <h3>File Modes</h3>
+                        <div class="table-container">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Mode</th>
+                                        <th>Description</th>
+                                        <th>File Exists?</th>
+                                        <th>File Doesn't Exist?</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><code>'r'</code></td>
+                                        <td>Read (default)</td>
+                                        <td>Opens file</td>
+                                        <td>Error</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>'w'</code></td>
+                                        <td>Write (overwrites)</td>
+                                        <td>Clears content</td>
+                                        <td>Creates file</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>'a'</code></td>
+                                        <td>Append</td>
+                                        <td>Adds to end</td>
+                                        <td>Creates file</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>'x'</code></td>
+                                        <td>Exclusive create</td>
+                                        <td>Error</td>
+                                        <td>Creates file</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>'r+'</code></td>
+                                        <td>Read and write</td>
+                                        <td>Opens file</td>
+                                        <td>Error</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>'w+'</code></td>
+                                        <td>Write and read</td>
+                                        <td>Clears content</td>
+                                        <td>Creates file</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>'a+'</code></td>
+                                        <td>Append and read</td>
+                                        <td>Opens file</td>
+                                        <td>Creates file</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>'b'</code></td>
+                                        <td>Binary mode (add to other modes)</td>
+                                        <td colspan="2"><code>'rb'</code>, <code>'wb'</code>, <code>'ab'</code></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>file_modes.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python"># Different file modes
+import os
+
+# Check if file exists before reading
+if os.path.exists("data.txt"):
+    file = open("data.txt", "r")
+    content = file.read()
+    file.close()
+else:
+    print("File not found!")
+
+# Create new file (fails if exists)
+try:
+    file = open("new_file.txt", "x")
+    file.write("This is a new file!")
+    file.close()
+except FileExistsError:
+    print("File already exists!")
+
+# Binary mode (for images, etc.)
+image = open("photo.jpg", "rb")
+data = image.read()
+image.close()
+
+# Text mode with encoding
+file = open("unicode.txt", "r", encoding="utf-8")
+content = file.read()
+file.close()</code></pre>
+                        </div>
+                    </div>
+
+                    <!-- Reading Files -->
+                    <div class="topic-section" id="reading">
+                        <h2><i class="fas fa-book-open"></i> Reading Files</h2>
+                        <p>Python provides several methods to read content from files.</p>
+
+                        <h3>Basic File Reading</h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>reading_basic.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python"># First, let's create a sample file
+with open("sample.txt", "w") as f:
+    f.write("Line 1: Hello World\n")
+    f.write("Line 2: Python Programming\n")
+    f.write("Line 3: File Operations\n")
+    f.write("Line 4: Learning is fun!")
+
+# Now read the file
+file = open("sample.txt", "r")
+
+# Method 1: Read entire file
+content = file.read()
+print("Entire file:")
+print(content)
+
+# Important: Close the file when done
+file.close()
+
+# Or reset position to read again
+file = open("sample.txt", "r")
+print("\nFirst 20 characters:")
+print(file.read(20))  # Read first 20 characters
+file.close()</code></pre>
+                        </div>
+
+                        <h3>Reading with for Loop</h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>reading_loop.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python"># Iterating through file lines (memory efficient)
+file = open("sample.txt", "r")
+
+print("Reading line by line:")
+for line in file:
+    print(line, end="")  # Lines already have \n
+
+file.close()
+
+# With line numbers
+print("\n\nWith line numbers:")
+file = open("sample.txt", "r")
+for line_num, line in enumerate(file, 1):
+    print(f"{line_num}: {line}", end="")
+
+file.close()</code></pre>
+                        </div>
+                    </div>
+
+                    <!-- Read Methods -->
+                    <div class="topic-section" id="read-methods">
+                        <h2><i class="fas fa-glasses"></i> Understanding Read Methods</h2>
+
+                        <h3>read() Method</h3>
+                        <p>Reads the entire file or specified number of characters.</p>
+
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>read_method.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python"># read() - Read entire file or specified chars
+file = open("sample.txt", "r")
+
+# Read entire file
+all_content = file.read()
+print("All content:")
+print(all_content)
+print("-" * 30)
+
+file.close()
+
+# Read specific number of characters
+file = open("sample.txt", "r")
+chunk1 = file.read(10)  # First 10 chars
+chunk2 = file.read(10)  # Next 10 chars
+chunk3 = file.read()    # Rest of file
+
+print(f"Chunk 1: '{chunk1}'")
+print(f"Chunk 2: '{chunk2}'")
+print(f"Chunk 3: '{chunk3}'")
+
+file.close()
+
+# Reading in chunks (for large files)
+file = open("sample.txt", "r")
+chunk_size = 20
+
+print("\nReading in chunks:")
+while True:
+    chunk = file.read(chunk_size)
+    if not chunk:  # Empty string = end of file
+        break
+    print(f"[{chunk}]")
+
+file.close()</code></pre>
+                        </div>
+
+                        <h3>readline() Method</h3>
+                        <p>Reads one line at a time.</p>
+
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>readline_method.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python"># readline() - Read one line at a time
+file = open("sample.txt", "r")
+
+# Read first line
+line1 = file.readline()
+print(f"Line 1: {line1}", end="")
+
+# Read second line
+line2 = file.readline()
+print(f"Line 2: {line2}", end="")
+
+# Read third line
+line3 = file.readline()
+print(f"Line 3: {line3}", end="")
+
+file.close()
+
+# Reading all lines with readline()
+print("\nReading all lines with while loop:")
+file = open("sample.txt", "r")
+
+line_num = 1
+while True:
+    line = file.readline()
+    if not line:  # Empty string = end of file
+        break
+    print(f"{line_num}: {line.strip()}")  # strip() removes \n
+    line_num += 1
+
+file.close()
+
+# Read partial line
+file = open("sample.txt", "r")
+partial = file.readline(10)  # Read up to 10 chars from line
+print(f"\nPartial line: '{partial}'")</code></pre>
+                        </div>
+
+                        <h3>readlines() Method</h3>
+                        <p>Reads all lines and returns a list.</p>
+
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>readlines_method.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python"># readlines() - Read all lines into a list
+file = open("sample.txt", "r")
+
+lines = file.readlines()
+print("Type:", type(lines))
+print("Lines:", lines)
+
+file.close()
+
+# Process each line
+print("\nProcessing each line:")
+file = open("sample.txt", "r")
+lines = file.readlines()
+
+for i, line in enumerate(lines, 1):
+    clean_line = line.strip()  # Remove \n and whitespace
+    print(f"{i}. {clean_line}")
+
+file.close()
+
+# Access specific lines
+print("\nAccessing specific lines:")
+file = open("sample.txt", "r")
+lines = file.readlines()
+
+print(f"First line: {lines[0].strip()}")
+print(f"Last line: {lines[-1].strip()}")
+print(f"Number of lines: {len(lines)}")
+
+file.close()</code></pre>
+                        </div>
+
+                        <h3>Comparison of Read Methods</h3>
+                        <div class="table-container">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Method</th>
+                                        <th>Returns</th>
+                                        <th>Memory Usage</th>
+                                        <th>Best For</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><code>read()</code></td>
+                                        <td>Entire file as string</td>
+                                        <td>High (loads all)</td>
+                                        <td>Small files, need all content</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>readline()</code></td>
+                                        <td>One line as string</td>
+                                        <td>Low (one line)</td>
+                                        <td>Processing line by line</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>readlines()</code></td>
+                                        <td>List of all lines</td>
+                                        <td>High (loads all)</td>
+                                        <td>Need random line access</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>for line in file</code></td>
+                                        <td>Line iterator</td>
+                                        <td>Low (one line)</td>
+                                        <td>Large files</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="info-box tip">
+                            <h4><i class="fas fa-lightbulb"></i> Best Practice</h4>
+                            <p>For large files, use <code>for line in file</code> or <code>readline()</code> to avoid loading the entire file into memory.</p>
+                        </div>
+                    </div>
+
+                    <!-- Writing Files -->
+                    <div class="topic-section" id="writing">
+                        <h2><i class="fas fa-pen"></i> Writing Files</h2>
+                        <p>Python provides methods to write content to files.</p>
+
+                        <h3>Basic Writing</h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>writing_basic.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python"># Writing with 'w' mode (overwrites existing content)
+file = open("output.txt", "w")
+file.write("Hello, World!\n")
+file.write("This is line 2.\n")
+file.write("Python file operations are easy!")
+file.close()
+
+# Verify by reading
+file = open("output.txt", "r")
+print(file.read())
+file.close()
+
+# Writing over the same file (content replaced)
+file = open("output.txt", "w")
+file.write("New content - old content is gone!")
+file.close()
+
+# Verify
+file = open("output.txt", "r")
+print("\nAfter overwrite:")
+print(file.read())
+file.close()</code></pre>
+                        </div>
+
+                        <h3>Appending to Files</h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>appending.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python"># Create initial file
+file = open("log.txt", "w")
+file.write("Log started\n")
+file.write("Entry 1: Application started\n")
+file.close()
+
+# Append new entries
+file = open("log.txt", "a")
+file.write("Entry 2: User logged in\n")
+file.write("Entry 3: Data processed\n")
+file.close()
+
+# Append more
+file = open("log.txt", "a")
+file.write("Entry 4: User logged out\n")
+file.close()
+
+# Read final content
+file = open("log.txt", "r")
+print("Full log:")
+print(file.read())
+file.close()</code></pre>
+                        </div>
+                    </div>
+
+                    <!-- Write Methods -->
+                    <div class="topic-section" id="write-methods">
+                        <h2><i class="fas fa-pencil-alt"></i> Understanding Write Methods</h2>
+
+                        <h3>write() Method</h3>
+                        <p>Writes a string to the file.</p>
+
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>write_method.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python"># write() - Write string to file
+file = open("write_demo.txt", "w")
+
+# Write returns number of characters written
+chars = file.write("Hello, World!")
+print(f"Characters written: {chars}")  # 13
+
+# Must include \n for new lines
+file.write("\n")
+file.write("Second line\n")
+file.write("Third line")
+
+file.close()
+
+# Using formatted strings
+file = open("formatted.txt", "w")
+
+name = "Alice"
+age = 25
+score = 95.5
+
+file.write(f"Name: {name}\n")
+file.write(f"Age: {age}\n")
+file.write(f"Score: {score:.2f}\n")
+
+file.close()
+
+# Verify
+with open("formatted.txt", "r") as f:
+    print("\nFormatted output:")
+    print(f.read())</code></pre>
+                        </div>
+
+                        <h3>writelines() Method</h3>
+                        <p>Writes a list of strings to the file.</p>
+
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>writelines_method.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python"># writelines() - Write list of strings
+lines = [
+    "Line 1: First line\n",
+    "Line 2: Second line\n",
+    "Line 3: Third line\n"
+]
+
+file = open("lines.txt", "w")
+file.writelines(lines)
+file.close()
+
+# Note: writelines() doesn't add newlines automatically!
+# Wrong way:
+wrong_lines = ["One", "Two", "Three"]
+file = open("no_newlines.txt", "w")
+file.writelines(wrong_lines)
+file.close()
+
+# Check result
+file = open("no_newlines.txt", "r")
+print("Without newlines:")
+print(file.read())  # OneTwoThree
+file.close()
+
+# Correct way - add newlines
+correct_lines = [line + "\n" for line in ["One", "Two", "Three"]]
+file = open("with_newlines.txt", "w")
+file.writelines(correct_lines)
+file.close()
+
+# Or use join
+file = open("joined.txt", "w")
+file.write("\n".join(["One", "Two", "Three"]))
+file.close()
+
+# Verify
+file = open("with_newlines.txt", "r")
+print("\nWith newlines:")
+print(file.read())
+file.close()</code></pre>
+                        </div>
+
+                        <h3>Comparison of Write Methods</h3>
+                        <div class="table-container">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Method</th>
+                                        <th>Input</th>
+                                        <th>Adds Newlines?</th>
+                                        <th>Returns</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><code>write()</code></td>
+                                        <td>Single string</td>
+                                        <td>No</td>
+                                        <td>Number of chars written</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>writelines()</code></td>
+                                        <td>List of strings</td>
+                                        <td>No</td>
+                                        <td>None</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- File Pointer and seek() -->
+                    <div class="topic-section" id="file-pointer">
+                        <h2><i class="fas fa-map-marker-alt"></i> File Pointer & seek()</h2>
+                        <p>The file pointer tracks your current position in the file. Use <code>seek()</code> to move it and <code>tell()</code> to find it.</p>
+
+                        <h3>Understanding File Pointer</h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>file_pointer.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python"># Create a sample file
+with open("pointer_demo.txt", "w") as f:
+    f.write("ABCDEFGHIJKLMNOPQRSTUVWXYZ")
+
+# Open and track pointer position
+file = open("pointer_demo.txt", "r")
+
+# tell() - get current position
+print(f"Initial position: {file.tell()}")  # 0
+
+# Read some characters
+data = file.read(5)
+print(f"Read: {data}")
+print(f"Position after reading 5 chars: {file.tell()}")  # 5
+
+data = file.read(5)
+print(f"Read: {data}")
+print(f"Position after reading 5 more: {file.tell()}")  # 10
+
+file.close()</code></pre>
+                        </div>
+
+                        <h3>seek() Method</h3>
+                        <p><code>seek(offset, whence)</code> moves the file pointer.</p>
+
+                        <div class="table-container">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>whence Value</th>
+                                        <th>Meaning</th>
+                                        <th>Example</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>0 (default)</td>
+                                        <td>From beginning</td>
+                                        <td><code>seek(10)</code> - go to position 10</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>From current position</td>
+                                        <td><code>seek(5, 1)</code> - move 5 forward</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>From end</td>
+                                        <td><code>seek(-10, 2)</code> - 10 before end</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>seek_examples.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python"># seek() examples
+file = open("pointer_demo.txt", "r")
+
+# Read first 5 characters
+print(file.read(5))  # ABCDE
+
+# Go back to beginning
+file.seek(0)
+print(file.read(5))  # ABCDE (again!)
+
+# Go to position 10
+file.seek(10)
+print(f"Position: {file.tell()}")  # 10
+print(file.read(5))  # KLMNO
+
+# Go to specific position
+file.seek(20)
+print(file.read())  # UVWXYZ
+
+file.close()
+
+# Seek from end (requires binary mode for non-zero whence)
+file = open("pointer_demo.txt", "rb")
+
+# Go to 5 characters before end
+file.seek(-5, 2)  # 2 = from end
+print(file.read().decode())  # VWXYZ
+
+# Go to current position + offset
+file.seek(10, 0)  # Go to position 10
+file.seek(5, 1)   # Move 5 forward (now at 15)
+print(file.tell())  # 15
+
+file.close()</code></pre>
+                        </div>
+
+                        <h3>Practical Uses of seek()</h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>seek_practical.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python"># Use case 1: Re-read file without reopening
+file = open("sample.txt", "r")
+
+# First read
+print("First read:")
+print(file.read())
+
+# Reset to beginning
+file.seek(0)
+
+# Second read
+print("\nSecond read:")
+print(file.read())
+
+file.close()
+
+# Use case 2: Read specific section
+with open("pointer_demo.txt", "r") as f:
+    # Read characters 5-15
+    f.seek(5)
+    section = f.read(10)
+    print(f"Characters 5-15: {section}")
+
+# Use case 3: Modify part of file (r+ mode)
+with open("modify.txt", "w") as f:
+    f.write("Hello World!")
+
+with open("modify.txt", "r+") as f:
+    f.seek(6)  # Go to position 6
+    f.write("Python")  # Overwrites "World!"
+
+with open("modify.txt", "r") as f:
+    print(f"Modified: {f.read()}")  # Hello Python
+
+# Use case 4: Get file size
+with open("pointer_demo.txt", "rb") as f:
+    f.seek(0, 2)  # Go to end
+    size = f.tell()
+    print(f"File size: {size} bytes")</code></pre>
+                        </div>
+                    </div>
+
+                    <!-- Context Managers -->
+                    <div class="topic-section" id="context-manager">
+                        <h2><i class="fas fa-shield-alt"></i> Context Managers (with statement)</h2>
+                        <p>The <code>with</code> statement ensures files are properly closed, even if errors occur.</p>
+
+                        <div class="info-box tip">
+                            <h4><i class="fas fa-lightbulb"></i> Best Practice</h4>
+                            <p>Always use <code>with</code> when working with files. It automatically handles closing the file and is cleaner code.</p>
+                        </div>
+
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>context_manager.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python"># Without context manager (manual close)
+file = open("example.txt", "w")
+try:
+    file.write("Hello, World!")
+finally:
+    file.close()  # Must remember to close!
+
+# With context manager (recommended!)
+with open("example.txt", "w") as file:
+    file.write("Hello, World!")
+# File is automatically closed here
+
+# Multiple files at once
+with open("input.txt", "r") as infile, open("output.txt", "w") as outfile:
+    content = infile.read()
+    outfile.write(content.upper())
+
+# File is closed automatically even if error occurs
+try:
+    with open("test.txt", "w") as f:
+        f.write("Some data")
+        # Even if error happens here...
+        raise ValueError("Something went wrong!")
+except ValueError as e:
+    print(f"Error: {e}")
+# File is still properly closed!
+
+# Verify file is closed
+with open("test.txt", "r") as f:
+    pass  # Just open and close
+
+print(f"File closed? {f.closed}")  # True</code></pre>
+                        </div>
+
+                        <h3>Reading and Writing Patterns</h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>patterns.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python"># Pattern 1: Read entire file
+with open("sample.txt", "r") as f:
+    content = f.read()
+    print(content)
+
+# Pattern 2: Read line by line
+with open("sample.txt", "r") as f:
+    for line in f:
+        print(line.strip())
+
+# Pattern 3: Read into list
+with open("sample.txt", "r") as f:
+    lines = f.readlines()
+
+# Pattern 4: Write list to file
+data = ["Item 1", "Item 2", "Item 3"]
+with open("items.txt", "w") as f:
+    for item in data:
+        f.write(f"{item}\n")
+
+# Pattern 5: Copy file
+with open("source.txt", "r") as src, open("dest.txt", "w") as dst:
+    dst.write(src.read())
+
+# Pattern 6: Append timestamp
+from datetime import datetime
+with open("log.txt", "a") as f:
+    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    f.write(f"[{timestamp}] Event occurred\n")</code></pre>
+                        </div>
+                    </div>
+
+                    <!-- Practical Examples -->
+                    <div class="topic-section" id="examples">
+                        <h2><i class="fas fa-laptop-code"></i> Practical Programming Examples</h2>
+
+                        <h3>Example 1: Word Counter</h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>word_counter.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python"># Count words, lines, and characters in a file
+
+def analyze_file(filename):
+    """Analyze a text file and return statistics."""
+    try:
+        with open(filename, "r") as f:
+            content = f.read()
+            
+            # Count lines
+            lines = content.split("\n")
+            line_count = len(lines)
+            
+            # Count words
+            words = content.split()
+            word_count = len(words)
+            
+            # Count characters (with and without spaces)
+            char_count = len(content)
+            char_no_space = len(content.replace(" ", "").replace("\n", ""))
+            
+            return {
+                "lines": line_count,
+                "words": word_count,
+                "characters": char_count,
+                "characters_no_spaces": char_no_space
+            }
+    except FileNotFoundError:
+        return None
+
+# Create a sample file
+with open("article.txt", "w") as f:
+    f.write("Python is a powerful programming language.\n")
+    f.write("It is used for web development, data science, and more.\n")
+    f.write("Learning Python is fun and rewarding!")
+
+# Analyze the file
+stats = analyze_file("article.txt")
+if stats:
+    print("File Statistics:")
+    print(f"  Lines: {stats['lines']}")
+    print(f"  Words: {stats['words']}")
+    print(f"  Characters: {stats['characters']}")
+    print(f"  Characters (no spaces): {stats['characters_no_spaces']}")</code></pre>
+                        </div>
+
+                        <h3>Example 2: CSV File Handler</h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>csv_handler.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python"># Simple CSV file operations without csv module
+
+def write_csv(filename, headers, data):
+    """Write data to CSV file."""
+    with open(filename, "w") as f:
+        # Write headers
+        f.write(",".join(headers) + "\n")
+        
+        # Write data rows
+        for row in data:
+            f.write(",".join(str(item) for item in row) + "\n")
+    
+    print(f"Data written to {filename}")
+
+def read_csv(filename):
+    """Read CSV file and return list of dictionaries."""
+    with open(filename, "r") as f:
+        lines = f.readlines()
+        
+        if not lines:
+            return []
+        
+        # First line is headers
+        headers = lines[0].strip().split(",")
+        
+        # Parse data rows
+        data = []
+        for line in lines[1:]:
+            values = line.strip().split(",")
+            row_dict = dict(zip(headers, values))
+            data.append(row_dict)
+        
+        return data
+
+# Create sample data
+headers = ["Name", "Age", "City"]
+students = [
+    ["Alice", 20, "New York"],
+    ["Bob", 22, "Los Angeles"],
+    ["Charlie", 21, "Chicago"]
+]
+
+# Write to CSV
+write_csv("students.csv", headers, students)
+
+# Read from CSV
+data = read_csv("students.csv")
+print("\nStudent Data:")
+for student in data:
+    print(f"  {student['Name']}, {student['Age']}, {student['City']}")</code></pre>
+                        </div>
+
+                        <h3>Example 3: Log File Manager</h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>log_manager.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python"># Simple logging system using file operations
+from datetime import datetime
+
+class SimpleLogger:
+    def __init__(self, filename):
+        self.filename = filename
+        # Create file if doesn't exist
+        with open(filename, "a") as f:
+            pass
+    
+    def log(self, level, message):
+        """Write a log entry."""
+        timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        entry = f"[{timestamp}] [{level.upper()}] {message}\n"
+        
+        with open(self.filename, "a") as f:
+            f.write(entry)
+    
+    def info(self, message):
+        self.log("INFO", message)
+    
+    def warning(self, message):
+        self.log("WARNING", message)
+    
+    def error(self, message):
+        self.log("ERROR", message)
+    
+    def get_logs(self, level=None):
+        """Read and filter log entries."""
+        with open(self.filename, "r") as f:
+            logs = f.readlines()
+        
+        if level:
+            logs = [log for log in logs if f"[{level.upper()}]" in log]
+        
+        return logs
+    
+    def clear_logs(self):
+        """Clear all logs."""
+        with open(self.filename, "w") as f:
+            pass
+
+# Usage
+logger = SimpleLogger("app.log")
+
+logger.info("Application started")
+logger.info("Loading configuration...")
+logger.warning("Config file not found, using defaults")
+logger.info("Server listening on port 8080")
+logger.error("Connection refused from 192.168.1.1")
+
+# Display all logs
+print("All Logs:")
+for log in logger.get_logs():
+    print(log, end="")
+
+# Display only errors
+print("\nErrors Only:")
+for log in logger.get_logs("ERROR"):
+    print(log, end="")</code></pre>
+                        </div>
+
+                        <h3>Example 4: Find and Replace in File</h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>find_replace.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python"># Find and replace text in a file
+
+def find_and_replace(filename, find_text, replace_text):
+    """Replace all occurrences of find_text with replace_text."""
+    
+    # Read original content
+    with open(filename, "r") as f:
+        content = f.read()
+    
+    # Count occurrences
+    count = content.count(find_text)
+    
+    if count == 0:
+        print(f"'{find_text}' not found in file.")
+        return 0
+    
+    # Replace text
+    new_content = content.replace(find_text, replace_text)
+    
+    # Write back
+    with open(filename, "w") as f:
+        f.write(new_content)
+    
+    print(f"Replaced {count} occurrence(s) of '{find_text}' with '{replace_text}'")
+    return count
+
+# Create sample file
+with open("document.txt", "w") as f:
+    f.write("Hello World! Hello Python! Hello everyone!\n")
+    f.write("The world is beautiful. Hello again!")
+
+print("Original content:")
+with open("document.txt", "r") as f:
+    print(f.read())
+
+# Replace "Hello" with "Hi"
+find_and_replace("document.txt", "Hello", "Hi")
+
+print("\nAfter replacement:")
+with open("document.txt", "r") as f:
+    print(f.read())</code></pre>
+                        </div>
+
+                        <h3>Example 5: File Backup System</h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>backup_system.py</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-python"># Simple file backup system
+import os
+from datetime import datetime
+
+def create_backup(source_file):
+    """Create a timestamped backup of a file."""
+    
+    # Check if source exists
+    if not os.path.exists(source_file):
+        print(f"Error: '{source_file}' not found!")
+        return None
+    
+    # Create backup filename with timestamp
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    name, ext = os.path.splitext(source_file)
+    backup_file = f"{name}_backup_{timestamp}{ext}"
+    
+    # Copy file
+    with open(source_file, "r") as src:
+        content = src.read()
+    
+    with open(backup_file, "w") as dst:
+        dst.write(content)
+    
+    print(f"Backup created: {backup_file}")
+    return backup_file
+
+def restore_backup(backup_file, target_file):
+    """Restore a backup file."""
+    
+    if not os.path.exists(backup_file):
+        print(f"Error: Backup '{backup_file}' not found!")
+        return False
+    
+    with open(backup_file, "r") as src:
+        content = src.read()
+    
+    with open(target_file, "w") as dst:
+        dst.write(content)
+    
+    print(f"Restored '{backup_file}' to '{target_file}'")
+    return True
+
+# Demo
+# Create original file
+with open("important.txt", "w") as f:
+    f.write("This is important data!\n")
+    f.write("Don't lose this information.")
+
+# Create backup
+backup = create_backup("important.txt")
+
+# Simulate data loss (modify original)
+with open("important.txt", "w") as f:
+    f.write("Oops! Data was changed!")
+
+print("\nAfter modification:")
+with open("important.txt", "r") as f:
+    print(f.read())
+
+# Restore from backup
+if backup:
+    restore_backup(backup, "important.txt")
+    
+    print("\nAfter restore:")
+    with open("important.txt", "r") as f:
+        print(f.read())</code></pre>
+                        </div>
+                    </div>
+
+                    <!-- Navigation -->
+                    <div class="unit-navigation">
+                        <a href="unit3.html" class="nav-btn prev">
+                            <i class="fas fa-arrow-left"></i> Unit III: Data Types
+                        </a>
+                        <a href="unit5.html" class="nav-btn next">
+                            Unit V: Packages & GUI <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quiz Section -->
+    <section class="quiz-section">
+        <div class="container">
+            <h2 class="section-title">Test Your Knowledge</h2>
+            <div class="quiz-container" id="quiz-container">
+                <!-- Quiz will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fab fa-python"></i> Python Hub</h3>
+                    <p>Your complete guide to mastering Python programming.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="unit1.html">Unit I - Introduction</a></li>
+                        <li><a href="unit2.html">Unit II - Flow Control</a></li>
+                        <li><a href="unit3.html">Unit III - Data Types</a></li>
+                        <li><a href="unit4.html">Unit IV - File Operations</a></li>
+                        <li><a href="unit5.html">Unit V - Packages & GUI</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Python Learning Hub. Made with <i class="fas fa-heart"></i> for Learning.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+    <script src="js/script.js"></script>
+    <script>
+        // Unit 4 Quiz Questions
+        const unit4Questions = [
+            {
+                question: "Which mode is used to open a file for reading only?",
+                options: ["'w'", "'r'", "'a'", "'x'"],
+                correct: 1,
+                explanation: "The 'r' mode opens a file for reading only. This is also the default mode if not specified."
+            },
+            {
+                question: "What does the <code>read()</code> method return?",
+                options: ["A list of lines", "The entire file content as a string", "One line at a time", "A file object"],
+                correct: 1,
+                explanation: "The read() method reads and returns the entire content of the file as a single string."
+            },
+            {
+                question: "What is the difference between 'w' and 'a' modes?",
+                options: ["No difference", "'w' overwrites, 'a' appends", "'w' appends, 'a' overwrites", "'a' is for binary files"],
+                correct: 1,
+                explanation: "'w' mode overwrites the file (deletes existing content), while 'a' mode appends new content to the end."
+            },
+            {
+                question: "What does <code>readline()</code> return?",
+                options: ["All lines as a list", "The entire file", "A single line", "The line number"],
+                correct: 2,
+                explanation: "readline() reads and returns one line from the file, including the newline character at the end."
+            },
+            {
+                question: "What is the advantage of using <code>with open()</code>?",
+                options: ["Faster reading", "Automatic file closing", "Better formatting", "Supports more file types"],
+                correct: 1,
+                explanation: "The 'with' statement automatically closes the file when the block ends, even if an error occurs."
+            },
+            {
+                question: "What does <code>seek(0)</code> do?",
+                options: ["Deletes the file", "Moves cursor to the beginning", "Reads first character", "Closes the file"],
+                correct: 1,
+                explanation: "seek(0) moves the file cursor (read/write position) to the beginning of the file (position 0)."
+            },
+            {
+                question: "What does <code>readlines()</code> return?",
+                options: ["A string", "A list of all lines", "A single line", "An integer"],
+                correct: 1,
+                explanation: "readlines() reads all lines and returns them as a list, where each line is a separate string element."
+            },
+            {
+                question: "What happens if you open a non-existent file in 'r' mode?",
+                options: ["Creates new file", "Returns None", "Raises FileNotFoundError", "Returns empty string"],
+                correct: 2,
+                explanation: "Opening a file in 'r' mode that doesn't exist raises a FileNotFoundError exception."
+            },
+            {
+                question: "What does <code>tell()</code> method return?",
+                options: ["File size", "Current cursor position", "Number of lines", "File name"],
+                correct: 1,
+                explanation: "The tell() method returns the current position of the file cursor (in bytes from the beginning)."
+            },
+            {
+                question: "Which method writes a list of strings to a file?",
+                options: ["write()", "writelines()", "writeall()", "writelist()"],
+                correct: 1,
+                explanation: "writelines() writes a list of strings to the file. Note: it doesn't add newlines automatically."
+            }
+        ];
+        
+        // Initialize Quiz
+        quiz = new QuizManager('quiz-container', unit4Questions);
+    </script>
+</body>
+</html>

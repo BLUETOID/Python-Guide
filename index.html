@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Learning Hub - Complete Python Course</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <i class="fab fa-python"></i> Python Hub
+            </a>
+            <button class="nav-toggle" id="navToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="unit1.html">Unit I</a></li>
+                <li><a href="unit2.html">Unit II</a></li>
+                <li><a href="unit3.html">Unit III</a></li>
+                <li><a href="unit4.html">Unit IV</a></li>
+                <li><a href="unit5.html">Unit V</a></li>
+                <li class="nav-divider"></li>
+                <li><a href="extras.html">Extras</a></li>
+                <li><a href="practice.html">Practice</a></li>
+                <li><a href="theory.html">Theory</a></li>
+                <li><a href="comparisons.html">Compare</a></li>
+                <li><a href="errors.html">Errors</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1><i class="fab fa-python"></i> Python Learning Hub</h1>
+            <p>Master Python Programming from Basics to Advanced</p>
+            <a href="#units" class="btn btn-primary">Start Learning</a>
+        </div>
+        <div class="hero-animation">
+            <div class="code-block">
+                <pre><code class="language-python">
+# Welcome to Python!
+print("Hello, World!")
+
+def learn_python():
+    skills = ["Variables", "Loops", 
+              "Functions", "OOP"]
+    for skill in skills:
+        print(f"Learning: {skill}")
+    return "Python Master! 🐍"
+
+learn_python()
+                </code></pre>
+            </div>
+        </div>
+    </header>
+
+    <section id="units" class="units-section">
+        <div class="container">
+            <h2 class="section-title">Course Units</h2>
+            <div class="units-grid">
+                <div class="unit-card" data-unit="1">
+                    <div class="unit-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>Unit I</h3>
+                    <h4>Introduction to Python</h4>
+                    <ul>
+                        <li>Python Variables</li>
+                        <li>Basic Operators</li>
+                        <li>Python Blocks</li>
+                        <li>Data Types (int, float, etc.)</li>
+                    </ul>
+                    <a href="unit1.html" class="btn btn-secondary">Learn More</a>
+                </div>
+
+                <div class="unit-card" data-unit="2">
+                    <div class="unit-icon">
+                        <i class="fas fa-code-branch"></i>
+                    </div>
+                    <h3>Unit II</h3>
+                    <h4>Program Flow Control</h4>
+                    <ul>
+                        <li>Conditional Blocks (if, else, elif)</li>
+                        <li>For Loops & Ranges</li>
+                        <li>While Loops</li>
+                        <li>Loop Control (break, continue, pass)</li>
+                    </ul>
+                    <a href="unit2.html" class="btn btn-secondary">Learn More</a>
+                </div>
+
+                <div class="unit-card" data-unit="3">
+                    <div class="unit-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>Unit III</h3>
+                    <h4>Complex Data Types</h4>
+                    <ul>
+                        <li>Strings & String Operations</li>
+                        <li>Lists & List Slicing</li>
+                        <li>Tuples & Dictionaries</li>
+                        <li>Python Functions</li>
+                    </ul>
+                    <a href="unit3.html" class="btn btn-secondary">Learn More</a>
+                </div>
+
+                <div class="unit-card" data-unit="4">
+                    <div class="unit-icon">
+                        <i class="fas fa-file-code"></i>
+                    </div>
+                    <h3>Unit IV</h3>
+                    <h4>File Operations</h4>
+                    <ul>
+                        <li>Reading Files</li>
+                        <li>Writing Files</li>
+                        <li>read(), readline(), readlines()</li>
+                        <li>File Pointer & seek()</li>
+                    </ul>
+                    <a href="unit4.html" class="btn btn-secondary">Learn More</a>
+                </div>
+
+                <div class="unit-card" data-unit="5">
+                    <div class="unit-icon">
+                        <i class="fas fa-cubes"></i>
+                    </div>
+                    <h3>Unit V</h3>
+                    <h4>Packages & GUI</h4>
+                    <ul>
+                        <li>NumPy & Pandas</li>
+                        <li>Matplotlib</li>
+                        <li>Tkinter GUI Programming</li>
+                        <li>Python IDE</li>
+                    </ul>
+                    <a href="unit5.html" class="btn btn-secondary">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features-section">
+        <div class="container">
+            <h2 class="section-title">Why Learn Python?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-brain"></i>
+                    <h3>Easy to Learn</h3>
+                    <p>Python has a simple syntax that is easy to understand and learn, making it perfect for beginners.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-briefcase"></i>
+                    <h3>High Demand</h3>
+                    <p>Python developers are in high demand across industries like AI, Data Science, and Web Development.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-puzzle-piece"></i>
+                    <h3>Versatile</h3>
+                    <p>From web apps to machine learning, Python can do it all with its extensive library ecosystem.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-users"></i>
+                    <h3>Large Community</h3>
+                    <p>A vast community of developers means plenty of resources, tutorials, and support.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fab fa-python"></i> Python Hub</h3>
+                    <p>Your complete guide to mastering Python programming.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="unit1.html">Unit I - Introduction</a></li>
+                        <li><a href="unit2.html">Unit II - Flow Control</a></li>
+                        <li><a href="unit3.html">Unit III - Data Types</a></li>
+                        <li><a href="unit4.html">Unit IV - File Operations</a></li>
+                        <li><a href="unit5.html">Unit V - Packages & GUI</a></li>
+                        <li><a href="extras.html">Extra Topics</a></li>
+                        <li><a href="practice.html">Coding Practice</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="https://python.org" target="_blank">Python.org</a></li>
+                        <li><a href="https://docs.python.org" target="_blank">Python Docs</a></li>
+                        <li><a href="https://pypi.org" target="_blank">PyPI</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Python Learning Hub. Made with <i class="fas fa-heart"></i> for Learning.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

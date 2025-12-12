@@ -1,0 +1,2192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Practice | Python Learning Hub</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <style>
+        .practice-header { background: linear-gradient(135deg, #00b894 0%, #00cec9 100%); }
+        .question-card { background: #fff; border-radius: 12px; padding: 25px; margin-bottom: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border-left: 4px solid var(--primary-color); }
+        .question-card h4 { color: var(--primary-color); margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
+        .question-card .difficulty { font-size: 0.8rem; padding: 3px 10px; border-radius: 15px; color: #fff; }
+        .difficulty.easy { background: #27ae60; }
+        .difficulty.medium { background: #f39c12; }
+        .difficulty.hard { background: #e74c3c; }
+        .question-text { color: #555; margin-bottom: 15px; line-height: 1.6; }
+        .solution-toggle { background: var(--primary-color); color: #fff; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; margin-top: 10px; }
+        .solution-toggle:hover { background: #2c5f8a; }
+        .solution { display: none; margin-top: 15px; padding: 15px; background: #f8f9fa; border-radius: 8px; }
+        .solution.show { display: block; }
+        .unit-section { margin-bottom: 50px; }
+        .unit-section h3 { color: var(--primary-color); border-bottom: 2px solid var(--primary-color); padding-bottom: 10px; margin-bottom: 25px; }
+        .unit-section h3 i { margin-right: 10px; }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo"><i class="fab fa-python"></i> Python Hub</a>
+            <button class="nav-toggle" id="navToggle"><i class="fas fa-bars"></i></button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="unit1.html">Unit I</a></li>
+                <li><a href="unit2.html">Unit II</a></li>
+                <li><a href="unit3.html">Unit III</a></li>
+                <li><a href="unit4.html">Unit IV</a></li>
+                <li><a href="unit5.html">Unit V</a></li>
+                <li class="nav-divider"></li>
+                <li><a href="extras.html">Extras</a></li>
+                <li><a href="practice.html" class="active">Practice</a></li>
+                <li><a href="theory.html">Theory</a></li>
+                <li><a href="comparisons.html">Compare</a></li>
+                <li><a href="errors.html">Errors</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="unit-header practice-header">
+        <div class="container">
+            <h1><i class="fas fa-code"></i> Coding Practice</h1>
+            <p>Practice coding questions with solutions from all units</p>
+        </div>
+    </header>
+
+    <section class="unit-content">
+        <div class="container">
+            <!-- Unit 1 Questions -->
+            <div class="unit-section" id="unit1-practice">
+                <h3><i class="fas fa-rocket"></i> Unit I - Introduction to Python</h3>
+
+                <div class="question-card">
+                    <h4>Q1. Swap Two Numbers <span class="difficulty easy">Easy</span></h4>
+                    <p class="question-text">Write a program to swap two numbers without using a third variable.</p>
+                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
+                    <div class="solution">
+                        <pre><code class="language-python"># Swap two numbers without third variable
+a = 10
+b = 20
+
+print(f"Before: a = {a}, b = {b}")
+
+# Method 1: Using arithmetic
+a = a + b  # a = 30
+b = a - b  # b = 10
+a = a - b  # a = 20
+
+# Method 2: Pythonic way (recommended)
+a, b = b, a
+
+print(f"After: a = {a}, b = {b}")</code></pre>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <h4>Q2. Calculate Simple Interest <span class="difficulty easy">Easy</span></h4>
+                    <p class="question-text">Write a program to calculate simple interest given principal, rate, and time.</p>
+                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
+                    <div class="solution">
+                        <pre><code class="language-python"># Calculate Simple Interest
+principal = float(input("Enter principal amount: "))
+rate = float(input("Enter rate of interest: "))
+time = float(input("Enter time in years: "))
+
+simple_interest = (principal * rate * time) / 100
+
+print(f"Principal: ₹{principal}")
+print(f"Rate: {rate}%")
+print(f"Time: {time} years")
+print(f"Simple Interest: ₹{simple_interest}")
+print(f"Total Amount: ₹{principal + simple_interest}")</code></pre>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <h4>Q3. Check Data Types <span class="difficulty easy">Easy</span></h4>
+                    <p class="question-text">Write a program that demonstrates different data types and uses type() to identify them.</p>
+                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
+                    <div class="solution">
+                        <pre><code class="language-python"># Demonstrate different data types
+integer_var = 42
+float_var = 3.14
+complex_var = 2 + 3j
+string_var = "Hello Python"
+bool_var = True
+list_var = [1, 2, 3]
+tuple_var = (1, 2, 3)
+dict_var = {"name": "Python"}
+
+# Check and print types
+variables = [integer_var, float_var, complex_var, string_var, 
+             bool_var, list_var, tuple_var, dict_var]
+
+for var in variables:
+    print(f"Value: {var:20} -> Type: {type(var).__name__}")</code></pre>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <h4>Q4. Temperature Converter <span class="difficulty easy">Easy</span></h4>
+                    <p class="question-text">Write a program to convert Celsius to Fahrenheit and vice versa.</p>
+                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
+                    <div class="solution">
+                        <pre><code class="language-python"># Temperature Converter
+def celsius_to_fahrenheit(celsius):
+    return (celsius * 9/5) + 32
+
+def fahrenheit_to_celsius(fahrenheit):
+    return (fahrenheit - 32) * 5/9
+
+# Example usage
+celsius = 37
+fahrenheit = 98.6
+
+print(f"{celsius}°C = {celsius_to_fahrenheit(celsius)}°F")
+print(f"{fahrenheit}°F = {fahrenheit_to_celsius(fahrenheit):.2f}°C")</code></pre>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <h4>Q5. Area Calculator <span class="difficulty medium">Medium</span></h4>
+                    <p class="question-text">Write a program to calculate area of circle, rectangle, and triangle using operators.</p>
+                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
+                    <div class="solution">
+                        <pre><code class="language-python">import math
+
+# Area Calculator
+print("=== Area Calculator ===")
+print("1. Circle")
+print("2. Rectangle")
+print("3. Triangle")
+
+choice = int(input("Enter choice (1-3): "))
+
+if choice == 1:
+    radius = float(input("Enter radius: "))
+    area = math.pi * radius ** 2
+    print(f"Area of Circle: {area:.2f}")
+elif choice == 2:
+    length = float(input("Enter length: "))
+    width = float(input("Enter width: "))
+    area = length * width
+    print(f"Area of Rectangle: {area:.2f}")
+elif choice == 3:
+    base = float(input("Enter base: "))
+    height = float(input("Enter height: "))
+    area = 0.5 * base * height
+    print(f"Area of Triangle: {area:.2f}")
+else:
+    print("Invalid choice!")</code></pre>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <h4>Q6. Check Even or Odd <span class="difficulty easy">Easy</span></h4>
+                    <p class="question-text">Write a program to check if a number is even or odd.</p>
+                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
+                    <div class="solution">
+                        <pre><code class="language-python"># Check Even or Odd
+num = int(input("Enter a number: "))
+
+if num % 2 == 0:
+    print(f"{num} is Even")
+else:
+    print(f"{num} is Odd")
+
+# One-liner using ternary operator
+result = "Even" if num % 2 == 0 else "Odd"
+print(f"{num} is {result}")</code></pre>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <h4>Q7. Find Largest of Three Numbers <span class="difficulty easy">Easy</span></h4>
+                    <p class="question-text">Write a program to find the largest among three numbers.</p>
+                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
+                    <div class="solution">
+                        <pre><code class="language-python"># Find Largest of Three Numbers
+a = float(input("Enter first number: "))
+b = float(input("Enter second number: "))
+c = float(input("Enter third number: "))
+
+# Method 1: Using if-elif-else
+if a >= b and a >= c:
+    largest = a
+elif b >= a and b >= c:
+    largest = b
+else:
+    largest = c
+
+print(f"Largest number is: {largest}")
+
+# Method 2: Using max() function
+largest = max(a, b, c)
+print(f"Largest: {largest}")</code></pre>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <h4>Q8. Calculate Compound Interest <span class="difficulty medium">Medium</span></h4>
+                    <p class="question-text">Write a program to calculate compound interest. Formula: A = P(1 + r/n)^(nt)</p>
+                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
+                    <div class="solution">
+                        <pre><code class="language-python"># Compound Interest Calculator
+principal = float(input("Enter principal amount: "))
+rate = float(input("Enter annual interest rate (%): "))
+time = float(input("Enter time in years: "))
+n = int(input("Enter number of times compounded per year: "))
+
+# Convert rate to decimal
+r = rate / 100
+
+# Calculate compound interest
+amount = principal * (1 + r/n) ** (n * time)
+compound_interest = amount - principal
+
+print(f"\nPrincipal: ₹{principal:,.2f}")
+print(f"Rate: {rate}% per annum")
+print(f"Time: {time} years")
+print(f"Compounded: {n} times per year")
+print(f"Compound Interest: ₹{compound_interest:,.2f}")
+print(f"Total Amount: ₹{amount:,.2f}")</code></pre>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <h4>Q9. Check Leap Year <span class="difficulty easy">Easy</span></h4>
+                    <p class="question-text">Write a program to check if a year is a leap year.</p>
+                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
+                    <div class="solution">
+                        <pre><code class="language-python"># Check Leap Year
+year = int(input("Enter a year: "))
+
+# A year is leap if:
+# 1. Divisible by 4 AND not divisible by 100
+# 2. OR divisible by 400
+
+if (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0):
+    print(f"{year} is a Leap Year")
+else:
+    print(f"{year} is not a Leap Year")
+
+# Test multiple years
+years = [2000, 2020, 2024, 2100, 2023]
+for y in years:
+    is_leap = (y % 4 == 0 and y % 100 != 0) or (y % 400 == 0)
+    print(f"{y}: {'Leap' if is_leap else 'Not Leap'}")</code></pre>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <h4>Q10. Sum of Digits <span class="difficulty medium">Medium</span></h4>
+                    <p class="question-text">Write a program to find the sum of digits of a number.</p>
+                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
+                    <div class="solution">
+                        <pre><code class="language-python"># Sum of Digits
+num = int(input("Enter a number: "))
+original = num
+digit_sum = 0
+
+# Method 1: Using loop
+while num > 0:
+    digit = num % 10
+    digit_sum += digit
+    num //= 10
+
+print(f"Sum of digits of {original} = {digit_sum}")
+
+# Method 2: Using string conversion
+num_str = str(original)
+digit_sum = sum(int(d) for d in num_str)
+print(f"Sum of digits = {digit_sum}")</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Unit 2 Questions -->
+            <div class="unit-section" id="unit2-practice">
+                <h3><i class="fas fa-code-branch"></i> Unit II - Program Flow Control</h3>
+
+                <div class="question-card">
+                    <h4>Q1. Check Prime Number <span class="difficulty medium">Medium</span></h4>
+                    <p class="question-text">Write a program to check if a number is prime or not.</p>
+                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
+                    <div class="solution">
+                        <pre><code class="language-python"># Check Prime Number
+def is_prime(n):
+    if n < 2:
+        return False
+    for i in range(2, int(n ** 0.5) + 1):
+        if n % i == 0:
+            return False
+    return True
+
+num = int(input("Enter a number: "))
+if is_prime(num):
+    print(f"{num} is a Prime number")
+else:
+    print(f"{num} is not a Prime number")
+
+# Print primes in range
+print("\nPrime numbers from 1 to 50:")
+for i in range(1, 51):
+    if is_prime(i):
+        print(i, end=" ")</code></pre>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <h4>Q2. Fibonacci Series <span class="difficulty medium">Medium</span></h4>
+                    <p class="question-text">Write a program to print Fibonacci series up to n terms.</p>
+                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
+                    <div class="solution">
+                        <pre><code class="language-python"># Fibonacci Series
+n = int(input("Enter number of terms: "))
+
+a, b = 0, 1
+print("Fibonacci Series:")
+
+for i in range(n):
+    print(a, end=" ")
+    a, b = b, a + b
+
+# Alternative: Using while loop
+print("\n\nUsing while loop:")
+a, b, count = 0, 1, 0
+while count < n:
+    print(a, end=" ")
+    a, b = b, a + b
+    count += 1</code></pre>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <h4>Q3. Factorial Calculator <span class="difficulty easy">Easy</span></h4>
+                    <p class="question-text">Write a program to calculate factorial of a number using loops.</p>
+                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
+                    <div class="solution">
+                        <pre><code class="language-python"># Factorial Calculator
+num = int(input("Enter a number: "))
+
+# Using for loop
+factorial = 1
+for i in range(1, num + 1):
+    factorial *= i
+
+print(f"Factorial of {num} = {factorial}")
+
+# Using while loop
+num = 5
+factorial = 1
+i = 1
+while i <= num:
+    factorial *= i
+    i += 1
+print(f"Factorial of {num} = {factorial}")</code></pre>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <h4>Q4. Pattern Printing <span class="difficulty medium">Medium</span></h4>
+                    <p class="question-text">Write programs to print number pyramid and star patterns.</p>
+                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
+                    <div class="solution">
+                        <pre><code class="language-python"># Pattern 1: Right Triangle
+n = 5
+for i in range(1, n + 1):
+    print("*" * i)
+# Output:
+# *
+# **
+# ***
+# ****
+# *****
+
+# Pattern 2: Number Pyramid
+for i in range(1, n + 1):
+    print(" " * (n - i), end="")
+    for j in range(1, i + 1):
+        print(j, end=" ")
+    print()
+# Output:
+#     1 
+#    1 2 
+#   1 2 3 
+#  1 2 3 4 
+# 1 2 3 4 5 
+
+# Pattern 3: Diamond
+for i in range(1, n + 1):
+    print(" " * (n - i) + "*" * (2*i - 1))
+for i in range(n - 1, 0, -1):
+    print(" " * (n - i) + "*" * (2*i - 1))</code></pre>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <h4>Q5. Grade Calculator <span class="difficulty easy">Easy</span></h4>
+                    <p class="question-text">Write a program to assign grades based on marks using if-elif-else.</p>
+                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
+                    <div class="solution">
+                        <pre><code class="language-python"># Grade Calculator
+marks = float(input("Enter marks (0-100): "))
+
+if marks < 0 or marks > 100:
+    print("Invalid marks!")
+elif marks >= 90:
+    grade = "A+"
+elif marks >= 80:
+    grade = "A"
+elif marks >= 70:
+    grade = "B"
+elif marks >= 60:
+    grade = "C"
+elif marks >= 50:
+    grade = "D"
+else:
+    grade = "F"
+
+if 0 <= marks <= 100:
+    print(f"Marks: {marks}")
+    print(f"Grade: {grade}")
+    if grade == "F":
+        print("Status: FAIL")
+    else:
+        print("Status: PASS")</code></pre>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <h4>Q6. Reverse a Number <span class="difficulty medium">Medium</span></h4>
+                    <p class="question-text">Write a program to reverse a number using loops.</p>
+                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
+                    <div class="solution">
+                        <pre><code class="language-python"># Reverse a Number
+num = int(input("Enter a number: "))
+original = num
+reversed_num = 0
+
+while num > 0:
+    digit = num % 10
+    reversed_num = reversed_num * 10 + digit
+    num //= 10
+
+print(f"Original: {original}")
+print(f"Reversed: {reversed_num}")
+
+# Check if palindrome number
+if original == reversed_num:
+    print("This is a palindrome number!")</code></pre>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <h4>Q7. Armstrong Number <span class="difficulty medium">Medium</span></h4>
+                    <p class="question-text">Check if a number is an Armstrong number (sum of cubes of digits equals the number).</p>
+                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
+                    <div class="solution">
+                        <pre><code class="language-python"># Armstrong Number Check
+num = int(input("Enter a number: "))
+original = num
+n_digits = len(str(num))
+sum_of_powers = 0
+
+while num > 0:
+    digit = num % 10
+    sum_of_powers += digit ** n_digits
+    num //= 10
+
+if original == sum_of_powers:
+    print(f"{original} is an Armstrong number")
+else:
+    print(f"{original} is not an Armstrong number")
+
+# Find Armstrong numbers in range
+print("\nArmstrong numbers between 1-1000:")
+for n in range(1, 1001):
+    digits = len(str(n))
+    if sum(int(d)**digits for d in str(n)) == n:
+        print(n, end=" ")</code></pre>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <h4>Q8. Multiplication Table <span class="difficulty easy">Easy</span></h4>
+                    <p class="question-text">Write a program to print multiplication table of a number.</p>
+                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
+                    <div class="solution">
+                        <pre><code class="language-python"># Multiplication Table
+num = int(input("Enter a number: "))
+
+print(f"\nMultiplication Table of {num}")
+print("-" * 20)
+
+for i in range(1, 11):
+    print(f"{num} x {i:2} = {num * i}")
+
+# Using while loop
+print("\nUsing while loop:")
+i = 1
+while i <= 10:
+    print(f"{num} × {i} = {num * i}")
+    i += 1</code></pre>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <h4>Q9. Sum of Natural Numbers <span class="difficulty easy">Easy</span></h4>
+                    <p class="question-text">Find the sum of first n natural numbers using loops and formula.</p>
+                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
+                    <div class="solution">
+                        <pre><code class="language-python"># Sum of Natural Numbers
+n = int(input("Enter n: "))
+
+# Method 1: Using for loop
+sum_loop = 0
+for i in range(1, n + 1):
+    sum_loop += i
+print(f"Sum using loop: {sum_loop}")
+
+# Method 2: Using formula n*(n+1)/2
+sum_formula = n * (n + 1) // 2
+print(f"Sum using formula: {sum_formula}")
+
+# Method 3: Using built-in sum
+sum_builtin = sum(range(1, n + 1))
+print(f"Sum using sum(): {sum_builtin}")</code></pre>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <h4>Q10. GCD and LCM <span class="difficulty medium">Medium</span></h4>
+                    <p class="question-text">Write a program to find GCD and LCM of two numbers.</p>
+                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
+                    <div class="solution">
+                        <pre><code class="language-python"># GCD and LCM
+def find_gcd(a, b):
+    while b:
+        a, b = b, a % b
+    return a
+
+def find_lcm(a, b):
+    return (a * b) // find_gcd(a, b)
+
+num1 = int(input("Enter first number: "))
+num2 = int(input("Enter second number: "))
+
+gcd = find_gcd(num1, num2)
+lcm = find_lcm(num1, num2)
+
+print(f"GCD of {num1} and {num2} = {gcd}")
+print(f"LCM of {num1} and {num2} = {lcm}")
+
+# Using math module
+import math
+print(f"GCD (math): {math.gcd(num1, num2)}")
+print(f"LCM (math): {math.lcm(num1, num2)}")</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Unit 3 Questions -->
+            <div class="unit-section" id="unit3-practice">
+                <h3><i class="fas fa-layer-group"></i> Unit III - Complex Data Types</h3>
+
+                <div class="question-card">
+                    <h4>Q1. Palindrome Checker <span class="difficulty easy">Easy</span></h4>
+                    <p class="question-text">Write a program to check if a string is palindrome.</p>
+                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
+                    <div class="solution">
+                        <pre><code class="language-python"># Palindrome Checker
+def is_palindrome(s):
+    # Remove spaces and convert to lowercase
+    s = s.lower().replace(" ", "")
+    return s == s[::-1]
+
+# Test strings
+test_strings = ["radar", "hello", "A man a plan a canal Panama", "Python"]
+
+for string in test_strings:
+    if is_palindrome(string):
+        print(f"'{string}' is a Palindrome ✓")
+    else:
+        print(f"'{string}' is NOT a Palindrome ✗")</code></pre>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <h4>Q2. Word Counter <span class="difficulty medium">Medium</span></h4>
+                    <p class="question-text">Write a program to count frequency of each word in a sentence.</p>
+                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
+                    <div class="solution">
+                        <pre><code class="language-python"># Word Frequency Counter
+sentence = "the quick brown fox jumps over the lazy dog the fox"
+
+# Method 1: Using dictionary
+words = sentence.lower().split()
+word_count = {}
+
+for word in words:
+    word_count[word] = word_count.get(word, 0) + 1
+
+print("Word Frequencies:")
+for word, count in sorted(word_count.items(), key=lambda x: x[1], reverse=True):
+    print(f"  {word}: {count}")
+
+# Method 2: Using Counter
+from collections import Counter
+word_freq = Counter(sentence.lower().split())
+print("\nMost common words:")
+for word, count in word_freq.most_common(3):
+    print(f"  {word}: {count}")</code></pre>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <h4>Q3. List Operations <span class="difficulty medium">Medium</span></h4>
+                    <p class="question-text">Write a program to find second largest element, remove duplicates, and reverse a list.</p>
+                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
+                    <div class="solution">
+                        <pre><code class="language-python"># List Operations
+numbers = [12, 45, 23, 67, 45, 89, 23, 12, 67, 34]
+
+# 1. Find second largest
+unique_sorted = sorted(set(numbers), reverse=True)
+second_largest = unique_sorted[1] if len(unique_sorted) > 1 else None
+print(f"Original: {numbers}")
+print(f"Second Largest: {second_largest}")
+
+# 2. Remove duplicates (preserve order)
+seen = []
+for num in numbers:
+    if num not in seen:
+        seen.append(num)
+print(f"Without duplicates: {seen}")
+
+# 3. Reverse list
+reversed_list = numbers[::-1]
+print(f"Reversed: {reversed_list}")
+
+# 4. Find sum, max, min, average
+print(f"Sum: {sum(numbers)}")
+print(f"Max: {max(numbers)}")
+print(f"Min: {min(numbers)}")
+print(f"Average: {sum(numbers)/len(numbers):.2f}")</code></pre>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <h4>Q4. Dictionary Student Records <span class="difficulty medium">Medium</span></h4>
+                    <p class="question-text">Create a student records system using dictionary with CRUD operations.</p>
+                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
+                    <div class="solution">
+                        <pre><code class="language-python"># Student Records System
+students = {}
+
+def add_student(roll, name, marks):
+    students[roll] = {"name": name, "marks": marks}
+    print(f"Added: {name}")
+
+def display_student(roll):
+    if roll in students:
+        s = students[roll]
+        print(f"Roll: {roll}, Name: {s['name']}, Marks: {s['marks']}")
+    else:
+        print("Student not found!")
+
+def update_marks(roll, marks):
+    if roll in students:
+        students[roll]["marks"] = marks
+        print(f"Updated marks for Roll {roll}")
+    else:
+        print("Student not found!")
+
+def delete_student(roll):
+    if roll in students:
+        del students[roll]
+        print(f"Deleted Roll {roll}")
+
+# Usage
+add_student(101, "Alice", 85)
+add_student(102, "Bob", 92)
+add_student(103, "Charlie", 78)
+
+display_student(101)
+update_marks(101, 90)
+display_student(101)
+
+print("\nAll Students:")
+for roll, data in students.items():
+    print(f"  {roll}: {data['name']} - {data['marks']}")</code></pre>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <h4>Q5. Tuple Operations <span class="difficulty easy">Easy</span></h4>
+                    <p class="question-text">Write programs demonstrating tuple creation, unpacking, and operations.</p>
+                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
+                    <div class="solution">
+                        <pre><code class="language-python"># Tuple Operations
+# Creation
+coordinates = (10, 20, 30)
+person = ("John", 25, "Engineer")
+
+# Unpacking
+x, y, z = coordinates
+name, age, job = person
+print(f"Coordinates: x={x}, y={y}, z={z}")
+print(f"Person: {name}, {age} years, {job}")
+
+# Tuple methods
+numbers = (1, 2, 3, 2, 4, 2, 5)
+print(f"Count of 2: {numbers.count(2)}")
+print(f"Index of 4: {numbers.index(4)}")
+
+# Concatenation
+tuple1 = (1, 2, 3)
+tuple2 = (4, 5, 6)
+combined = tuple1 + tuple2
+print(f"Combined: {combined}")
+
+# Convert list to tuple and vice versa
+my_list = [1, 2, 3]
+my_tuple = tuple(my_list)
+back_to_list = list(my_tuple)
+print(f"List: {my_list} -> Tuple: {my_tuple}")</code></pre>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <h4>Q6. Anagram Checker <span class="difficulty medium">Medium</span></h4>
+                    <p class="question-text">Write a program to check if two strings are anagrams of each other.</p>
+                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
+                    <div class="solution">
+                        <pre><code class="language-python"># Anagram Checker
+def are_anagrams(str1, str2):
+    # Remove spaces and convert to lowercase
+    s1 = str1.replace(" ", "").lower()
+    s2 = str2.replace(" ", "").lower()
+    
+    # Method 1: Sort and compare
+    return sorted(s1) == sorted(s2)
+
+# Test cases
+pairs = [
+    ("listen", "silent"),
+    ("hello", "world"),
+    ("Astronomer", "Moon starer"),
+    ("python", "typhon")
+]
+
+for s1, s2 in pairs:
+    if are_anagrams(s1, s2):
+        print(f"'{s1}' and '{s2}' are Anagrams ✓")
+    else:
+        print(f"'{s1}' and '{s2}' are NOT Anagrams ✗")</code></pre>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <h4>Q7. Remove Vowels from String <span class="difficulty easy">Easy</span></h4>
+                    <p class="question-text">Write a program to remove all vowels from a given string.</p>
+                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
+                    <div class="solution">
+                        <pre><code class="language-python"># Remove Vowels from String
+def remove_vowels(text):
+    vowels = "aeiouAEIOU"
+    result = ""
+    for char in text:
+        if char not in vowels:
+            result += char
+    return result
+
+# Using list comprehension
+def remove_vowels_v2(text):
+    vowels = "aeiouAEIOU"
+    return "".join([c for c in text if c not in vowels])
+
+text = "Hello World Python Programming"
+print(f"Original: {text}")
+print(f"Without vowels: {remove_vowels(text)}")</code></pre>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <h4>Q8. Count Vowels and Consonants <span class="difficulty easy">Easy</span></h4>
+                    <p class="question-text">Count the number of vowels and consonants in a string.</p>
+                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
+                    <div class="solution">
+                        <pre><code class="language-python"># Count Vowels and Consonants
+text = input("Enter a string: ")
+vowels = "aeiouAEIOU"
+vowel_count = 0
+consonant_count = 0
+
+for char in text:
+    if char.isalpha():
+        if char in vowels:
+            vowel_count += 1
+        else:
+            consonant_count += 1
+
+print(f"String: {text}")
+print(f"Vowels: {vowel_count}")
+print(f"Consonants: {consonant_count}")</code></pre>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <h4>Q9. Matrix Addition <span class="difficulty medium">Medium</span></h4>
+                    <p class="question-text">Write a program to add two matrices using nested lists.</p>
+                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
+                    <div class="solution">
+                        <pre><code class="language-python"># Matrix Addition
+matrix1 = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+]
+
+matrix2 = [
+    [9, 8, 7],
+    [6, 5, 4],
+    [3, 2, 1]
+]
+
+# Add matrices
+result = []
+for i in range(len(matrix1)):
+    row = []
+    for j in range(len(matrix1[0])):
+        row.append(matrix1[i][j] + matrix2[i][j])
+    result.append(row)
+
+print("Matrix 1:")
+for row in matrix1:
+    print(row)
+
+print("\nMatrix 2:")
+for row in matrix2:
+    print(row)
+
+print("\nSum:")
+for row in result:
+    print(row)</code></pre>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <h4>Q10. Find Common Elements <span class="difficulty easy">Easy</span></h4>
+                    <p class="question-text">Find common elements between two lists.</p>
+                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
+                    <div class="solution">
+                        <pre><code class="language-python"># Find Common Elements
+list1 = [1, 2, 3, 4, 5, 6]
+list2 = [4, 5, 6, 7, 8, 9]
+
+# Method 1: Using loop
+common = []
+for item in list1:
+    if item in list2 and item not in common:
+        common.append(item)
+print(f"Common elements: {common}")
+
+# Method 2: Using set intersection
+common_set = list(set(list1) & set(list2))
+print(f"Using sets: {common_set}")
+
+# Method 3: Using list comprehension
+common_lc = [x for x in list1 if x in list2]
+print(f"Using comprehension: {common_lc}")</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Unit 4 Questions -->
+            <div class="unit-section" id="unit4-practice">
+                <h3><i class="fas fa-file-alt"></i> Unit IV - File Operations</h3>
+
+                <div class="question-card">
+                    <h4>Q1. File Read/Write Basics <span class="difficulty easy">Easy</span></h4>
+                    <p class="question-text">Write a program to write data to a file and read it back.</p>
+                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
+                    <div class="solution">
+                        <pre><code class="language-python"># File Read/Write
+# Writing to file
+with open("sample.txt", "w") as file:
+    file.write("Hello, Python!\n")
+    file.write("File handling is easy.\n")
+    file.write("This is line 3.\n")
+
+print("File written successfully!")
+
+# Reading entire file
+with open("sample.txt", "r") as file:
+    content = file.read()
+    print("File Content:")
+    print(content)
+
+# Reading line by line
+with open("sample.txt", "r") as file:
+    print("Reading line by line:")
+    for line_num, line in enumerate(file, 1):
+        print(f"Line {line_num}: {line.strip()}")</code></pre>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <h4>Q2. Count Lines, Words, Characters <span class="difficulty medium">Medium</span></h4>
+                    <p class="question-text">Write a program to count lines, words, and characters in a file.</p>
+                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
+                    <div class="solution">
+                        <pre><code class="language-python"># Count Lines, Words, Characters
+def analyze_file(filename):
+    try:
+        with open(filename, "r") as file:
+            lines = file.readlines()
+            
+            line_count = len(lines)
+            word_count = sum(len(line.split()) for line in lines)
+            char_count = sum(len(line) for line in lines)
+            char_no_space = sum(len(line.replace(" ", "").replace("\n", "")) for line in lines)
+            
+            print(f"File: {filename}")
+            print(f"Lines: {line_count}")
+            print(f"Words: {word_count}")
+            print(f"Characters (with spaces): {char_count}")
+            print(f"Characters (without spaces): {char_no_space}")
+            
+    except FileNotFoundError:
+        print(f"Error: {filename} not found!")
+
+# Create test file
+with open("test.txt", "w") as f:
+    f.write("Hello World\nPython is great\nFile handling")
+
+analyze_file("test.txt")</code></pre>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <h4>Q3. Copy File Content <span class="difficulty easy">Easy</span></h4>
+                    <p class="question-text">Write a program to copy content from one file to another.</p>
+                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
+                    <div class="solution">
+                        <pre><code class="language-python"># Copy File Content
+def copy_file(source, destination):
+    try:
+        with open(source, "r") as src:
+            content = src.read()
+        
+        with open(destination, "w") as dest:
+            dest.write(content)
+        
+        print(f"Copied {source} to {destination}")
+        
+    except FileNotFoundError:
+        print(f"Source file '{source}' not found!")
+
+# Create source file
+with open("source.txt", "w") as f:
+    f.write("This is the source file.\nIt has multiple lines.\n")
+
+# Copy file
+copy_file("source.txt", "destination.txt")
+
+# Verify
+with open("destination.txt", "r") as f:
+    print("Destination content:")
+    print(f.read())</code></pre>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <h4>Q4. Append and Seek Operations <span class="difficulty medium">Medium</span></h4>
+                    <p class="question-text">Demonstrate append mode and seek() operations.</p>
+                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
+                    <div class="solution">
+                        <pre><code class="language-python"># Append and Seek Operations
+
+# Create initial file
+with open("log.txt", "w") as f:
+    f.write("Log Entry 1\n")
+
+# Append to file
+with open("log.txt", "a") as f:
+    f.write("Log Entry 2\n")
+    f.write("Log Entry 3\n")
+
+# Read file
+with open("log.txt", "r") as f:
+    print("Full content:")
+    print(f.read())
+
+# Using seek()
+with open("log.txt", "r") as f:
+    print("First 10 chars:", f.read(10))
+    print("Current position:", f.tell())
+    
+    f.seek(0)  # Go to beginning
+    print("After seek(0):", f.readline().strip())
+    
+    f.seek(12)  # Go to position 12
+    print("From position 12:", f.read(10))</code></pre>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <h4>Q5. Student Data to File <span class="difficulty medium">Medium</span></h4>
+                    <p class="question-text">Write student records to a file and read them back.</p>
+                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
+                    <div class="solution">
+                        <pre><code class="language-python"># Student Data File Operations
+import json
+
+students = [
+    {"roll": 1, "name": "Alice", "marks": 85},
+    {"roll": 2, "name": "Bob", "marks": 92},
+    {"roll": 3, "name": "Charlie", "marks": 78}
+]
+
+# Write to JSON file
+with open("students.json", "w") as f:
+    json.dump(students, f, indent=4)
+print("Data written to students.json")
+
+# Read from JSON file
+with open("students.json", "r") as f:
+    loaded_students = json.load(f)
+
+print("\nLoaded Student Data:")
+for student in loaded_students:
+    print(f"Roll: {student['roll']}, Name: {student['name']}, Marks: {student['marks']}")
+
+# Write to CSV format
+with open("students.csv", "w") as f:
+    f.write("Roll,Name,Marks\n")
+    for s in students:
+        f.write(f"{s['roll']},{s['name']},{s['marks']}\n")
+print("\nData written to students.csv")</code></pre>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <h4>Q6. Find and Replace in File <span class="difficulty medium">Medium</span></h4>
+                    <p class="question-text">Write a program to find and replace text in a file.</p>
+                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
+                    <div class="solution">
+                        <pre><code class="language-python"># Find and Replace in File
+def find_replace(filename, find_text, replace_text):
+    try:
+        # Read file
+        with open(filename, "r") as f:
+            content = f.read()
+        
+        # Count occurrences
+        count = content.count(find_text)
+        
+        # Replace
+        new_content = content.replace(find_text, replace_text)
+        
+        # Write back
+        with open(filename, "w") as f:
+            f.write(new_content)
+        
+        print(f"Replaced {count} occurrences of '{find_text}' with '{replace_text}'")
+        
+    except FileNotFoundError:
+        print("File not found!")
+
+# Create test file
+with open("test.txt", "w") as f:
+    f.write("Hello World! Hello Python! Hello Everyone!")
+
+find_replace("test.txt", "Hello", "Hi")
+
+# Verify
+with open("test.txt", "r") as f:
+    print(f.read())</code></pre>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <h4>Q7. Merge Two Files <span class="difficulty easy">Easy</span></h4>
+                    <p class="question-text">Write a program to merge contents of two files into a third file.</p>
+                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
+                    <div class="solution">
+                        <pre><code class="language-python"># Merge Two Files
+def merge_files(file1, file2, output):
+    with open(file1, "r") as f1:
+        content1 = f1.read()
+    
+    with open(file2, "r") as f2:
+        content2 = f2.read()
+    
+    with open(output, "w") as out:
+        out.write(content1)
+        out.write("\n--- File 2 ---\n")
+        out.write(content2)
+    
+    print(f"Merged {file1} and {file2} into {output}")
+
+# Create test files
+with open("file1.txt", "w") as f:
+    f.write("Content from File 1\nLine 2 of File 1")
+
+with open("file2.txt", "w") as f:
+    f.write("Content from File 2\nLine 2 of File 2")
+
+merge_files("file1.txt", "file2.txt", "merged.txt")
+
+with open("merged.txt", "r") as f:
+    print(f.read())</code></pre>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <h4>Q8. Read Specific Lines <span class="difficulty medium">Medium</span></h4>
+                    <p class="question-text">Read specific lines (e.g., lines 2 to 5) from a file.</p>
+                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
+                    <div class="solution">
+                        <pre><code class="language-python"># Read Specific Lines
+def read_lines(filename, start, end):
+    try:
+        with open(filename, "r") as f:
+            lines = f.readlines()
+        
+        # Adjust for 0-based indexing
+        selected = lines[start-1:end]
+        return selected
+        
+    except FileNotFoundError:
+        return "File not found!"
+
+# Create test file
+with open("multiline.txt", "w") as f:
+    for i in range(1, 11):
+        f.write(f"This is line number {i}\n")
+
+# Read lines 3 to 7
+lines = read_lines("multiline.txt", 3, 7)
+print("Lines 3-7:")
+for line in lines:
+    print(line.strip())</code></pre>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <h4>Q9. Log File Creator <span class="difficulty medium">Medium</span></h4>
+                    <p class="question-text">Create a simple logging system that appends timestamps to entries.</p>
+                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
+                    <div class="solution">
+                        <pre><code class="language-python"># Simple Log File System
+from datetime import datetime
+
+def log_message(message, filename="app.log"):
+    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    log_entry = f"[{timestamp}] {message}\n"
+    
+    with open(filename, "a") as f:
+        f.write(log_entry)
+    
+    print(f"Logged: {message}")
+
+def view_logs(filename="app.log"):
+    try:
+        with open(filename, "r") as f:
+            print("=== Log Entries ===")
+            print(f.read())
+    except FileNotFoundError:
+        print("No logs found!")
+
+# Usage
+log_message("Application started")
+log_message("User logged in")
+log_message("Data processed successfully")
+log_message("Application closed")
+
+view_logs()</code></pre>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <h4>Q10. File Statistics <span class="difficulty hard">Hard</span></h4>
+                    <p class="question-text">Get detailed statistics about a file including size, creation date, etc.</p>
+                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
+                    <div class="solution">
+                        <pre><code class="language-python"># File Statistics
+import os
+from datetime import datetime
+
+def file_stats(filename):
+    try:
+        stats = os.stat(filename)
+        
+        print(f"File: {filename}")
+        print(f"Size: {stats.st_size} bytes")
+        print(f"Created: {datetime.fromtimestamp(stats.st_ctime)}")
+        print(f"Modified: {datetime.fromtimestamp(stats.st_mtime)}")
+        print(f"Accessed: {datetime.fromtimestamp(stats.st_atime)}")
+        
+        # Content stats
+        with open(filename, "r") as f:
+            content = f.read()
+            lines = content.split("\n")
+            words = content.split()
+            
+        print(f"Lines: {len(lines)}")
+        print(f"Words: {len(words)}")
+        print(f"Characters: {len(content)}")
+        
+    except FileNotFoundError:
+        print("File not found!")
+
+# Create test file
+with open("stats_test.txt", "w") as f:
+    f.write("Hello World\nPython Programming\nFile Operations")
+
+file_stats("stats_test.txt")</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Unit 5 Questions -->
+            <div class="unit-section" id="unit5-practice">
+                <h3><i class="fas fa-box-open"></i> Unit V - Packages & GUI</h3>
+
+                <div class="question-card">
+                    <h4>Q1. NumPy Array Operations <span class="difficulty medium">Medium</span></h4>
+                    <p class="question-text">Perform various array operations using NumPy.</p>
+                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
+                    <div class="solution">
+                        <pre><code class="language-python">import numpy as np
+
+# Create arrays
+arr1 = np.array([1, 2, 3, 4, 5])
+arr2 = np.arange(1, 6)
+zeros = np.zeros((3, 3))
+ones = np.ones((2, 4))
+matrix = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+
+print("Array 1:", arr1)
+print("Sum:", np.sum(arr1))
+print("Mean:", np.mean(arr1))
+print("Max:", np.max(arr1))
+
+# Matrix operations
+print("\nMatrix:")
+print(matrix)
+print("Transpose:")
+print(matrix.T)
+print("Diagonal:", np.diag(matrix))
+print("Determinant:", np.linalg.det(matrix))
+
+# Array arithmetic
+print("\nArithmetic:")
+print("arr1 * 2:", arr1 * 2)
+print("arr1 ** 2:", arr1 ** 2)</code></pre>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <h4>Q2. Pandas DataFrame Operations <span class="difficulty medium">Medium</span></h4>
+                    <p class="question-text">Create and manipulate DataFrames using Pandas.</p>
+                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
+                    <div class="solution">
+                        <pre><code class="language-python">import pandas as pd
+
+# Create DataFrame
+data = {
+    'Name': ['Alice', 'Bob', 'Charlie', 'Diana'],
+    'Age': [25, 30, 35, 28],
+    'City': ['Delhi', 'Mumbai', 'Delhi', 'Chennai'],
+    'Salary': [50000, 60000, 70000, 55000]
+}
+
+df = pd.DataFrame(data)
+print("DataFrame:")
+print(df)
+
+# Basic operations
+print("\nShape:", df.shape)
+print("\nInfo:")
+print(df.describe())
+
+# Filtering
+print("\nAge > 27:")
+print(df[df['Age'] > 27])
+
+# Grouping
+print("\nAverage salary by city:")
+print(df.groupby('City')['Salary'].mean())
+
+# Adding column
+df['Bonus'] = df['Salary'] * 0.1
+print("\nWith Bonus:")
+print(df)</code></pre>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <h4>Q3. Matplotlib Charts <span class="difficulty medium">Medium</span></h4>
+                    <p class="question-text">Create different types of charts using Matplotlib.</p>
+                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
+                    <div class="solution">
+                        <pre><code class="language-python">import matplotlib.pyplot as plt
+
+# Line Plot
+x = [1, 2, 3, 4, 5]
+y = [2, 4, 6, 8, 10]
+
+plt.figure(figsize=(10, 4))
+plt.subplot(1, 3, 1)
+plt.plot(x, y, 'b-o')
+plt.title('Line Plot')
+plt.xlabel('X')
+plt.ylabel('Y')
+
+# Bar Chart
+categories = ['A', 'B', 'C', 'D']
+values = [23, 45, 56, 78]
+
+plt.subplot(1, 3, 2)
+plt.bar(categories, values, color='green')
+plt.title('Bar Chart')
+
+# Pie Chart
+sizes = [30, 25, 25, 20]
+labels = ['Python', 'Java', 'C++', 'JavaScript']
+
+plt.subplot(1, 3, 3)
+plt.pie(sizes, labels=labels, autopct='%1.1f%%')
+plt.title('Pie Chart')
+
+plt.tight_layout()
+plt.savefig('charts.png')
+plt.show()</code></pre>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <h4>Q4. Tkinter Calculator <span class="difficulty hard">Hard</span></h4>
+                    <p class="question-text">Create a simple calculator using Tkinter.</p>
+                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
+                    <div class="solution">
+                        <pre><code class="language-python">import tkinter as tk
+
+def click(key):
+    if key == '=':
+        try:
+            result = eval(entry.get())
+            entry.delete(0, tk.END)
+            entry.insert(tk.END, str(result))
+        except:
+            entry.delete(0, tk.END)
+            entry.insert(tk.END, "Error")
+    elif key == 'C':
+        entry.delete(0, tk.END)
+    else:
+        entry.insert(tk.END, key)
+
+# Create window
+root = tk.Tk()
+root.title("Calculator")
+
+# Entry widget
+entry = tk.Entry(root, width=20, font=('Arial', 18), justify='right')
+entry.grid(row=0, column=0, columnspan=4, padx=5, pady=5)
+
+# Buttons
+buttons = [
+    '7', '8', '9', '/',
+    '4', '5', '6', '*',
+    '1', '2', '3', '-',
+    'C', '0', '=', '+'
+]
+
+row, col = 1, 0
+for btn in buttons:
+    tk.Button(root, text=btn, width=5, height=2,
+              command=lambda b=btn: click(b)).grid(row=row, column=col, padx=2, pady=2)
+    col += 1
+    if col > 3:
+        col = 0
+        row += 1
+
+root.mainloop()</code></pre>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <h4>Q5. Tkinter Form Application <span class="difficulty medium">Medium</span></h4>
+                    <p class="question-text">Create a user registration form using Tkinter.</p>
+                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
+                    <div class="solution">
+                        <pre><code class="language-python">import tkinter as tk
+from tkinter import messagebox
+
+def submit():
+    name = name_entry.get()
+    email = email_entry.get()
+    age = age_entry.get()
+    
+    if name and email and age:
+        messagebox.showinfo("Success", 
+            f"Registered!\nName: {name}\nEmail: {email}\nAge: {age}")
+        # Clear fields
+        name_entry.delete(0, tk.END)
+        email_entry.delete(0, tk.END)
+        age_entry.delete(0, tk.END)
+    else:
+        messagebox.showerror("Error", "Please fill all fields!")
+
+root = tk.Tk()
+root.title("Registration Form")
+root.geometry("300x200")
+
+# Labels and Entries
+tk.Label(root, text="Name:").grid(row=0, column=0, padx=10, pady=10)
+name_entry = tk.Entry(root, width=25)
+name_entry.grid(row=0, column=1, padx=10, pady=10)
+
+tk.Label(root, text="Email:").grid(row=1, column=0, padx=10, pady=10)
+email_entry = tk.Entry(root, width=25)
+email_entry.grid(row=1, column=1, padx=10, pady=10)
+
+tk.Label(root, text="Age:").grid(row=2, column=0, padx=10, pady=10)
+age_entry = tk.Entry(root, width=25)
+age_entry.grid(row=2, column=1, padx=10, pady=10)
+
+# Submit Button
+tk.Button(root, text="Submit", command=submit, 
+          bg="green", fg="white").grid(row=3, column=0, columnspan=2, pady=20)
+
+root.mainloop()</code></pre>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <h4>Q6. NumPy Matrix Multiplication <span class="difficulty medium">Medium</span></h4>
+                    <p class="question-text">Perform matrix multiplication using NumPy.</p>
+                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
+                    <div class="solution">
+                        <pre><code class="language-python">import numpy as np
+
+# Matrix Multiplication
+A = np.array([[1, 2], [3, 4]])
+B = np.array([[5, 6], [7, 8]])
+
+print("Matrix A:")
+print(A)
+print("\nMatrix B:")
+print(B)
+
+# Element-wise multiplication
+elem_mult = A * B
+print("\nElement-wise multiplication:")
+print(elem_mult)
+
+# Matrix multiplication (dot product)
+mat_mult = np.dot(A, B)
+print("\nMatrix multiplication:")
+print(mat_mult)
+
+# Alternative: @ operator
+mat_mult2 = A @ B
+print("\nUsing @ operator:")
+print(mat_mult2)</code></pre>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <h4>Q7. Pandas - Filter and Sort <span class="difficulty medium">Medium</span></h4>
+                    <p class="question-text">Filter and sort DataFrame based on conditions.</p>
+                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
+                    <div class="solution">
+                        <pre><code class="language-python">import pandas as pd
+
+# Create DataFrame
+data = {
+    'Name': ['Alice', 'Bob', 'Charlie', 'Diana', 'Eve'],
+    'Age': [25, 30, 35, 28, 22],
+    'Salary': [50000, 60000, 70000, 55000, 45000],
+    'Department': ['IT', 'HR', 'IT', 'Finance', 'HR']
+}
+df = pd.DataFrame(data)
+
+# Filter: Age > 25
+filtered = df[df['Age'] > 25]
+print("Age > 25:")
+print(filtered)
+
+# Filter: IT department with salary > 50000
+it_high = df[(df['Department'] == 'IT') & (df['Salary'] > 50000)]
+print("\nIT with Salary > 50000:")
+print(it_high)
+
+# Sort by Salary descending
+sorted_df = df.sort_values('Salary', ascending=False)
+print("\nSorted by Salary:")
+print(sorted_df)</code></pre>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <h4>Q8. Matplotlib Histogram <span class="difficulty medium">Medium</span></h4>
+                    <p class="question-text">Create a histogram to visualize data distribution.</p>
+                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
+                    <div class="solution">
+                        <pre><code class="language-python">import matplotlib.pyplot as plt
+import numpy as np
+
+# Generate random data
+np.random.seed(42)
+data = np.random.normal(100, 15, 1000)
+
+# Create histogram
+plt.figure(figsize=(10, 6))
+plt.hist(data, bins=30, color='skyblue', edgecolor='black', alpha=0.7)
+
+plt.title('Distribution of Scores', fontsize=14)
+plt.xlabel('Score', fontsize=12)
+plt.ylabel('Frequency', fontsize=12)
+
+# Add mean line
+plt.axvline(data.mean(), color='red', linestyle='dashed', linewidth=2, label=f'Mean: {data.mean():.2f}')
+plt.legend()
+
+plt.grid(True, alpha=0.3)
+plt.savefig('histogram.png')
+plt.show()</code></pre>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <h4>Q9. Tkinter Login Form <span class="difficulty hard">Hard</span></h4>
+                    <p class="question-text">Create a login form with username and password validation.</p>
+                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
+                    <div class="solution">
+                        <pre><code class="language-python">import tkinter as tk
+from tkinter import messagebox
+
+# Credentials (in real app, use secure storage)
+VALID_USER = "admin"
+VALID_PASS = "password123"
+
+def login():
+    username = user_entry.get()
+    password = pass_entry.get()
+    
+    if username == VALID_USER and password == VALID_PASS:
+        messagebox.showinfo("Success", f"Welcome, {username}!")
+        root.destroy()  # Close login window
+    else:
+        messagebox.showerror("Error", "Invalid credentials!")
+        pass_entry.delete(0, tk.END)
+
+root = tk.Tk()
+root.title("Login")
+root.geometry("300x150")
+
+tk.Label(root, text="Username:").grid(row=0, column=0, padx=10, pady=10)
+user_entry = tk.Entry(root, width=20)
+user_entry.grid(row=0, column=1, padx=10, pady=10)
+
+tk.Label(root, text="Password:").grid(row=1, column=0, padx=10, pady=10)
+pass_entry = tk.Entry(root, width=20, show="*")
+pass_entry.grid(row=1, column=1, padx=10, pady=10)
+
+tk.Button(root, text="Login", command=login, width=15).grid(row=2, column=0, columnspan=2, pady=15)
+
+root.mainloop()</code></pre>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <h4>Q10. Scatter Plot with Trend Line <span class="difficulty hard">Hard</span></h4>
+                    <p class="question-text">Create a scatter plot with a linear regression trend line.</p>
+                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
+                    <div class="solution">
+                        <pre><code class="language-python">import matplotlib.pyplot as plt
+import numpy as np
+
+# Sample data
+x = np.array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+y = np.array([2, 4, 5, 4, 5, 7, 8, 9, 8, 10])
+
+# Calculate trend line
+z = np.polyfit(x, y, 1)
+p = np.poly1d(z)
+
+plt.figure(figsize=(10, 6))
+
+# Scatter plot
+plt.scatter(x, y, color='blue', s=100, label='Data Points')
+
+# Trend line
+plt.plot(x, p(x), color='red', linestyle='--', linewidth=2, label=f'Trend: y = {z[0]:.2f}x + {z[1]:.2f}')
+
+plt.title('Scatter Plot with Trend Line', fontsize=14)
+plt.xlabel('X Values', fontsize=12)
+plt.ylabel('Y Values', fontsize=12)
+plt.legend()
+plt.grid(True, alpha=0.3)
+
+plt.savefig('scatter_trend.png')
+plt.show()</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Extra Topics Questions -->
+            <div class="unit-section" id="extras-practice">
+                <h3><i class="fas fa-plus-circle"></i> Extra Topics</h3>
+
+                <div class="question-card">
+                    <h4>Q1. Exception Handling <span class="difficulty easy">Easy</span></h4>
+                    <p class="question-text">Write a program with proper exception handling for division.</p>
+                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
+                    <div class="solution">
+                        <pre><code class="language-python"># Exception Handling
+def safe_divide(a, b):
+    try:
+        result = a / b
+        return result
+    except ZeroDivisionError:
+        return "Error: Cannot divide by zero!"
+    except TypeError:
+        return "Error: Invalid input types!"
+
+# Test cases
+print(safe_divide(10, 2))    # 5.0
+print(safe_divide(10, 0))    # Error: Cannot divide by zero!
+print(safe_divide("10", 2))  # Error: Invalid input types!
+
+# Multiple exceptions
+try:
+    num = int(input("Enter a number: "))
+    result = 100 / num
+    print(f"Result: {result}")
+except ValueError:
+    print("Please enter a valid integer!")
+except ZeroDivisionError:
+    print("Cannot divide by zero!")
+finally:
+    print("Program completed.")</code></pre>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <h4>Q2. Class and Objects <span class="difficulty medium">Medium</span></h4>
+                    <p class="question-text">Create a Bank Account class with deposit and withdraw methods.</p>
+                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
+                    <div class="solution">
+                        <pre><code class="language-python"># Bank Account Class
+class BankAccount:
+    def __init__(self, owner, balance=0):
+        self.owner = owner
+        self.__balance = balance
+    
+    def deposit(self, amount):
+        if amount > 0:
+            self.__balance += amount
+            print(f"Deposited: ₹{amount}")
+        else:
+            print("Invalid amount!")
+    
+    def withdraw(self, amount):
+        if 0 < amount <= self.__balance:
+            self.__balance -= amount
+            print(f"Withdrawn: ₹{amount}")
+        else:
+            print("Insufficient balance!")
+    
+    def get_balance(self):
+        return self.__balance
+    
+    def __str__(self):
+        return f"Account: {self.owner}, Balance: ₹{self.__balance}"
+
+# Usage
+account = BankAccount("Rishi", 1000)
+print(account)
+account.deposit(500)
+account.withdraw(200)
+print(f"Final Balance: ₹{account.get_balance()}")</code></pre>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <h4>Q3. Inheritance Example <span class="difficulty medium">Medium</span></h4>
+                    <p class="question-text">Create a Shape class with Circle and Rectangle as child classes.</p>
+                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
+                    <div class="solution">
+                        <pre><code class="language-python">import math
+
+class Shape:
+    def area(self):
+        pass
+    def perimeter(self):
+        pass
+
+class Circle(Shape):
+    def __init__(self, radius):
+        self.radius = radius
+    
+    def area(self):
+        return math.pi * self.radius ** 2
+    
+    def perimeter(self):
+        return 2 * math.pi * self.radius
+
+class Rectangle(Shape):
+    def __init__(self, length, width):
+        self.length = length
+        self.width = width
+    
+    def area(self):
+        return self.length * self.width
+    
+    def perimeter(self):
+        return 2 * (self.length + self.width)
+
+# Usage
+shapes = [Circle(5), Rectangle(4, 6)]
+
+for shape in shapes:
+    print(f"{shape.__class__.__name__}:")
+    print(f"  Area: {shape.area():.2f}")
+    print(f"  Perimeter: {shape.perimeter():.2f}")</code></pre>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <h4>Q4. List Comprehension <span class="difficulty easy">Easy</span></h4>
+                    <p class="question-text">Use list comprehension to filter and transform data.</p>
+                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
+                    <div class="solution">
+                        <pre><code class="language-python"># List Comprehension Examples
+
+# 1. Squares of even numbers
+numbers = range(1, 11)
+even_squares = [x**2 for x in numbers if x % 2 == 0]
+print("Even squares:", even_squares)  # [4, 16, 36, 64, 100]
+
+# 2. Uppercase words
+words = ["hello", "world", "python"]
+upper = [w.upper() for w in words]
+print("Uppercase:", upper)
+
+# 3. Filter long words
+sentence = "The quick brown fox jumps over lazy dog"
+long_words = [w for w in sentence.split() if len(w) > 4]
+print("Long words:", long_words)
+
+# 4. Nested comprehension - multiplication table
+table = [[i*j for j in range(1, 6)] for i in range(1, 6)]
+print("Multiplication table:")
+for row in table:
+    print(row)
+
+# 5. Dictionary comprehension
+squares_dict = {x: x**2 for x in range(1, 6)}
+print("Squares dict:", squares_dict)</code></pre>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <h4>Q5. Lambda and Map/Filter <span class="difficulty medium">Medium</span></h4>
+                    <p class="question-text">Use lambda with map and filter functions.</p>
+                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
+                    <div class="solution">
+                        <pre><code class="language-python"># Lambda with map and filter
+
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+# Map: Apply function to all elements
+squared = list(map(lambda x: x**2, numbers))
+print("Squared:", squared)
+
+# Filter: Filter by condition
+evens = list(filter(lambda x: x % 2 == 0, numbers))
+print("Evens:", evens)
+
+# Combined: Square of even numbers
+even_squares = list(map(lambda x: x**2, filter(lambda x: x % 2 == 0, numbers)))
+print("Even squares:", even_squares)
+
+# Sort with custom key
+students = [("Alice", 85), ("Bob", 92), ("Charlie", 78)]
+by_grade = sorted(students, key=lambda s: s[1], reverse=True)
+print("By grade:", by_grade)
+
+# Reduce
+from functools import reduce
+product = reduce(lambda a, b: a * b, [1, 2, 3, 4, 5])
+print("Product:", product)  # 120</code></pre>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <h4>Q6. Decorator with Arguments <span class="difficulty hard">Hard</span></h4>
+                    <p class="question-text">Create a decorator that takes arguments and logs function calls.</p>
+                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
+                    <div class="solution">
+                        <pre><code class="language-python"># Decorator with Arguments
+import time
+from functools import wraps
+
+def repeat(times):
+    """Decorator that repeats function execution"""
+    def decorator(func):
+        @wraps(func)
+        def wrapper(*args, **kwargs):
+            results = []
+            for _ in range(times):
+                results.append(func(*args, **kwargs))
+            return results
+        return wrapper
+    return decorator
+
+def log_execution(log_args=True, log_time=True):
+    """Decorator that logs function execution"""
+    def decorator(func):
+        @wraps(func)
+        def wrapper(*args, **kwargs):
+            if log_args:
+                print(f"Calling {func.__name__} with args={args}, kwargs={kwargs}")
+            
+            start = time.time()
+            result = func(*args, **kwargs)
+            end = time.time()
+            
+            if log_time:
+                print(f"{func.__name__} took {end-start:.4f} seconds")
+            
+            return result
+        return wrapper
+    return decorator
+
+@repeat(3)
+def greet(name):
+    return f"Hello, {name}!"
+
+@log_execution(log_args=True, log_time=True)
+def slow_add(a, b):
+    time.sleep(0.1)
+    return a + b
+
+print(greet("Alice"))
+print(slow_add(5, 3))</code></pre>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <h4>Q7. Generator for Fibonacci Sequence <span class="difficulty medium">Medium</span></h4>
+                    <p class="question-text">Create a generator function for Fibonacci numbers and use it.</p>
+                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
+                    <div class="solution">
+                        <pre><code class="language-python"># Generator Functions
+
+def fibonacci_generator(limit):
+    """Generate Fibonacci numbers up to limit"""
+    a, b = 0, 1
+    while a <= limit:
+        yield a
+        a, b = b, a + b
+
+def prime_generator(limit):
+    """Generate prime numbers up to limit"""
+    def is_prime(n):
+        if n < 2:
+            return False
+        for i in range(2, int(n**0.5) + 1):
+            if n % i == 0:
+                return False
+        return True
+    
+    for num in range(2, limit + 1):
+        if is_prime(num):
+            yield num
+
+def infinite_counter(start=0, step=1):
+    """Infinite counter generator"""
+    current = start
+    while True:
+        yield current
+        current += step
+
+# Using generators
+print("Fibonacci up to 100:")
+for fib in fibonacci_generator(100):
+    print(fib, end=" ")
+print()
+
+print("\nPrimes up to 50:")
+primes = list(prime_generator(50))
+print(primes)
+
+# Using infinite generator with limit
+counter = infinite_counter(10, 5)
+for _ in range(5):
+    print(next(counter), end=" ")
+print()
+
+# Generator expression
+squares_gen = (x**2 for x in range(10))
+print("Squares:", list(squares_gen))</code></pre>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <h4>Q8. Regular Expression Patterns <span class="difficulty hard">Hard</span></h4>
+                    <p class="question-text">Use regex to validate and extract data from text.</p>
+                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
+                    <div class="solution">
+                        <pre><code class="language-python"># Advanced Regular Expressions
+import re
+
+# Email validation
+def validate_email(email):
+    pattern = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
+    return bool(re.match(pattern, email))
+
+# Phone number extraction
+def extract_phones(text):
+    pattern = r'\b(?:\+91[-.]?)?\d{10}\b|\b\d{3}[-.]?\d{3}[-.]?\d{4}\b'
+    return re.findall(pattern, text)
+
+# URL extraction
+def extract_urls(text):
+    pattern = r'https?://(?:www\.)?[\w.-]+(?:\.[a-z]{2,})+[/\w.-]*'
+    return re.findall(pattern, text)
+
+# Password validation
+def validate_password(password):
+    """At least 8 chars, 1 upper, 1 lower, 1 digit, 1 special"""
+    patterns = [
+        r'.{8,}',           # At least 8 characters
+        r'[A-Z]',           # At least one uppercase
+        r'[a-z]',           # At least one lowercase
+        r'\d',              # At least one digit
+        r'[!@#$%^&*(),.?]'  # At least one special character
+    ]
+    return all(re.search(p, password) for p in patterns)
+
+# Testing
+emails = ["test@email.com", "invalid@", "user.name@domain.co.in"]
+for email in emails:
+    print(f"{email}: {validate_email(email)}")
+
+text = "Call me at 9876543210 or +91-8765432109"
+print(f"Phones: {extract_phones(text)}")
+
+text2 = "Visit https://www.example.com or http://api.test.org/v1"
+print(f"URLs: {extract_urls(text2)}")
+
+passwords = ["weak", "Strong1!", "MyP@ssw0rd"]
+for pwd in passwords:
+    print(f"{pwd}: {validate_password(pwd)}")</code></pre>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <h4>Q9. Context Manager <span class="difficulty hard">Hard</span></h4>
+                    <p class="question-text">Create a custom context manager using class and contextlib.</p>
+                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
+                    <div class="solution">
+                        <pre><code class="language-python"># Custom Context Managers
+from contextlib import contextmanager
+import time
+
+# Class-based context manager
+class Timer:
+    """Context manager to time code execution"""
+    def __init__(self, name="Timer"):
+        self.name = name
+        self.elapsed = 0
+    
+    def __enter__(self):
+        self.start = time.time()
+        return self
+    
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        self.elapsed = time.time() - self.start
+        print(f"{self.name}: {self.elapsed:.4f} seconds")
+        return False  # Don't suppress exceptions
+
+# Using contextlib decorator
+@contextmanager
+def file_manager(filename, mode):
+    """Custom file manager with logging"""
+    print(f"Opening {filename} in {mode} mode")
+    try:
+        f = open(filename, mode)
+        yield f
+    except Exception as e:
+        print(f"Error: {e}")
+        raise
+    finally:
+        f.close()
+        print(f"Closed {filename}")
+
+@contextmanager
+def temporary_change(obj, attr, new_value):
+    """Temporarily change an attribute"""
+    old_value = getattr(obj, attr)
+    setattr(obj, attr, new_value)
+    try:
+        yield
+    finally:
+        setattr(obj, attr, old_value)
+
+# Using Timer
+with Timer("Loop") as t:
+    total = sum(range(1000000))
+print(f"Result: {total}")
+
+# Using file_manager
+with file_manager("test.txt", "w") as f:
+    f.write("Hello, World!")
+
+# Nested context managers
+with Timer("Multiple operations"):
+    with file_manager("output.txt", "w") as f:
+        f.write("Testing context managers")</code></pre>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <h4>Q10. Multiple Inheritance and MRO <span class="difficulty hard">Hard</span></h4>
+                    <p class="question-text">Implement multiple inheritance and understand Method Resolution Order (MRO).</p>
+                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
+                    <div class="solution">
+                        <pre><code class="language-python"># Multiple Inheritance and MRO
+
+class Animal:
+    def __init__(self, name):
+        self.name = name
+        print("Animal __init__")
+    
+    def speak(self):
+        return "Some sound"
+    
+    def info(self):
+        return f"Animal: {self.name}"
+
+class Flyable:
+    def __init__(self):
+        print("Flyable __init__")
+    
+    def fly(self):
+        return f"{self.name} is flying!"
+    
+    def info(self):
+        return "Can fly"
+
+class Swimmable:
+    def __init__(self):
+        print("Swimmable __init__")
+    
+    def swim(self):
+        return f"{self.name} is swimming!"
+    
+    def info(self):
+        return "Can swim"
+
+class Duck(Animal, Flyable, Swimmable):
+    def __init__(self, name):
+        super().__init__(name)  # Calls Animal.__init__
+        print("Duck __init__")
+    
+    def speak(self):
+        return "Quack!"
+    
+    def info(self):
+        # Combine parent info
+        return f"{super().info()}, {Flyable.info(self)}, {Swimmable.info(self)}"
+
+# Creating instance
+duck = Duck("Donald")
+
+print(f"\nName: {duck.name}")
+print(f"Speak: {duck.speak()}")
+print(f"Fly: {duck.fly()}")
+print(f"Swim: {duck.swim()}")
+print(f"Info: {duck.info()}")
+
+# Method Resolution Order
+print(f"\nMRO: {Duck.__mro__}")
+print(f"MRO (names): {[c.__name__ for c in Duck.__mro__]}")
+
+# Using super() with MRO
+class A:
+    def method(self):
+        print("A.method")
+
+class B(A):
+    def method(self):
+        print("B.method")
+        super().method()
+
+class C(A):
+    def method(self):
+        print("C.method")
+        super().method()
+
+class D(B, C):
+    def method(self):
+        print("D.method")
+        super().method()
+
+print("\nDiamond inheritance:")
+d = D()
+d.method()
+print(f"D MRO: {[c.__name__ for c in D.__mro__]}")</code></pre>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fab fa-python"></i> Python Hub</h3>
+                    <p>Your complete guide to mastering Python programming.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="unit1.html">Unit I</a></li>
+                        <li><a href="unit2.html">Unit II</a></li>
+                        <li><a href="unit3.html">Unit III</a></li>
+                        <li><a href="unit4.html">Unit IV</a></li>
+                        <li><a href="unit5.html">Unit V</a></li>
+                        <li><a href="extras.html">Extras</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Python Learning Hub. Made with <i class="fas fa-heart"></i></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+    <script src="js/script.js"></script>
+    <script>
+        function toggleSolution(btn) {
+            const solution = btn.nextElementSibling;
+            solution.classList.toggle('show');
+            btn.textContent = solution.classList.contains('show') ? 'Hide Solution' : 'Show Solution';
+            Prism.highlightAll();
+        }
+    </script>
+</body>
+</html>
