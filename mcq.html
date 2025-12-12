@@ -23,20 +23,20 @@
                 <li><a href="unit3.html">Unit III</a></li>
                 <li><a href="unit4.html">Unit IV</a></li>
                 <li><a href="unit5.html">Unit V</a></li>
+                <li><a href="mcq.html" class="active">MCQ</a></li>
                 <li class="nav-divider"></li>
                 <li><a href="extras.html">Extras</a></li>
                 <li><a href="practice.html">Practice</a></li>
                 <li><a href="theory.html">Theory</a></li>
                 <li><a href="comparisons.html">Compare</a></li>
                 <li><a href="errors.html">Errors</a></li>
-                <li><a href="mcq.html" class="active">MCQ</a></li>
             </ul>
         </div>
     </nav>
 
     <header class="unit-header">
         <h1><i class="fas fa-tasks"></i> MCQ Question Bank</h1>
-        <p>100+ Multiple Choice Questions for Exam Preparation</p>
+        <p>200 Multiple Choice Questions for Exam Preparation</p>
     </header>
 
     <main class="unit-content">
@@ -54,7 +54,7 @@
                     </select>
                 </div>
                 <div class="mcq-stats">
-                    <span id="mcqCount">Showing 100 questions</span>
+                    <span id="mcqCount">Showing 200 questions</span>
                 </div>
             </div>
 
@@ -191,26 +191,149 @@
             { unit: 5, q: "What is inheritance?", options: ["Creating objects", "Deriving from parent class", "Creating functions", "Importing modules"], answer: 1 },
             { unit: 5, q: "How to inherit from a class?", options: ["class Child extends Parent:", "class Child(Parent):", "class Child inherit Parent:", "class Child <- Parent:"], answer: 1 },
             { unit: 5, q: "What is method overriding?", options: ["Creating new method", "Replacing parent method", "Deleting method", "Renaming method"], answer: 1 },
-            { unit: 5, q: "What is super() used for?", options: ["Create superclass", "Call parent class methods", "Override methods", "Create objects"], answer: 1 }
+            { unit: 5, q: "What is super() used for?", options: ["Create superclass", "Call parent class methods", "Override methods", "Create objects"], answer: 1 },
+
+            // Unit 1 - Additional Questions (20 more)
+            { unit: 1, q: "What is the output of print(2 ** 3 ** 2)?", options: ["64", "512", "8", "6"], answer: 1 },
+            { unit: 1, q: "Which is NOT a valid variable name?", options: ["_var", "var_1", "1var", "Var"], answer: 2 },
+            { unit: 1, q: "What is the output of print('Hello'[1])?", options: ["H", "e", "l", "Error"], answer: 1 },
+            { unit: 1, q: "What does len('Python') return?", options: ["5", "6", "7", "Error"], answer: 1 },
+            { unit: 1, q: "Which method converts to lowercase?", options: ["lower()", "lowercase()", "toLower()", "caseLower()"], answer: 0 },
+            { unit: 1, q: "What is the output of 'ab' * 2?", options: ["ab2", "abab", "4", "Error"], answer: 1 },
+            { unit: 1, q: "Which is a valid float literal?", options: ["3.14", ".5", "2.", "All of the above"], answer: 3 },
+            { unit: 1, q: "What does ord('A') return?", options: ["1", "65", "97", "A"], answer: 1 },
+            { unit: 1, q: "What does chr(97) return?", options: ["97", "'97'", "'a'", "'A'"], answer: 2 },
+            { unit: 1, q: "How do you check Python version?", options: ["python --version", "python -v", "python version", "Both A and B"], answer: 0 },
+            { unit: 1, q: "What is PEP 8?", options: ["Python Error Protocol", "Style Guide", "Package Manager", "Debugger"], answer: 1 },
+            { unit: 1, q: "Which is used for string formatting?", options: ["f-strings", ".format()", "% operator", "All of the above"], answer: 3 },
+            { unit: 1, q: "What is the output of print(f'{5:02d}')?", options: ["5", "05", "50", "Error"], answer: 1 },
+            { unit: 1, q: "What is the escape sequence for newline?", options: ["\\t", "\\n", "\\r", "\\b"], answer: 1 },
+            { unit: 1, q: "What is raw string in Python?", options: ["r'string'", "raw('string')", "String without escapes", "Both A and C"], answer: 3 },
+            { unit: 1, q: "What is the output of print(0.1 + 0.2 == 0.3)?", options: ["True", "False", "Error", "None"], answer: 1 },
+            { unit: 1, q: "Which module is used for mathematical operations?", options: ["mathematics", "math", "maths", "calc"], answer: 1 },
+            { unit: 1, q: "What is the output of print(abs(-5))?", options: ["-5", "5", "0", "Error"], answer: 1 },
+            { unit: 1, q: "What does round(3.7) return?", options: ["3", "4", "3.0", "4.0"], answer: 1 },
+            { unit: 1, q: "What is floor division operator?", options: ["/", "//", "%", "**"], answer: 1 },
+
+            // Unit 2 - Additional Questions (20 more)
+            { unit: 2, q: "What is the output of: for i in 'abc': print(i)", options: ["abc", "a b c", "a\\nb\\nc", "Error"], answer: 2 },
+            { unit: 2, q: "What does enumerate() return?", options: ["List", "Tuple of (index, value)", "Dictionary", "Set"], answer: 1 },
+            { unit: 2, q: "What is the output of: print(1 if True else 0)", options: ["True", "1", "0", "Error"], answer: 1 },
+            { unit: 2, q: "How to check if x is between 1 and 10?", options: ["1 < x < 10", "x > 1 and x < 10", "Both A and B", "range(1,10).contains(x)"], answer: 2 },
+            { unit: 2, q: "What is the output of: any([False, False, True])", options: ["True", "False", "Error", "None"], answer: 0 },
+            { unit: 2, q: "What is the output of: all([True, True, False])", options: ["True", "False", "Error", "None"], answer: 1 },
+            { unit: 2, q: "What is zip() function used for?", options: ["Compress files", "Combine iterables", "Create archive", "Loop faster"], answer: 1 },
+            { unit: 2, q: "What is the output of: print(list(range(5,0,-1)))", options: ["[5,4,3,2,1]", "[5,4,3,2,1,0]", "[4,3,2,1,0]", "[1,2,3,4,5]"], answer: 0 },
+            { unit: 2, q: "Which is correct for empty condition check?", options: ["if x:", "if x != '':", "if len(x) > 0:", "All are valid"], answer: 3 },
+            { unit: 2, q: "What is a ternary operator in Python?", options: ["?:", "if-else expression", "switch-case", "None exists"], answer: 1 },
+            { unit: 2, q: "What is the output of: bool([])", options: ["True", "False", "None", "Error"], answer: 1 },
+            { unit: 2, q: "What is the output of: bool([0])", options: ["True", "False", "None", "Error"], answer: 0 },
+            { unit: 2, q: "Which value is NOT considered False?", options: ["0", "None", "1", "''"], answer: 2 },
+            { unit: 2, q: "What is match-case statement?", options: ["Pattern matching (3.10+)", "Try-except alternative", "Loop type", "Function definition"], answer: 0 },
+            { unit: 2, q: "What is the output of: 5 == 5.0", options: ["True", "False", "Error", "None"], answer: 0 },
+            { unit: 2, q: "What is the output of: 5 is 5.0", options: ["True", "False", "Error", "None"], answer: 1 },
+            { unit: 2, q: "What is chained comparison?", options: ["a < b < c", "a < b and b < c", "Both represent same", "None"], answer: 2 },
+            { unit: 2, q: "What is the output of: not not True", options: ["True", "False", "Error", "None"], answer: 0 },
+            { unit: 2, q: "What is assertion in Python?", options: ["Error type", "Debug statement", "Loop type", "Function"], answer: 1 },
+            { unit: 2, q: "What happens when assert fails?", options: ["Returns False", "AssertionError", "Warning", "Nothing"], answer: 1 },
+
+            // Unit 3 - Additional Questions (20 more)
+            { unit: 3, q: "What is the output of: [1,2,3].index(2)?", options: ["1", "2", "0", "Error"], answer: 0 },
+            { unit: 3, q: "What does list.count(x) return?", options: ["Index of x", "Number of occurrences", "Boolean", "New list"], answer: 1 },
+            { unit: 3, q: "How to insert at beginning of list?", options: ["list.insert(0, x)", "list.prepend(x)", "list.add(0, x)", "list[0] = x"], answer: 0 },
+            { unit: 3, q: "What is the output of: 'hello'.split()?", options: ["['hello']", "['h','e','l','l','o']", "'hello'", "Error"], answer: 0 },
+            { unit: 3, q: "What does ' '.join(['a','b']) return?", options: ["'ab'", "'a b'", "['a b']", "Error"], answer: 1 },
+            { unit: 3, q: "What is a frozenset?", options: ["Frozen list", "Immutable set", "Ordered set", "Dictionary type"], answer: 1 },
+            { unit: 3, q: "What is the output of: {1,2} & {2,3}?", options: ["{1,2,3}", "{2}", "{1,3}", "Error"], answer: 1 },
+            { unit: 3, q: "What is the output of: {1,2} | {2,3}?", options: ["{1,2,3}", "{2}", "{1,3}", "Error"], answer: 0 },
+            { unit: 3, q: "What does dict.get('key', 'default') do?", options: ["Always returns 'default'", "Returns value or 'default'", "Creates new key", "Error if key missing"], answer: 1 },
+            { unit: 3, q: "How to check if key exists in dict?", options: ["'key' in dict", "dict.has('key')", "dict.exists('key')", "dict.contains('key')"], answer: 0 },
+            { unit: 3, q: "What is dict.items()?", options: ["List of keys", "List of values", "List of (key,value) tuples", "Dictionary copy"], answer: 2 },
+            { unit: 3, q: "What is a deque?", options: ["Double queue", "Double-ended queue", "Deck of cards", "Debug queue"], answer: 1 },
+            { unit: 3, q: "Which module provides deque?", options: ["queue", "collections", "itertools", "functools"], answer: 1 },
+            { unit: 3, q: "What is Counter in collections?", options: ["Loop counter", "Dict subclass for counting", "Timer", "Iterator"], answer: 1 },
+            { unit: 3, q: "What is defaultdict?", options: ["Dict with default value", "Empty dict", "Ordered dict", "Frozen dict"], answer: 0 },
+            { unit: 3, q: "What is namedtuple?", options: ["Tuple with names", "Dict alternative", "Named function", "Class type"], answer: 0 },
+            { unit: 3, q: "How to copy a list?", options: ["list.copy()", "list[:]", "list(original)", "All of the above"], answer: 3 },
+            { unit: 3, q: "What is shallow copy?", options: ["Copies references", "Copies everything", "No copy", "Error"], answer: 0 },
+            { unit: 3, q: "What is deep copy?", options: ["Copies references", "Copies recursively", "Shallow copy", "Surface copy"], answer: 1 },
+            { unit: 3, q: "Which module provides deepcopy?", options: ["collections", "copy", "deepcopy", "itertools"], answer: 1 },
+
+            // Unit 4 - Additional Questions (20 more)
+            { unit: 4, q: "What is a decorator?", options: ["Function that modifies function", "Class decorator", "Both A and B", "Variable type"], answer: 2 },
+            { unit: 4, q: "What is @staticmethod?", options: ["Instance method", "Method without self", "Class method", "Abstract method"], answer: 1 },
+            { unit: 4, q: "What is @classmethod?", options: ["Instance method", "Method with cls", "Static method", "Abstract method"], answer: 1 },
+            { unit: 4, q: "What is a generator?", options: ["Function with return", "Function with yield", "Class type", "Module type"], answer: 1 },
+            { unit: 4, q: "What does yield do?", options: ["Returns and exits", "Returns and pauses", "Raises error", "Imports module"], answer: 1 },
+            { unit: 4, q: "What is a generator expression?", options: ["(x for x in list)", "[x for x in list]", "{x for x in list}", "All of the above"], answer: 0 },
+            { unit: 4, q: "What is the advantage of generators?", options: ["Faster execution", "Memory efficient", "More readable", "Type safe"], answer: 1 },
+            { unit: 4, q: "What is closure in Python?", options: ["Closing file", "Nested function with free variables", "End of program", "Error handling"], answer: 1 },
+            { unit: 4, q: "What is higher-order function?", options: ["Function in upper case", "Function taking/returning function", "Recursive function", "Main function"], answer: 1 },
+            { unit: 4, q: "What is map() function?", options: ["Creates dictionary", "Applies function to iterable", "Creates list", "Geographic mapping"], answer: 1 },
+            { unit: 4, q: "What is filter() function?", options: ["Removes duplicates", "Filters based on condition", "Sorts list", "Maps values"], answer: 1 },
+            { unit: 4, q: "What is reduce() from functools?", options: ["Shrinks list", "Accumulates values", "Removes elements", "Divides list"], answer: 1 },
+            { unit: 4, q: "What is partial function?", options: ["Incomplete function", "Function with preset arguments", "Half function", "Error function"], answer: 1 },
+            { unit: 4, q: "Which module provides partial?", options: ["functools", "itertools", "collections", "operator"], answer: 0 },
+            { unit: 4, q: "What is __all__ in module?", options: ["List of public names", "All variables", "All functions", "All classes"], answer: 0 },
+            { unit: 4, q: "What is relative import?", options: ["import module", "from . import module", "Both", "Neither"], answer: 1 },
+            { unit: 4, q: "What is virtual environment?", options: ["Simulated Python", "Isolated Python environment", "Cloud Python", "Virtual machine"], answer: 1 },
+            { unit: 4, q: "How to create virtual environment?", options: ["python -m venv name", "pip create venv", "virtualenv auto", "python new env"], answer: 0 },
+            { unit: 4, q: "What is requirements.txt?", options: ["Documentation", "List of dependencies", "Config file", "Log file"], answer: 1 },
+            { unit: 4, q: "How to install from requirements.txt?", options: ["pip install requirements.txt", "pip install -r requirements.txt", "pip -r install requirements.txt", "pip require requirements.txt"], answer: 1 },
+
+            // Unit 5 - Additional Questions (20 more)
+            { unit: 5, q: "What is binary file mode?", options: ["'b'", "'rb' or 'wb'", "'binary'", "'bin'"], answer: 1 },
+            { unit: 5, q: "What is the output of: open('file.txt').name?", options: ["File content", "File name", "File object", "Error"], answer: 1 },
+            { unit: 5, q: "What does file.seek(0) do?", options: ["Closes file", "Moves to beginning", "Reads file", "Writes file"], answer: 1 },
+            { unit: 5, q: "What does file.tell() return?", options: ["File content", "Current position", "File size", "File name"], answer: 1 },
+            { unit: 5, q: "Which module handles CSV files?", options: ["csv", "file", "text", "data"], answer: 0 },
+            { unit: 5, q: "Which module handles JSON?", options: ["json", "data", "text", "parse"], answer: 0 },
+            { unit: 5, q: "What is json.dumps()?", options: ["Reads JSON", "Converts to JSON string", "Parses JSON", "Dumps file"], answer: 1 },
+            { unit: 5, q: "What is json.loads()?", options: ["Loads file", "Parses JSON string", "Writes JSON", "Converts to JSON"], answer: 1 },
+            { unit: 5, q: "What is pickle module used for?", options: ["Save vegetables", "Object serialization", "File compression", "Text processing"], answer: 1 },
+            { unit: 5, q: "What is encapsulation?", options: ["Hiding implementation", "Code reuse", "Method overriding", "Creating objects"], answer: 0 },
+            { unit: 5, q: "What is polymorphism?", options: ["Many forms", "Single form", "No form", "Two forms"], answer: 0 },
+            { unit: 5, q: "What is abstraction?", options: ["Hiding complexity", "Showing details", "Creating objects", "Destroying objects"], answer: 0 },
+            { unit: 5, q: "What is multiple inheritance?", options: ["Many objects", "Inheriting from multiple classes", "Creating copies", "Method overriding"], answer: 1 },
+            { unit: 5, q: "What is MRO in Python?", options: ["Method Resolution Order", "Multiple Return Objects", "Main Run Order", "Module Reference Object"], answer: 0 },
+            { unit: 5, q: "What is __str__ method?", options: ["Creates string", "Returns string representation", "Converts to string", "Prints string"], answer: 1 },
+            { unit: 5, q: "What is __repr__ method?", options: ["Official string representation", "Informal string", "Creates copy", "Removes object"], answer: 0 },
+            { unit: 5, q: "What is @property decorator?", options: ["Creates property", "Getter method decorator", "Setter method", "Class property"], answer: 1 },
+            { unit: 5, q: "What is a private attribute?", options: ["_var", "__var", "Both A and B", "private var"], answer: 2 },
+            { unit: 5, q: "What is name mangling?", options: ["Renaming variables", "Converting __attr to _Class__attr", "Obfuscation", "Encryption"], answer: 1 },
+            { unit: 5, q: "What is an abstract class?", options: ["Incomplete class", "Cannot be instantiated", "Both A and B", "Complete class"], answer: 2 }
         ];
 
         let answeredQuestions = {};
 
         function renderMCQ(filter = 'all') {
             const container = document.getElementById('mcqContainer');
-            const filtered = filter === 'all' ? mcqQuestions : mcqQuestions.filter(q => q.unit == filter);
+            let filtered = filter === 'all' ? [...mcqQuestions] : mcqQuestions.filter(q => q.unit == filter);
+            
+            // Sort by unit so all questions from each unit are grouped together
+            if (filter === 'all') {
+                filtered.sort((a, b) => a.unit - b.unit);
+            }
             
             document.getElementById('mcqCount').textContent = `Showing ${filtered.length} questions`;
+            
+            // Group questions by unit for proper numbering within each unit
+            let unitCounters = {};
             
             container.innerHTML = filtered.map((q, idx) => {
                 const originalIdx = mcqQuestions.indexOf(q);
                 const answered = answeredQuestions[originalIdx];
                 const isCorrect = answered === q.answer;
                 
+                // Track question number within each unit
+                if (!unitCounters[q.unit]) unitCounters[q.unit] = 0;
+                unitCounters[q.unit]++;
+                const questionNum = unitCounters[q.unit];
+                
                 return `
                 <div class="mcq-item ${answered !== undefined ? (isCorrect ? 'correct' : 'incorrect') : ''}" data-idx="${originalIdx}">
                     <div class="mcq-unit-badge">Unit ${q.unit}</div>
-                    <p class="mcq-question">${idx + 1}. ${q.q}</p>
+                    <p class="mcq-question">${questionNum}. ${q.q}</p>
                     <div class="mcq-options">
                         ${q.options.map((opt, optIdx) => `
                             <label class="mcq-option ${answered === optIdx ? 'selected' : ''} ${answered !== undefined && optIdx === q.answer ? 'correct-answer' : ''}">
