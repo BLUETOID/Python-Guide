@@ -3,19 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn Python programming from basics to advanced with interactive quizzes, 200 MCQ questions, practice exercises, and comprehensive tutorials covering 5 units.">
     <title>Python Learning Hub - Complete Python Course</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
 </head>
 <body>
-    <nav class="navbar">
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
         <div class="nav-container">
-            <a href="index.html" class="logo">
-                <i class="fab fa-python"></i> Python Hub
+            <a href="index.html" class="logo" aria-label="Python Hub Home">
+                <i class="fab fa-python" aria-hidden="true"></i> Python Hub
             </a>
-            <button class="nav-toggle" id="navToggle">
-                <i class="fas fa-bars"></i>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navMenu">
+                <i class="fas fa-bars" aria-hidden="true"></i>
             </button>
             <ul class="nav-menu" id="navMenu">
                 <li><a href="index.html" class="active">Home</a></li>
@@ -35,9 +36,10 @@
         </div>
     </nav>
 
+    <main id="main-content">
     <header class="hero">
         <div class="hero-content">
-            <h1><i class="fab fa-python"></i> Python Learning Hub</h1>
+            <h1><i class="fab fa-python" aria-hidden="true"></i> Python Learning Hub</h1>
             <p>Master Python Programming from Basics to Advanced</p>
             <div class="hero-cta">
                 <a href="#units" class="btn btn-primary">Start Learning</a>
@@ -180,6 +182,7 @@ learn_python()
             </div>
         </div>
     </section>
+    </main>
 
     <footer class="footer">
         <div class="container">

@@ -3,18 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="200 multiple choice questions for Python exam preparation across 5 units">
     <title>MCQ Question Bank - Python Learning Hub</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <nav class="navbar">
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
         <div class="nav-container">
-            <a href="index.html" class="logo">
-                <i class="fab fa-python"></i> Python Hub
+            <a href="index.html" class="logo" aria-label="Python Hub Home">
+                <i class="fab fa-python" aria-hidden="true"></i> Python Hub
             </a>
-            <button class="nav-toggle" id="navToggle">
-                <i class="fas fa-bars"></i>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navMenu">
+                <i class="fas fa-bars" aria-hidden="true"></i>
             </button>
             <ul class="nav-menu" id="navMenu">
                 <li><a href="index.html">Home</a></li>
@@ -39,7 +40,7 @@
         <p>200 Multiple Choice Questions for Exam Preparation</p>
     </header>
 
-    <main class="unit-content">
+    <main id="main-content" class="unit-content">
         <div class="container">
             <div class="mcq-controls">
                 <div class="mcq-filter">

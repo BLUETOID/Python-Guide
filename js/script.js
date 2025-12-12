@@ -135,13 +135,15 @@ const navMenu = document.getElementById('navMenu');
 
 if (navToggle && navMenu) {
     navToggle.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
+        const isExpanded = navMenu.classList.toggle('active');
+        navToggle.setAttribute('aria-expanded', isExpanded);
     });
 
     // Close menu when clicking a link
     navMenu.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => {
             navMenu.classList.remove('active');
+            navToggle.setAttribute('aria-expanded', 'false');
         });
     });
 }
@@ -149,7 +151,8 @@ if (navToggle && navMenu) {
 // ===== Scroll to Top Button =====
 const scrollTopBtn = document.createElement('button');
 scrollTopBtn.className = 'scroll-top';
-scrollTopBtn.innerHTML = '<i class="fas fa-arrow-up"></i>';
+scrollTopBtn.innerHTML = '<i class="fas fa-arrow-up" aria-hidden="true"></i>';
+scrollTopBtn.setAttribute('aria-label', 'Scroll to top');
 document.body.appendChild(scrollTopBtn);
 
 window.addEventListener('scroll', () => {
