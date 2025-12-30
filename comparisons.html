@@ -126,6 +126,13 @@
                 <a href="#args">*args vs **kwargs</a>
                 <a href="#methods">Methods Comparison</a>
                 <a href="#read-methods">File Read Methods</a>
+                <a href="#local-global">Local vs Global</a>
+                <a href="#shallow-deep">Shallow vs Deep Copy</a>
+                <a href="#func-method">Function vs Method</a>
+                <a href="#remove-del-pop">remove vs del vs pop</a>
+                <a href="#list-array">List vs NumPy Array</a>
+                <a href="#module-package">Module vs Package</a>
+                <a href="#recursion-iteration">Recursion vs Iteration</a>
             </div>
 
             <!-- List vs Tuple -->
@@ -171,6 +178,26 @@
                         <td><strong>Dictionary Key</strong></td>
                         <td class="feature-no">Cannot be used</td>
                         <td class="feature-yes">Can be used (hashable)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Iteration Speed</strong></td>
+                        <td>Slightly slower</td>
+                        <td class="feature-yes">Faster iteration</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Built-in Functions</strong></td>
+                        <td>sort(), reverse(), append()</td>
+                        <td>count(), index() only</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Nesting</strong></td>
+                        <td>Can contain any type</td>
+                        <td>Can contain any type</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Creation</strong></td>
+                        <td><code>list()</code> or <code>[]</code></td>
+                        <td><code>tuple()</code> or <code>()</code></td>
                     </tr>
                 </table>
             </div>
@@ -227,6 +254,24 @@
                         <td>O(1) - fast</td>
                         <td>O(1) - fast</td>
                     </tr>
+                    <tr>
+                        <td><strong>Memory Usage</strong></td>
+                        <td>Moderate</td>
+                        <td>Higher (hash table)</td>
+                        <td>Higher (hash table)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Empty Creation</strong></td>
+                        <td><code>[]</code></td>
+                        <td><code>set()</code> (not {})</td>
+                        <td><code>{}</code></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Comprehension</strong></td>
+                        <td><code>[x for x in...]</code></td>
+                        <td><code>{x for x in...}</code></td>
+                        <td><code>{k:v for...}</code></td>
+                    </tr>
                 </table>
             </div>
 
@@ -268,6 +313,21 @@
                         <td><strong>Example Use</strong></td>
                         <td>Print 1 to 10</td>
                         <td>Keep asking until valid input</td>
+                    </tr>
+                    <tr>
+                        <td><strong>else Clause</strong></td>
+                        <td class="feature-yes">Supported</td>
+                        <td class="feature-yes">Supported</td>
+                    </tr>
+                    <tr>
+                        <td><strong>break/continue</strong></td>
+                        <td class="feature-yes">Supported</td>
+                        <td class="feature-yes">Supported</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Recommended</strong></td>
+                        <td class="feature-yes">More Pythonic</td>
+                        <td>When needed</td>
                     </tr>
                 </table>
             </div>
@@ -555,6 +615,401 @@
                         <td>Add x at index i</td>
                         <td><code>[1,3].insert(1, 2)</code></td>
                         <td>[1, 2, 3]</td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- Local vs Global Variables -->
+            <div class="comparison-card" id="local-global">
+                <h3><i class="fas fa-globe"></i> Local <span class="vs-badge">VS</span> Global Variables</h3>
+                <table class="comparison-table">
+                    <tr>
+                        <th>Feature</th>
+                        <th>Local Variable</th>
+                        <th>Global Variable</th>
+                    </tr>
+                    <tr>
+                        <td><strong>Scope</strong></td>
+                        <td>Inside function only</td>
+                        <td>Throughout the program</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Declaration</strong></td>
+                        <td>Inside function</td>
+                        <td>Outside all functions</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Lifetime</strong></td>
+                        <td>Until function ends</td>
+                        <td>Until program ends</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Access</strong></td>
+                        <td>Only within function</td>
+                        <td>Anywhere (use <code>global</code> keyword to modify)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Memory</strong></td>
+                        <td>Stack memory</td>
+                        <td>Heap memory</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Best Practice</strong></td>
+                        <td class="feature-yes">Preferred (encapsulation)</td>
+                        <td class="feature-no">Use sparingly</td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- Shallow vs Deep Copy -->
+            <div class="comparison-card" id="shallow-deep">
+                <h3><i class="fas fa-copy"></i> Shallow Copy <span class="vs-badge">VS</span> Deep Copy</h3>
+                <table class="comparison-table">
+                    <tr>
+                        <th>Feature</th>
+                        <th>Shallow Copy</th>
+                        <th>Deep Copy</th>
+                    </tr>
+                    <tr>
+                        <td><strong>Definition</strong></td>
+                        <td>Copies object, references nested objects</td>
+                        <td>Copies object and all nested objects recursively</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Method</strong></td>
+                        <td><code>copy.copy()</code> or <code>list.copy()</code></td>
+                        <td><code>copy.deepcopy()</code></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Nested Objects</strong></td>
+                        <td class="feature-no">Shared with original</td>
+                        <td class="feature-yes">Independent copies</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Speed</strong></td>
+                        <td class="feature-yes">Faster</td>
+                        <td class="feature-no">Slower</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Memory</strong></td>
+                        <td>Less memory</td>
+                        <td>More memory</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Use Case</strong></td>
+                        <td>Simple/flat objects</td>
+                        <td>Nested/complex objects</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" style="background: #f8f9fa;">
+                            <strong>Example:</strong><br>
+                            <code>import copy</code><br>
+                            <code>original = [[1, 2], [3, 4]]</code><br>
+                            <code>shallow = copy.copy(original)</code><br>
+                            <code>deep = copy.deepcopy(original)</code>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- Function vs Method -->
+            <div class="comparison-card" id="func-method">
+                <h3><i class="fas fa-code"></i> Function <span class="vs-badge">VS</span> Method</h3>
+                <table class="comparison-table">
+                    <tr>
+                        <th>Feature</th>
+                        <th>Function</th>
+                        <th>Method</th>
+                    </tr>
+                    <tr>
+                        <td><strong>Definition</strong></td>
+                        <td>Independent block of code</td>
+                        <td>Function associated with object</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Called Using</strong></td>
+                        <td><code>function_name()</code></td>
+                        <td><code>object.method_name()</code></td>
+                    </tr>
+                    <tr>
+                        <td><strong>First Parameter</strong></td>
+                        <td>Explicit arguments only</td>
+                        <td><code>self</code> (implicit reference)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Defined In</strong></td>
+                        <td>Module/script level</td>
+                        <td>Inside a class</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Example</strong></td>
+                        <td><code>len(my_list)</code></td>
+                        <td><code>my_list.append(5)</code></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Access to Object Data</strong></td>
+                        <td>No (unless passed)</td>
+                        <td>Yes (via <code>self</code>)</td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- remove vs del vs pop -->
+            <div class="comparison-card" id="remove-del-pop">
+                <h3><i class="fas fa-trash"></i> remove() <span class="vs-badge">VS</span> del <span class="vs-badge">VS</span> pop()</h3>
+                <table class="comparison-table">
+                    <tr>
+                        <th>Feature</th>
+                        <th>remove()</th>
+                        <th>del</th>
+                        <th>pop()</th>
+                    </tr>
+                    <tr>
+                        <td><strong>Removes By</strong></td>
+                        <td>Value</td>
+                        <td>Index</td>
+                        <td>Index</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Returns Value</strong></td>
+                        <td class="feature-no">No</td>
+                        <td class="feature-no">No</td>
+                        <td class="feature-yes">Yes</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Multiple Items</strong></td>
+                        <td>First occurrence only</td>
+                        <td>Can use slicing</td>
+                        <td>One at a time</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Syntax</strong></td>
+                        <td><code>list.remove(5)</code></td>
+                        <td><code>del list[0]</code></td>
+                        <td><code>list.pop(0)</code></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Default</strong></td>
+                        <td>N/A</td>
+                        <td>N/A</td>
+                        <td>Last element (-1)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Error If Not Found</strong></td>
+                        <td>ValueError</td>
+                        <td>IndexError</td>
+                        <td>IndexError</td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- range vs xrange -->
+            <div class="comparison-card" id="range-xrange">
+                <h3><i class="fas fa-arrows-alt-h"></i> range() <span class="vs-badge">VS</span> xrange() (Python 2/3)</h3>
+                <table class="comparison-table">
+                    <tr>
+                        <th>Feature</th>
+                        <th>range() (Python 3)</th>
+                        <th>xrange() (Python 2)</th>
+                    </tr>
+                    <tr>
+                        <td><strong>Return Type</strong></td>
+                        <td>range object (iterable)</td>
+                        <td>xrange object (generator)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Memory</strong></td>
+                        <td class="feature-yes">Memory efficient</td>
+                        <td class="feature-yes">Memory efficient</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Python 2</strong></td>
+                        <td>Returns list (memory heavy)</td>
+                        <td>Generator-like object</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Python 3</strong></td>
+                        <td>Behaves like xrange</td>
+                        <td class="feature-no">Removed</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Indexing</strong></td>
+                        <td class="feature-yes">Supported</td>
+                        <td class="feature-yes">Supported</td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- List vs NumPy Array -->
+            <div class="comparison-card" id="list-array">
+                <h3><i class="fas fa-th"></i> List <span class="vs-badge">VS</span> NumPy Array</h3>
+                <table class="comparison-table">
+                    <tr>
+                        <th>Feature</th>
+                        <th>Python List</th>
+                        <th>NumPy Array</th>
+                    </tr>
+                    <tr>
+                        <td><strong>Data Types</strong></td>
+                        <td>Heterogeneous (mixed)</td>
+                        <td>Homogeneous (same type)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Memory</strong></td>
+                        <td>More memory</td>
+                        <td class="feature-yes">Less memory (contiguous)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Speed</strong></td>
+                        <td>Slower</td>
+                        <td class="feature-yes">Much faster (vectorized)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Operations</strong></td>
+                        <td>Element by element</td>
+                        <td>Broadcasting supported</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Import Needed</strong></td>
+                        <td class="feature-yes">Built-in</td>
+                        <td><code>import numpy as np</code></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Use Case</strong></td>
+                        <td>General purpose</td>
+                        <td>Scientific computing, ML</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Multi-dimensional</strong></td>
+                        <td>Nested lists (complex)</td>
+                        <td class="feature-yes">Native support (ndarray)</td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- Module vs Package vs Library -->
+            <div class="comparison-card" id="module-package">
+                <h3><i class="fas fa-cubes"></i> Module <span class="vs-badge">VS</span> Package <span class="vs-badge">VS</span> Library</h3>
+                <table class="comparison-table">
+                    <tr>
+                        <th>Feature</th>
+                        <th>Module</th>
+                        <th>Package</th>
+                        <th>Library</th>
+                    </tr>
+                    <tr>
+                        <td><strong>Definition</strong></td>
+                        <td>Single .py file</td>
+                        <td>Directory with __init__.py</td>
+                        <td>Collection of packages</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Contains</strong></td>
+                        <td>Functions, classes, variables</td>
+                        <td>Multiple modules</td>
+                        <td>Multiple packages</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Import</strong></td>
+                        <td><code>import math</code></td>
+                        <td><code>import package.module</code></td>
+                        <td><code>import numpy</code></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Example</strong></td>
+                        <td>math.py, random.py</td>
+                        <td>urllib/, json/</td>
+                        <td>NumPy, Pandas, Django</td>
+                    </tr>
+                    <tr>
+                        <td><strong>__init__.py</strong></td>
+                        <td>Not needed</td>
+                        <td class="feature-yes">Required (can be empty)</td>
+                        <td>Has init in packages</td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- input vs raw_input -->
+            <div class="comparison-card" id="input-rawinput">
+                <h3><i class="fas fa-keyboard"></i> input() <span class="vs-badge">VS</span> raw_input() (Python 2/3)</h3>
+                <table class="comparison-table">
+                    <tr>
+                        <th>Feature</th>
+                        <th>input() Python 3</th>
+                        <th>input() Python 2</th>
+                        <th>raw_input() Python 2</th>
+                    </tr>
+                    <tr>
+                        <td><strong>Returns</strong></td>
+                        <td>String</td>
+                        <td>Evaluated expression</td>
+                        <td>String</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Safety</strong></td>
+                        <td class="feature-yes">Safe</td>
+                        <td class="feature-no">Unsafe (eval)</td>
+                        <td class="feature-yes">Safe</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Python 3</strong></td>
+                        <td>Standard input method</td>
+                        <td>N/A</td>
+                        <td class="feature-no">Removed</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Convert to int</strong></td>
+                        <td><code>int(input())</code></td>
+                        <td>Automatic if typed</td>
+                        <td><code>int(raw_input())</code></td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- Recursion vs Iteration -->
+            <div class="comparison-card" id="recursion-iteration">
+                <h3><i class="fas fa-redo"></i> Recursion <span class="vs-badge">VS</span> Iteration</h3>
+                <table class="comparison-table">
+                    <tr>
+                        <th>Feature</th>
+                        <th>Recursion</th>
+                        <th>Iteration</th>
+                    </tr>
+                    <tr>
+                        <td><strong>Definition</strong></td>
+                        <td>Function calls itself</td>
+                        <td>Loop repeats code</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Termination</strong></td>
+                        <td>Base case</td>
+                        <td>Condition becomes False</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Memory</strong></td>
+                        <td class="feature-no">Uses stack (can overflow)</td>
+                        <td class="feature-yes">Less memory</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Speed</strong></td>
+                        <td>Slower (function calls)</td>
+                        <td class="feature-yes">Faster</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Code</strong></td>
+                        <td>Often simpler, elegant</td>
+                        <td>Can be complex</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Use Case</strong></td>
+                        <td>Trees, factorial, Fibonacci</td>
+                        <td>Most general loops</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Stack Limit</strong></td>
+                        <td class="feature-no">~1000 calls default</td>
+                        <td class="feature-yes">No limit</td>
                     </tr>
                 </table>
             </div>

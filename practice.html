@@ -596,6 +596,277 @@ print(f"GCD (math): {math.gcd(num1, num2)}")
 print(f"LCM (math): {math.lcm(num1, num2)}")</code></pre>
                     </div>
                 </div>
+
+                <div class="question-card">
+                    <h4>Q11. Floyd's Triangle <span class="difficulty medium">Medium</span></h4>
+                    <p class="question-text">Write a program to print Floyd's triangle for n rows.</p>
+                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
+                    <div class="solution">
+                        <pre><code class="language-python"># Floyd's Triangle
+n = int(input("Enter number of rows: "))
+num = 1
+
+for i in range(1, n + 1):
+    for j in range(1, i + 1):
+        print(num, end=" ")
+        num += 1
+    print()
+
+# Output for n=5:
+# 1 
+# 2 3 
+# 4 5 6 
+# 7 8 9 10 
+# 11 12 13 14 15</code></pre>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <h4>Q12. Pascal's Triangle <span class="difficulty hard">Hard</span></h4>
+                    <p class="question-text">Write a program to print Pascal's triangle for n rows.</p>
+                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
+                    <div class="solution">
+                        <pre><code class="language-python"># Pascal's Triangle
+def pascal_triangle(n):
+    for i in range(n):
+        # Print leading spaces
+        print(" " * (n - i - 1), end="")
+        
+        # Calculate and print values
+        val = 1
+        for j in range(i + 1):
+            print(val, end=" ")
+            val = val * (i - j) // (j + 1)
+        print()
+
+n = int(input("Enter number of rows: "))
+pascal_triangle(n)
+
+# Output for n=5:
+#     1 
+#    1 1 
+#   1 2 1 
+#  1 3 3 1 
+# 1 4 6 4 1</code></pre>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <h4>Q13. Diamond Star Pattern <span class="difficulty medium">Medium</span></h4>
+                    <p class="question-text">Write a program to print a diamond pattern using stars.</p>
+                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
+                    <div class="solution">
+                        <pre><code class="language-python"># Diamond Star Pattern
+n = int(input("Enter number of rows: "))
+
+# Upper half
+for i in range(1, n + 1):
+    print(" " * (n - i) + "*" * (2 * i - 1))
+
+# Lower half
+for i in range(n - 1, 0, -1):
+    print(" " * (n - i) + "*" * (2 * i - 1))
+
+# Output for n=4:
+#    *
+#   ***
+#  *****
+# *******
+#  *****
+#   ***
+#    *</code></pre>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <h4>Q14. Hollow Square Pattern <span class="difficulty medium">Medium</span></h4>
+                    <p class="question-text">Write a program to print a hollow square pattern.</p>
+                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
+                    <div class="solution">
+                        <pre><code class="language-python"># Hollow Square Pattern
+n = int(input("Enter size: "))
+
+for i in range(n):
+    for j in range(n):
+        if i == 0 or i == n-1 or j == 0 or j == n-1:
+            print("*", end=" ")
+        else:
+            print(" ", end=" ")
+    print()
+
+# Output for n=5:
+# * * * * * 
+# *       * 
+# *       * 
+# *       * 
+# * * * * *</code></pre>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <h4>Q15. Butterfly Pattern <span class="difficulty hard">Hard</span></h4>
+                    <p class="question-text">Write a program to print a butterfly pattern.</p>
+                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
+                    <div class="solution">
+                        <pre><code class="language-python"># Butterfly Pattern
+n = int(input("Enter size: "))
+
+# Upper half
+for i in range(1, n + 1):
+    print("*" * i + " " * (2 * (n - i)) + "*" * i)
+
+# Lower half
+for i in range(n, 0, -1):
+    print("*" * i + " " * (2 * (n - i)) + "*" * i)
+
+# Output for n=4:
+# *      *
+# **    **
+# ***  ***
+# ********
+# ********
+# ***  ***
+# **    **
+# *      *</code></pre>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <h4>Q16. Number Pyramid <span class="difficulty medium">Medium</span></h4>
+                    <p class="question-text">Write a program to print a centered number pyramid.</p>
+                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
+                    <div class="solution">
+                        <pre><code class="language-python"># Number Pyramid (Centered)
+n = int(input("Enter number of rows: "))
+
+for i in range(1, n + 1):
+    # Print spaces
+    print(" " * (n - i), end="")
+    # Print increasing numbers
+    for j in range(1, i + 1):
+        print(j, end="")
+    # Print decreasing numbers
+    for j in range(i - 1, 0, -1):
+        print(j, end="")
+    print()
+
+# Output for n=5:
+#     1
+#    121
+#   12321
+#  1234321
+# 123454321</code></pre>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <h4>Q17. Alphabet Pattern <span class="difficulty medium">Medium</span></h4>
+                    <p class="question-text">Write a program to print an alphabet triangle pattern.</p>
+                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
+                    <div class="solution">
+                        <pre><code class="language-python"># Alphabet Triangle Pattern
+n = int(input("Enter number of rows: "))
+
+for i in range(1, n + 1):
+    for j in range(i):
+        print(chr(65 + j), end=" ")
+    print()
+
+# Output for n=5:
+# A 
+# A B 
+# A B C 
+# A B C D 
+# A B C D E
+
+# Reverse Alphabet Pattern
+for i in range(n, 0, -1):
+    for j in range(i):
+        print(chr(65 + j), end=" ")
+    print()</code></pre>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <h4>Q18. Sandglass Pattern <span class="difficulty hard">Hard</span></h4>
+                    <p class="question-text">Write a program to print a sandglass (hourglass) pattern.</p>
+                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
+                    <div class="solution">
+                        <pre><code class="language-python"># Sandglass (Hourglass) Pattern
+n = int(input("Enter size: "))
+
+# Upper half (inverted triangle)
+for i in range(n, 0, -1):
+    print(" " * (n - i) + "*" * (2 * i - 1))
+
+# Lower half (triangle)
+for i in range(2, n + 1):
+    print(" " * (n - i) + "*" * (2 * i - 1))
+
+# Output for n=4:
+# *******
+#  *****
+#   ***
+#    *
+#   ***
+#  *****
+# *******</code></pre>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <h4>Q19. Right Arrow Pattern <span class="difficulty medium">Medium</span></h4>
+                    <p class="question-text">Write a program to print a right arrow pattern.</p>
+                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
+                    <div class="solution">
+                        <pre><code class="language-python"># Right Arrow Pattern
+n = int(input("Enter size: "))
+
+# Upper part
+for i in range(n):
+    print(" " * i + "*" * (n - i))
+
+# Lower part
+for i in range(n - 2, -1, -1):
+    print(" " * i + "*" * (n - i))
+
+# Output for n=5:
+# *****
+#  ****
+#   ***
+#    **
+#     *
+#    **
+#   ***
+#  ****
+# *****</code></pre>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <h4>Q20. Zig-Zag Pattern <span class="difficulty hard">Hard</span></h4>
+                    <p class="question-text">Write a program to print a zig-zag pattern.</p>
+                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
+                    <div class="solution">
+                        <pre><code class="language-python"># Zig-Zag Pattern
+n = int(input("Enter number of columns: "))
+
+for i in range(3):
+    for j in range(n):
+        if (i == 0 and j % 4 == 0) or \
+           (i == 1 and j % 2 == 1) or \
+           (i == 2 and j % 4 == 2):
+            print("*", end="")
+        else:
+            print(" ", end="")
+    print()
+
+# Output for n=9:
+# *   *   *
+#  * * * *
+#   *   *</code></pre>
+                    </div>
+                </div>
             </div>
 
             <!-- Unit 3 Questions -->
@@ -2153,6 +2424,333 @@ print("\nDiamond inheritance:")
 d = D()
 d.method()
 print(f"D MRO: {[c.__name__ for c in D.__mro__]}")</code></pre>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <h4>Q11. Binary Search Implementation <span class="difficulty medium">Medium</span></h4>
+                    <p class="question-text">Implement binary search algorithm using iterative and recursive approach.</p>
+                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
+                    <div class="solution">
+                        <pre><code class="language-python"># Binary Search - Iterative and Recursive
+def binary_search_iterative(arr, target):
+    left, right = 0, len(arr) - 1
+    
+    while left <= right:
+        mid = (left + right) // 2
+        if arr[mid] == target:
+            return mid
+        elif arr[mid] < target:
+            left = mid + 1
+        else:
+            right = mid - 1
+    return -1
+
+def binary_search_recursive(arr, target, left, right):
+    if left > right:
+        return -1
+    
+    mid = (left + right) // 2
+    if arr[mid] == target:
+        return mid
+    elif arr[mid] < target:
+        return binary_search_recursive(arr, target, mid + 1, right)
+    else:
+        return binary_search_recursive(arr, target, left, mid - 1)
+
+# Test
+arr = [2, 5, 8, 12, 16, 23, 38, 56, 72, 91]
+target = 23
+
+print(f"Array: {arr}")
+print(f"Target: {target}")
+print(f"Iterative: Found at index {binary_search_iterative(arr, target)}")
+print(f"Recursive: Found at index {binary_search_recursive(arr, target, 0, len(arr)-1)}")</code></pre>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <h4>Q12. Bubble Sort Algorithm <span class="difficulty medium">Medium</span></h4>
+                    <p class="question-text">Implement bubble sort algorithm to sort an array.</p>
+                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
+                    <div class="solution">
+                        <pre><code class="language-python"># Bubble Sort Algorithm
+def bubble_sort(arr):
+    n = len(arr)
+    for i in range(n):
+        swapped = False
+        for j in range(0, n - i - 1):
+            if arr[j] > arr[j + 1]:
+                arr[j], arr[j + 1] = arr[j + 1], arr[j]
+                swapped = True
+        # If no swapping occurred, array is sorted
+        if not swapped:
+            break
+    return arr
+
+# Test
+arr = [64, 34, 25, 12, 22, 11, 90]
+print(f"Original: {arr}")
+print(f"Sorted: {bubble_sort(arr.copy())}")
+
+# Time Complexity: O(n²)
+# Space Complexity: O(1)</code></pre>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <h4>Q13. Selection Sort Algorithm <span class="difficulty medium">Medium</span></h4>
+                    <p class="question-text">Implement selection sort algorithm.</p>
+                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
+                    <div class="solution">
+                        <pre><code class="language-python"># Selection Sort Algorithm
+def selection_sort(arr):
+    n = len(arr)
+    for i in range(n):
+        min_idx = i
+        for j in range(i + 1, n):
+            if arr[j] < arr[min_idx]:
+                min_idx = j
+        arr[i], arr[min_idx] = arr[min_idx], arr[i]
+    return arr
+
+# Test
+arr = [64, 25, 12, 22, 11]
+print(f"Original: {arr}")
+print(f"Sorted: {selection_sort(arr.copy())}")
+
+# Time Complexity: O(n²)
+# Space Complexity: O(1)</code></pre>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <h4>Q14. Insertion Sort Algorithm <span class="difficulty medium">Medium</span></h4>
+                    <p class="question-text">Implement insertion sort algorithm.</p>
+                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
+                    <div class="solution">
+                        <pre><code class="language-python"># Insertion Sort Algorithm
+def insertion_sort(arr):
+    for i in range(1, len(arr)):
+        key = arr[i]
+        j = i - 1
+        while j >= 0 and arr[j] > key:
+            arr[j + 1] = arr[j]
+            j -= 1
+        arr[j + 1] = key
+    return arr
+
+# Test
+arr = [12, 11, 13, 5, 6]
+print(f"Original: {arr}")
+print(f"Sorted: {insertion_sort(arr.copy())}")
+
+# Time Complexity: O(n²)
+# Space Complexity: O(1)
+# Best for small or nearly sorted arrays</code></pre>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <h4>Q15. Recursive Factorial and Sum <span class="difficulty medium">Medium</span></h4>
+                    <p class="question-text">Calculate factorial and sum of n numbers using recursion.</p>
+                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
+                    <div class="solution">
+                        <pre><code class="language-python"># Recursive Functions
+def factorial(n):
+    """Calculate factorial recursively"""
+    if n == 0 or n == 1:
+        return 1
+    return n * factorial(n - 1)
+
+def sum_natural(n):
+    """Sum of first n natural numbers"""
+    if n == 0:
+        return 0
+    return n + sum_natural(n - 1)
+
+def power(base, exp):
+    """Calculate power recursively"""
+    if exp == 0:
+        return 1
+    return base * power(base, exp - 1)
+
+# Test
+print(f"5! = {factorial(5)}")  # 120
+print(f"Sum 1-10 = {sum_natural(10)}")  # 55
+print(f"2^5 = {power(2, 5)}")  # 32</code></pre>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <h4>Q16. Tower of Hanoi <span class="difficulty hard">Hard</span></h4>
+                    <p class="question-text">Solve Tower of Hanoi problem using recursion.</p>
+                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
+                    <div class="solution">
+                        <pre><code class="language-python"># Tower of Hanoi
+def tower_of_hanoi(n, source, auxiliary, destination):
+    if n == 1:
+        print(f"Move disk 1 from {source} to {destination}")
+        return
+    
+    # Move n-1 disks from source to auxiliary
+    tower_of_hanoi(n - 1, source, destination, auxiliary)
+    
+    # Move nth disk from source to destination
+    print(f"Move disk {n} from {source} to {destination}")
+    
+    # Move n-1 disks from auxiliary to destination
+    tower_of_hanoi(n - 1, auxiliary, source, destination)
+
+# Test with 3 disks
+print("Tower of Hanoi with 3 disks:")
+tower_of_hanoi(3, 'A', 'B', 'C')
+
+# Total moves = 2^n - 1</code></pre>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <h4>Q17. Linear Search with Count <span class="difficulty easy">Easy</span></h4>
+                    <p class="question-text">Implement linear search and count occurrences of an element.</p>
+                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
+                    <div class="solution">
+                        <pre><code class="language-python"># Linear Search
+def linear_search(arr, target):
+    """Return index of target, -1 if not found"""
+    for i in range(len(arr)):
+        if arr[i] == target:
+            return i
+    return -1
+
+def count_occurrences(arr, target):
+    """Count occurrences of target in array"""
+    count = 0
+    indices = []
+    for i in range(len(arr)):
+        if arr[i] == target:
+            count += 1
+            indices.append(i)
+    return count, indices
+
+# Test
+arr = [4, 2, 7, 2, 9, 2, 1]
+target = 2
+
+index = linear_search(arr, target)
+count, indices = count_occurrences(arr, target)
+
+print(f"Array: {arr}")
+print(f"First occurrence of {target}: index {index}")
+print(f"Total occurrences: {count}")
+print(f"Found at indices: {indices}")</code></pre>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <h4>Q18. Check Perfect Number <span class="difficulty medium">Medium</span></h4>
+                    <p class="question-text">Write a program to check if a number is a perfect number.</p>
+                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
+                    <div class="solution">
+                        <pre><code class="language-python"># Perfect Number Check
+# A perfect number equals the sum of its proper divisors
+def is_perfect(n):
+    if n < 2:
+        return False
+    
+    divisor_sum = 1
+    for i in range(2, int(n ** 0.5) + 1):
+        if n % i == 0:
+            divisor_sum += i
+            if i != n // i:
+                divisor_sum += n // i
+    
+    return divisor_sum == n
+
+# Find perfect numbers in range
+print("Perfect numbers up to 10000:")
+for num in range(1, 10001):
+    if is_perfect(num):
+        print(num, end=" ")
+# Output: 6 28 496 8128
+
+# Verify 28
+divisors = [i for i in range(1, 28) if 28 % i == 0]
+print(f"\n\nDivisors of 28: {divisors}")
+print(f"Sum: {sum(divisors)}")</code></pre>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <h4>Q19. String Reversal Methods <span class="difficulty easy">Easy</span></h4>
+                    <p class="question-text">Reverse a string using multiple methods.</p>
+                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
+                    <div class="solution">
+                        <pre><code class="language-python"># String Reversal - Multiple Methods
+text = "Hello Python"
+
+# Method 1: Slicing
+reversed1 = text[::-1]
+print(f"Slicing: {reversed1}")
+
+# Method 2: reversed() function
+reversed2 = ''.join(reversed(text))
+print(f"reversed(): {reversed2}")
+
+# Method 3: Loop
+reversed3 = ""
+for char in text:
+    reversed3 = char + reversed3
+print(f"Loop: {reversed3}")
+
+# Method 4: Recursion
+def reverse_recursive(s):
+    if len(s) <= 1:
+        return s
+    return reverse_recursive(s[1:]) + s[0]
+
+print(f"Recursion: {reverse_recursive(text)}")
+
+# Reverse words in sentence
+sentence = "Python is awesome"
+reversed_words = ' '.join(sentence.split()[::-1])
+print(f"Reversed words: {reversed_words}")</code></pre>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <h4>Q20. Prime Factors of a Number <span class="difficulty medium">Medium</span></h4>
+                    <p class="question-text">Find all prime factors of a given number.</p>
+                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
+                    <div class="solution">
+                        <pre><code class="language-python"># Prime Factorization
+def prime_factors(n):
+    factors = []
+    
+    # Divide by 2
+    while n % 2 == 0:
+        factors.append(2)
+        n //= 2
+    
+    # Divide by odd numbers
+    i = 3
+    while i * i <= n:
+        while n % i == 0:
+            factors.append(i)
+            n //= i
+        i += 2
+    
+    # If n is a prime greater than 2
+    if n > 2:
+        factors.append(n)
+    
+    return factors
+
+# Test
+numbers = [12, 56, 100, 315, 1001]
+for num in numbers:
+    factors = prime_factors(num)
+    print(f"{num} = {' × '.join(map(str, factors))}")</code></pre>
                     </div>
                 </div>
             </div>
