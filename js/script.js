@@ -96,7 +96,8 @@ const Breadcrumb = {
         'comparisons.html': 'Comparisons',
         'errors.html': 'Common Errors',
         'extras.html': 'Extras',
-        'mcq.html': 'MCQ Question Bank'
+        'mcq.html': 'MCQ Question Bank',
+        'cheatsheet.html': 'Python Cheat Sheet'
     },
     
     init() {
@@ -500,5 +501,65 @@ class QuizManager {
 
 // Quiz questions will be defined in each unit page
 let quiz;
+
+// ===== Cheat Sheet Search =====
+const CheatsheetSearch = {
+    init() {
+        const searchInput = document.getElementById('cheatsheetSearch');
+        if (!searchInput) return;
+        
+        const cards = document.querySelectorAll('.cheat-card');
+        
+        searchInput.addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase().trim();
+            
+            cards.forEach(card => {
+                const keywords = card.dataset.keywords || '';
+                const headerText = card.querySelector('.cheat-card-header')?.textContent || '';
+                const bodyText = card.querySelector('.cheat-card-body')?.textContent || '';
+                const searchableText = `${keywords} ${headerText} ${bodyText}`.toLowerCase();
+                
+                if (searchTerm === '' || searchableText.includes(searchTerm)) {
+                    card.classList.remove('hidden');
+                    card.style.animation = 'fadeInUp 0.3s ease-out';
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+            
+            // Show "no results" message if all cards are hidden
+            const visibleCards = document.querySelectorAll('.cheat-card:not(.hidden)');
+            let noResultsMsg = document.querySelector('.no-results-msg');
+            
+            if (visibleCards.length === 0 && searchTerm !== '') {
+                if (!noResultsMsg) {
+                    noResultsMsg = document.createElement('div');
+                    noResultsMsg.className = 'no-results-msg';
+                    noResultsMsg.innerHTML = `
+                        <i class="fas fa-search" style="font-size: 3rem; color: #ccc; margin-bottom: 15px;"></i>
+                        <p style="color: #666; font-size: 1.1rem;">No results found for "<strong>${searchTerm}</strong>"</p>
+                        <p style="color: #999; font-size: 0.9rem;">Try different keywords like: list, loop, function, file</p>
+                    `;
+                    noResultsMsg.style.cssText = 'text-align: center; padding: 60px 20px; grid-column: 1 / -1;';
+                    document.querySelector('.cheatsheet-grid')?.appendChild(noResultsMsg);
+                }
+            } else if (noResultsMsg) {
+                noResultsMsg.remove();
+            }
+        });
+        
+        // Clear search on Escape
+        searchInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                searchInput.value = '';
+                searchInput.dispatchEvent(new Event('input'));
+            }
+        });
+    }
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+    CheatsheetSearch.init();
+});
 
 console.log('Python Learning Hub - Loaded Successfully!');

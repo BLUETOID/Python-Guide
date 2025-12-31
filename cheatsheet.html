@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Python Cheat Sheet - Complete reference covering all 5 units: basics, operators, control flow, data structures, functions, file I/O, NumPy, Pandas, Matplotlib, and Tkinter.">
+    <link rel="canonical" href="https://bluetoid.github.io/Python-Guide/cheatsheet.html">
+    <title>Python Cheat Sheet | Python Learning Hub</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Cheat Sheet - Using Website Colors */
+        .cs-page {
+            background: var(--bg-color);
+            min-height: 100vh;
+            padding: 80px 15px 40px;
+        }
+        
+        .cs-wrapper {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        /* Header */
+        .cs-header {
+            background: var(--gradient-primary);
+            border-radius: var(--border-radius);
+            padding: 20px 25px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: var(--shadow);
+        }
+        
+        .cs-header h1 {
+            color: #fff;
+            font-size: 1.8rem;
+            margin: 0;
+            font-weight: 700;
+        }
+        
+        .cs-header p {
+            color: var(--secondary-color);
+            margin: 3px 0 0;
+            font-size: 0.9rem;
+        }
+        
+        .cs-header .cs-logo {
+            font-size: 3rem;
+            color: var(--secondary-color);
+        }
+        
+        /* Unit Section Headers */
+        .cs-unit-header {
+            background: var(--dark-color);
+            color: #fff;
+            padding: 8px 15px;
+            border-radius: 6px 6px 0 0;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-top: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .cs-unit-header i {
+            color: var(--secondary-color);
+        }
+        
+        /* Main Grid */
+        .cs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 10px;
+            background: var(--card-bg);
+            padding: 10px;
+            border-radius: 0 0 6px 6px;
+            border: 1px solid var(--card-border);
+            border-top: none;
+        }
+        
+        /* Card Box */
+        .cs-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 6px;
+            overflow: hidden;
+        }
+        
+        .cs-card-title {
+            background: var(--primary-color);
+            color: #fff;
+            padding: 6px 10px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .cs-card-title i {
+            font-size: 0.7rem;
+            opacity: 0.8;
+        }
+        
+        .cs-card-body {
+            padding: 8px 10px;
+        }
+        
+        /* Text */
+        .cs-card-body p {
+            font-size: 0.72rem;
+            color: var(--text-color);
+            margin: 0 0 6px;
+            line-height: 1.45;
+        }
+        
+        .cs-card-body h4 {
+            font-size: 0.7rem;
+            color: var(--primary-color);
+            margin: 8px 0 4px;
+            font-weight: 600;
+        }
+        
+        .cs-card-body h4:first-child {
+            margin-top: 0;
+        }
+        
+        /* Code */
+        .cs-code {
+            background: var(--code-bg);
+            border-radius: 4px;
+            padding: 6px 8px;
+            margin: 5px 0;
+            overflow-x: auto;
+            font-size: 0.68rem;
+            line-height: 1.5;
+        }
+        
+        .cs-code code {
+            font-family: 'Consolas', 'Monaco', monospace;
+            color: #e6db74;
+        }
+        
+        .cs-code .cm { color: #75715e; }
+        .cs-code .kw { color: #f92672; }
+        .cs-code .st { color: #a6e22e; }
+        .cs-code .nu { color: #ae81ff; }
+        .cs-code .fn { color: #66d9ef; }
+        
+        /* Inline code */
+        .cs-card-body code {
+            background: #f0f0f0;
+            padding: 1px 4px;
+            border-radius: 3px;
+            font-family: 'Consolas', monospace;
+            font-size: 0.68rem;
+            color: var(--danger-color);
+        }
+        
+        /* Tables */
+        .cs-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.68rem;
+            margin: 5px 0;
+        }
+        
+        .cs-table th {
+            background: var(--primary-color);
+            color: #fff;
+            padding: 4px 6px;
+            text-align: left;
+            font-weight: 500;
+        }
+        
+        .cs-table td {
+            padding: 3px 6px;
+            border-bottom: 1px solid var(--card-border);
+            color: var(--text-color);
+        }
+        
+        .cs-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .cs-table tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+        
+        .cs-table td:last-child {
+            font-family: 'Consolas', monospace;
+            color: var(--primary-color);
+        }
+        
+        /* Lists */
+        .cs-list {
+            margin: 4px 0;
+            padding-left: 15px;
+            font-size: 0.7rem;
+        }
+        
+        .cs-list li {
+            color: var(--text-color);
+            margin: 2px 0;
+            line-height: 1.4;
+        }
+        
+        .cs-list li code {
+            color: var(--danger-color);
+        }
+        
+        /* Card color variants */
+        .cs-card.yellow .cs-card-title { background: #e6a700; }
+        .cs-card.green .cs-card-title { background: var(--success-color); }
+        .cs-card.red .cs-card-title { background: var(--danger-color); }
+        .cs-card.purple .cs-card-title { background: #6f42c1; }
+        .cs-card.teal .cs-card-title { background: #17a2b8; }
+        
+        /* Print */
+        @media print {
+            .navbar { display: none !important; }
+            .cs-page { padding-top: 10px; }
+            .cs-grid { grid-template-columns: repeat(3, 1fr); }
+            .cs-card { break-inside: avoid; }
+        }
+        
+        @media (max-width: 768px) {
+            .cs-header { flex-direction: column; text-align: center; gap: 10px; }
+            .cs-header h1 { font-size: 1.4rem; }
+            .cs-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+            <a href="index.html" class="logo" aria-label="Python Hub Home">
+                <i class="fab fa-python" aria-hidden="true"></i> Python Hub
+            </a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navMenu">
+                <i class="fas fa-bars" aria-hidden="true"></i>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="unit1.html">Unit I</a></li>
+                <li><a href="unit2.html">Unit II</a></li>
+                <li><a href="unit3.html">Unit III</a></li>
+                <li><a href="unit4.html">Unit IV</a></li>
+                <li><a href="unit5.html">Unit V</a></li>
+                <li><a href="mcq.html">MCQ</a></li>
+                <li><a href="cheatsheet.html" class="active">Cheat Sheet</a></li>
+                <li class="nav-divider"></li>
+                <li><a href="extras.html">Extras</a></li>
+                <li><a href="practice.html">Practice</a></li>
+                <li><a href="theory.html">Theory</a></li>
+                <li><a href="comparisons.html">Compare</a></li>
+                <li><a href="errors.html">Errors</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="cs-page">
+        <div class="cs-wrapper">
+            
+            <!-- Header -->
+            <div class="cs-header">
+                <div>
+                    <h1><i class="fas fa-scroll"></i> Python Cheat Sheet</h1>
+                    <p>Complete Reference - All 5 Units Consolidated</p>
+                </div>
+                <i class="fab fa-python cs-logo"></i>
+            </div>
+            
+            <!-- ==================== UNIT I ==================== -->
+            <div class="cs-unit-header">
+                <i class="fas fa-play-circle"></i> UNIT I: Introduction to Python
+            </div>
+            <div class="cs-grid">
+                
+                <!-- Python Basics -->
+                <div class="cs-card">
+                    <div class="cs-card-title"><i class="fab fa-python"></i> Python Basics</div>
+                    <div class="cs-card-body">
+                        <p>Python is a high-level, interpreted, dynamically-typed language created by Guido van Rossum (1991).</p>
+                        <div class="cs-code">
+                            <code><span class="fn">print</span>(<span class="st">"Hello, World!"</span>)</code>
+                        </div>
+                        <h4>Variables</h4>
+                        <div class="cs-code">
+                            <code>name = <span class="st">"John"</span> <span class="cm"># No type declaration</span><br>x, y, z = <span class="nu">10</span>, <span class="nu">20</span>, <span class="nu">30</span> <span class="cm"># Multiple</span><br>x, y = y, x <span class="cm"># Swap values</span></code>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Data Types -->
+                <div class="cs-card yellow">
+                    <div class="cs-card-title"><i class="fas fa-database"></i> Data Types</div>
+                    <div class="cs-card-body">
+                        <table class="cs-table">
+                            <tr><th>Category</th><th>Types</th></tr>
+                            <tr><td>Text</td><td>str</td></tr>
+                            <tr><td>Numeric</td><td>int, float, complex</td></tr>
+                            <tr><td>Sequence</td><td>list, tuple, range</td></tr>
+                            <tr><td>Mapping</td><td>dict</td></tr>
+                            <tr><td>Set</td><td>set, frozenset</td></tr>
+                            <tr><td>Boolean</td><td>bool (True/False)</td></tr>
+                            <tr><td>None</td><td>NoneType</td></tr>
+                        </table>
+                        <h4>Type Conversion</h4>
+                        <div class="cs-code">
+                            <code><span class="fn">int</span>(<span class="st">"100"</span>), <span class="fn">str</span>(<span class="nu">25</span>), <span class="fn">float</span>(<span class="nu">10</span>), <span class="fn">list</span>(<span class="st">"abc"</span>)</code>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Arithmetic Operators -->
+                <div class="cs-card green">
+                    <div class="cs-card-title"><i class="fas fa-calculator"></i> Arithmetic Operators</div>
+                    <div class="cs-card-body">
+                        <table class="cs-table">
+                            <tr><td>Addition</td><td>x + y</td></tr>
+                            <tr><td>Subtraction</td><td>x - y</td></tr>
+                            <tr><td>Multiplication</td><td>x * y</td></tr>
+                            <tr><td>Division</td><td>x / y</td></tr>
+                            <tr><td>Floor Division</td><td>x // y</td></tr>
+                            <tr><td>Modulus</td><td>x % y</td></tr>
+                            <tr><td>Exponentiation</td><td>x ** y</td></tr>
+                        </table>
+                    </div>
+                </div>
+                
+                <!-- Comparison Operators -->
+                <div class="cs-card teal">
+                    <div class="cs-card-title"><i class="fas fa-balance-scale"></i> Comparison Operators</div>
+                    <div class="cs-card-body">
+                        <table class="cs-table">
+                            <tr><td>Equal</td><td>x == y</td></tr>
+                            <tr><td>Not equal</td><td>x != y</td></tr>
+                            <tr><td>Greater than</td><td>x > y</td></tr>
+                            <tr><td>Less than</td><td>x < y</td></tr>
+                            <tr><td>Greater or equal</td><td>x >= y</td></tr>
+                            <tr><td>Less or equal</td><td>x <= y</td></tr>
+                        </table>
+                    </div>
+                </div>
+                
+                <!-- Logical Operators -->
+                <div class="cs-card purple">
+                    <div class="cs-card-title"><i class="fas fa-code-branch"></i> Logical & Identity</div>
+                    <div class="cs-card-body">
+                        <h4>Logical</h4>
+                        <table class="cs-table">
+                            <tr><td>AND</td><td>x and y</td></tr>
+                            <tr><td>OR</td><td>x or y</td></tr>
+                            <tr><td>NOT</td><td>not x</td></tr>
+                        </table>
+                        <h4>Identity & Membership</h4>
+                        <table class="cs-table">
+                            <tr><td>Same object</td><td>x is y</td></tr>
+                            <tr><td>Not same</td><td>x is not y</td></tr>
+                            <tr><td>In sequence</td><td>x in y</td></tr>
+                            <tr><td>Not in</td><td>x not in y</td></tr>
+                        </table>
+                    </div>
+                </div>
+                
+                <!-- Assignment Operators -->
+                <div class="cs-card red">
+                    <div class="cs-card-title"><i class="fas fa-equals"></i> Assignment Operators</div>
+                    <div class="cs-card-body">
+                        <table class="cs-table">
+                            <tr><td>Assign</td><td>x = 5</td></tr>
+                            <tr><td>Add & assign</td><td>x += 3</td></tr>
+                            <tr><td>Subtract & assign</td><td>x -= 3</td></tr>
+                            <tr><td>Multiply & assign</td><td>x *= 3</td></tr>
+                            <tr><td>Divide & assign</td><td>x /= 3</td></tr>
+                            <tr><td>Floor div & assign</td><td>x //= 3</td></tr>
+                            <tr><td>Modulus & assign</td><td>x %= 3</td></tr>
+                            <tr><td>Power & assign</td><td>x **= 3</td></tr>
+                        </table>
+                    </div>
+                </div>
+                
+                <!-- Bitwise Operators -->
+                <div class="cs-card">
+                    <div class="cs-card-title"><i class="fas fa-microchip"></i> Bitwise Operators</div>
+                    <div class="cs-card-body">
+                        <table class="cs-table">
+                            <tr><th>Operator</th><th>Description</th></tr>
+                            <tr><td>&</td><td>AND</td></tr>
+                            <tr><td>|</td><td>OR</td></tr>
+                            <tr><td>^</td><td>XOR</td></tr>
+                            <tr><td>~</td><td>NOT</td></tr>
+                            <tr><td>&lt;&lt;</td><td>Left shift</td></tr>
+                            <tr><td>&gt;&gt;</td><td>Right shift</td></tr>
+                        </table>
+                    </div>
+                </div>
+                
+                <!-- Input/Output -->
+                <div class="cs-card yellow">
+                    <div class="cs-card-title"><i class="fas fa-keyboard"></i> Input/Output</div>
+                    <div class="cs-card-body">
+                        <table class="cs-table">
+                            <tr><th>Function</th><th>Purpose</th></tr>
+                            <tr><td>print()</td><td>Output to console</td></tr>
+                            <tr><td>input()</td><td>Get user input (str)</td></tr>
+                            <tr><td>print(end="")</td><td>No newline</td></tr>
+                            <tr><td>print(sep=",")</td><td>Custom separator</td></tr>
+                        </table>
+                        <div class="cs-code">
+                            <code>name = <span class="fn">input</span>(<span class="st">"Enter name: "</span>)<br>age = <span class="fn">int</span>(<span class="fn">input</span>(<span class="st">"Age: "</span>))</code>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <!-- ==================== UNIT II ==================== -->
+            <div class="cs-unit-header">
+                <i class="fas fa-random"></i> UNIT II: Program Flow Control
+            </div>
+            <div class="cs-grid">
+                
+                <!-- Conditional Statements -->
+                <div class="cs-card">
+                    <div class="cs-card-title"><i class="fas fa-question-circle"></i> Conditional Statements</div>
+                    <div class="cs-card-body">
+                        <div class="cs-code">
+                            <code><span class="kw">if</span> condition:<br>&nbsp;&nbsp;<span class="cm"># code</span><br><span class="kw">elif</span> another:<br>&nbsp;&nbsp;<span class="cm"># code</span><br><span class="kw">else</span>:<br>&nbsp;&nbsp;<span class="cm"># code</span></code>
+                        </div>
+                        <h4>Ternary Operator</h4>
+                        <div class="cs-code">
+                            <code>result = <span class="st">"Yes"</span> <span class="kw">if</span> condition <span class="kw">else</span> <span class="st">"No"</span></code>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- For Loops -->
+                <div class="cs-card green">
+                    <div class="cs-card-title"><i class="fas fa-sync"></i> For Loops</div>
+                    <div class="cs-card-body">
+                        <div class="cs-code">
+                            <code><span class="kw">for</span> item <span class="kw">in</span> iterable:<br>&nbsp;&nbsp;<span class="fn">print</span>(item)<br><br><span class="cm"># With index</span><br><span class="kw">for</span> i, item <span class="kw">in</span> <span class="fn">enumerate</span>(lst):<br>&nbsp;&nbsp;<span class="fn">print</span>(i, item)</code>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Range Function -->
+                <div class="cs-card yellow">
+                    <div class="cs-card-title"><i class="fas fa-arrows-alt-h"></i> Range Function</div>
+                    <div class="cs-card-body">
+                        <table class="cs-table">
+                            <tr><th>Syntax</th><th>Output</th></tr>
+                            <tr><td>range(5)</td><td>0, 1, 2, 3, 4</td></tr>
+                            <tr><td>range(2, 7)</td><td>2, 3, 4, 5, 6</td></tr>
+                            <tr><td>range(0, 10, 2)</td><td>0, 2, 4, 6, 8</td></tr>
+                            <tr><td>range(10, 0, -1)</td><td>10, 9, ...1</td></tr>
+                        </table>
+                    </div>
+                </div>
+                
+                <!-- While Loops -->
+                <div class="cs-card teal">
+                    <div class="cs-card-title"><i class="fas fa-redo"></i> While Loops</div>
+                    <div class="cs-card-body">
+                        <div class="cs-code">
+                            <code>count = <span class="nu">5</span><br><span class="kw">while</span> count > <span class="nu">0</span>:<br>&nbsp;&nbsp;<span class="fn">print</span>(count)<br>&nbsp;&nbsp;count -= <span class="nu">1</span></code>
+                        </div>
+                        <p><strong>⚠️ Always update condition</strong> inside loop to avoid infinite loops!</p>
+                    </div>
+                </div>
+                
+                <!-- Loop Control -->
+                <div class="cs-card red">
+                    <div class="cs-card-title"><i class="fas fa-stop-circle"></i> Loop Control</div>
+                    <div class="cs-card-body">
+                        <table class="cs-table">
+                            <tr><td><code>break</code></td><td>Exit loop immediately</td></tr>
+                            <tr><td><code>continue</code></td><td>Skip to next iteration</td></tr>
+                            <tr><td><code>pass</code></td><td>Do nothing (placeholder)</td></tr>
+                            <tr><td><code>else</code></td><td>Runs if no break</td></tr>
+                        </table>
+                        <div class="cs-code">
+                            <code><span class="kw">for</span> i <span class="kw">in</span> <span class="fn">range</span>(<span class="nu">10</span>):<br>&nbsp;&nbsp;<span class="kw">if</span> i == <span class="nu">5</span>: <span class="kw">break</span><br><span class="kw">else</span>:<br>&nbsp;&nbsp;<span class="fn">print</span>(<span class="st">"No break"</span>)</code>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Indentation -->
+                <div class="cs-card purple">
+                    <div class="cs-card-title"><i class="fas fa-indent"></i> Python Blocks</div>
+                    <div class="cs-card-body">
+                        <p>Python uses <strong>indentation</strong> (4 spaces) to define code blocks. No curly braces!</p>
+                        <div class="cs-code">
+                            <code><span class="kw">if</span> <span class="kw">True</span>:<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">print</span>(<span class="st">"Indented"</span>)<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">if</span> <span class="kw">True</span>:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">print</span>(<span class="st">"Nested"</span>)</code>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Iteration Patterns -->
+                <div class="cs-card">
+                    <div class="cs-card-title"><i class="fas fa-layer-group"></i> Iteration Patterns</div>
+                    <div class="cs-card-body">
+                        <table class="cs-table">
+                            <tr><th>Pattern</th><th>Example</th></tr>
+                            <tr><td>Iterate list</td><td>for x in list</td></tr>
+                            <tr><td>With index</td><td>for i, x in enumerate()</td></tr>
+                            <tr><td>Two lists</td><td>for a, b in zip(x, y)</td></tr>
+                            <tr><td>Dict keys</td><td>for k in dict</td></tr>
+                            <tr><td>Dict items</td><td>for k, v in dict.items()</td></tr>
+                            <tr><td>Reverse</td><td>for x in reversed(list)</td></tr>
+                        </table>
+                    </div>
+                </div>
+                
+                <!-- Nested Loops -->
+                <div class="cs-card green">
+                    <div class="cs-card-title"><i class="fas fa-sitemap"></i> Nested Loops</div>
+                    <div class="cs-card-body">
+                        <div class="cs-code">
+                            <code><span class="kw">for</span> i <span class="kw">in</span> <span class="fn">range</span>(<span class="nu">3</span>):<br>&nbsp;&nbsp;<span class="kw">for</span> j <span class="kw">in</span> <span class="fn">range</span>(<span class="nu">3</span>):<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">print</span>(i, j)</code>
+                        </div>
+                        <table class="cs-table">
+                            <tr><th>Use Case</th><th>Pattern</th></tr>
+                            <tr><td>2D matrix</td><td>for row for col</td></tr>
+                            <tr><td>Combinations</td><td>for a for b</td></tr>
+                            <tr><td>Pattern print</td><td>Nested range</td></tr>
+                        </table>
+                    </div>
+                </div>
+                
+            </div>
+
+            <!-- ==================== UNIT III ==================== -->
+            <div class="cs-unit-header">
+                <i class="fas fa-cubes"></i> UNIT III: Complex Data Types & Functions
+            </div>
+            <div class="cs-grid">
+                
+                <!-- Strings -->
+                <div class="cs-card">
+                    <div class="cs-card-title"><i class="fas fa-font"></i> Strings</div>
+                    <div class="cs-card-body">
+                        <div class="cs-code">
+                            <code>text = <span class="st">"Hello, World!"</span><br>text[<span class="nu">0</span>] <span class="cm"># 'H' (first char)</span><br>text[<span class="nu">-1</span>] <span class="cm"># '!' (last char)</span><br>text[<span class="nu">0</span>:<span class="nu">5</span>] <span class="cm"># 'Hello' (slice)</span><br>text[::<span class="nu">-1</span>] <span class="cm"># Reverse string</span></code>
+                        </div>
+                        <h4>f-Strings</h4>
+                        <div class="cs-code">
+                            <code>name = <span class="st">"Alice"</span><br><span class="fn">print</span>(<span class="st">f"Hello, </span>{name}<span class="st">!"</span>)</code>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- String Methods -->
+                <div class="cs-card yellow">
+                    <div class="cs-card-title"><i class="fas fa-text-width"></i> String Methods</div>
+                    <div class="cs-card-body">
+                        <table class="cs-table">
+                            <tr><td>upper(), lower()</td><td>Change case</td></tr>
+                            <tr><td>strip()</td><td>Remove whitespace</td></tr>
+                            <tr><td>split(sep)</td><td>Split to list</td></tr>
+                            <tr><td>join(list)</td><td>Join list to str</td></tr>
+                            <tr><td>find(sub)</td><td>Find index (-1 if not)</td></tr>
+                            <tr><td>replace(old, new)</td><td>Replace text</td></tr>
+                            <tr><td>startswith()</td><td>Check prefix</td></tr>
+                            <tr><td>isdigit(), isalpha()</td><td>Validation</td></tr>
+                        </table>
+                    </div>
+                </div>
+                
+                <!-- Lists -->
+                <div class="cs-card green">
+                    <div class="cs-card-title"><i class="fas fa-list"></i> Lists</div>
+                    <div class="cs-card-body">
+                        <div class="cs-code">
+                            <code>my_list = [<span class="nu">1</span>, <span class="nu">2</span>, <span class="st">"a"</span>, <span class="st">"b"</span>]<br>my_list[<span class="nu">0</span>] <span class="cm"># First item</span><br>my_list[<span class="nu">-1</span>] <span class="cm"># Last item</span><br>my_list[<span class="nu">1</span>:<span class="nu">3</span>] <span class="cm"># Slice [2, 'a']</span><br>my_list[<span class="nu">0</span>] = <span class="nu">10</span> <span class="cm"># Mutable!</span></code>
+                        </div>
+                        <h4>List Comprehension</h4>
+                        <div class="cs-code">
+                            <code>[x**<span class="nu">2</span> <span class="kw">for</span> x <span class="kw">in</span> <span class="fn">range</span>(<span class="nu">5</span>)]<br>[x <span class="kw">for</span> x <span class="kw">in</span> lst <span class="kw">if</span> x > <span class="nu">0</span>]</code>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- List Methods -->
+                <div class="cs-card teal">
+                    <div class="cs-card-title"><i class="fas fa-list-ol"></i> List Methods</div>
+                    <div class="cs-card-body">
+                        <table class="cs-table">
+                            <tr><td>append(x)</td><td>Add to end</td></tr>
+                            <tr><td>insert(i, x)</td><td>Add at index</td></tr>
+                            <tr><td>extend(list)</td><td>Add multiple</td></tr>
+                            <tr><td>remove(x)</td><td>Remove first x</td></tr>
+                            <tr><td>pop(i)</td><td>Remove & return</td></tr>
+                            <tr><td>sort()</td><td>Sort in-place</td></tr>
+                            <tr><td>reverse()</td><td>Reverse in-place</td></tr>
+                            <tr><td>index(x)</td><td>Find index</td></tr>
+                            <tr><td>count(x)</td><td>Count occurrences</td></tr>
+                        </table>
+                    </div>
+                </div>
+                
+                <!-- Tuples -->
+                <div class="cs-card purple">
+                    <div class="cs-card-title"><i class="fas fa-lock"></i> Tuples</div>
+                    <div class="cs-card-body">
+                        <p>Immutable sequences - faster than lists, can be dict keys.</p>
+                        <div class="cs-code">
+                            <code>coords = (<span class="nu">10</span>, <span class="nu">20</span>, <span class="nu">30</span>)<br>x, y, z = coords <span class="cm"># Unpacking</span><br>single = (<span class="nu">5</span>,) <span class="cm"># Single element tuple</span></code>
+                        </div>
+                        <h4>Tuple vs List</h4>
+                        <table class="cs-table">
+                            <tr><td>Tuple</td><td>Immutable, faster</td></tr>
+                            <tr><td>List</td><td>Mutable, flexible</td></tr>
+                        </table>
+                    </div>
+                </div>
+                
+                <!-- Dictionaries -->
+                <div class="cs-card red">
+                    <div class="cs-card-title"><i class="fas fa-book"></i> Dictionaries</div>
+                    <div class="cs-card-body">
+                        <div class="cs-code">
+                            <code>person = {<span class="st">"name"</span>: <span class="st">"Alice"</span>, <span class="st">"age"</span>: <span class="nu">25</span>}<br>person[<span class="st">"name"</span>] <span class="cm"># "Alice"</span><br>person[<span class="st">"city"</span>] = <span class="st">"NYC"</span> <span class="cm"># Add key</span><br>person.get(<span class="st">"job"</span>, <span class="st">"N/A"</span>) <span class="cm"># Safe access</span></code>
+                        </div>
+                        <table class="cs-table">
+                            <tr><td>keys()</td><td>All keys</td></tr>
+                            <tr><td>values()</td><td>All values</td></tr>
+                            <tr><td>items()</td><td>Key-value pairs</td></tr>
+                            <tr><td>update(d)</td><td>Merge dicts</td></tr>
+                        </table>
+                    </div>
+                </div>
+                
+                <!-- Functions -->
+                <div class="cs-card">
+                    <div class="cs-card-title"><i class="fas fa-cogs"></i> Functions</div>
+                    <div class="cs-card-body">
+                        <div class="cs-code">
+                            <code><span class="kw">def</span> <span class="fn">greet</span>(name, msg=<span class="st">"Hello"</span>):<br>&nbsp;&nbsp;<span class="st">"""Docstring"""</span><br>&nbsp;&nbsp;<span class="kw">return</span> <span class="st">f"</span>{msg}<span class="st">, </span>{name}<span class="st">!"</span><br><br>greet(<span class="st">"Alice"</span>) <span class="cm"># "Hello, Alice!"</span></code>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Lambda & Args -->
+                <div class="cs-card yellow">
+                    <div class="cs-card-title"><i class="fas fa-bolt"></i> Lambda & *args/**kwargs</div>
+                    <div class="cs-card-body">
+                        <h4>Lambda (Anonymous)</h4>
+                        <div class="cs-code">
+                            <code>square = <span class="kw">lambda</span> x: x ** <span class="nu">2</span><br>square(<span class="nu">5</span>) <span class="cm"># 25</span></code>
+                        </div>
+                        <h4>*args & **kwargs</h4>
+                        <div class="cs-code">
+                            <code><span class="kw">def</span> <span class="fn">func</span>(*args, **kwargs):<br>&nbsp;&nbsp;<span class="fn">print</span>(args) <span class="cm"># Tuple</span><br>&nbsp;&nbsp;<span class="fn">print</span>(kwargs) <span class="cm"># Dict</span></code>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Built-in Functions -->
+                <div class="cs-card green">
+                    <div class="cs-card-title"><i class="fas fa-toolbox"></i> Built-in Functions</div>
+                    <div class="cs-card-body">
+                        <table class="cs-table">
+                            <tr><td>len(x)</td><td>Length</td></tr>
+                            <tr><td>type(x)</td><td>Get type</td></tr>
+                            <tr><td>range(n)</td><td>Number sequence</td></tr>
+                            <tr><td>max(), min()</td><td>Max/Min value</td></tr>
+                            <tr><td>sum()</td><td>Sum of iterable</td></tr>
+                            <tr><td>sorted()</td><td>Sorted copy</td></tr>
+                            <tr><td>enumerate()</td><td>Index + value</td></tr>
+                            <tr><td>zip(a, b)</td><td>Pair items</td></tr>
+                            <tr><td>input()</td><td>User input</td></tr>
+                        </table>
+                    </div>
+                </div>
+                
+                <!-- Slicing -->
+                <div class="cs-card teal">
+                    <div class="cs-card-title"><i class="fas fa-cut"></i> Slicing Syntax</div>
+                    <div class="cs-card-body">
+                        <table class="cs-table">
+                            <tr><th>Syntax</th><th>Result</th></tr>
+                            <tr><td>seq[start:end]</td><td>Items start to end-1</td></tr>
+                            <tr><td>seq[:end]</td><td>From beginning</td></tr>
+                            <tr><td>seq[start:]</td><td>To end</td></tr>
+                            <tr><td>seq[::step]</td><td>Every step items</td></tr>
+                            <tr><td>seq[::-1]</td><td>Reverse</td></tr>
+                            <tr><td>seq[-3:]</td><td>Last 3 items</td></tr>
+                        </table>
+                    </div>
+                </div>
+                
+                <!-- Set Operations -->
+                <div class="cs-card purple">
+                    <div class="cs-card-title"><i class="fas fa-circle-notch"></i> Sets</div>
+                    <div class="cs-card-body">
+                        <div class="cs-code">
+                            <code>s = {<span class="nu">1</span>, <span class="nu">2</span>, <span class="nu">3</span>} <span class="cm"># Unique items</span></code>
+                        </div>
+                        <table class="cs-table">
+                            <tr><th>Method</th><th>Description</th></tr>
+                            <tr><td>add(x)</td><td>Add element</td></tr>
+                            <tr><td>remove(x)</td><td>Remove (error if missing)</td></tr>
+                            <tr><td>discard(x)</td><td>Remove (no error)</td></tr>
+                            <tr><td>union(s2)</td><td>All from both</td></tr>
+                            <tr><td>intersection(s2)</td><td>Common elements</td></tr>
+                            <tr><td>difference(s2)</td><td>In s1 not s2</td></tr>
+                        </table>
+                    </div>
+                </div>
+                
+                <!-- Dict Comprehension -->
+                <div class="cs-card red">
+                    <div class="cs-card-title"><i class="fas fa-magic"></i> Comprehensions</div>
+                    <div class="cs-card-body">
+                        <table class="cs-table">
+                            <tr><th>Type</th><th>Syntax</th></tr>
+                            <tr><td>List</td><td>[x for x in iter]</td></tr>
+                            <tr><td>Dict</td><td>{k:v for k,v in iter}</td></tr>
+                            <tr><td>Set</td><td>{x for x in iter}</td></tr>
+                            <tr><td>Generator</td><td>(x for x in iter)</td></tr>
+                        </table>
+                        <div class="cs-code">
+                            <code>squares = {x: x**<span class="nu">2</span> <span class="kw">for</span> x <span class="kw">in</span> <span class="fn">range</span>(<span class="nu">5</span>)}</code>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+
+            <!-- ==================== UNIT IV ==================== -->
+            <div class="cs-unit-header">
+                <i class="fas fa-file-alt"></i> UNIT IV: File Operations
+            </div>
+            <div class="cs-grid">
+                
+                <!-- File Modes -->
+                <div class="cs-card">
+                    <div class="cs-card-title"><i class="fas fa-folder-open"></i> File Modes</div>
+                    <div class="cs-card-body">
+                        <table class="cs-table">
+                            <tr><th>Mode</th><th>Description</th></tr>
+                            <tr><td>'r'</td><td>Read (default)</td></tr>
+                            <tr><td>'w'</td><td>Write (overwrite)</td></tr>
+                            <tr><td>'a'</td><td>Append</td></tr>
+                            <tr><td>'x'</td><td>Exclusive create</td></tr>
+                            <tr><td>'r+'</td><td>Read + Write</td></tr>
+                            <tr><td>'b'</td><td>Binary ('rb', 'wb')</td></tr>
+                        </table>
+                    </div>
+                </div>
+                
+                <!-- Reading Files -->
+                <div class="cs-card green">
+                    <div class="cs-card-title"><i class="fas fa-file-import"></i> Reading Files</div>
+                    <div class="cs-card-body">
+                        <div class="cs-code">
+                            <code><span class="kw">with</span> <span class="fn">open</span>(<span class="st">"file.txt"</span>, <span class="st">"r"</span>) <span class="kw">as</span> f:<br>&nbsp;&nbsp;content = f.read() <span class="cm"># All</span><br>&nbsp;&nbsp;line = f.readline() <span class="cm"># One line</span><br>&nbsp;&nbsp;lines = f.readlines() <span class="cm"># List</span></code>
+                        </div>
+                        <table class="cs-table">
+                            <tr><td>read()</td><td>Entire file</td></tr>
+                            <tr><td>readline()</td><td>Single line</td></tr>
+                            <tr><td>readlines()</td><td>List of lines</td></tr>
+                            <tr><td>for line in f</td><td>Iterate (best)</td></tr>
+                        </table>
+                    </div>
+                </div>
+                
+                <!-- Writing Files -->
+                <div class="cs-card yellow">
+                    <div class="cs-card-title"><i class="fas fa-file-export"></i> Writing Files</div>
+                    <div class="cs-card-body">
+                        <div class="cs-code">
+                            <code><span class="kw">with</span> <span class="fn">open</span>(<span class="st">"file.txt"</span>, <span class="st">"w"</span>) <span class="kw">as</span> f:<br>&nbsp;&nbsp;f.write(<span class="st">"Hello\n"</span>)<br>&nbsp;&nbsp;f.writelines([<span class="st">"a\n"</span>, <span class="st">"b\n"</span>])</code>
+                        </div>
+                        <p><strong>Note:</strong> <code>write()</code> doesn't add newlines automatically!</p>
+                    </div>
+                </div>
+                
+                <!-- File Pointer -->
+                <div class="cs-card teal">
+                    <div class="cs-card-title"><i class="fas fa-map-marker-alt"></i> File Pointer</div>
+                    <div class="cs-card-body">
+                        <div class="cs-code">
+                            <code>f.tell() <span class="cm"># Current position</span><br>f.seek(<span class="nu">0</span>) <span class="cm"># Go to start</span><br>f.seek(<span class="nu">10</span>) <span class="cm"># Go to position 10</span></code>
+                        </div>
+                        <p><strong>Context Manager</strong> (<code>with</code>) automatically closes files!</p>
+                    </div>
+                </div>
+                
+            </div>
+
+            <!-- ==================== UNIT V ==================== -->
+            <div class="cs-unit-header">
+                <i class="fas fa-boxes"></i> UNIT V: Python Packages & GUI
+            </div>
+            <div class="cs-grid">
+                
+                <!-- NumPy -->
+                <div class="cs-card purple">
+                    <div class="cs-card-title"><i class="fas fa-th"></i> NumPy</div>
+                    <div class="cs-card-body">
+                        <div class="cs-code">
+                            <code><span class="kw">import</span> numpy <span class="kw">as</span> np<br><br>arr = np.array([<span class="nu">1</span>, <span class="nu">2</span>, <span class="nu">3</span>])<br>np.zeros((<span class="nu">3</span>, <span class="nu">4</span>)) <span class="cm"># 3x4 zeros</span><br>np.ones((<span class="nu">2</span>, <span class="nu">3</span>)) <span class="cm"># 2x3 ones</span><br>np.arange(<span class="nu">0</span>, <span class="nu">10</span>, <span class="nu">2</span>) <span class="cm"># [0,2,4,6,8]</span></code>
+                        </div>
+                        <table class="cs-table">
+                            <tr><td>arr.shape</td><td>Dimensions</td></tr>
+                            <tr><td>arr.reshape()</td><td>Reshape array</td></tr>
+                            <tr><td>np.sum(), mean()</td><td>Aggregations</td></tr>
+                            <tr><td>arr.T</td><td>Transpose</td></tr>
+                        </table>
+                    </div>
+                </div>
+                
+                <!-- Pandas -->
+                <div class="cs-card red">
+                    <div class="cs-card-title"><i class="fas fa-table"></i> Pandas</div>
+                    <div class="cs-card-body">
+                        <div class="cs-code">
+                            <code><span class="kw">import</span> pandas <span class="kw">as</span> pd<br><br>df = pd.DataFrame({<br>&nbsp;&nbsp;<span class="st">'Name'</span>: [<span class="st">'A'</span>, <span class="st">'B'</span>],<br>&nbsp;&nbsp;<span class="st">'Age'</span>: [<span class="nu">25</span>, <span class="nu">30</span>]<br>})<br>df = pd.read_csv(<span class="st">'file.csv'</span>)</code>
+                        </div>
+                        <table class="cs-table">
+                            <tr><td>df['col']</td><td>Select column</td></tr>
+                            <tr><td>df.iloc[0]</td><td>Row by index</td></tr>
+                            <tr><td>df[df['Age']>25]</td><td>Filter rows</td></tr>
+                            <tr><td>df.head(n)</td><td>First n rows</td></tr>
+                            <tr><td>df.describe()</td><td>Statistics</td></tr>
+                        </table>
+                    </div>
+                </div>
+                
+                <!-- Matplotlib -->
+                <div class="cs-card">
+                    <div class="cs-card-title"><i class="fas fa-chart-line"></i> Matplotlib</div>
+                    <div class="cs-card-body">
+                        <div class="cs-code">
+                            <code><span class="kw">import</span> matplotlib.pyplot <span class="kw">as</span> plt<br><br>plt.plot(x, y)<br>plt.title(<span class="st">'Title'</span>)<br>plt.xlabel(<span class="st">'X'</span>); plt.ylabel(<span class="st">'Y'</span>)<br>plt.legend(); plt.show()</code>
+                        </div>
+                        <table class="cs-table">
+                            <tr><td>plt.plot()</td><td>Line plot</td></tr>
+                            <tr><td>plt.bar()</td><td>Bar chart</td></tr>
+                            <tr><td>plt.scatter()</td><td>Scatter plot</td></tr>
+                            <tr><td>plt.hist()</td><td>Histogram</td></tr>
+                            <tr><td>plt.pie()</td><td>Pie chart</td></tr>
+                        </table>
+                    </div>
+                </div>
+                
+                <!-- Tkinter Widgets -->
+                <div class="cs-card green">
+                    <div class="cs-card-title"><i class="fas fa-window-maximize"></i> Tkinter Widgets</div>
+                    <div class="cs-card-body">
+                        <table class="cs-table">
+                            <tr><td>tk.Tk()</td><td>Main window</td></tr>
+                            <tr><td>tk.Label()</td><td>Display text</td></tr>
+                            <tr><td>tk.Button()</td><td>Clickable button</td></tr>
+                            <tr><td>tk.Entry()</td><td>Text input</td></tr>
+                            <tr><td>tk.Text()</td><td>Multi-line input</td></tr>
+                            <tr><td>tk.Frame()</td><td>Container</td></tr>
+                            <tr><td>tk.Checkbutton()</td><td>Checkbox</td></tr>
+                            <tr><td>tk.Listbox()</td><td>Scrollable list</td></tr>
+                        </table>
+                    </div>
+                </div>
+                
+                <!-- Tkinter Layout -->
+                <div class="cs-card yellow">
+                    <div class="cs-card-title"><i class="fas fa-th-large"></i> Tkinter Layout</div>
+                    <div class="cs-card-body">
+                        <table class="cs-table">
+                            <tr><th>Method</th><th>Use</th></tr>
+                            <tr><td>pack()</td><td>Simple stacking</td></tr>
+                            <tr><td>grid(row, col)</td><td>Table layout</td></tr>
+                            <tr><td>place(x, y)</td><td>Exact position</td></tr>
+                        </table>
+                        <div class="cs-code">
+                            <code><span class="kw">import</span> tkinter <span class="kw">as</span> tk<br>root = tk.Tk()<br>root.title(<span class="st">"App"</span>)<br>tk.Label(root, text=<span class="st">"Hi"</span>).pack()<br>root.mainloop()</code>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Error Handling -->
+                <div class="cs-card teal">
+                    <div class="cs-card-title"><i class="fas fa-exclamation-triangle"></i> Error Handling</div>
+                    <div class="cs-card-body">
+                        <div class="cs-code">
+                            <code><span class="kw">try</span>:<br>&nbsp;&nbsp;result = <span class="nu">10</span> / x<br><span class="kw">except</span> ZeroDivisionError:<br>&nbsp;&nbsp;<span class="fn">print</span>(<span class="st">"Cannot divide by 0"</span>)<br><span class="kw">except</span> Exception <span class="kw">as</span> e:<br>&nbsp;&nbsp;<span class="fn">print</span>(e)<br><span class="kw">finally</span>:<br>&nbsp;&nbsp;<span class="fn">print</span>(<span class="st">"Cleanup"</span>)</code>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Common Errors -->
+                <div class="cs-card red">
+                    <div class="cs-card-title"><i class="fas fa-bug"></i> Common Errors</div>
+                    <div class="cs-card-body">
+                        <table class="cs-table">
+                            <tr><td>SyntaxError</td><td>Invalid syntax</td></tr>
+                            <tr><td>NameError</td><td>Undefined variable</td></tr>
+                            <tr><td>TypeError</td><td>Wrong type operation</td></tr>
+                            <tr><td>ValueError</td><td>Wrong value</td></tr>
+                            <tr><td>IndexError</td><td>Index out of range</td></tr>
+                            <tr><td>KeyError</td><td>Dict key not found</td></tr>
+                            <tr><td>FileNotFoundError</td><td>File doesn't exist</td></tr>
+                        </table>
+                    </div>
+                </div>
+                
+                <!-- OOP -->
+                <div class="cs-card purple">
+                    <div class="cs-card-title"><i class="fas fa-cube"></i> Classes (OOP)</div>
+                    <div class="cs-card-body">
+                        <div class="cs-code">
+                            <code><span class="kw">class</span> <span class="fn">Person</span>:<br>&nbsp;&nbsp;<span class="kw">def</span> <span class="fn">__init__</span>(self, name):<br>&nbsp;&nbsp;&nbsp;&nbsp;self.name = name<br><br>&nbsp;&nbsp;<span class="kw">def</span> <span class="fn">greet</span>(self):<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">return</span> <span class="st">f"Hi, </span>{self.name}<span class="st">"</span><br><br>p = Person(<span class="st">"Alice"</span>)<br>p.greet() <span class="cm"># "Hi, Alice"</span></code>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+
+        </div>
+    </main>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
