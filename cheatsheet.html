@@ -258,6 +258,7 @@
                 <li><a href="theory.html">Theory</a></li>
                 <li><a href="comparisons.html">Compare</a></li>
                 <li><a href="errors.html">Errors</a></li>
+                <li><a href="patterns.html">Patterns</a></li>
             </ul>
         </div>
     </nav>
@@ -400,20 +401,27 @@
                     </div>
                 </div>
                 
-                <!-- Input/Output -->
+                <!-- Operator Precedence -->
                 <div class="cs-card yellow">
-                    <div class="cs-card-title"><i class="fas fa-keyboard"></i> Input/Output</div>
+                    <div class="cs-card-title"><i class="fas fa-sort-amount-down"></i> Operator Precedence</div>
                     <div class="cs-card-body">
+                        <p><strong>Highest to Lowest:</strong></p>
                         <table class="cs-table">
-                            <tr><th>Function</th><th>Purpose</th></tr>
-                            <tr><td>print()</td><td>Output to console</td></tr>
-                            <tr><td>input()</td><td>Get user input (str)</td></tr>
-                            <tr><td>print(end="")</td><td>No newline</td></tr>
-                            <tr><td>print(sep=",")</td><td>Custom separator</td></tr>
+                            <tr><th>Precedence</th><th>Operator</th></tr>
+                            <tr><td>1 (Highest)</td><td>() Parentheses</td></tr>
+                            <tr><td>2</td><td>** Exponent</td></tr>
+                            <tr><td>3</td><td>~, +x, -x (Unary)</td></tr>
+                            <tr><td>4</td><td>*, /, //, %</td></tr>
+                            <tr><td>5</td><td>+, - (Binary)</td></tr>
+                            <tr><td>6</td><td>&lt;&lt;, &gt;&gt; (Shift)</td></tr>
+                            <tr><td>7</td><td>& (Bitwise AND)</td></tr>
+                            <tr><td>8</td><td>^ (Bitwise XOR)</td></tr>
+                            <tr><td>9</td><td>| (Bitwise OR)</td></tr>
+                            <tr><td>10</td><td>==, !=, &lt;, &gt;, &lt;=, &gt;=</td></tr>
+                            <tr><td>11</td><td>not</td></tr>
+                            <tr><td>12</td><td>and</td></tr>
+                            <tr><td>13 (Lowest)</td><td>or</td></tr>
                         </table>
-                        <div class="cs-code">
-                            <code>name = <span class="fn">input</span>(<span class="st">"Enter name: "</span>)<br>age = <span class="fn">int</span>(<span class="fn">input</span>(<span class="st">"Age: "</span>))</code>
-                        </div>
                     </div>
                 </div>
                 
